@@ -1,360 +1,392 @@
 {
   "id" : 1,
-  "name" : "ai4eosc",
-  "description" : "AI4EOSC architecture",
+  "name" : "deep",
+  "description" : "DEEP-Hybrid-DataCloud architecture",
   "revision" : 0,
-  "lastModifiedDate" : "2022-04-06T12:16:43Z",
-  "lastModifiedAgent" : "structurizr-web/2714/diagram",
+  "lastModifiedDate" : "2022-04-08T12:22:54Z",
+  "lastModifiedAgent" : "structurizr-web/2716/diagram",
   "properties" : {
-    "structurizr.dsl" : "d29ya3NwYWNlIGFpNGVvc2MgIkFJNEVPU0MgYXJjaGl0ZWN0dXJlIiB7CgogICAgIWlkZW50aWZpZXJzIGhpZXJhcmNoaWNhbAoKICAgIG1vZGVsIHsKICAgICAgICB1c2VyID0gcGVyc29uICJBSSByZXNlYXJjaGVyIiAiQSBzY2llbnRpc3Qgd2lsbGluZyB0byB1c2UgdGhlIEFJNEVPU0MgcGxhdGZvcm0uIgogICAgICAgIG9wcyA9IHBlcnNvbiAiUmVzb3VyY2UgcHJvdmlkZXIgb3BlcmF0b3JzIiAiQSByZXNvdXJjZSBwcm92aWRlciB0aGF0IHdhbnRzIHRvIGNvbnRyaWJ1dGUgcmVzb3VyY2VzIHRvIHRoZSBBSTRFT1NDIHBsYXRmb3JtLiIKCiAgICAgICAgYWk0ZW9zYyA9IGVudGVycHJpc2UgQUk0RU9TQyAgewoKICAgICAgICAgICAgYWlfb3BzID0gcGVyc29uICJBSTRFT1NDIFBsYXRmb3JtIE9wZXJhdG9yIiAiQWRtaW5pc3RyYXRpb24gYW5kIHN1cHBvcnQgb2YgdGhlIEFJNEVPU0MgcGxhdGZvcm0uIgoKICAgICAgICAgICAgYWlfZXhjaGFuZ2UgPSBzb2Z0d2FyZVN5c3RlbSAiQUk0RU9TQyBleGNoYW5nZSIgIlByb3ZpZGVzIGEgbWFya2V0cGxhY2UgYW5kIGV4aGNhbmdlIG9mIEFJIG1vZGVscy4iIHsKICAgICAgICAgICAgICAgIGFwaSA9IGNvbnRhaW5lciAiRXhjaGFuZ2UgQVBJIgoKICAgICAgICAgICAgICAgIHByb3ZlbmFuY2VfZnJhbWV3b3JrID0gY29udGFpbmVyICJNb2RlbCBwcm92ZW5hbmNlIGZyYW1ld29yayIgIiIgIk1MRmxvdyIKCiAgICAgICAgICAgICAgICBtb2RlbF9yZXBvc2l0b3J5ID0gY29udGFpbmVyICJNb2RlbCByZXBvc2l0b3J5IiAiIiAiR2l0IiB7CiAgICAgICAgICAgICAgICAgICAgdGFncyAicmVwb3NpdG9yeSIKICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICBtb2RlbF9kYXRhX3JlcG9zaXRvcnkgPSBjb250YWluZXIgIk1vZGVsIGRhdGEiICIiICJkdmMiIHsKICAgICAgICAgICAgICAgICAgICB0YWdzICJyZXBvc2l0b3J5IgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICB3ZWJwYWdlID0gY29udGFpbmVyICJXZWIgZGFzaGJvYXJkIiAiUHJvdmlkZXMgYWxsIG9mIHRoZSBmdW5jdGlvbmFsaXR5IHRvIHVzZXIgdmlhIHRoZWlyIHdlYiBicm93c2VyLiJ7CiAgICAgICAgICAgICAgICAgICAgdGFncyAiZGFzaGJvYXJkIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CgogICAgICAgICAgICBhaV9wbGF0Zm9ybSA9IHNvZnR3YXJlU3lzdGVtICJBSTRFT1NDIHBsYXRmb3JtIiAiQWxsb3dzIHRvIGJ1aWxkIGFuZCB0cmFpbiBBSSBtb2RlbHMuIiB7CiAgICAgICAgICAgICAgICBkYXNoYm9hcmQgPSBjb250YWluZXIgIldlYiBkYXNoYm9hcmQiICJQcm92aWRlcyBhbGwgb2YgdGhlIGZ1bmN0aW9uYWxpdHkgdG8gdXNlciB2aWEgdGhlaXIgd2ViIGJyb3dzZXIuInsKICAgICAgICAgICAgICAgICAgICB0YWdzICJkYXNoYm9hcmQiCiAgICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgb3JkZXIgPSBjb250YWluZXIgIk9yZGVyaW5nIHN5c3RlbSIKICAgICAgICAgICAgICAgIGFhaSA9IGNvbnRhaW5lciAiQUFJIgoKICAgICAgICAgICAgICAgIGFwaSA9IGNvbnRhaW5lciAiVHJhaW5pbmcgc3lzdGVtIEFQSSIgCgogICAgICAgICAgICAgICAgd29ya2xvYWRfbWFuYWdlbWVudCA9IGNvbnRhaW5lciAiV29ya2xvYWQgTWFuYWdlbWVudCBzeXN0ZW0iICIiICJIYXNoaWNvcnAgTm9tYWQiCgogICAgICAgICAgICAgICAgZGV2ZWxvcG1lbnQgPSBjb250YWluZXIgIkludGVyYWN0aXZlIGRldmVsb3BtZW50IEVudmlyb25tZW50IiAiIiAiSnVweXRlciBFbnRlcnByaXNlIEdhdGV3YXkiCiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIGFpX3BsYXRmb3JtX29yY2hlc3RyYXRpb24gPSBzb2Z0d2FyZVN5c3RlbSAiQUk0RU9TQyBwbGF0Zm9ybSBvcmNoZXN0cmF0aW9uIiB7CiAgICAgICAgICAgICAgICBvcmNoZXN0cmF0b3IgPSBjb250YWluZXIgIk9yY2hlc3RyYXRvciIgIiIgIklORElHTyBQYWFTIE9yY2hlc3RyYXRvciIKCiAgICAgICAgICAgICAgICBkYXNoYm9hcmQgPSBjb250YWluZXIgIkRhc2hib2FyZCIgIiIgIklORElHTyBQYWFTIERhc2hib2FyZCIgewogICAgICAgICAgICAgICAgICAgIHRhZ3MgImRhc2hib2FyZCIKICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICBpbSA9IGNvbnRhaW5lciAiSW5mcmFzdHJ1Y3R1cmUgTWFuYWdlciIKCiAgICAgICAgICAgICAgICB0b3BvbG9naWVzID0gY29udGFpbmVyICJUb3BvbG9naWVzIHJlcG9zaXRvcnkiICIiICJUT1NDQSIgewogICAgICAgICAgICAgICAgICAgIHRhZ3MgInJlcG9zaXRvcnkiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KCiMgICAgICAgICAgICBjaWNkX3N5c3RlbSA9IHNvZnR3YXJlU3lzdGVtICJDSS9DRCIgIkVuc3VyZXMgdGhhdCBxdWFsaXR5IG9mIHRoZSBJVCBhc3NldHMuIiB7CiMgICAgICAgICAgICAgICAgY2ljZCA9IGNvbnRhaW5lciAiQ0kvQ0QiICIiICJKZW5raW5rcyArIEplUEwiCiMKIyAgICAgICAgICAgICAgICBzZXJ2aWNlID0gY29udGFpbmVyICJTZXJ2aWNlIHF1YWxpdHkiICIiICJTUWFhUyIKIwojICAgICAgICAgICAgICAgIGZhaXIgPSBjb250YWluZXIgIkRhdGEgcXVhbGl0eSIgIiIgIkZBSVIgRXZhbHVhdG9yIgojICAgICAgICAgICAgfQogICAgICAgIH0KICAgICAgICAKICAgICAgICBjb21wdXRlX3Jlc291cmNlcyA9IHNvZnR3YXJlU3lzdGVtICJDb21wdXRlIFJlc291cmNlcyIgIlByb3ZpZGVzIGNvbXB1dGluZyByZXNvdXJjZXMgdG8gdGhlIHBsYXRmb3JtLiIgewogICAgICAgICAgICBhZ2VudCA9IGNvbnRhaW5lciAiRXhlY3V0aW9uIGFnZW50IiAiIiAiSGFzaGljb3JwIE5vbWFkIgogICAgICAgICAgICBrOHMgPSBjb250YWluZXIgIkNvbnRhaW5lciBPcmNoZXN0cmF0aW9uIEVuZ2luZSIgIiIgIkt1YmVybmV0ZXMiCiAgICAgICAgfQogICAgICAgIAogICAgICAgIGVvc2MgPSBncm91cCBFT1NDIHsKICAgICAgICAgICAgYWFpID0gc29mdHdhcmVTeXN0ZW0gIkFBSSIKICAgICAgICAgICAgcG9ydGFsID0gc29mdHdhcmVTeXN0ZW0gIkVPU0MgUG9ydGFsIgogICAgICAgIH0KCiAgICAgICAgCiAgICAgICAgYWlfcGxhdGZvcm0gLT4gYWlfZXhjaGFuZ2UgIkdldHMvc3RvcmVzIG1vZGVsIGZyb20iCgogICAgICAgIHVzZXIgLT4gYWlfcGxhdGZvcm0uZGFzaGJvYXJkICJCcm93c2UsIHVwZGF0ZSwgZGV2ZWxvcCBuZXcgbW9kZWxzLCBkZWZpbmUgZXhwZXJpbWVudHMiCiAgICAgICAgdXNlciAtPiBhaV9leGNoYW5nZS53ZWJwYWdlICJCcm93c2UgYW5kIGRvd25sb2FkIG1vZGVscyIKICAgICAgICBhaV9wbGF0Zm9ybS5kYXNoYm9hcmQgLT4gYWlfcGxhdGZvcm0uYXBpICJQcm92aWRlIGFjY2VzcyB0byIKICAgICAgICBhaV9wbGF0Zm9ybS5kYXNoYm9hcmQgLT4gYWlfcGxhdGZvcm0uZGV2ZWxvcG1lbnQgIlByb3ZpZGUgYWNjZXNzIHRvIgogICAgICAgIGFpX3BsYXRmb3JtLmRhc2hib2FyZCAtPiBhaV9leGNoYW5nZS5hcGkgIlJldHJpZXZlcywgc3RvcmVzLCB1cGRhdGVzIG1vZGVscyIKCiAgICAgICAgcG9ydGFsIC0+IGFpX3BsYXRmb3JtICJQcm92aWRlIGFjY2VzcyB0byIKICAgICAgICBwb3J0YWwgLT4gYWlfcGxhdGZvcm0ub3JkZXIgIkNyZWF0ZSBhbiBvcmRlciIKICAgICAgICBhaV9vcHMgLT4gYWlfcGxhdGZvcm0ub3JkZXIgCgogICAgICAgIGFhaSAtPiBwb3J0YWwgIkF1dGhOL1oiCgogICAgICAgIG9wcyAtPiBhaV9wbGF0Zm9ybV9vcmNoZXN0cmF0aW9uLmRhc2hib2FyZCAiVXNlcyIKICAgICAgICBhaV9wbGF0Zm9ybV9vcmNoZXN0cmF0aW9uLmRhc2hib2FyZCAtPiBhaV9wbGF0Zm9ybV9vcmNoZXN0cmF0aW9uLm9yY2hlc3RyYXRvciAiQVBJIGNhbGxzIgogICAgICAgIGFpX3BsYXRmb3JtX29yY2hlc3RyYXRpb24ub3JjaGVzdHJhdG9yIC0+IGFpX3BsYXRmb3JtX29yY2hlc3RyYXRpb24uaW0gIkFQSSBjYWxscyIKICAgICAgICBhaV9wbGF0Zm9ybV9vcmNoZXN0cmF0aW9uLm9yY2hlc3RyYXRvciAtPiBhaV9wbGF0Zm9ybV9vcmNoZXN0cmF0aW9uLnRvcG9sb2dpZXMgIlJlYWRzIGRlcGxveW1lbnQgdGVtcGxhdGVzIgogICAgICAgIGFpX3BsYXRmb3JtX29yY2hlc3RyYXRpb24uaW0gLT4gY29tcHV0ZV9yZXNvdXJjZXMgIlByb3Zpc2lvbnMgcmVzb3VyY2VzIgogICAgICAgIGFpX3BsYXRmb3JtX29yY2hlc3RyYXRpb24ub3JjaGVzdHJhdG9yIC0+IGNvbXB1dGVfcmVzb3VyY2VzICJNb25pdG9ycyBzdGF0ZSIKICAgICAgICAKCiAgICAgICAgYWlfcGxhdGZvcm0uYXBpIC0+IGFpX3BsYXRmb3JtLndvcmtsb2FkX21hbmFnZW1lbnQgIkNyZWF0ZSB0cmFpbmluZyBqb2IiCiAgICAgICAgYWlfcGxhdGZvcm0ud29ya2xvYWRfbWFuYWdlbWVudCAtPiBjb21wdXRlX3Jlc291cmNlcy5hZ2VudCAiVXNlcyIKICAgICAgICBhaV9wbGF0Zm9ybS5kZXZlbG9wbWVudCAtPiBjb21wdXRlX3Jlc291cmNlcy5rOHMgIlVzZXMiCgoKICAgICAgICAKCgoKCiAgICB9CgogICAgdmlld3MgewogICAgICAgIHRoZW1lIERlZmF1bHQKICAgICAgICAKIyAgICAgICAgc3lzdGVtTGFuZHNjYXBlIHsKIyAgICAgICAgICAgIGluY2x1ZGUgKgojICAgICAgICAgICAgYXV0b0xheW91dCBscgojICAgICAgICB9CiMKIyAgICAgICAgc3lzdGVtQ29udGV4dCBhaV9wbGF0Zm9ybSB7CiMgICAgICAgICAgICBpbmNsdWRlICoKIyAgICAgICAgICAgIGF1dG9MYXlvdXQgbHIKIyAgICAgICAgfQojCiMgICAgICAgIHN5c3RlbUNvbnRleHQgYWlfcGxhdGZvcm1fb3JjaGVzdHJhdGlvbiB7CiMgICAgICAgICAgICBpbmNsdWRlICoKIyAgICAgICAgICAgIGF1dG9MYXlvdXQgbHIKIyAgICAgICAgfQojCiMgICAgICAgIHN5c3RlbUNvbnRleHQgYWlfZXhjaGFuZ2UgewojICAgICAgICAgICBpbmNsdWRlICoKIyAgICAgICAgICAgYXV0b0xheW91dCBscgojICAgICAgICB9CiMKIyAgICAgICAgc3lzdGVtQ29udGV4dCBjaWNkX3N5c3RlbSB7CiMgICAgICAgICAgIGluY2x1ZGUgKgojICAgICAgICAgICBhdXRvTGF5b3V0IGxyCiMgICAgICAgIH0KIyAgICAgICAgCiMgICAgICAgIHN5c3RlbUNvbnRleHQgY29tcHV0ZV9yZXNvdXJjZXMgewojICAgICAgICAgICBpbmNsdWRlICoKIyAgICAgICAgICAgYXV0b0xheW91dCBscgojICAgICAgICB9CgogICAgICAgIHN0eWxlcyB7CiAgICAgICAgICAgIGVsZW1lbnQgImRhc2hib2FyZCIgewogICAgICAgICAgICAgICAgc2hhcGUgV2ViQnJvd3NlcgogICAgICAgICAgICB9ICAgICAgIAoKICAgICAgICAgICAgZWxlbWVudCAicmVwb3NpdG9yeSIgewogICAgICAgICAgICAgICAgc2hhcGUgQ3lsaW5kZXIKICAgICAgICAgICAgfQogICAgICAgIH0KICAgIH0KfQo="
+    "structurizr.dsl" : "d29ya3NwYWNlIGRlZXAgIkRFRVAtSHlicmlkLURhdGFDbG91ZCBhcmNoaXRlY3R1cmUiIHsKCiAgICBtb2RlbCB7CiAgICAgICAgdXNlciA9IHBlcnNvbiAiQUkgU2NpZW50aXN0IgoKICAgICAgICBkZWVwID0gZW50ZXJwcmlzZSAiREVFUC1IeWJyaWQtRGF0YUNsb3VkIiB7CiAgICAgICAgICAgIGNhdGFsb2cgPSBzb2Z0d2FyZVN5c3RlbSAiREVFUCBPcGVuIENhdGF0YWxvZyIgewogICAgICAgICAgICAgICAgbWFya2V0cGxhY2UgPSBjb250YWluZXIgIkRFRVAgbWFya2V0cGxhY2UiICIiICJQZWxpY2FuIiAiZGFzaGJvYXJkIgoKICAgICAgICAgICAgICAgIGNhdGFsb2dfcmVwbyA9IGNvbnRhaW5lciAiREVFUCBDYXRhbG9nIiAiIiAiR2l0SHViIiAicmVwb3NpdG9yeSIKCiAgICAgICAgICAgICAgICBqZW5raW5zID0gY29udGFpbmVyICJDSS9DRCIgIiIgIkplbmtpbnMiCgogICAgICAgICAgICAgICAgY29udGFpbmVyX3JlcG8gPSBjb250YWluZXIgIkNvbnRhaW5lciByZWdpc3RyeSIgIiIgIkRvY2tlckh1YiIgInJlcG9zaXRvcnkiIAogICAgICAgICAgICB9CgogICAgICAgICAgICB0cmFpbmluZyA9IHNvZnR3YXJlU3lzdGVtICJERUVQIFRyYWluaW5nIEZhY2lsaXR5IiB7CiAgICAgICAgICAgICAgICBkYXNoYm9hcmQgPSBjb250YWluZXIgIkRFRVAgRGFzaGJvYXJkIiAiIiAiYWlvaHR0cCIgImRhc2hib2FyZCIKICAgICAgICAgICAgICAgIHBhYXNfZGFzaGJvYXJkID0gY29udGFpbmVyICJQYWFTIERhc2hib2FyZCIgIiIgIkZsYXNrIiAiZGFzaGJvYXJkIgogICAgICAgICAgICAgICAgYTRjID0gY29udGFpbmVyICJUb3BvbG9neSBDb21wb3NlciIgIiIgIkFsaWVuNENsb3VkIiAiZGFzaGJvYXJkIgoKICAgICAgICAgICAgICAgIHBhYXNfb3JjaGVzdHJhdG9yID0gY29udGFpbmVyICJQYWFTIE9yY2hlc3RyYXRvciIgIiIgIklORElHTyBQYWFTIE9yY2hlc3RyYXRvciIKICAgICAgICAgICAgICAgIGltID0gY29udGFpbmVyICJJbmZyYXN0cnVjdHVyZSBNYW5hZ2VyIgoKICAgICAgICAgICAgICAgIGNvZSA9IGNvbnRhaW5lciAiQ29udGFpbmVyIE9yY2hlc3RyYXRpb24gRW5naW5lIiAiIiAiTWVzb3MiCgogICAgICAgICAgICAgICAgdG9zY2FfcmVwbyA9IGNvbnRhaW5lciAiVG9wb2xvZ2llcyByZXBvc2l0b3J5IiAiIiAiVE9TQ0EiICJyZXBvc2l0b3J5IgoKICAgICAgICAgICAgICAgIG1vZGVsX2NvbnRhaW5lciA9IGNvbnRhaW5lciAiTW9kZWwgY29udGFpbmVyIiAiIiAiRG9ja2VyIiB7CiAgICAgICAgICAgICAgICAgICAgYXBpID0gY29tcG9uZW50ICJBUEkiICIiICJERUVQYWFTIEFQSSIKCiAgICAgICAgICAgICAgICAgICAgZnJhbWV3b3JrID0gY29tcG9uZW50ICJNTC9BSSBmcmFtZXdvcmsiCgogICAgICAgICAgICAgICAgICAgIHVzZXJfbW9kZWwgPSBjb21wb25lbnQgIlVzZXIgY29kZSBhbmQgbW9kZWwiCgogICAgICAgICAgICAgICAgICAgIGFwaSAtPiB1c2VyX21vZGVsCiAgICAgICAgICAgICAgICAgICAgdXNlcl9tb2RlbCAtPiBmcmFtZXdvcmsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICAgICBkZWVwYWFzID0gc29mdHdhcmVTeXN0ZW0gIkRFRVAgYXMgYSBTZXJ2aWNlIiB7CiAgICAgICAgICAgICAgICBvcGVud2hpc2sgPSBjb250YWluZXIgIlNlcnZlcmxlc3MgcGxhdGZvcm0iICIiICJPcGVuV2hpc2siCiAgICAgICAgICAgIH0KICAgICAgICB9CgogICAgICAgIHN0b3JhZ2UgPSBzb2Z0d2FyZVN5c3RlbSAiU3RvcmFnZSBTZXJ2aWNlcyIKCiAgICAgICAgIyBVc2VyIC0gc3lzdGVtIGludGVyYWN0aW9uCiAgICAgICAgdXNlciAtPiBjYXRhbG9nICJQdWJsaXNoIGFuZCBzaGFyZSBtb2RlbCIKICAgICAgICB1c2VyIC0+IHRyYWluaW5nICJCdWlsZCBhbmQgdHJhaW4gZGVlcCBsZWFybmluZyBtb2RlbCIKICAgICAgICB1c2VyIC0+IGRlZXBhYXMgIkRlcGxveSBtb2RlbCBhcyBhIHNlcnZpY2UiCgogICAgICAgICMgU3lzdGVtIC0gc3lzdGVtIGludGVyYWN0aW9uCiAgICAgICAgY2F0YWxvZyAtPiB0cmFpbmluZyAiUmV1c2UgYW5kIGV4dGVuZCIKICAgICAgICB0cmFpbmluZyAtPiBjYXRhbG9nICJTdG9yZSBuZXcgbW9kZWwiCiAgICAgICAgY2F0YWxvZyAtPiBkZWVwYWFzICJQdWJsaXNoIG5ldyBzZXJ2aWNlIgogICAgICAgIHRyYWluaW5nIC0+IHN0b3JhZ2UgIk1vZGVsIHJlc3VsdHMiCiAgICAgICAgc3RvcmFnZSAtPiB0cmFpbmluZyAiSW5wdXQgZGF0YSIKICAgICAgICBzdG9yYWdlIC0+IGRlZXBhYXMgIkRhdGEgYW5kIGNvbmZpZ3VyYXRpb24iCiAgICAgICAgZGVlcGFhcyAtPiBzdG9yYWdlICJNb2RlbCByZXN1bHRzIgoKICAgICAgICAjIENvbnRhaW5lciBsZXZlbAoKICAgICAgICB1c2VyIC0+IG1hcmtldHBsYWNlICJCcm93c2UgYW5kIGRvd25sb2FkIG1vZGVscyIKICAgICAgICB1c2VyIC0+IGNhdGFsb2dfcmVwbyAiQ3JlYXRlL3VwZGF0ZSBtb2RlbCIKICAgICAgICBtYXJrZXRwbGFjZSAtPiBjYXRhbG9nX3JlcG8gIlBvaW50cyB0byIKICAgICAgICBtYXJrZXRwbGFjZSAtPiBjb250YWluZXJfcmVwbyAiUG9pbnRzIHRvIgogICAgICAgIGNhdGFsb2dfcmVwbyAtPiBqZW5raW5zICJUcmlnZ2VycyBjYXRhbG9nIHVwZGF0ZSIKICAgICAgICBqZW5raW5zIC0+IG1hcmtldHBsYWNlICJHZW5lcmF0ZXMgd2ViIHBhZ2UiCiAgICAgICAgamVua2lucyAtPiBjb250YWluZXJfcmVwbyAiQ3JlYXRlIERvY2tlciBjb250YWluZXIiCgogICAgICAgIHVzZXIgLT4gZGFzaGJvYXJkICJUcmFpbiBuZXcgbW9kZWwgb3IgdXBkYXRlIGV4aXN0aW5nIgogICAgICAgIGRhc2hib2FyZCAtPiBjYXRhbG9nX3JlcG8gIlJlYWQgbW9kZWxzIgogICAgICAgIGRhc2hib2FyZCAtPiB0b3NjYV9yZXBvICJSZWFkIHRvcG9sb2dpZXMiCgogICAgICAgIGE0YyAtPiBwYWFzX29yY2hlc3RyYXRvciAiQ3JlYXRlIHRvcG9sb2d5IiIKICAgICAgICBhNGMgLT4gdG9zY2FfcmVwbyAiUmVhZCBUb3BvbG9naWVzIgoKICAgICAgICBkYXNoYm9hcmQgLT4gcGFhc19vcmNoZXN0cmF0b3IgIkNyZWF0ZSB0cmFpbmluZyIKICAgICAgICBwYWFzX2Rhc2hib2FyZCAtPiBwYWFzX29yY2hlc3RyYXRvciAiQ3JlYXRlIGRlcGxveW1lbnQiCiAgICAgICAgcGFhc19kYXNoYm9hcmQgLT4gdG9zY2FfcmVwbyAiUmVhZCB0b3BvbG9naWVzIgogICAgICAgIHBhYXNfb3JjaGVzdHJhdG9yIC0+IHRvc2NhX3JlcG8gIlJlYWQgdG9wb2xvZ2llcyIKICAgICAgICBwYWFzX29yY2hlc3RyYXRvciAtPiBpbSAiVXNlcyIKCiAgICAgICAgcGFhc19vcmNoZXN0cmF0b3IgLT4gY29lICJDcmVhdGUgQ29udGFpbmVyIgogICAgICAgIGltIC0+IGNvZSAiUHJvdmlzaW9ucyIKCiAgICAgICAgY29lIC0+IG1vZGVsX2NvbnRhaW5lciAiQ3JlYXRlIgogICAgICAgIHVzZXIgLT4gbW9kZWxfY29udGFpbmVyICJUcmFpbi9QcmVkaWN0IgoKICAgICAgICB1c2VyIC0+IGFwaQojICAgICAgICBtZXNvcyAtPiBtb2RlbF9jb250YWluZXIKCiAgICAgICAgZGVwbG95bWVudEVudmlyb25tZW50ICJQcm9kdWN0aW9uIiB7CiAgICAgICAgICAgIGRlcGxveW1lbnROb2RlICJtYXJrZXRwbGFjZS5kZWVwLWh5YnJpZC1kYXRhY2xvdWQuZXUiICIiICJHaXRIdWIgUGFnZXMiIHsKICAgICAgICAgICAgICAgIGxpdmVNYXJrZXRwbGFjZSA9IGNvbnRhaW5lckluc3RhbmNlIG1hcmtldHBsYWNlCiAgICAgICAgICAgIH0KICAgICAgICAgICAgCiAgICAgICAgICAgIGRlcGxveW1lbnROb2RlICJ0cmFpbi5kZWVwLWh5YnJpZC1kYXRhY2xvdWQuZXUiICIiICJuZ2lueCIgewogICAgICAgICAgICAgICAgbGl2ZURhc2hib2FyZCA9IGNvbnRhaW5lckluc3RhbmNlIGRhc2hib2FyZAogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQoKICAgIHZpZXdzIHsKICAgICAgICB0aGVtZSBEZWZhdWx0CiAgICAgICAgCiAgICAgICAgc3lzdGVtTGFuZHNjYXBlIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQogICAgICAgIAogICAgICAgIGNvbnRhaW5lciBjYXRhbG9nIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiMgICAgICAgICAgICBhdXRvTGF5b3V0CiAgICAgICAgfQoKICAgICAgICBjb250YWluZXIgdHJhaW5pbmcgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CgogICAgICAgIGNvbXBvbmVudCBtb2RlbF9jb250YWluZXIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgZGVwbG95bWVudCBjYXRhbG9nICJQcm9kdWN0aW9uIiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KCiAgICAgICAgZGVwbG95bWVudCB0cmFpbmluZyAiUHJvZHVjdGlvbiIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CgogICAgICAgIHN0eWxlcyB7CiAgICAgICAgICAgIGVsZW1lbnQgImRhc2hib2FyZCIgewogICAgICAgICAgICAgICAgc2hhcGUgV2ViQnJvd3NlcgogICAgICAgICAgICB9ICAgICAgIAoKICAgICAgICAgICAgZWxlbWVudCAicmVwb3NpdG9yeSIgewogICAgICAgICAgICAgICAgc2hhcGUgQ3lsaW5kZXIKICAgICAgICAgICAgfQogICAgICAgIH0KICAgIH0KfQo="
   },
   "configuration" : { },
   "model" : {
     "enterprise" : {
-      "name" : "AI4EOSC"
+      "name" : "DEEP-Hybrid-DataCloud"
     },
     "people" : [ {
       "id" : "1",
       "tags" : "Element,Person",
-      "name" : "AI researcher",
-      "description" : "A scientist willing to use the AI4EOSC platform.",
+      "name" : "AI Scientist",
       "relationships" : [ {
-        "id" : "31",
+        "id" : "57",
+        "tags" : "Relationship",
+        "sourceId" : "1",
+        "destinationId" : "16"
+      }, {
+        "id" : "26",
+        "tags" : "Relationship",
+        "sourceId" : "1",
+        "destinationId" : "21",
+        "description" : "Deploy model as a service"
+      }, {
+        "id" : "34",
+        "tags" : "Relationship",
+        "sourceId" : "1",
+        "destinationId" : "3",
+        "description" : "Browse and download models"
+      }, {
+        "id" : "35",
+        "tags" : "Relationship",
         "sourceId" : "1",
         "destinationId" : "4",
-        "description" : "Browse and download models",
-        "linkedRelationshipId" : "30"
+        "description" : "Create/update model"
       }, {
-        "id" : "29",
-        "sourceId" : "1",
-        "destinationId" : "10",
-        "description" : "Browse, update, develop new models, define experiments",
-        "linkedRelationshipId" : "28"
-      }, {
-        "id" : "28",
+        "id" : "41",
         "tags" : "Relationship",
         "sourceId" : "1",
-        "destinationId" : "11",
-        "description" : "Browse, update, develop new models, define experiments"
+        "destinationId" : "8",
+        "description" : "Train new model or update existing"
       }, {
-        "id" : "30",
+        "id" : "24",
         "tags" : "Relationship",
         "sourceId" : "1",
-        "destinationId" : "9",
-        "description" : "Browse and download models"
-      } ],
-      "location" : "External"
-    }, {
-      "id" : "3",
-      "tags" : "Element,Person",
-      "name" : "AI4EOSC Platform Operator",
-      "description" : "Administration and support of the AI4EOSC platform.",
-      "relationships" : [ {
-        "id" : "39",
-        "tags" : "Relationship",
-        "sourceId" : "3",
-        "destinationId" : "12"
+        "destinationId" : "2",
+        "description" : "Publish and share model"
       }, {
-        "id" : "40",
-        "sourceId" : "3",
-        "destinationId" : "10",
-        "linkedRelationshipId" : "39"
-      } ],
-      "location" : "Internal"
-    }, {
-      "id" : "2",
-      "tags" : "Element,Person",
-      "name" : "Resource provider operators",
-      "description" : "A resource provider that wants to contribute resources to the AI4EOSC platform.",
-      "relationships" : [ {
-        "id" : "43",
-        "sourceId" : "2",
-        "destinationId" : "17",
-        "description" : "Uses",
-        "linkedRelationshipId" : "42"
-      }, {
-        "id" : "42",
+        "id" : "56",
         "tags" : "Relationship",
-        "sourceId" : "2",
-        "destinationId" : "19",
-        "description" : "Uses"
+        "sourceId" : "1",
+        "destinationId" : "15",
+        "description" : "Train/Predict"
+      }, {
+        "id" : "25",
+        "tags" : "Relationship",
+        "sourceId" : "1",
+        "destinationId" : "7",
+        "description" : "Build and train deep learning model"
       } ],
       "location" : "External"
     } ],
     "softwareSystems" : [ {
-      "id" : "4",
+      "id" : "2",
       "tags" : "Element,Software System",
-      "name" : "AI4EOSC exchange",
-      "description" : "Provides a marketplace and exhcange of AI models.",
-      "location" : "Internal",
-      "containers" : [ {
-        "id" : "7",
-        "tags" : "Element,Container,repository",
-        "name" : "Model repository",
-        "technology" : "Git"
-      }, {
-        "id" : "9",
-        "tags" : "Element,Container,dashboard",
-        "name" : "Web dashboard",
-        "description" : "Provides all of the functionality to user via their web browser."
-      }, {
-        "id" : "5",
-        "tags" : "Element,Container",
-        "name" : "Exchange API"
-      }, {
-        "id" : "6",
-        "tags" : "Element,Container",
-        "name" : "Model provenance framework",
-        "technology" : "MLFlow"
-      }, {
-        "id" : "8",
-        "tags" : "Element,Container,repository",
-        "name" : "Model data",
-        "technology" : "dvc"
-      } ],
-      "documentation" : { }
-    }, {
-      "id" : "17",
-      "tags" : "Element,Software System",
-      "name" : "AI4EOSC platform orchestration",
+      "name" : "DEEP Open Catatalog",
       "relationships" : [ {
-        "id" : "48",
-        "sourceId" : "17",
-        "destinationId" : "22",
-        "description" : "Provisions resources",
-        "linkedRelationshipId" : "47"
-      } ],
-      "location" : "Internal",
-      "containers" : [ {
-        "id" : "18",
-        "tags" : "Element,Container",
-        "name" : "Orchestrator",
-        "relationships" : [ {
-          "id" : "49",
-          "tags" : "Relationship",
-          "sourceId" : "18",
-          "destinationId" : "22",
-          "description" : "Monitors state"
-        }, {
-          "id" : "46",
-          "tags" : "Relationship",
-          "sourceId" : "18",
-          "destinationId" : "21",
-          "description" : "Reads deployment templates"
-        }, {
-          "id" : "45",
-          "tags" : "Relationship",
-          "sourceId" : "18",
-          "destinationId" : "20",
-          "description" : "API calls"
-        } ],
-        "technology" : "INDIGO PaaS Orchestrator"
-      }, {
-        "id" : "21",
-        "tags" : "Element,Container,repository",
-        "name" : "Topologies repository",
-        "technology" : "TOSCA"
-      }, {
-        "id" : "20",
-        "tags" : "Element,Container",
-        "name" : "Infrastructure Manager",
-        "relationships" : [ {
-          "id" : "47",
-          "tags" : "Relationship",
-          "sourceId" : "20",
-          "destinationId" : "22",
-          "description" : "Provisions resources"
-        } ]
-      }, {
-        "id" : "19",
-        "tags" : "Element,Container,dashboard",
-        "name" : "Dashboard",
-        "relationships" : [ {
-          "id" : "44",
-          "tags" : "Relationship",
-          "sourceId" : "19",
-          "destinationId" : "18",
-          "description" : "API calls"
-        } ],
-        "technology" : "INDIGO PaaS Dashboard"
-      } ],
-      "documentation" : { }
-    }, {
-      "id" : "22",
-      "tags" : "Element,Software System",
-      "name" : "Compute Resources",
-      "description" : "Provides computing resources to the platform.",
-      "location" : "External",
-      "containers" : [ {
-        "id" : "24",
-        "tags" : "Element,Container",
-        "name" : "Container Orchestration Engine",
-        "technology" : "Kubernetes"
-      }, {
-        "id" : "23",
-        "tags" : "Element,Container",
-        "name" : "Execution agent",
-        "technology" : "Hashicorp Nomad"
-      } ],
-      "documentation" : { }
-    }, {
-      "id" : "26",
-      "tags" : "Element,Software System",
-      "name" : "EOSC Portal",
-      "relationships" : [ {
-        "id" : "38",
+        "id" : "29",
         "tags" : "Relationship",
-        "sourceId" : "26",
-        "destinationId" : "12",
-        "description" : "Create an order"
-      }, {
-        "id" : "37",
-        "tags" : "Relationship",
-        "sourceId" : "26",
-        "destinationId" : "10",
-        "description" : "Provide access to"
-      } ],
-      "group" : "EOSC",
-      "location" : "External",
-      "documentation" : { }
-    }, {
-      "id" : "10",
-      "tags" : "Element,Software System",
-      "name" : "AI4EOSC platform",
-      "description" : "Allows to build and train AI models.",
-      "relationships" : [ {
-        "id" : "53",
-        "sourceId" : "10",
-        "destinationId" : "23",
-        "description" : "Uses",
-        "linkedRelationshipId" : "51"
-      }, {
-        "id" : "54",
-        "sourceId" : "10",
-        "destinationId" : "22",
-        "description" : "Uses",
-        "linkedRelationshipId" : "51"
-      }, {
-        "id" : "36",
-        "sourceId" : "10",
-        "destinationId" : "5",
-        "description" : "Retrieves, stores, updates models",
-        "linkedRelationshipId" : "34"
-      }, {
-        "id" : "57",
-        "sourceId" : "10",
-        "destinationId" : "24",
-        "description" : "Uses",
-        "linkedRelationshipId" : "55"
+        "sourceId" : "2",
+        "destinationId" : "21",
+        "description" : "Publish new service"
       }, {
         "id" : "27",
         "tags" : "Relationship",
-        "sourceId" : "10",
-        "destinationId" : "4",
-        "description" : "Gets/stores model from"
+        "sourceId" : "2",
+        "destinationId" : "7",
+        "description" : "Reuse and extend"
       } ],
       "location" : "Internal",
       "containers" : [ {
-        "id" : "13",
-        "tags" : "Element,Container",
-        "name" : "AAI"
+        "id" : "6",
+        "tags" : "Element,Container,repository",
+        "name" : "Container registry",
+        "technology" : "DockerHub"
       }, {
-        "id" : "14",
+        "id" : "5",
         "tags" : "Element,Container",
-        "name" : "Training system API",
+        "name" : "CI/CD",
         "relationships" : [ {
-          "id" : "50",
+          "id" : "40",
           "tags" : "Relationship",
-          "sourceId" : "14",
-          "destinationId" : "15",
-          "description" : "Create training job"
-        } ]
+          "sourceId" : "5",
+          "destinationId" : "6",
+          "description" : "Create Docker container"
+        }, {
+          "id" : "39",
+          "tags" : "Relationship",
+          "sourceId" : "5",
+          "destinationId" : "3",
+          "description" : "Generates web page"
+        } ],
+        "technology" : "Jenkins"
       }, {
-        "id" : "12",
-        "tags" : "Element,Container",
-        "name" : "Ordering system"
-      }, {
-        "id" : "11",
-        "tags" : "Element,Container,dashboard",
-        "name" : "Web dashboard",
-        "description" : "Provides all of the functionality to user via their web browser.",
+        "id" : "4",
+        "tags" : "Element,Container,repository",
+        "name" : "DEEP Catalog",
         "relationships" : [ {
-          "id" : "33",
+          "id" : "38",
           "tags" : "Relationship",
-          "sourceId" : "11",
-          "destinationId" : "16",
-          "description" : "Provide access to"
-        }, {
-          "id" : "35",
-          "sourceId" : "11",
-          "destinationId" : "4",
-          "description" : "Retrieves, stores, updates models",
-          "linkedRelationshipId" : "34"
-        }, {
-          "id" : "32",
-          "tags" : "Relationship",
-          "sourceId" : "11",
-          "destinationId" : "14",
-          "description" : "Provide access to"
-        }, {
-          "id" : "34",
-          "tags" : "Relationship",
-          "sourceId" : "11",
+          "sourceId" : "4",
           "destinationId" : "5",
-          "description" : "Retrieves, stores, updates models"
-        } ]
-      }, {
-        "id" : "16",
-        "tags" : "Element,Container",
-        "name" : "Interactive development Environment",
-        "relationships" : [ {
-          "id" : "56",
-          "sourceId" : "16",
-          "destinationId" : "22",
-          "description" : "Uses",
-          "linkedRelationshipId" : "55"
-        }, {
-          "id" : "55",
-          "tags" : "Relationship",
-          "sourceId" : "16",
-          "destinationId" : "24",
-          "description" : "Uses"
+          "description" : "Triggers catalog update"
         } ],
-        "technology" : "Jupyter Enterprise Gateway"
+        "technology" : "GitHub"
       }, {
-        "id" : "15",
-        "tags" : "Element,Container",
-        "name" : "Workload Management system",
+        "id" : "3",
+        "tags" : "Element,Container,dashboard",
+        "name" : "DEEP marketplace",
         "relationships" : [ {
-          "id" : "51",
+          "id" : "36",
           "tags" : "Relationship",
-          "sourceId" : "15",
-          "destinationId" : "23",
-          "description" : "Uses"
+          "sourceId" : "3",
+          "destinationId" : "4",
+          "description" : "Points to"
         }, {
-          "id" : "52",
-          "sourceId" : "15",
-          "destinationId" : "22",
-          "description" : "Uses",
-          "linkedRelationshipId" : "51"
+          "id" : "37",
+          "tags" : "Relationship",
+          "sourceId" : "3",
+          "destinationId" : "6",
+          "description" : "Points to"
         } ],
-        "technology" : "Hashicorp Nomad"
+        "technology" : "Pelican"
       } ],
       "documentation" : { }
     }, {
-      "id" : "25",
+      "id" : "21",
       "tags" : "Element,Software System",
-      "name" : "AAI",
+      "name" : "DEEP as a Service",
       "relationships" : [ {
-        "id" : "41",
+        "id" : "33",
         "tags" : "Relationship",
-        "sourceId" : "25",
-        "destinationId" : "26",
-        "description" : "AuthN/Z"
+        "sourceId" : "21",
+        "destinationId" : "23",
+        "description" : "Model results"
       } ],
-      "group" : "EOSC",
+      "location" : "Internal",
+      "containers" : [ {
+        "id" : "22",
+        "tags" : "Element,Container",
+        "name" : "Serverless platform",
+        "technology" : "OpenWhisk"
+      } ],
+      "documentation" : { }
+    }, {
+      "id" : "23",
+      "tags" : "Element,Software System",
+      "name" : "Storage Services",
+      "relationships" : [ {
+        "id" : "32",
+        "tags" : "Relationship",
+        "sourceId" : "23",
+        "destinationId" : "21",
+        "description" : "Data and configuration"
+      }, {
+        "id" : "31",
+        "tags" : "Relationship",
+        "sourceId" : "23",
+        "destinationId" : "7",
+        "description" : "Input data"
+      } ],
       "location" : "External",
       "documentation" : { }
+    }, {
+      "id" : "7",
+      "tags" : "Element,Software System",
+      "name" : "DEEP Training Facility",
+      "relationships" : [ {
+        "id" : "28",
+        "tags" : "Relationship",
+        "sourceId" : "7",
+        "destinationId" : "2",
+        "description" : "Store new model"
+      }, {
+        "id" : "30",
+        "tags" : "Relationship",
+        "sourceId" : "7",
+        "destinationId" : "23",
+        "description" : "Model results"
+      }, {
+        "id" : "44",
+        "sourceId" : "7",
+        "destinationId" : "4",
+        "description" : "Read models",
+        "linkedRelationshipId" : "42"
+      } ],
+      "location" : "Internal",
+      "containers" : [ {
+        "id" : "10",
+        "tags" : "Element,Container,dashboard",
+        "name" : "Topology Composer",
+        "relationships" : [ {
+          "id" : "46",
+          "tags" : "Relationship",
+          "sourceId" : "10",
+          "destinationId" : "11",
+          "description" : "Create topology"
+        }, {
+          "id" : "47",
+          "tags" : "Relationship",
+          "sourceId" : "10",
+          "destinationId" : "14",
+          "description" : "Read Topologies"
+        } ],
+        "technology" : "Alien4Cloud"
+      }, {
+        "id" : "11",
+        "tags" : "Element,Container",
+        "name" : "PaaS Orchestrator",
+        "relationships" : [ {
+          "id" : "52",
+          "tags" : "Relationship",
+          "sourceId" : "11",
+          "destinationId" : "12",
+          "description" : "Uses"
+        }, {
+          "id" : "53",
+          "tags" : "Relationship",
+          "sourceId" : "11",
+          "destinationId" : "13",
+          "description" : "Create Container"
+        }, {
+          "id" : "51",
+          "tags" : "Relationship",
+          "sourceId" : "11",
+          "destinationId" : "14",
+          "description" : "Read topologies"
+        } ],
+        "technology" : "INDIGO PaaS Orchestrator"
+      }, {
+        "id" : "9",
+        "tags" : "Element,Container,dashboard",
+        "name" : "PaaS Dashboard",
+        "relationships" : [ {
+          "id" : "50",
+          "tags" : "Relationship",
+          "sourceId" : "9",
+          "destinationId" : "14",
+          "description" : "Read topologies"
+        }, {
+          "id" : "49",
+          "tags" : "Relationship",
+          "sourceId" : "9",
+          "destinationId" : "11",
+          "description" : "Create deployment"
+        } ],
+        "technology" : "Flask"
+      }, {
+        "id" : "12",
+        "tags" : "Element,Container",
+        "name" : "Infrastructure Manager",
+        "relationships" : [ {
+          "id" : "54",
+          "tags" : "Relationship",
+          "sourceId" : "12",
+          "destinationId" : "13",
+          "description" : "Provisions"
+        } ]
+      }, {
+        "id" : "8",
+        "tags" : "Element,Container,dashboard",
+        "name" : "DEEP Dashboard",
+        "relationships" : [ {
+          "id" : "48",
+          "tags" : "Relationship",
+          "sourceId" : "8",
+          "destinationId" : "11",
+          "description" : "Create training"
+        }, {
+          "id" : "45",
+          "tags" : "Relationship",
+          "sourceId" : "8",
+          "destinationId" : "14",
+          "description" : "Read topologies"
+        }, {
+          "id" : "43",
+          "sourceId" : "8",
+          "destinationId" : "2",
+          "description" : "Read models",
+          "linkedRelationshipId" : "42"
+        }, {
+          "id" : "42",
+          "tags" : "Relationship",
+          "sourceId" : "8",
+          "destinationId" : "4",
+          "description" : "Read models"
+        } ],
+        "technology" : "aiohttp"
+      }, {
+        "id" : "15",
+        "tags" : "Element,Container",
+        "name" : "Model container",
+        "technology" : "Docker",
+        "components" : [ {
+          "id" : "17",
+          "tags" : "Element,Component",
+          "name" : "ML/AI framework",
+          "size" : 0
+        }, {
+          "id" : "18",
+          "tags" : "Element,Component",
+          "name" : "User code and model",
+          "relationships" : [ {
+            "id" : "20",
+            "tags" : "Relationship",
+            "sourceId" : "18",
+            "destinationId" : "17"
+          } ],
+          "size" : 0
+        }, {
+          "id" : "16",
+          "tags" : "Element,Component",
+          "name" : "API",
+          "relationships" : [ {
+            "id" : "19",
+            "tags" : "Relationship",
+            "sourceId" : "16",
+            "destinationId" : "18"
+          } ],
+          "technology" : "DEEPaaS API",
+          "size" : 0
+        } ]
+      }, {
+        "id" : "13",
+        "tags" : "Element,Container",
+        "name" : "Container Orchestration Engine",
+        "relationships" : [ {
+          "id" : "55",
+          "tags" : "Relationship",
+          "sourceId" : "13",
+          "destinationId" : "15",
+          "description" : "Create"
+        } ],
+        "technology" : "Mesos"
+      }, {
+        "id" : "14",
+        "tags" : "Element,Container,repository",
+        "name" : "Topologies repository",
+        "technology" : "TOSCA"
+      } ],
+      "documentation" : { }
+    } ],
+    "deploymentNodes" : [ {
+      "id" : "58",
+      "tags" : "Element,Deployment Node",
+      "name" : "marketplace.deep-hybrid-datacloud.eu",
+      "environment" : "Production",
+      "technology" : "GitHub Pages",
+      "instances" : 1,
+      "containerInstances" : [ {
+        "id" : "59",
+        "tags" : "Container Instance",
+        "environment" : "Production",
+        "deploymentGroups" : [ "Default" ],
+        "instanceId" : 1,
+        "containerId" : "3"
+      } ]
+    }, {
+      "id" : "60",
+      "tags" : "Element,Deployment Node",
+      "name" : "train.deep-hybrid-datacloud.eu",
+      "environment" : "Production",
+      "technology" : "nginx",
+      "instances" : 1,
+      "containerInstances" : [ {
+        "id" : "61",
+        "tags" : "Container Instance",
+        "environment" : "Production",
+        "deploymentGroups" : [ "Default" ],
+        "instanceId" : 1,
+        "containerId" : "8"
+      } ]
     } ]
   },
   "documentation" : { },
@@ -362,561 +394,302 @@
     "systemLandscapeViews" : [ {
       "key" : "SystemLandscape",
       "order" : 1,
-      "paperSize" : "A3_Landscape",
       "dimensions" : {
-        "width" : 3675,
-        "height" : 2908
-      },
-      "automaticLayout" : {
-        "implementation" : "Graphviz",
-        "rankDirection" : "TopBottom",
-        "rankSeparation" : 300,
-        "nodeSeparation" : 300,
-        "edgeSeparation" : 0,
-        "vertices" : false
+        "width" : 2105,
+        "height" : 2599
       },
       "enterpriseBoundaryVisible" : true,
       "elements" : [ {
-        "id" : "22",
-        "x" : 3016,
-        "y" : 2257
+        "id" : "23",
+        "x" : 802,
+        "y" : 199
       }, {
         "id" : "1",
-        "x" : 207,
-        "y" : 957
+        "x" : 827,
+        "y" : 1999
       }, {
         "id" : "2",
-        "x" : 2382,
-        "y" : 257
+        "x" : 802,
+        "y" : 1114
       }, {
-        "id" : "25",
-        "x" : 907,
-        "y" : 307
+        "id" : "7",
+        "x" : 220,
+        "y" : 800
       }, {
-        "id" : "3",
-        "x" : 1657,
-        "y" : 957
-      }, {
-        "id" : "4",
-        "x" : 1657,
-        "y" : 2257
-      }, {
-        "id" : "26",
-        "x" : 907,
-        "y" : 1007
-      }, {
-        "id" : "17",
-        "x" : 2357,
-        "y" : 1007
-      }, {
-        "id" : "10",
-        "x" : 1657,
-        "y" : 1657
+        "id" : "21",
+        "x" : 1435,
+        "y" : 800
       } ],
       "relationships" : [ {
         "id" : "29",
         "vertices" : [ {
-          "x" : 728,
-          "y" : 1411
+          "x" : 1175,
+          "y" : 1000
         } ]
       }, {
-        "id" : "27"
+        "id" : "28",
+        "vertices" : [ {
+          "x" : 885,
+          "y" : 970
+        } ]
       }, {
-        "id" : "37"
+        "id" : "27",
+        "vertices" : [ {
+          "x" : 595,
+          "y" : 1250
+        } ]
       }, {
-        "id" : "40"
+        "id" : "26",
+        "vertices" : [ {
+          "x" : 1530,
+          "y" : 1815
+        } ]
       }, {
-        "id" : "41"
+        "id" : "25",
+        "vertices" : [ {
+          "x" : 445,
+          "y" : 1830
+        } ]
       }, {
-        "id" : "54"
+        "id" : "24"
       }, {
-        "id" : "43"
+        "id" : "33",
+        "vertices" : [ {
+          "x" : 1134,
+          "y" : 570
+        } ]
       }, {
-        "id" : "31"
-      }, {
-        "id" : "48"
-      } ]
-    } ],
-    "systemContextViews" : [ {
-      "softwareSystemId" : "22",
-      "key" : "ComputeResources-SystemContext",
-      "order" : 9,
-      "paperSize" : "A5_Landscape",
-      "dimensions" : {
-        "width" : 1858,
-        "height" : 1454
-      },
-      "automaticLayout" : {
-        "implementation" : "Graphviz",
-        "rankDirection" : "TopBottom",
-        "rankSeparation" : 300,
-        "nodeSeparation" : 300,
-        "edgeSeparation" : 0,
-        "vertices" : false
-      },
-      "enterpriseBoundaryVisible" : true,
-      "elements" : [ {
-        "id" : "22",
-        "x" : 704,
-        "y" : 929
-      }, {
-        "id" : "17",
-        "x" : 1079,
-        "y" : 329
-      }, {
-        "id" : "10",
-        "x" : 329,
-        "y" : 329
-      } ],
-      "relationships" : [ {
-        "id" : "54"
-      }, {
-        "id" : "48"
-      } ]
-    }, {
-      "softwareSystemId" : "4",
-      "key" : "AI4EOSCexchange-SystemContext",
-      "order" : 3,
-      "paperSize" : "A5_Portrait",
-      "dimensions" : {
-        "width" : 1287,
-        "height" : 2120
-      },
-      "automaticLayout" : {
-        "implementation" : "Graphviz",
-        "rankDirection" : "TopBottom",
-        "rankSeparation" : 300,
-        "nodeSeparation" : 300,
-        "edgeSeparation" : 0,
-        "vertices" : false
-      },
-      "enterpriseBoundaryVisible" : true,
-      "elements" : [ {
-        "id" : "1",
-        "x" : 208,
-        "y" : 208
-      }, {
-        "id" : "4",
-        "x" : 525,
-        "y" : 1508
-      }, {
-        "id" : "10",
-        "x" : 525,
-        "y" : 908
-      } ],
-      "relationships" : [ {
-        "id" : "29"
-      }, {
-        "id" : "27"
+        "id" : "32",
+        "vertices" : [ {
+          "x" : 1605,
+          "y" : 430
+        } ]
       }, {
         "id" : "31",
         "vertices" : [ {
-          "x" : 375,
-          "y" : 804
-        }, {
-          "x" : 375,
-          "y" : 1208
+          "x" : 490,
+          "y" : 465
         } ]
-      } ]
-    }, {
-      "softwareSystemId" : "10",
-      "key" : "AI4EOSCplatform-SystemContext",
-      "order" : 5,
-      "paperSize" : "A4_Landscape",
-      "dimensions" : {
-        "width" : 3016,
-        "height" : 2258
-      },
-      "automaticLayout" : {
-        "implementation" : "Graphviz",
-        "rankDirection" : "TopBottom",
-        "rankSeparation" : 300,
-        "nodeSeparation" : 300,
-        "edgeSeparation" : 0,
-        "vertices" : false
-      },
-      "enterpriseBoundaryVisible" : true,
-      "elements" : [ {
-        "id" : "22",
-        "x" : 208,
-        "y" : 1629
       }, {
-        "id" : "1",
-        "x" : 2408,
-        "y" : 329
-      }, {
-        "id" : "3",
-        "x" : 958,
-        "y" : 329
-      }, {
-        "id" : "4",
-        "x" : 958,
-        "y" : 1629
-      }, {
-        "id" : "26",
-        "x" : 1658,
-        "y" : 379
-      }, {
-        "id" : "10",
-        "x" : 958,
-        "y" : 1029
-      } ],
-      "relationships" : [ {
-        "id" : "29",
+        "id" : "30",
         "vertices" : [ {
-          "x" : 2287,
-          "y" : 783
+          "x" : 759,
+          "y" : 729
         } ]
-      }, {
-        "id" : "27"
-      }, {
-        "id" : "37"
-      }, {
-        "id" : "40"
-      }, {
-        "id" : "54"
-      }, {
-        "id" : "31"
-      } ]
-    }, {
-      "softwareSystemId" : "25",
-      "key" : "AAI-SystemContext",
-      "order" : 2,
-      "paperSize" : "A6_Portrait",
-      "dimensions" : {
-        "width" : 1108,
-        "height" : 1558
-      },
-      "automaticLayout" : {
-        "implementation" : "Graphviz",
-        "rankDirection" : "TopBottom",
-        "rankSeparation" : 300,
-        "nodeSeparation" : 300,
-        "edgeSeparation" : 0,
-        "vertices" : false
-      },
-      "enterpriseBoundaryVisible" : true,
-      "elements" : [ {
-        "id" : "25",
-        "x" : 329,
-        "y" : 329
-      }, {
-        "id" : "26",
-        "x" : 329,
-        "y" : 929
-      } ],
-      "relationships" : [ {
-        "id" : "41"
-      } ]
-    }, {
-      "softwareSystemId" : "26",
-      "key" : "EOSCPortal-SystemContext",
-      "order" : 11,
-      "paperSize" : "A5_Portrait",
-      "dimensions" : {
-        "width" : 1108,
-        "height" : 2158
-      },
-      "automaticLayout" : {
-        "implementation" : "Graphviz",
-        "rankDirection" : "TopBottom",
-        "rankSeparation" : 300,
-        "nodeSeparation" : 300,
-        "edgeSeparation" : 0,
-        "vertices" : false
-      },
-      "enterpriseBoundaryVisible" : true,
-      "elements" : [ {
-        "id" : "25",
-        "x" : 329,
-        "y" : 329
-      }, {
-        "id" : "26",
-        "x" : 329,
-        "y" : 929
-      }, {
-        "id" : "10",
-        "x" : 329,
-        "y" : 1529
-      } ],
-      "relationships" : [ {
-        "id" : "37"
-      }, {
-        "id" : "41"
-      } ]
-    }, {
-      "softwareSystemId" : "17",
-      "key" : "AI4EOSCplatformorchestration-SystemContext",
-      "order" : 7,
-      "paperSize" : "A5_Portrait",
-      "dimensions" : {
-        "width" : 1108,
-        "height" : 2016
-      },
-      "automaticLayout" : {
-        "implementation" : "Graphviz",
-        "rankDirection" : "TopBottom",
-        "rankSeparation" : 300,
-        "nodeSeparation" : 300,
-        "edgeSeparation" : 0,
-        "vertices" : false
-      },
-      "enterpriseBoundaryVisible" : true,
-      "elements" : [ {
-        "id" : "22",
-        "x" : 329,
-        "y" : 1508
-      }, {
-        "id" : "2",
-        "x" : 354,
-        "y" : 208
-      }, {
-        "id" : "17",
-        "x" : 329,
-        "y" : 908
-      } ],
-      "relationships" : [ {
-        "id" : "43"
-      }, {
-        "id" : "48"
       } ]
     } ],
     "containerViews" : [ {
-      "softwareSystemId" : "17",
-      "key" : "AI4EOSCplatformorchestration-Container",
-      "order" : 8,
-      "paperSize" : "A4_Portrait",
+      "softwareSystemId" : "7",
+      "key" : "DEEPTrainingFacility-Container",
+      "order" : 3,
       "dimensions" : {
-        "width" : 1904,
-        "height" : 3216
-      },
-      "automaticLayout" : {
-        "implementation" : "Graphviz",
-        "rankDirection" : "TopBottom",
-        "rankSeparation" : 300,
-        "nodeSeparation" : 300,
-        "edgeSeparation" : 0,
-        "vertices" : false
-      },
-      "externalSoftwareSystemBoundariesVisible" : true,
-      "elements" : [ {
-        "id" : "22",
-        "x" : 1041,
-        "y" : 2708
-      }, {
-        "id" : "2",
-        "x" : 1104,
-        "y" : 208
-      }, {
-        "id" : "18",
-        "x" : 1079,
-        "y" : 1508
-      }, {
-        "id" : "19",
-        "x" : 1079,
-        "y" : 908
-      }, {
-        "id" : "20",
-        "x" : 329,
-        "y" : 2108
-      }, {
-        "id" : "21",
-        "x" : 1079,
-        "y" : 2108
-      } ],
-      "relationships" : [ {
-        "id" : "42"
-      }, {
-        "id" : "44"
-      }, {
-        "id" : "45"
-      }, {
-        "id" : "46"
-      }, {
-        "id" : "47"
-      }, {
-        "id" : "49",
-        "vertices" : [ {
-          "x" : 1679,
-          "y" : 2108
-        }, {
-          "x" : 1679,
-          "y" : 2512
-        } ]
-      } ]
-    }, {
-      "softwareSystemId" : "4",
-      "key" : "AI4EOSCexchange-Container",
-      "order" : 4,
-      "paperSize" : "A3_Landscape",
-      "dimensions" : {
-        "width" : 4108,
-        "height" : 2120
-      },
-      "automaticLayout" : {
-        "implementation" : "Graphviz",
-        "rankDirection" : "TopBottom",
-        "rankSeparation" : 300,
-        "nodeSeparation" : 300,
-        "edgeSeparation" : 0,
-        "vertices" : false
-      },
-      "externalSoftwareSystemBoundariesVisible" : true,
-      "elements" : [ {
-        "id" : "1",
-        "x" : 1850,
-        "y" : 208
-      }, {
-        "id" : "5",
-        "x" : 3329,
-        "y" : 1508
-      }, {
-        "id" : "6",
-        "x" : 2579,
-        "y" : 1508
-      }, {
-        "id" : "7",
-        "x" : 1829,
-        "y" : 1508
-      }, {
-        "id" : "8",
-        "x" : 1079,
-        "y" : 1508
-      }, {
-        "id" : "9",
-        "x" : 329,
-        "y" : 1508
-      }, {
-        "id" : "10",
-        "x" : 2745,
-        "y" : 908
-      } ],
-      "relationships" : [ {
-        "id" : "29"
-      }, {
-        "id" : "36"
-      }, {
-        "id" : "30"
-      } ]
-    }, {
-      "softwareSystemId" : "22",
-      "key" : "ComputeResources-Container",
-      "order" : 10,
-      "paperSize" : "A5_Landscape",
-      "dimensions" : {
-        "width" : 1858,
-        "height" : 1420
-      },
-      "automaticLayout" : {
-        "implementation" : "Graphviz",
-        "rankDirection" : "TopBottom",
-        "rankSeparation" : 300,
-        "nodeSeparation" : 300,
-        "edgeSeparation" : 0,
-        "vertices" : false
-      },
-      "externalSoftwareSystemBoundariesVisible" : true,
-      "elements" : [ {
-        "id" : "23",
-        "x" : 1079,
-        "y" : 808
-      }, {
-        "id" : "24",
-        "x" : 329,
-        "y" : 808
-      }, {
-        "id" : "10",
-        "x" : 704,
-        "y" : 208
-      } ],
-      "relationships" : [ {
-        "id" : "53"
-      }, {
-        "id" : "57"
-      } ]
-    }, {
-      "softwareSystemId" : "10",
-      "key" : "AI4EOSCplatform-Container",
-      "order" : 6,
-      "paperSize" : "A3_Landscape",
-      "dimensions" : {
-        "width" : 3241,
-        "height" : 3216
-      },
-      "automaticLayout" : {
-        "implementation" : "Graphviz",
-        "rankDirection" : "TopBottom",
-        "rankSeparation" : 300,
-        "nodeSeparation" : 300,
-        "edgeSeparation" : 0,
-        "vertices" : false
+        "width" : 3036,
+        "height" : 3193
       },
       "externalSoftwareSystemBoundariesVisible" : true,
       "elements" : [ {
         "id" : "11",
-        "x" : 1829,
-        "y" : 908
-      }, {
-        "id" : "22",
-        "x" : 1445,
-        "y" : 2708
+        "x" : 1578,
+        "y" : 1822
       }, {
         "id" : "1",
-        "x" : 2558,
-        "y" : 208
+        "x" : 2555,
+        "y" : 110
       }, {
         "id" : "12",
-        "x" : 1079,
-        "y" : 908
+        "x" : 1588,
+        "y" : 2272
       }, {
         "id" : "13",
-        "x" : 329,
-        "y" : 908
+        "x" : 801,
+        "y" : 2276
       }, {
-        "id" : "3",
-        "x" : 1083,
-        "y" : 208
+        "id" : "2",
+        "x" : 1686,
+        "y" : 315
       }, {
         "id" : "14",
-        "x" : 1066,
-        "y" : 1508
-      }, {
-        "id" : "4",
-        "x" : 2566,
-        "y" : 1508
+        "x" : 783,
+        "y" : 1512
       }, {
         "id" : "15",
-        "x" : 1100,
-        "y" : 2108
+        "x" : 801,
+        "y" : 2715
       }, {
-        "id" : "26",
-        "x" : 1783,
-        "y" : 258
+        "id" : "8",
+        "x" : 1686,
+        "y" : 897
       }, {
-        "id" : "16",
-        "x" : 1816,
-        "y" : 1508
+        "id" : "9",
+        "x" : 948,
+        "y" : 897
+      }, {
+        "id" : "10",
+        "x" : 220,
+        "y" : 900
       } ],
       "relationships" : [ {
-        "id" : "28"
-      }, {
         "id" : "50"
       }, {
-        "id" : "35"
+        "id" : "51"
       }, {
         "id" : "52"
       }, {
-        "id" : "33"
+        "id" : "41"
       }, {
-        "id" : "32"
+        "id" : "53"
       }, {
-        "id" : "31"
+        "id" : "54"
       }, {
-        "id" : "56"
+        "id" : "43"
+      }, {
+        "id" : "24"
+      }, {
+        "id" : "55"
+      }, {
+        "id" : "56",
+        "vertices" : [ {
+          "x" : 2315,
+          "y" : 2865
+        } ]
+      }, {
+        "id" : "45"
+      }, {
+        "id" : "46",
+        "vertices" : [ {
+          "x" : 658,
+          "y" : 1912
+        } ]
+      }, {
+        "id" : "47"
+      }, {
+        "id" : "48"
+      }, {
+        "id" : "49"
+      } ]
+    }, {
+      "softwareSystemId" : "2",
+      "key" : "DEEPOpenCatatalog-Container",
+      "order" : 2,
+      "dimensions" : {
+        "width" : 2739,
+        "height" : 2693
+      },
+      "externalSoftwareSystemBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "1",
+        "x" : 1574,
+        "y" : 199
+      }, {
+        "id" : "3",
+        "x" : 884,
+        "y" : 899
+      }, {
+        "id" : "4",
+        "x" : 1490,
+        "y" : 1300
+      }, {
+        "id" : "5",
+        "x" : 884,
+        "y" : 2099
+      }, {
+        "id" : "6",
+        "x" : 220,
+        "y" : 1300
+      }, {
+        "id" : "7",
+        "x" : 2090,
+        "y" : 899
+      } ],
+      "relationships" : [ {
+        "id" : "37"
+      }, {
+        "id" : "25"
+      }, {
+        "id" : "40"
+      }, {
+        "id" : "36"
+      }, {
+        "id" : "35"
+      }, {
+        "id" : "34"
+      }, {
+        "id" : "44"
       }, {
         "id" : "38"
       }, {
         "id" : "39"
+      } ]
+    } ],
+    "componentViews" : [ {
+      "key" : "DEEPTrainingFacility-Modelcontainer-Component",
+      "order" : 4,
+      "dimensions" : {
+        "width" : 1560,
+        "height" : 1762
+      },
+      "containerId" : "15",
+      "externalContainerBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "1",
+        "x" : 274,
+        "y" : 199
+      }, {
+        "id" : "16",
+        "x" : 236,
+        "y" : 779
+      }, {
+        "id" : "17",
+        "x" : 873,
+        "y" : 1169
+      }, {
+        "id" : "18",
+        "x" : 873,
+        "y" : 779
+      } ],
+      "relationships" : [ {
+        "id" : "20"
+      }, {
+        "id" : "57"
+      }, {
+        "id" : "19"
+      } ]
+    } ],
+    "deploymentViews" : [ {
+      "softwareSystemId" : "2",
+      "key" : "DEEPOpenCatatalog-Production-Deployment",
+      "order" : 5,
+      "dimensions" : {
+        "width" : 1350,
+        "height" : 842
+      },
+      "environment" : "Production",
+      "elements" : [ {
+        "id" : "58",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "59",
+        "x" : 450,
+        "y" : 250
+      } ]
+    }, {
+      "softwareSystemId" : "7",
+      "key" : "DEEPTrainingFacility-Production-Deployment",
+      "order" : 6,
+      "dimensions" : {
+        "width" : 1440,
+        "height" : 842
+      },
+      "environment" : "Production",
+      "elements" : [ {
+        "id" : "60",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "61",
+        "x" : 495,
+        "y" : 250
       } ]
     } ],
     "configuration" : {
@@ -932,7 +705,7 @@
       },
       "themes" : [ "https://static.structurizr.com/themes/default/theme.json" ],
       "terminology" : { },
-      "lastSavedView" : "SystemLandscape"
+      "lastSavedView" : "DEEPTrainingFacility-Production-Deployment"
     }
   }
 }
