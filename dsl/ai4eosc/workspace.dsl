@@ -1,185 +1,251 @@
-workspace ai4eosc "AI4EOSC architecture" {
-
-    !identifiers hierarchical
+workspace extends ../eosc-landscape.dsl {
+    
+    name "DEEP-Hybrid-DataCloud"
+    description "DEEP-Hybrid-DataCloud legacy architecture"
 
     model {
-        user = person "AI researcher" "A scientist willing to use the AI4EOSC platform."
-        ops = person "Resource provider operators" "A resource provider that wants to contribute resources to the AI4EOSC platform."
 
-        ai4eosc = enterprise AI4EOSC  {
+        user = person "AI Scientist"
 
-            ai_ops = person "AI4EOSC Platform Operator" "Administration and support of the AI4EOSC platform."
+        deep = enterprise "DEEP-Hybrid-DataCloud" {
+            catalog = softwareSystem "DEEP Open Catatalog" {
+                marketplace = container "DEEP marketplace" "" "Pelican" "dashboard"
 
-#            ai_exchange = softwareSystem "AI4EOSC exchange" "Provides a marketplace and exhcange of AI models." {
-#                api = container "Exchange API"
-#
-#                provenance_framework = container "Model provenance framework" "" "MLFlow"
-#
-#                model_repository = container "Model repository" "" "Git" {
-#                    tags "repository"
-#                }
-#
-#                model_data_repository = container "Model data" "" "dvc" {
-#                    tags "repository"
-#                }
-#                
-#                webpage = container "Web dashboard" "Provides all of the functionality to user via their web browser."{
-#                    tags "dashboard"
-#                }
-#            }
+                catalog_repo = container "DEEP Catalog" "" "GitHub" "repository"
 
-            ai_platform = softwareSystem "AI4EOSC platform" "Allows to build and train AI models." {
-                dashboard = container "Web dashboard" "Provides all of the functionality to user via their web browser."{
-                    tags "dashboard"
-                }
+                jenkins = container "CI/CD" "" "Jenkins"
 
-                order = container "Ordering system"
-
-                aai = container "AAI"
-
-                api = container "Training system API" 
-
-                workload_management = container "Workload Management system" "" "Hashicorp Nomad"
-
-                development = container "Interactive development Environment" "" "Jupyter Enterprise Gateway"
-
-                provenance_framework = container "Model exchange and provenance framework" "" "MLFlow"
-
-                model_repository = container "Model repository" "" "Git" {
-                    tags "repository"
-                }
-
-                model_data_repository = container "Model data" "" "dvc" {
-                    tags "repository"
-                }
-
+                container_repo = container "Container registry" "" "DockerHub" "repository" 
             }
 
-            ai_platform_orchestration = softwareSystem "AI4EOSC platform orchestration" {
-                orchestrator = container "Orchestrator" "" "INDIGO PaaS Orchestrator"
+            training = softwareSystem "DEEP Training Facility" {
+                dashboard = container "DEEP Dashboard" "" "aiohttp" "dashboard"
+                paas_dashboard = container "PaaS Dashboard" "" "Flask" "dashboard"
+                a4c = container "Topology Composer" "" "Alien4Cloud" "dashboard"
 
-                dashboard = container "Dashboard" "" "INDIGO PaaS Dashboard" {
-                    tags "dashboard"
-                }
-
+                paas_orchestrator = container "PaaS Orchestrator" "" "INDIGO PaaS Orchestrator"
                 im = container "Infrastructure Manager"
 
-                topologies = container "Topologies repository" "" "TOSCA" {
-                    tags "repository"
+                coe = container "Container Orchestration Engine" "" "Mesos"
+
+                tosca_repo = container "Topologies repository" "" "TOSCA" "repository"
+
+                iam = container "Identity and Access Management" "" "INDIGO IAM"
+
+                model_container = container "Model container" "" "Docker" {
+                    api = component "API" "" "DEEPaaS API"
+
+                    framework = component "ML/AI framework"
+
+                    user_model = component "User code and model"
+
+                    api -> user_model
+                    user_model -> framework
                 }
             }
 
-#            cicd_system = softwareSystem "CI/CD" "Ensures that quality of the IT assets." {
-#                cicd = container "CI/CD" "" "Jenkinks + JePL"
-#
-#                service = container "Service quality" "" "SQaaS"
-#
-#                fair = container "Data quality" "" "FAIR Evaluator"
-#            }
-        }
-        
-        compute_resources = softwareSystem "Compute Resources" "Provides computing resources to the platform." {
-            agent = container "Execution agent" "" "Hashicorp Nomad"
-            k8s = container "Container Orchestration Engine" "" "Kubernetes"
-        }
-        
-        eosc = group EOSC {
-            aai = softwareSystem "AAI"
-            portal = softwareSystem "EOSC Portal"
+            deepaas = softwareSystem "DEEP as a Service" {
+                openwhisk = container "Serverless platform" "" "OpenWhisk"
+                
+                deep_connector = container "DEEP - Serverless connector"
+
+                deepaas_container = container "DEEPaaS Containar"
+                
+                serverless_coe = container "Container Orchestration Engine" "" "Mesos"
+            }
         }
 
-        
-#        ai_platform -> ai_exchange "Gets/stores model from"
+        storage = softwareSystem "Storage Services"
 
-        user -> ai_platform.dashboard "Browse, update, develop new models, define experiments"
-#        user -> ai_exchange.webpage "Browse and download models"
-        ai_platform.dashboard -> ai_platform.api "Provide access to"
-        ai_platform.dashboard -> ai_platform.development "Provide access to"
-#       ai_platform.dashboard -> ai_exchange.api "Retrieves, stores, updates models"
-        
-        ai_platform.dashboard -> ai_platform.provenance_framework
+        # User - system interaction
+        user -> catalog "Publish and share model"
+        user -> training "Build and train deep learning model"
+        user -> deepaas "Deploy model as a service"
 
-        ai_platform.aai -> ai_platform.api "AuthN/Z"
-        ai_platform.aai -> ai_platform.provenance_framework "AuthN/Z" 
-        ai_platform.aai -> ai_platform.development "AuthN/Z"
-#        ai_platform.aai -> ai_platform.dashboard
+        # System - system interaction
+        catalog -> training "Reuse and extend"
+        training -> catalog "Store new model"
+        catalog -> deepaas "Publish new service"
+        training -> storage "Model results"
+        storage -> training "Input data"
+        storage -> deepaas "Data and configuration"
+        deepaas -> storage "Model results"
 
-        ai_platform.provenance_framework -> ai_platform.model_repository
-        ai_platform.provenance_framework -> ai_platform.model_data_repository
+        # Container level
 
-        portal -> ai_platform "Provide access to"
-        portal -> ai_platform.order "Create an order"
-        ai_ops -> ai_platform.order 
+        user -> marketplace "Browse and download models"
+        user -> catalog_repo "Create/update model"
+        marketplace -> catalog_repo "Points to"
+        marketplace -> container_repo "Points to"
+        catalog_repo -> jenkins "Triggers catalog update"
+        jenkins -> marketplace "Generates web page"
+        jenkins -> container_repo "Create Docker container"
 
-        ai_platform.order -> ai_platform.aai "Authorize"
+        user -> dashboard "Train new model or update existing"
+        dashboard -> catalog_repo "Read models"
+        dashboard -> tosca_repo "Read topologies"
 
-        aai -> portal "AuthN/Z"
+        a4c -> paas_orchestrator "Create topology""
+        a4c -> tosca_repo "Read Topologies"
 
-        aai -> ai_platform.aai "Federate EOSC users"
-#        aai -> ai_platform.dashboard "AuthN/Z"
-#        aai -> ai_platform "AuthN/Z"
+        dashboard -> paas_orchestrator "Create training"
+        paas_dashboard -> paas_orchestrator "Create deployment"
+        paas_dashboard -> tosca_repo "Read topologies"
+        paas_orchestrator -> tosca_repo "Read topologies"
+        paas_orchestrator -> im "Uses"
 
-        ops -> ai_platform_orchestration.dashboard "Uses"
-        ai_platform_orchestration.dashboard -> ai_platform_orchestration.orchestrator "API calls"
-        ai_platform_orchestration.orchestrator -> ai_platform_orchestration.im "API calls"
-        ai_platform_orchestration.orchestrator -> ai_platform_orchestration.topologies "Reads deployment templates"
-        ai_platform_orchestration.im -> compute_resources "Provisions resources"
-        ai_platform_orchestration.orchestrator -> compute_resources "Monitors state"
-        
+        paas_orchestrator -> iam "AuthN/Z"
+        im -> iam "AuthN/Z"
+        coe -> iam "AuthN/Z"
 
-        ai_platform.api -> ai_platform.workload_management "Create training job"
-        ai_platform.workload_management -> compute_resources.agent "Uses"
-        ai_platform.development -> compute_resources.k8s "Uses"
+        paas_orchestrator -> coe "Create Container"
+        im -> coe "Provisions"
 
+        coe -> model_container "Create Containers"
+        user -> model_container "Train/Predict"
 
-        
+        model_container -> container_repo "Stored in"
 
+        jenkins -> deep_connector "Trigger update"
+        deep_connector -> openwhisk "Create/delete/update actions"
+        openwhisk -> serverless_coe "Create container functions"
+        openwhisk -> deepaas_container "Redirects to"
 
+        deepaas_container -> model_container "Stored in"
+        serverless_coe -> deepaas_container "Creates Containers"
 
+        user -> api
 
+        aai -> iam "Federate users"
+#        mesos -> model_container
+
+        deploymentEnvironment "Production" {
+            ifca_instance = deploymentGroup "IFCA Mesos Instance"
+            iisas_instance = deploymentGroup "IISAS Mesos Instance"
+
+            deploymentNode "GitHub" {
+                deploymentNode "marketplace.deep-hybrid-datacloud.eu" "" "GitHub Pages" {
+                    containerInstance marketplace
+                }
+
+                containerInstance catalog_repo
+                containerInstance tosca_repo
+            }
+
+            deploymentNode "Container registry" "" "Docker registry" {
+                DockerHub = containerInstance container_repo 
+            }
+            
+
+            deploymentNode "IFCA-CSIC" {
+                deploymentNode "IFCA Cloud" "" "OpenStack" {
+                    deploymentNode "train.deep-hybrid-datacloud.eu" "" "nginx" {
+                        containerInstance dashboard
+                    }
+                    deploymentNode "mesos.cloud.ifca.es"  {
+                        containerInstance coe 
+                        containerInstance serverless_coe
+                    }
+                    deploymentNode "vm*.cloud.ifca.es" "" "" "" 100 {
+                        deploymentNode "Mesos Agent" {
+                            deploymentNode "Docker" {
+                                containerInstance model_container 
+                                containerInstance deepaas_container 
+                            }
+                        }
+                    }
+                    deploymentNode "jenkins.indigo-datacloud.eu" {
+                        containerInstance jenkins
+                    }
+                    deploymentNode "deepaas.deep-hybrid-datacloud.eu" "" "OpenWhisk" {
+                        containerInstance openwhisk
+                        containerInstance deep_connector
+                    }
+                }
+            }
+
+            deploymentNode "IISAS" {
+                deploymentNode "mesos.ui.sav.sk"  {
+                    iisas_mesos = containerInstance coe iisas_instance
+                }
+                deploymentNode "vm*" "" "" "" 10 {
+                    deploymentNode "Mesos Agent" {
+                        deploymentNode "Docker" {
+                            iisas_container = containerInstance model_container iisas_instance
+                        }
+                    }
+                }
+
+            }
+            
+            deploymentNode "LIP" {
+                deploymentNode "a4c.deep-hybrid-datacloud.eu"  {
+                    containerInstance a4c
+                }
+            }
+
+            deploymentNode "INFN-CNAF" {
+                deploymentNode "iam.deep-hybrid-datacloud.eu" "" "nginx" {
+                    containerInstance iam
+                }
+            }
+
+            deploymentNode "INFN-BARI" {
+                deploymentNode "deep-paas.cloud.ba.infn.it" "" "nginx" {
+                    containerInstance paas_dashboard
+                    containerInstance paas_orchestrator
+                    containerInstance im
+                }
+            }
+
+        }
     }
 
     views {
         theme Default
         
-#        systemLandscape {
-#            include *
-#            autoLayout lr
-#        }
-#
-#        systemContext ai_platform {
-#            include *
-#            autoLayout lr
-#        }
-#
-#        systemContext ai_platform_orchestration {
-#            include *
-#            autoLayout lr
-#        }
-#
-#        systemContext ai_exchange {
-#           include *
-#           autoLayout lr
-#        }
-#
-#        systemContext cicd_system {
-#           include *
-#           autoLayout lr
-#        }
-#        
-#        systemContext compute_resources {
-#           include *
-#           autoLayout lr
-#        }
-
-        styles {
-            element "dashboard" {
-                shape WebBrowser
-            }       
-
-            element "repository" {
-                shape Cylinder
-            }
+        systemLandscape {
+            include *
         }
+        
+        container catalog {
+            include *
+#            autoLayout
+        }
+
+        container training {
+            include *
+        }
+
+        container deepaas {
+            include *
+        }
+        
+        component model_container {
+            include *
+        }
+        
+        deployment * "Production" {
+            include *
+#            autoLayout
+        }
+        deployment catalog "Production" {
+            include *
+        }
+
+        deployment training "Production" {
+            include *
+        }
+
+#        styles {
+#            element "dashboard" {
+#                shape WebBrowser
+#            }       
+#
+#            element "repository" {
+#                shape Cylinder
+#            }
+#        }
     }
 }
+
