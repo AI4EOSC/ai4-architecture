@@ -119,86 +119,6 @@ workspace extends ../eosc-landscape.dsl {
         aai -> iam "Federate users"
 #        mesos -> model_container
 
-        deploymentEnvironment "Production" {
-            ifca_instance = deploymentGroup "IFCA Mesos Instance"
-            iisas_instance = deploymentGroup "IISAS Mesos Instance"
-
-            deploymentNode "GitHub" {
-                deploymentNode "marketplace.deep-hybrid-datacloud.eu" "" "GitHub Pages" {
-                    containerInstance marketplace
-                }
-
-                containerInstance catalog_repo
-                containerInstance tosca_repo
-            }
-
-            deploymentNode "Container registry" "" "Docker registry" {
-                DockerHub = containerInstance container_repo 
-            }
-            
-
-            deploymentNode "IFCA-CSIC" {
-                deploymentNode "IFCA Cloud" "" "OpenStack" {
-                    deploymentNode "train.deep-hybrid-datacloud.eu" "" "nginx" {
-                        containerInstance dashboard
-                    }
-                    deploymentNode "mesos.cloud.ifca.es"  {
-                        containerInstance coe 
-                        containerInstance serverless_coe
-                    }
-                    deploymentNode "vm*.cloud.ifca.es" "" "" "" 100 {
-                        deploymentNode "Mesos Agent" {
-                            deploymentNode "Docker" {
-                                containerInstance model_container 
-                                containerInstance deepaas_container 
-                            }
-                        }
-                    }
-                    deploymentNode "jenkins.indigo-datacloud.eu" {
-                        containerInstance jenkins
-                    }
-                    deploymentNode "deepaas.deep-hybrid-datacloud.eu" "" "OpenWhisk" {
-                        containerInstance openwhisk
-                        containerInstance deep_connector
-                    }
-                }
-            }
-
-            deploymentNode "IISAS" {
-                deploymentNode "mesos.ui.sav.sk"  {
-                    iisas_mesos = containerInstance coe iisas_instance
-                }
-                deploymentNode "vm*" "" "" "" 10 {
-                    deploymentNode "Mesos Agent" {
-                        deploymentNode "Docker" {
-                            iisas_container = containerInstance model_container iisas_instance
-                        }
-                    }
-                }
-
-            }
-            
-            deploymentNode "LIP" {
-                deploymentNode "a4c.deep-hybrid-datacloud.eu"  {
-                    containerInstance a4c
-                }
-            }
-
-            deploymentNode "INFN-CNAF" {
-                deploymentNode "iam.deep-hybrid-datacloud.eu" "" "nginx" {
-                    containerInstance iam
-                }
-            }
-
-            deploymentNode "INFN-BARI" {
-                deploymentNode "deep-paas.cloud.ba.infn.it" "" "nginx" {
-                    containerInstance paas_dashboard
-                    containerInstance paas_orchestrator
-                    containerInstance im
-                }
-            }
-
-        }
     }
 
     views {
@@ -225,18 +145,6 @@ workspace extends ../eosc-landscape.dsl {
             include *
         }
         
-        deployment * "Production" {
-            include *
-#            autoLayout
-        }
-        deployment catalog "Production" {
-            include *
-        }
-
-        deployment training "Production" {
-            include *
-        }
-
 #        styles {
 #            element "dashboard" {
 #                shape WebBrowser
