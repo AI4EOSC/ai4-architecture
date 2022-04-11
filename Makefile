@@ -1,4 +1,5 @@
 DSLPATH ?= `pwd`/dsl
+STRUCTURIZR_WORKSPACE_PATH ?= `ai4eosc`
 
 ifndef VERBOSE
 .SILENT:
@@ -22,4 +23,4 @@ docker-pull:
 
 .PHONY: run
 run:
-	docker run -it --rm -p 8080:8080 -v $(DSLPATH):/usr/local/structurizr structurizr/lite 
+	docker run -it --rm -p 8080:8080 -v $(DSLPATH):/usr/local/structurizr -e STRUCTURIZR_WORKSPACE_PATH=$(STRUCTURIZR_WORKSPACE_PATH) structurizr/lite 

@@ -1,0 +1,2107 @@
+{
+  "id" : 1,
+  "name" : "eosc",
+  "description" : "EOSC architecture",
+  "lastModifiedDate" : "2022-04-11T12:08:00Z",
+  "properties" : {
+    "structurizr.dsl" : "d29ya3NwYWNlIGV4dGVuZHMgLi4vZW9zYy1sYW5kc2NhcGUuZHNsIHsKICAgIAogICAgIWFkcnMgLi4vZGVjaXNpb25zCgogICAgbW9kZWwgewoKICAgICAgICB1c2VyID0gcGVyc29uICJBSSBTY2llbnRpc3QiCgogICAgICAgIGRlZXAgPSBlbnRlcnByaXNlICJERUVQLUh5YnJpZC1EYXRhQ2xvdWQiIHsKICAgICAgICAgICAgY2F0YWxvZyA9IHNvZnR3YXJlU3lzdGVtICJERUVQIE9wZW4gQ2F0YXRhbG9nIiB7CiAgICAgICAgICAgICAgICBtYXJrZXRwbGFjZSA9IGNvbnRhaW5lciAiREVFUCBtYXJrZXRwbGFjZSIgIiIgIlBlbGljYW4iICJkYXNoYm9hcmQiCgogICAgICAgICAgICAgICAgY2F0YWxvZ19yZXBvID0gY29udGFpbmVyICJERUVQIENhdGFsb2ciICIiICJHaXRIdWIiICJyZXBvc2l0b3J5IgoKICAgICAgICAgICAgICAgIGplbmtpbnMgPSBjb250YWluZXIgIkNJL0NEIiAiIiAiSmVua2lucyIKCiAgICAgICAgICAgICAgICBjb250YWluZXJfcmVwbyA9IGNvbnRhaW5lciAiQ29udGFpbmVyIHJlZ2lzdHJ5IiAiIiAiRG9ja2VySHViIiAicmVwb3NpdG9yeSIgCiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIHRyYWluaW5nID0gc29mdHdhcmVTeXN0ZW0gIkRFRVAgVHJhaW5pbmcgRmFjaWxpdHkiIHsKICAgICAgICAgICAgICAgIGRhc2hib2FyZCA9IGNvbnRhaW5lciAiREVFUCBEYXNoYm9hcmQiICIiICJhaW9odHRwIiAiZGFzaGJvYXJkIgogICAgICAgICAgICAgICAgcGFhc19kYXNoYm9hcmQgPSBjb250YWluZXIgIlBhYVMgRGFzaGJvYXJkIiAiIiAiRmxhc2siICJkYXNoYm9hcmQiCiAgICAgICAgICAgICAgICBhNGMgPSBjb250YWluZXIgIlRvcG9sb2d5IENvbXBvc2VyIiAiIiAiQWxpZW40Q2xvdWQiICJkYXNoYm9hcmQiCgogICAgICAgICAgICAgICAgcGFhc19vcmNoZXN0cmF0b3IgPSBjb250YWluZXIgIlBhYVMgT3JjaGVzdHJhdG9yIiAiIiAiSU5ESUdPIFBhYVMgT3JjaGVzdHJhdG9yIgogICAgICAgICAgICAgICAgaW0gPSBjb250YWluZXIgIkluZnJhc3RydWN0dXJlIE1hbmFnZXIiCgogICAgICAgICAgICAgICAgY29lID0gY29udGFpbmVyICJDb250YWluZXIgT3JjaGVzdHJhdGlvbiBFbmdpbmUiICIiICJNZXNvcyIKCiAgICAgICAgICAgICAgICB0b3NjYV9yZXBvID0gY29udGFpbmVyICJUb3BvbG9naWVzIHJlcG9zaXRvcnkiICIiICJUT1NDQSIgInJlcG9zaXRvcnkiCgogICAgICAgICAgICAgICAgaWFtID0gY29udGFpbmVyICJJZGVudGl0eSBhbmQgQWNjZXNzIE1hbmFnZW1lbnQiICIiICJJTkRJR08gSUFNIgoKICAgICAgICAgICAgICAgIG1vZGVsX2NvbnRhaW5lciA9IGNvbnRhaW5lciAiTW9kZWwgY29udGFpbmVyIiAiIiAiRG9ja2VyIiB7CiAgICAgICAgICAgICAgICAgICAgYXBpID0gY29tcG9uZW50ICJBUEkiICIiICJERUVQYWFTIEFQSSIKCiAgICAgICAgICAgICAgICAgICAgZnJhbWV3b3JrID0gY29tcG9uZW50ICJNTC9BSSBmcmFtZXdvcmsiCgogICAgICAgICAgICAgICAgICAgIHVzZXJfbW9kZWwgPSBjb21wb25lbnQgIlVzZXIgY29kZSBhbmQgbW9kZWwiCgogICAgICAgICAgICAgICAgICAgIGFwaSAtPiB1c2VyX21vZGVsCiAgICAgICAgICAgICAgICAgICAgdXNlcl9tb2RlbCAtPiBmcmFtZXdvcmsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQoKICAgICAgICAgICAgZGVlcGFhcyA9IHNvZnR3YXJlU3lzdGVtICJERUVQIGFzIGEgU2VydmljZSIgewogICAgICAgICAgICAgICAgb3BlbndoaXNrID0gY29udGFpbmVyICJTZXJ2ZXJsZXNzIHBsYXRmb3JtIiAiIiAiT3BlbldoaXNrIgogICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICBkZWVwX2Nvbm5lY3RvciA9IGNvbnRhaW5lciAiREVFUCAtIFNlcnZlcmxlc3MgY29ubmVjdG9yIgoKICAgICAgICAgICAgICAgIGRlZXBhYXNfY29udGFpbmVyID0gY29udGFpbmVyICJERUVQYWFTIENvbnRhaW5hciIKICAgICAgICAgICAgfQogICAgICAgIH0KCiAgICAgICAgc3RvcmFnZSA9IHNvZnR3YXJlU3lzdGVtICJTdG9yYWdlIFNlcnZpY2VzIgoKICAgICAgICAjIFVzZXIgLSBzeXN0ZW0gaW50ZXJhY3Rpb24KICAgICAgICB1c2VyIC0+IGNhdGFsb2cgIlB1Ymxpc2ggYW5kIHNoYXJlIG1vZGVsIgogICAgICAgIHVzZXIgLT4gdHJhaW5pbmcgIkJ1aWxkIGFuZCB0cmFpbiBkZWVwIGxlYXJuaW5nIG1vZGVsIgogICAgICAgIHVzZXIgLT4gZGVlcGFhcyAiRGVwbG95IG1vZGVsIGFzIGEgc2VydmljZSIKCiAgICAgICAgIyBTeXN0ZW0gLSBzeXN0ZW0gaW50ZXJhY3Rpb24KICAgICAgICBjYXRhbG9nIC0+IHRyYWluaW5nICJSZXVzZSBhbmQgZXh0ZW5kIgogICAgICAgIHRyYWluaW5nIC0+IGNhdGFsb2cgIlN0b3JlIG5ldyBtb2RlbCIKICAgICAgICBjYXRhbG9nIC0+IGRlZXBhYXMgIlB1Ymxpc2ggbmV3IHNlcnZpY2UiCiAgICAgICAgdHJhaW5pbmcgLT4gc3RvcmFnZSAiTW9kZWwgcmVzdWx0cyIKICAgICAgICBzdG9yYWdlIC0+IHRyYWluaW5nICJJbnB1dCBkYXRhIgogICAgICAgIHN0b3JhZ2UgLT4gZGVlcGFhcyAiRGF0YSBhbmQgY29uZmlndXJhdGlvbiIKICAgICAgICBkZWVwYWFzIC0+IHN0b3JhZ2UgIk1vZGVsIHJlc3VsdHMiCgogICAgICAgICMgQ29udGFpbmVyIGxldmVsCgogICAgICAgIHVzZXIgLT4gbWFya2V0cGxhY2UgIkJyb3dzZSBhbmQgZG93bmxvYWQgbW9kZWxzIgogICAgICAgIHVzZXIgLT4gY2F0YWxvZ19yZXBvICJDcmVhdGUvdXBkYXRlIG1vZGVsIgogICAgICAgIG1hcmtldHBsYWNlIC0+IGNhdGFsb2dfcmVwbyAiUG9pbnRzIHRvIgogICAgICAgIG1hcmtldHBsYWNlIC0+IGNvbnRhaW5lcl9yZXBvICJQb2ludHMgdG8iCiAgICAgICAgY2F0YWxvZ19yZXBvIC0+IGplbmtpbnMgIlRyaWdnZXJzIGNhdGFsb2cgdXBkYXRlIgogICAgICAgIGplbmtpbnMgLT4gbWFya2V0cGxhY2UgIkdlbmVyYXRlcyB3ZWIgcGFnZSIKICAgICAgICBqZW5raW5zIC0+IGNvbnRhaW5lcl9yZXBvICJDcmVhdGUgRG9ja2VyIGNvbnRhaW5lciIKCiAgICAgICAgdXNlciAtPiBkYXNoYm9hcmQgIlRyYWluIG5ldyBtb2RlbCBvciB1cGRhdGUgZXhpc3RpbmciCiAgICAgICAgZGFzaGJvYXJkIC0+IGNhdGFsb2dfcmVwbyAiUmVhZCBtb2RlbHMiCiAgICAgICAgZGFzaGJvYXJkIC0+IHRvc2NhX3JlcG8gIlJlYWQgdG9wb2xvZ2llcyIKCiAgICAgICAgYTRjIC0+IHBhYXNfb3JjaGVzdHJhdG9yICJDcmVhdGUgdG9wb2xvZ3kiIgogICAgICAgIGE0YyAtPiB0b3NjYV9yZXBvICJSZWFkIFRvcG9sb2dpZXMiCgogICAgICAgIGRhc2hib2FyZCAtPiBwYWFzX29yY2hlc3RyYXRvciAiQ3JlYXRlIHRyYWluaW5nIgogICAgICAgIHBhYXNfZGFzaGJvYXJkIC0+IHBhYXNfb3JjaGVzdHJhdG9yICJDcmVhdGUgZGVwbG95bWVudCIKICAgICAgICBwYWFzX2Rhc2hib2FyZCAtPiB0b3NjYV9yZXBvICJSZWFkIHRvcG9sb2dpZXMiCiAgICAgICAgcGFhc19vcmNoZXN0cmF0b3IgLT4gdG9zY2FfcmVwbyAiUmVhZCB0b3BvbG9naWVzIgogICAgICAgIHBhYXNfb3JjaGVzdHJhdG9yIC0+IGltICJVc2VzIgoKICAgICAgICBwYWFzX29yY2hlc3RyYXRvciAtPiBpYW0gIkF1dGhOL1oiCiAgICAgICAgaW0gLT4gaWFtICJBdXRoTi9aIgogICAgICAgIGNvZSAtPiBpYW0gIkF1dGhOL1oiCgogICAgICAgIHBhYXNfb3JjaGVzdHJhdG9yIC0+IGNvZSAiQ3JlYXRlIENvbnRhaW5lciIKICAgICAgICBpbSAtPiBjb2UgIlByb3Zpc2lvbnMiCgogICAgICAgIGNvZSAtPiBtb2RlbF9jb250YWluZXIgIkNyZWF0ZSBDb250YWluZXJzIgogICAgICAgIHVzZXIgLT4gbW9kZWxfY29udGFpbmVyICJUcmFpbi9QcmVkaWN0IgoKICAgICAgICBtb2RlbF9jb250YWluZXIgLT4gY29udGFpbmVyX3JlcG8gIlN0b3JlZCBpbiIKCiAgICAgICAgamVua2lucyAtPiBkZWVwX2Nvbm5lY3RvciAiVHJpZ2dlciB1cGRhdGUiCiAgICAgICAgZGVlcF9jb25uZWN0b3IgLT4gb3BlbndoaXNrICJDcmVhdGUvZGVsZXRlL3VwZGF0ZSBhY3Rpb25zIgogICAgICAgIG9wZW53aGlzayAtPiBjb2UgIkNyZWF0ZSBjb250YWluZXIgZnVuY3Rpb25zIgogICAgICAgIG9wZW53aGlzayAtPiBkZWVwYWFzX2NvbnRhaW5lciAiUmVkaXJlY3RzIHRvIgoKICAgICAgICBkZWVwYWFzX2NvbnRhaW5lciAtPiBtb2RlbF9jb250YWluZXIgIlN0b3JlZCBpbiIKICAgICAgICBjb2UgLT4gZGVlcGFhc19jb250YWluZXIgIkNyZWF0ZXMgQ29udGFpbmVycyIKCiAgICAgICAgdXNlciAtPiBhcGkKCiAgICAgICAgYWFpIC0+IGlhbSAiRmVkZXJhdGUgdXNlcnMiCiMgICAgICAgIG1lc29zIC0+IG1vZGVsX2NvbnRhaW5lcgoKICAgICAgICBkZXBsb3ltZW50RW52aXJvbm1lbnQgIlByb2R1Y3Rpb24iIHsKICAgICAgICAgICAgaWZjYV9pbnN0YW5jZSA9IGRlcGxveW1lbnRHcm91cCAiSUZDQSBNZXNvcyBJbnN0YW5jZSIKICAgICAgICAgICAgaWlzYXNfaW5zdGFuY2UgPSBkZXBsb3ltZW50R3JvdXAgIklJU0FTIE1lc29zIEluc3RhbmNlIgoKICAgICAgICAgICAgZGVwbG95bWVudE5vZGUgIkdpdEh1YiIgewogICAgICAgICAgICAgICAgZGVwbG95bWVudE5vZGUgIm1hcmtldHBsYWNlLmRlZXAtaHlicmlkLWRhdGFjbG91ZC5ldSIgIiIgIkdpdEh1YiBQYWdlcyIgewogICAgICAgICAgICAgICAgICAgIGNvbnRhaW5lckluc3RhbmNlIG1hcmtldHBsYWNlCiAgICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgY29udGFpbmVySW5zdGFuY2UgY2F0YWxvZ19yZXBvCiAgICAgICAgICAgICAgICBjb250YWluZXJJbnN0YW5jZSB0b3NjYV9yZXBvCiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIGRlcGxveW1lbnROb2RlICJDb250YWluZXIgcmVnaXN0cnkiICIiICJEb2NrZXIgcmVnaXN0cnkiIHsKICAgICAgICAgICAgICAgIERvY2tlckh1YiA9IGNvbnRhaW5lckluc3RhbmNlIGNvbnRhaW5lcl9yZXBvIAogICAgICAgICAgICB9CiAgICAgICAgICAgIAoKICAgICAgICAgICAgZGVwbG95bWVudE5vZGUgIklGQ0EtQ1NJQyIgewogICAgICAgICAgICAgICAgZGVwbG95bWVudE5vZGUgIklGQ0EgQ2xvdWQiICIiICJPcGVuU3RhY2siIHsKICAgICAgICAgICAgICAgICAgICBkZXBsb3ltZW50Tm9kZSAidHJhaW4uZGVlcC1oeWJyaWQtZGF0YWNsb3VkLmV1IiAiIiAibmdpbngiIHsKICAgICAgICAgICAgICAgICAgICAgICAgY29udGFpbmVySW5zdGFuY2UgZGFzaGJvYXJkCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIGRlcGxveW1lbnROb2RlICJtZXNvcy5jbG91ZC5pZmNhLmVzIiAgewogICAgICAgICAgICAgICAgICAgICAgICBjb250YWluZXJJbnN0YW5jZSBjb2UgCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIGRlcGxveW1lbnROb2RlICJ2bSouY2xvdWQuaWZjYS5lcyIgIiIgIiIgIiIgMTAwIHsKICAgICAgICAgICAgICAgICAgICAgICAgZGVwbG95bWVudE5vZGUgIk1lc29zIEFnZW50IiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkZXBsb3ltZW50Tm9kZSAiRG9ja2VyIiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29udGFpbmVySW5zdGFuY2UgbW9kZWxfY29udGFpbmVyIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRhaW5lckluc3RhbmNlIGRlZXBhYXNfY29udGFpbmVyIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIGRlcGxveW1lbnROb2RlICJqZW5raW5zLmluZGlnby1kYXRhY2xvdWQuZXUiIHsKICAgICAgICAgICAgICAgICAgICAgICAgY29udGFpbmVySW5zdGFuY2UgamVua2lucwogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICBkZXBsb3ltZW50Tm9kZSAiZGVlcGFhcy5kZWVwLWh5YnJpZC1kYXRhY2xvdWQuZXUiICIiICJPcGVuV2hpc2siIHsKICAgICAgICAgICAgICAgICAgICAgICAgY29udGFpbmVySW5zdGFuY2Ugb3BlbndoaXNrCiAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRhaW5lckluc3RhbmNlIGRlZXBfY29ubmVjdG9yCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CgogICAgICAgICAgICBkZXBsb3ltZW50Tm9kZSAiSUlTQVMiIHsKICAgICAgICAgICAgICAgIGRlcGxveW1lbnROb2RlICJtZXNvcy51aS5zYXYuc2siICB7CiAgICAgICAgICAgICAgICAgICAgaWlzYXNfbWVzb3MgPSBjb250YWluZXJJbnN0YW5jZSBjb2UgaWlzYXNfaW5zdGFuY2UKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIGRlcGxveW1lbnROb2RlICJ2bSoiICIiICIiICIiIDEwIHsKICAgICAgICAgICAgICAgICAgICBkZXBsb3ltZW50Tm9kZSAiTWVzb3MgQWdlbnQiIHsKICAgICAgICAgICAgICAgICAgICAgICAgZGVwbG95bWVudE5vZGUgIkRvY2tlciIgewogICAgICAgICAgICAgICAgICAgICAgICAgICAgaWlzYXNfY29udGFpbmVyID0gY29udGFpbmVySW5zdGFuY2UgbW9kZWxfY29udGFpbmVyIGlpc2FzX2luc3RhbmNlCiAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB9CgogICAgICAgICAgICB9CiAgICAgICAgICAgIAogICAgICAgICAgICBkZXBsb3ltZW50Tm9kZSAiTElQIiB7CiAgICAgICAgICAgICAgICBkZXBsb3ltZW50Tm9kZSAiYTRjLmRlZXAtaHlicmlkLWRhdGFjbG91ZC5ldSIgIHsKICAgICAgICAgICAgICAgICAgICBjb250YWluZXJJbnN0YW5jZSBhNGMKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQoKICAgICAgICAgICAgZGVwbG95bWVudE5vZGUgIklORk4tQ05BRiIgewogICAgICAgICAgICAgICAgZGVwbG95bWVudE5vZGUgImlhbS5kZWVwLWh5YnJpZC1kYXRhY2xvdWQuZXUiICIiICJuZ2lueCIgewogICAgICAgICAgICAgICAgICAgIGNvbnRhaW5lckluc3RhbmNlIGlhbQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CgogICAgICAgICAgICBkZXBsb3ltZW50Tm9kZSAiSU5GTi1CQVJJIiB7CiAgICAgICAgICAgICAgICBkZXBsb3ltZW50Tm9kZSAiZGVlcC1wYWFzLmNsb3VkLmJhLmluZm4uaXQiICIiICJuZ2lueCIgewogICAgICAgICAgICAgICAgICAgIGNvbnRhaW5lckluc3RhbmNlIHBhYXNfZGFzaGJvYXJkCiAgICAgICAgICAgICAgICAgICAgY29udGFpbmVySW5zdGFuY2UgcGFhc19vcmNoZXN0cmF0b3IKICAgICAgICAgICAgICAgICAgICBjb250YWluZXJJbnN0YW5jZSBpbQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CgogICAgICAgIH0KICAgIH0KCiAgICB2aWV3cyB7CiAgICAgICAgdGhlbWUgRGVmYXVsdAogICAgICAgIAogICAgICAgIHN5c3RlbUxhbmRzY2FwZSB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KICAgICAgICAKICAgICAgICBjb250YWluZXIgY2F0YWxvZyB7CiAgICAgICAgICAgIGluY2x1ZGUgKgojICAgICAgICAgICAgYXV0b0xheW91dAogICAgICAgIH0KCiAgICAgICAgY29udGFpbmVyIHRyYWluaW5nIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQoKICAgICAgICBjb250YWluZXIgZGVlcGFhcyB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KICAgICAgICAKICAgICAgICBjb21wb25lbnQgbW9kZWxfY29udGFpbmVyIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQogICAgICAgIAogICAgICAgIGRlcGxveW1lbnQgKiAiUHJvZHVjdGlvbiIgewogICAgICAgICAgICBpbmNsdWRlICoKIyAgICAgICAgICAgIGF1dG9MYXlvdXQKICAgICAgICB9CiAgICAgICAgZGVwbG95bWVudCBjYXRhbG9nICJQcm9kdWN0aW9uIiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KCiAgICAgICAgZGVwbG95bWVudCB0cmFpbmluZyAiUHJvZHVjdGlvbiIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CgojICAgICAgICBzdHlsZXMgewojICAgICAgICAgICAgZWxlbWVudCAiZGFzaGJvYXJkIiB7CiMgICAgICAgICAgICAgICAgc2hhcGUgV2ViQnJvd3NlcgojICAgICAgICAgICAgfSAgICAgICAKIwojICAgICAgICAgICAgZWxlbWVudCAicmVwb3NpdG9yeSIgewojICAgICAgICAgICAgICAgIHNoYXBlIEN5bGluZGVyCiMgICAgICAgICAgICB9CiMgICAgICAgIH0KICAgIH0KfQo="
+  },
+  "configuration" : { },
+  "model" : {
+    "enterprise" : {
+      "name" : "DEEP-Hybrid-DataCloud"
+    },
+    "people" : [ {
+      "id" : "1",
+      "tags" : "Element,Person",
+      "name" : "EOSC User",
+      "relationships" : [ {
+        "id" : "5",
+        "tags" : "Relationship",
+        "sourceId" : "1",
+        "destinationId" : "3",
+        "description" : "Browse resources"
+      } ],
+      "location" : "External"
+    }, {
+      "id" : "6",
+      "tags" : "Element,Person",
+      "name" : "AI Scientist",
+      "relationships" : [ {
+        "id" : "32",
+        "tags" : "Relationship",
+        "sourceId" : "6",
+        "destinationId" : "7",
+        "description" : "Publish and share model"
+      }, {
+        "id" : "33",
+        "tags" : "Relationship",
+        "sourceId" : "6",
+        "destinationId" : "12",
+        "description" : "Build and train deep learning model"
+      }, {
+        "id" : "34",
+        "tags" : "Relationship",
+        "sourceId" : "6",
+        "destinationId" : "27",
+        "description" : "Deploy model as a service"
+      }, {
+        "id" : "42",
+        "tags" : "Relationship",
+        "sourceId" : "6",
+        "destinationId" : "8",
+        "description" : "Browse and download models"
+      }, {
+        "id" : "43",
+        "tags" : "Relationship",
+        "sourceId" : "6",
+        "destinationId" : "9",
+        "description" : "Create/update model"
+      }, {
+        "id" : "49",
+        "tags" : "Relationship",
+        "sourceId" : "6",
+        "destinationId" : "13",
+        "description" : "Train new model or update existing"
+      }, {
+        "id" : "67",
+        "tags" : "Relationship",
+        "sourceId" : "6",
+        "destinationId" : "21",
+        "description" : "Train/Predict"
+      }, {
+        "id" : "87",
+        "tags" : "Relationship",
+        "sourceId" : "6",
+        "destinationId" : "22"
+      } ],
+      "location" : "External"
+    } ],
+    "softwareSystems" : [ {
+      "id" : "2",
+      "tags" : "Element,Software System",
+      "name" : "AAI",
+      "relationships" : [ {
+        "id" : "4",
+        "tags" : "Relationship",
+        "sourceId" : "2",
+        "destinationId" : "3",
+        "description" : "Provides authentication"
+      }, {
+        "id" : "88",
+        "tags" : "Relationship",
+        "sourceId" : "2",
+        "destinationId" : "20",
+        "description" : "Federate users"
+      }, {
+        "id" : "89",
+        "sourceId" : "2",
+        "destinationId" : "12",
+        "description" : "Federate users",
+        "linkedRelationshipId" : "88"
+      } ],
+      "group" : "EOSC",
+      "location" : "External",
+      "documentation" : { }
+    }, {
+      "id" : "3",
+      "tags" : "Element,Software System",
+      "name" : "EOSC Portal",
+      "group" : "EOSC",
+      "location" : "External",
+      "documentation" : { }
+    }, {
+      "id" : "7",
+      "tags" : "Element,Software System",
+      "name" : "DEEP Open Catatalog",
+      "relationships" : [ {
+        "id" : "35",
+        "tags" : "Relationship",
+        "sourceId" : "7",
+        "destinationId" : "12",
+        "description" : "Reuse and extend"
+      }, {
+        "id" : "37",
+        "tags" : "Relationship",
+        "sourceId" : "7",
+        "destinationId" : "27",
+        "description" : "Publish new service"
+      }, {
+        "id" : "73",
+        "sourceId" : "7",
+        "destinationId" : "29",
+        "description" : "Trigger update",
+        "linkedRelationshipId" : "71"
+      } ],
+      "location" : "Internal",
+      "containers" : [ {
+        "id" : "10",
+        "tags" : "Element,Container",
+        "name" : "CI/CD",
+        "relationships" : [ {
+          "id" : "47",
+          "tags" : "Relationship",
+          "sourceId" : "10",
+          "destinationId" : "8",
+          "description" : "Generates web page"
+        }, {
+          "id" : "48",
+          "tags" : "Relationship",
+          "sourceId" : "10",
+          "destinationId" : "11",
+          "description" : "Create Docker container"
+        }, {
+          "id" : "71",
+          "tags" : "Relationship",
+          "sourceId" : "10",
+          "destinationId" : "29",
+          "description" : "Trigger update"
+        }, {
+          "id" : "72",
+          "sourceId" : "10",
+          "destinationId" : "27",
+          "description" : "Trigger update",
+          "linkedRelationshipId" : "71"
+        } ],
+        "technology" : "Jenkins"
+      }, {
+        "id" : "8",
+        "tags" : "Element,Container,dashboard",
+        "name" : "DEEP marketplace",
+        "relationships" : [ {
+          "id" : "44",
+          "tags" : "Relationship",
+          "sourceId" : "8",
+          "destinationId" : "9",
+          "description" : "Points to"
+        }, {
+          "id" : "45",
+          "tags" : "Relationship",
+          "sourceId" : "8",
+          "destinationId" : "11",
+          "description" : "Points to"
+        } ],
+        "technology" : "Pelican"
+      }, {
+        "id" : "11",
+        "tags" : "Element,Container,repository",
+        "name" : "Container registry",
+        "technology" : "DockerHub"
+      }, {
+        "id" : "9",
+        "tags" : "Element,Container,repository",
+        "name" : "DEEP Catalog",
+        "relationships" : [ {
+          "id" : "46",
+          "tags" : "Relationship",
+          "sourceId" : "9",
+          "destinationId" : "10",
+          "description" : "Triggers catalog update"
+        } ],
+        "technology" : "GitHub"
+      } ],
+      "documentation" : { }
+    }, {
+      "id" : "12",
+      "tags" : "Element,Software System",
+      "name" : "DEEP Training Facility",
+      "relationships" : [ {
+        "id" : "36",
+        "tags" : "Relationship",
+        "sourceId" : "12",
+        "destinationId" : "7",
+        "description" : "Store new model"
+      }, {
+        "id" : "38",
+        "tags" : "Relationship",
+        "sourceId" : "12",
+        "destinationId" : "31",
+        "description" : "Model results"
+      }, {
+        "id" : "52",
+        "sourceId" : "12",
+        "destinationId" : "9",
+        "description" : "Read models",
+        "linkedRelationshipId" : "50"
+      }, {
+        "id" : "70",
+        "sourceId" : "12",
+        "destinationId" : "11",
+        "description" : "Stored in",
+        "linkedRelationshipId" : "68"
+      }, {
+        "id" : "85",
+        "sourceId" : "12",
+        "destinationId" : "30",
+        "description" : "Creates Containers",
+        "linkedRelationshipId" : "83"
+      }, {
+        "id" : "86",
+        "sourceId" : "12",
+        "destinationId" : "27",
+        "description" : "Creates Containers",
+        "linkedRelationshipId" : "83"
+      } ],
+      "location" : "Internal",
+      "containers" : [ {
+        "id" : "15",
+        "tags" : "Element,Container,dashboard",
+        "name" : "Topology Composer",
+        "relationships" : [ {
+          "id" : "54",
+          "tags" : "Relationship",
+          "sourceId" : "15",
+          "destinationId" : "16",
+          "description" : "Create topology"
+        }, {
+          "id" : "55",
+          "tags" : "Relationship",
+          "sourceId" : "15",
+          "destinationId" : "19",
+          "description" : "Read Topologies"
+        } ],
+        "technology" : "Alien4Cloud"
+      }, {
+        "id" : "17",
+        "tags" : "Element,Container",
+        "name" : "Infrastructure Manager",
+        "relationships" : [ {
+          "id" : "62",
+          "tags" : "Relationship",
+          "sourceId" : "17",
+          "destinationId" : "20",
+          "description" : "AuthN/Z"
+        }, {
+          "id" : "65",
+          "tags" : "Relationship",
+          "sourceId" : "17",
+          "destinationId" : "18",
+          "description" : "Provisions"
+        } ]
+      }, {
+        "id" : "13",
+        "tags" : "Element,Container,dashboard",
+        "name" : "DEEP Dashboard",
+        "relationships" : [ {
+          "id" : "50",
+          "tags" : "Relationship",
+          "sourceId" : "13",
+          "destinationId" : "9",
+          "description" : "Read models"
+        }, {
+          "id" : "51",
+          "sourceId" : "13",
+          "destinationId" : "7",
+          "description" : "Read models",
+          "linkedRelationshipId" : "50"
+        }, {
+          "id" : "53",
+          "tags" : "Relationship",
+          "sourceId" : "13",
+          "destinationId" : "19",
+          "description" : "Read topologies"
+        }, {
+          "id" : "56",
+          "tags" : "Relationship",
+          "sourceId" : "13",
+          "destinationId" : "16",
+          "description" : "Create training"
+        } ],
+        "technology" : "aiohttp"
+      }, {
+        "id" : "14",
+        "tags" : "Element,Container,dashboard",
+        "name" : "PaaS Dashboard",
+        "relationships" : [ {
+          "id" : "57",
+          "tags" : "Relationship",
+          "sourceId" : "14",
+          "destinationId" : "16",
+          "description" : "Create deployment"
+        }, {
+          "id" : "58",
+          "tags" : "Relationship",
+          "sourceId" : "14",
+          "destinationId" : "19",
+          "description" : "Read topologies"
+        } ],
+        "technology" : "Flask"
+      }, {
+        "id" : "16",
+        "tags" : "Element,Container",
+        "name" : "PaaS Orchestrator",
+        "relationships" : [ {
+          "id" : "59",
+          "tags" : "Relationship",
+          "sourceId" : "16",
+          "destinationId" : "19",
+          "description" : "Read topologies"
+        }, {
+          "id" : "60",
+          "tags" : "Relationship",
+          "sourceId" : "16",
+          "destinationId" : "17",
+          "description" : "Uses"
+        }, {
+          "id" : "61",
+          "tags" : "Relationship",
+          "sourceId" : "16",
+          "destinationId" : "20",
+          "description" : "AuthN/Z"
+        }, {
+          "id" : "64",
+          "tags" : "Relationship",
+          "sourceId" : "16",
+          "destinationId" : "18",
+          "description" : "Create Container"
+        } ],
+        "technology" : "INDIGO PaaS Orchestrator"
+      }, {
+        "id" : "19",
+        "tags" : "Element,Container,repository",
+        "name" : "Topologies repository",
+        "technology" : "TOSCA"
+      }, {
+        "id" : "21",
+        "tags" : "Element,Container",
+        "name" : "Model container",
+        "relationships" : [ {
+          "id" : "68",
+          "tags" : "Relationship",
+          "sourceId" : "21",
+          "destinationId" : "11",
+          "description" : "Stored in"
+        }, {
+          "id" : "69",
+          "sourceId" : "21",
+          "destinationId" : "7",
+          "description" : "Stored in",
+          "linkedRelationshipId" : "68"
+        } ],
+        "technology" : "Docker",
+        "components" : [ {
+          "id" : "22",
+          "tags" : "Element,Component",
+          "name" : "API",
+          "relationships" : [ {
+            "id" : "25",
+            "tags" : "Relationship",
+            "sourceId" : "22",
+            "destinationId" : "24"
+          } ],
+          "technology" : "DEEPaaS API",
+          "size" : 0
+        }, {
+          "id" : "24",
+          "tags" : "Element,Component",
+          "name" : "User code and model",
+          "relationships" : [ {
+            "id" : "26",
+            "tags" : "Relationship",
+            "sourceId" : "24",
+            "destinationId" : "23"
+          } ],
+          "size" : 0
+        }, {
+          "id" : "23",
+          "tags" : "Element,Component",
+          "name" : "ML/AI framework",
+          "size" : 0
+        } ]
+      }, {
+        "id" : "20",
+        "tags" : "Element,Container",
+        "name" : "Identity and Access Management",
+        "technology" : "INDIGO IAM"
+      }, {
+        "id" : "18",
+        "tags" : "Element,Container",
+        "name" : "Container Orchestration Engine",
+        "relationships" : [ {
+          "id" : "63",
+          "tags" : "Relationship",
+          "sourceId" : "18",
+          "destinationId" : "20",
+          "description" : "AuthN/Z"
+        }, {
+          "id" : "66",
+          "tags" : "Relationship",
+          "sourceId" : "18",
+          "destinationId" : "21",
+          "description" : "Create Containers"
+        }, {
+          "id" : "83",
+          "tags" : "Relationship",
+          "sourceId" : "18",
+          "destinationId" : "30",
+          "description" : "Creates Containers"
+        }, {
+          "id" : "84",
+          "sourceId" : "18",
+          "destinationId" : "27",
+          "description" : "Creates Containers",
+          "linkedRelationshipId" : "83"
+        } ],
+        "technology" : "Mesos"
+      } ],
+      "documentation" : { }
+    }, {
+      "id" : "27",
+      "tags" : "Element,Software System",
+      "name" : "DEEP as a Service",
+      "relationships" : [ {
+        "id" : "41",
+        "tags" : "Relationship",
+        "sourceId" : "27",
+        "destinationId" : "31",
+        "description" : "Model results"
+      }, {
+        "id" : "77",
+        "sourceId" : "27",
+        "destinationId" : "18",
+        "description" : "Create container functions",
+        "linkedRelationshipId" : "75"
+      }, {
+        "id" : "78",
+        "sourceId" : "27",
+        "destinationId" : "12",
+        "description" : "Create container functions",
+        "linkedRelationshipId" : "75"
+      }, {
+        "id" : "82",
+        "sourceId" : "27",
+        "destinationId" : "21",
+        "description" : "Stored in",
+        "linkedRelationshipId" : "80"
+      } ],
+      "location" : "Internal",
+      "containers" : [ {
+        "id" : "29",
+        "tags" : "Element,Container",
+        "name" : "DEEP - Serverless connector",
+        "relationships" : [ {
+          "id" : "74",
+          "tags" : "Relationship",
+          "sourceId" : "29",
+          "destinationId" : "28",
+          "description" : "Create/delete/update actions"
+        } ]
+      }, {
+        "id" : "30",
+        "tags" : "Element,Container",
+        "name" : "DEEPaaS Containar",
+        "relationships" : [ {
+          "id" : "80",
+          "tags" : "Relationship",
+          "sourceId" : "30",
+          "destinationId" : "21",
+          "description" : "Stored in"
+        }, {
+          "id" : "81",
+          "sourceId" : "30",
+          "destinationId" : "12",
+          "description" : "Stored in",
+          "linkedRelationshipId" : "80"
+        } ]
+      }, {
+        "id" : "28",
+        "tags" : "Element,Container",
+        "name" : "Serverless platform",
+        "relationships" : [ {
+          "id" : "75",
+          "tags" : "Relationship",
+          "sourceId" : "28",
+          "destinationId" : "18",
+          "description" : "Create container functions"
+        }, {
+          "id" : "76",
+          "sourceId" : "28",
+          "destinationId" : "12",
+          "description" : "Create container functions",
+          "linkedRelationshipId" : "75"
+        }, {
+          "id" : "79",
+          "tags" : "Relationship",
+          "sourceId" : "28",
+          "destinationId" : "30",
+          "description" : "Redirects to"
+        } ],
+        "technology" : "OpenWhisk"
+      } ],
+      "documentation" : { }
+    }, {
+      "id" : "31",
+      "tags" : "Element,Software System",
+      "name" : "Storage Services",
+      "relationships" : [ {
+        "id" : "39",
+        "tags" : "Relationship",
+        "sourceId" : "31",
+        "destinationId" : "12",
+        "description" : "Input data"
+      }, {
+        "id" : "40",
+        "tags" : "Relationship",
+        "sourceId" : "31",
+        "destinationId" : "27",
+        "description" : "Data and configuration"
+      } ],
+      "location" : "External",
+      "documentation" : { }
+    } ],
+    "deploymentNodes" : [ {
+      "id" : "90",
+      "tags" : "Element,Deployment Node",
+      "name" : "GitHub",
+      "environment" : "Production",
+      "instances" : 1,
+      "children" : [ {
+        "id" : "91",
+        "tags" : "Element,Deployment Node",
+        "name" : "marketplace.deep-hybrid-datacloud.eu",
+        "environment" : "Production",
+        "technology" : "GitHub Pages",
+        "instances" : 1,
+        "containerInstances" : [ {
+          "id" : "92",
+          "tags" : "Container Instance",
+          "relationships" : [ {
+            "id" : "94",
+            "sourceId" : "92",
+            "destinationId" : "93",
+            "description" : "Points to",
+            "linkedRelationshipId" : "44"
+          }, {
+            "id" : "98",
+            "sourceId" : "92",
+            "destinationId" : "97",
+            "description" : "Points to",
+            "linkedRelationshipId" : "45"
+          } ],
+          "environment" : "Production",
+          "deploymentGroups" : [ "Default" ],
+          "instanceId" : 1,
+          "containerId" : "8"
+        } ]
+      } ],
+      "containerInstances" : [ {
+        "id" : "95",
+        "tags" : "Container Instance",
+        "environment" : "Production",
+        "deploymentGroups" : [ "Default" ],
+        "instanceId" : 1,
+        "containerId" : "19"
+      }, {
+        "id" : "93",
+        "tags" : "Container Instance",
+        "relationships" : [ {
+          "id" : "118",
+          "sourceId" : "93",
+          "destinationId" : "117",
+          "description" : "Triggers catalog update",
+          "linkedRelationshipId" : "46"
+        } ],
+        "environment" : "Production",
+        "deploymentGroups" : [ "Default" ],
+        "instanceId" : 1,
+        "containerId" : "9"
+      } ]
+    }, {
+      "id" : "96",
+      "tags" : "Element,Deployment Node",
+      "name" : "Container registry",
+      "environment" : "Production",
+      "technology" : "Docker registry",
+      "instances" : 1,
+      "containerInstances" : [ {
+        "id" : "97",
+        "tags" : "Container Instance",
+        "environment" : "Production",
+        "deploymentGroups" : [ "Default" ],
+        "instanceId" : 1,
+        "containerId" : "11"
+      } ]
+    }, {
+      "id" : "99",
+      "tags" : "Element,Deployment Node",
+      "name" : "IFCA-CSIC",
+      "environment" : "Production",
+      "instances" : 1,
+      "children" : [ {
+        "id" : "100",
+        "tags" : "Element,Deployment Node",
+        "name" : "IFCA Cloud",
+        "environment" : "Production",
+        "technology" : "OpenStack",
+        "instances" : 1,
+        "children" : [ {
+          "id" : "105",
+          "tags" : "Element,Deployment Node",
+          "name" : "mesos.cloud.ifca.es",
+          "environment" : "Production",
+          "instances" : 1,
+          "containerInstances" : [ {
+            "id" : "106",
+            "tags" : "Container Instance",
+            "relationships" : [ {
+              "id" : "111",
+              "sourceId" : "106",
+              "destinationId" : "110",
+              "description" : "Create Containers",
+              "linkedRelationshipId" : "66"
+            }, {
+              "id" : "115",
+              "sourceId" : "106",
+              "destinationId" : "113",
+              "description" : "Creates Containers",
+              "linkedRelationshipId" : "83"
+            }, {
+              "id" : "143",
+              "sourceId" : "106",
+              "destinationId" : "142",
+              "description" : "AuthN/Z",
+              "linkedRelationshipId" : "63"
+            } ],
+            "environment" : "Production",
+            "deploymentGroups" : [ "Default" ],
+            "instanceId" : 1,
+            "containerId" : "18"
+          } ]
+        }, {
+          "id" : "121",
+          "tags" : "Element,Deployment Node",
+          "name" : "deepaas.deep-hybrid-datacloud.eu",
+          "environment" : "Production",
+          "technology" : "OpenWhisk",
+          "instances" : 1,
+          "containerInstances" : [ {
+            "id" : "122",
+            "tags" : "Container Instance",
+            "relationships" : [ {
+              "id" : "123",
+              "sourceId" : "122",
+              "destinationId" : "106",
+              "description" : "Create container functions",
+              "linkedRelationshipId" : "75"
+            }, {
+              "id" : "124",
+              "sourceId" : "122",
+              "destinationId" : "113",
+              "description" : "Redirects to",
+              "linkedRelationshipId" : "79"
+            } ],
+            "environment" : "Production",
+            "deploymentGroups" : [ "Default" ],
+            "instanceId" : 1,
+            "containerId" : "28"
+          }, {
+            "id" : "125",
+            "tags" : "Container Instance",
+            "relationships" : [ {
+              "id" : "127",
+              "sourceId" : "125",
+              "destinationId" : "122",
+              "description" : "Create/delete/update actions",
+              "linkedRelationshipId" : "74"
+            } ],
+            "environment" : "Production",
+            "deploymentGroups" : [ "Default" ],
+            "instanceId" : 1,
+            "containerId" : "29"
+          } ]
+        }, {
+          "id" : "101",
+          "tags" : "Element,Deployment Node",
+          "name" : "train.deep-hybrid-datacloud.eu",
+          "environment" : "Production",
+          "technology" : "nginx",
+          "instances" : 1,
+          "containerInstances" : [ {
+            "id" : "102",
+            "tags" : "Container Instance",
+            "relationships" : [ {
+              "id" : "103",
+              "sourceId" : "102",
+              "destinationId" : "95",
+              "description" : "Read topologies",
+              "linkedRelationshipId" : "53"
+            }, {
+              "id" : "104",
+              "sourceId" : "102",
+              "destinationId" : "93",
+              "description" : "Read models",
+              "linkedRelationshipId" : "50"
+            }, {
+              "id" : "150",
+              "sourceId" : "102",
+              "destinationId" : "148",
+              "description" : "Create training",
+              "linkedRelationshipId" : "56"
+            } ],
+            "environment" : "Production",
+            "deploymentGroups" : [ "Default" ],
+            "instanceId" : 1,
+            "containerId" : "13"
+          } ]
+        }, {
+          "id" : "107",
+          "tags" : "Element,Deployment Node,",
+          "name" : "vm*.cloud.ifca.es",
+          "environment" : "Production",
+          "instances" : 100,
+          "children" : [ {
+            "id" : "108",
+            "tags" : "Element,Deployment Node",
+            "name" : "Mesos Agent",
+            "environment" : "Production",
+            "instances" : 1,
+            "children" : [ {
+              "id" : "109",
+              "tags" : "Element,Deployment Node",
+              "name" : "Docker",
+              "environment" : "Production",
+              "instances" : 1,
+              "containerInstances" : [ {
+                "id" : "110",
+                "tags" : "Container Instance",
+                "relationships" : [ {
+                  "id" : "112",
+                  "sourceId" : "110",
+                  "destinationId" : "97",
+                  "description" : "Stored in",
+                  "linkedRelationshipId" : "68"
+                } ],
+                "environment" : "Production",
+                "deploymentGroups" : [ "Default" ],
+                "instanceId" : 1,
+                "containerId" : "21"
+              }, {
+                "id" : "113",
+                "tags" : "Container Instance",
+                "relationships" : [ {
+                  "id" : "114",
+                  "sourceId" : "113",
+                  "destinationId" : "110",
+                  "description" : "Stored in",
+                  "linkedRelationshipId" : "80"
+                } ],
+                "environment" : "Production",
+                "deploymentGroups" : [ "Default" ],
+                "instanceId" : 1,
+                "containerId" : "30"
+              } ]
+            } ]
+          } ]
+        }, {
+          "id" : "116",
+          "tags" : "Element,Deployment Node",
+          "name" : "jenkins.indigo-datacloud.eu",
+          "environment" : "Production",
+          "instances" : 1,
+          "containerInstances" : [ {
+            "id" : "117",
+            "tags" : "Container Instance",
+            "relationships" : [ {
+              "id" : "119",
+              "sourceId" : "117",
+              "destinationId" : "97",
+              "description" : "Create Docker container",
+              "linkedRelationshipId" : "48"
+            }, {
+              "id" : "120",
+              "sourceId" : "117",
+              "destinationId" : "92",
+              "description" : "Generates web page",
+              "linkedRelationshipId" : "47"
+            }, {
+              "id" : "126",
+              "sourceId" : "117",
+              "destinationId" : "125",
+              "description" : "Trigger update",
+              "linkedRelationshipId" : "71"
+            } ],
+            "environment" : "Production",
+            "deploymentGroups" : [ "Default" ],
+            "instanceId" : 1,
+            "containerId" : "10"
+          } ]
+        } ]
+      } ]
+    }, {
+      "id" : "128",
+      "tags" : "Element,Deployment Node",
+      "name" : "IISAS",
+      "environment" : "Production",
+      "instances" : 1,
+      "children" : [ {
+        "id" : "131",
+        "tags" : "Element,Deployment Node,",
+        "name" : "vm*",
+        "environment" : "Production",
+        "instances" : 10,
+        "children" : [ {
+          "id" : "132",
+          "tags" : "Element,Deployment Node",
+          "name" : "Mesos Agent",
+          "environment" : "Production",
+          "instances" : 1,
+          "children" : [ {
+            "id" : "133",
+            "tags" : "Element,Deployment Node",
+            "name" : "Docker",
+            "environment" : "Production",
+            "instances" : 1,
+            "containerInstances" : [ {
+              "id" : "134",
+              "tags" : "Container Instance",
+              "environment" : "Production",
+              "deploymentGroups" : [ "IISAS Mesos Instance" ],
+              "instanceId" : 1,
+              "containerId" : "21"
+            } ]
+          } ]
+        } ]
+      }, {
+        "id" : "129",
+        "tags" : "Element,Deployment Node",
+        "name" : "mesos.ui.sav.sk",
+        "environment" : "Production",
+        "instances" : 1,
+        "containerInstances" : [ {
+          "id" : "130",
+          "tags" : "Container Instance",
+          "relationships" : [ {
+            "id" : "135",
+            "sourceId" : "130",
+            "destinationId" : "134",
+            "description" : "Create Containers",
+            "linkedRelationshipId" : "66"
+          } ],
+          "environment" : "Production",
+          "deploymentGroups" : [ "IISAS Mesos Instance" ],
+          "instanceId" : 1,
+          "containerId" : "18"
+        } ]
+      } ]
+    }, {
+      "id" : "136",
+      "tags" : "Element,Deployment Node",
+      "name" : "LIP",
+      "environment" : "Production",
+      "instances" : 1,
+      "children" : [ {
+        "id" : "137",
+        "tags" : "Element,Deployment Node",
+        "name" : "a4c.deep-hybrid-datacloud.eu",
+        "environment" : "Production",
+        "instances" : 1,
+        "containerInstances" : [ {
+          "id" : "138",
+          "tags" : "Container Instance",
+          "relationships" : [ {
+            "id" : "139",
+            "sourceId" : "138",
+            "destinationId" : "95",
+            "description" : "Read Topologies",
+            "linkedRelationshipId" : "55"
+          }, {
+            "id" : "154",
+            "sourceId" : "138",
+            "destinationId" : "148",
+            "description" : "Create topology",
+            "linkedRelationshipId" : "54"
+          } ],
+          "environment" : "Production",
+          "deploymentGroups" : [ "Default" ],
+          "instanceId" : 1,
+          "containerId" : "15"
+        } ]
+      } ]
+    }, {
+      "id" : "140",
+      "tags" : "Element,Deployment Node",
+      "name" : "INFN-CNAF",
+      "environment" : "Production",
+      "instances" : 1,
+      "children" : [ {
+        "id" : "141",
+        "tags" : "Element,Deployment Node",
+        "name" : "iam.deep-hybrid-datacloud.eu",
+        "environment" : "Production",
+        "technology" : "nginx",
+        "instances" : 1,
+        "containerInstances" : [ {
+          "id" : "142",
+          "tags" : "Container Instance",
+          "environment" : "Production",
+          "deploymentGroups" : [ "Default" ],
+          "instanceId" : 1,
+          "containerId" : "20"
+        } ]
+      } ]
+    }, {
+      "id" : "144",
+      "tags" : "Element,Deployment Node",
+      "name" : "INFN-BARI",
+      "environment" : "Production",
+      "instances" : 1,
+      "children" : [ {
+        "id" : "145",
+        "tags" : "Element,Deployment Node",
+        "name" : "deep-paas.cloud.ba.infn.it",
+        "environment" : "Production",
+        "technology" : "nginx",
+        "instances" : 1,
+        "containerInstances" : [ {
+          "id" : "146",
+          "tags" : "Container Instance",
+          "relationships" : [ {
+            "id" : "147",
+            "sourceId" : "146",
+            "destinationId" : "95",
+            "description" : "Read topologies",
+            "linkedRelationshipId" : "58"
+          }, {
+            "id" : "153",
+            "sourceId" : "146",
+            "destinationId" : "148",
+            "description" : "Create deployment",
+            "linkedRelationshipId" : "57"
+          } ],
+          "environment" : "Production",
+          "deploymentGroups" : [ "Default" ],
+          "instanceId" : 1,
+          "containerId" : "14"
+        }, {
+          "id" : "155",
+          "tags" : "Container Instance",
+          "relationships" : [ {
+            "id" : "156",
+            "sourceId" : "155",
+            "destinationId" : "106",
+            "description" : "Provisions",
+            "linkedRelationshipId" : "65"
+          }, {
+            "id" : "157",
+            "sourceId" : "155",
+            "destinationId" : "142",
+            "description" : "AuthN/Z",
+            "linkedRelationshipId" : "62"
+          } ],
+          "environment" : "Production",
+          "deploymentGroups" : [ "Default" ],
+          "instanceId" : 1,
+          "containerId" : "17"
+        }, {
+          "id" : "148",
+          "tags" : "Container Instance",
+          "relationships" : [ {
+            "id" : "149",
+            "sourceId" : "148",
+            "destinationId" : "106",
+            "description" : "Create Container",
+            "linkedRelationshipId" : "64"
+          }, {
+            "id" : "151",
+            "sourceId" : "148",
+            "destinationId" : "95",
+            "description" : "Read topologies",
+            "linkedRelationshipId" : "59"
+          }, {
+            "id" : "152",
+            "sourceId" : "148",
+            "destinationId" : "142",
+            "description" : "AuthN/Z",
+            "linkedRelationshipId" : "61"
+          }, {
+            "id" : "158",
+            "sourceId" : "148",
+            "destinationId" : "155",
+            "description" : "Uses",
+            "linkedRelationshipId" : "60"
+          } ],
+          "environment" : "Production",
+          "deploymentGroups" : [ "Default" ],
+          "instanceId" : 1,
+          "containerId" : "16"
+        } ]
+      } ]
+    } ]
+  },
+  "documentation" : {
+    "decisions" : [ {
+      "title" : "Record architecture decisions",
+      "content" : "# 1. Record architecture decisions\n\nDate: 2022-04-11\n\n## Status\n\nAccepted\n\n## Context\n\nWe need to record the architectural decisions made on this project.\n\n## Decision\n\nWe will use Architecture Decision Records, as [described by Michael Nygard](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions).\n\n## Consequences\n\nSee Michael Nygard's article, linked above. For a lightweight ADR toolset, see Nat Pryce's [adr-tools](https://github.com/npryce/adr-tools).\n",
+      "format" : "Markdown",
+      "id" : "1",
+      "date" : "2022-04-11T00:00:00Z",
+      "status" : "Accepted"
+    } ]
+  },
+  "views" : {
+    "systemLandscapeViews" : [ {
+      "key" : "SystemLandscape",
+      "order" : 2,
+      "dimensions" : {
+        "width" : 2904,
+        "height" : 2942
+      },
+      "enterpriseBoundaryVisible" : true,
+      "elements" : [ {
+        "id" : "12",
+        "x" : 970,
+        "y" : 1140
+      }, {
+        "id" : "1",
+        "x" : 2275,
+        "y" : 405
+      }, {
+        "id" : "2",
+        "x" : 1683,
+        "y" : 1140
+      }, {
+        "id" : "3",
+        "x" : 2254,
+        "y" : 1140
+      }, {
+        "id" : "27",
+        "x" : 220,
+        "y" : 1140
+      }, {
+        "id" : "6",
+        "x" : 620,
+        "y" : 2342
+      }, {
+        "id" : "7",
+        "x" : 595,
+        "y" : 1742
+      }, {
+        "id" : "31",
+        "x" : 595,
+        "y" : 540
+      } ],
+      "relationships" : [ {
+        "id" : "86",
+        "vertices" : [ {
+          "x" : 820,
+          "y" : 1140
+        } ]
+      }, {
+        "id" : "40"
+      }, {
+        "id" : "41",
+        "vertices" : [ {
+          "x" : 452,
+          "y" : 927
+        } ]
+      }, {
+        "id" : "32"
+      }, {
+        "id" : "37"
+      }, {
+        "id" : "4"
+      }, {
+        "id" : "36",
+        "vertices" : [ {
+          "x" : 1010,
+          "y" : 1572
+        } ]
+      }, {
+        "id" : "35",
+        "vertices" : [ {
+          "x" : 1127,
+          "y" : 1732
+        } ]
+      }, {
+        "id" : "5"
+      }, {
+        "id" : "34",
+        "vertices" : [ {
+          "x" : 447,
+          "y" : 2327
+        } ]
+      }, {
+        "id" : "33",
+        "vertices" : [ {
+          "x" : 1212,
+          "y" : 2302
+        } ]
+      }, {
+        "id" : "78",
+        "vertices" : [ {
+          "x" : 820,
+          "y" : 1440
+        } ]
+      }, {
+        "id" : "89"
+      }, {
+        "id" : "38",
+        "vertices" : [ {
+          "x" : 1197,
+          "y" : 932
+        } ]
+      }, {
+        "id" : "39"
+      } ]
+    }, {
+      "key" : "eosc",
+      "order" : 1,
+      "automaticLayout" : {
+        "implementation" : "Graphviz",
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "nodeSeparation" : 300,
+        "edgeSeparation" : 0,
+        "vertices" : false
+      },
+      "enterpriseBoundaryVisible" : true,
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "3",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "relationships" : [ {
+        "id" : "4"
+      }, {
+        "id" : "5"
+      } ]
+    } ],
+    "containerViews" : [ {
+      "softwareSystemId" : "7",
+      "key" : "DEEPOpenCatatalog-Container",
+      "order" : 3,
+      "paperSize" : "A4_Portrait",
+      "dimensions" : {
+        "width" : 2362,
+        "height" : 3354
+      },
+      "externalSoftwareSystemBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "11",
+        "x" : 748,
+        "y" : 286
+      }, {
+        "id" : "12",
+        "x" : 1644,
+        "y" : 2086
+      }, {
+        "id" : "27",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "6",
+        "x" : 990,
+        "y" : 2686
+      }, {
+        "id" : "8",
+        "x" : 286,
+        "y" : 2086
+      }, {
+        "id" : "9",
+        "x" : 902,
+        "y" : 1486
+      }, {
+        "id" : "10",
+        "x" : 748,
+        "y" : 886
+      } ],
+      "relationships" : [ {
+        "id" : "70",
+        "vertices" : [ {
+          "x" : 1348,
+          "y" : 886
+        } ]
+      }, {
+        "id" : "72"
+      }, {
+        "id" : "86"
+      }, {
+        "id" : "52"
+      }, {
+        "id" : "42"
+      }, {
+        "id" : "43"
+      }, {
+        "id" : "34"
+      }, {
+        "id" : "33"
+      }, {
+        "id" : "78"
+      }, {
+        "id" : "44"
+      }, {
+        "id" : "45",
+        "vertices" : [ {
+          "x" : 598,
+          "y" : 886
+        } ]
+      }, {
+        "id" : "46"
+      }, {
+        "id" : "47",
+        "vertices" : [ {
+          "x" : 752,
+          "y" : 1486
+        } ]
+      }, {
+        "id" : "48"
+      } ]
+    }, {
+      "softwareSystemId" : "27",
+      "key" : "DEEPasaService-Container",
+      "order" : 5,
+      "paperSize" : "A4_Portrait",
+      "dimensions" : {
+        "width" : 1904,
+        "height" : 2620
+      },
+      "externalSoftwareSystemBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "12",
+        "x" : 1019,
+        "y" : 813
+      }, {
+        "id" : "28",
+        "x" : 269,
+        "y" : 1413
+      }, {
+        "id" : "29",
+        "x" : 269,
+        "y" : 2013
+      }, {
+        "id" : "7",
+        "x" : 1019,
+        "y" : 213
+      }, {
+        "id" : "30",
+        "x" : 269,
+        "y" : 813
+      } ],
+      "relationships" : [ {
+        "id" : "81",
+        "vertices" : [ {
+          "x" : 869,
+          "y" : 1113
+        } ]
+      }, {
+        "id" : "36",
+        "vertices" : [ {
+          "x" : 1394,
+          "y" : 663
+        } ]
+      }, {
+        "id" : "74"
+      }, {
+        "id" : "73",
+        "vertices" : [ {
+          "x" : 1619,
+          "y" : 709
+        }, {
+          "x" : 1619,
+          "y" : 1113
+        } ]
+      }, {
+        "id" : "35",
+        "vertices" : [ {
+          "x" : 1094,
+          "y" : 663
+        } ]
+      }, {
+        "id" : "76"
+      }, {
+        "id" : "85",
+        "vertices" : [ {
+          "x" : 869,
+          "y" : 813
+        } ]
+      }, {
+        "id" : "79"
+      } ]
+    }, {
+      "softwareSystemId" : "12",
+      "key" : "DEEPTrainingFacility-Container",
+      "order" : 4,
+      "paperSize" : "A2_Landscape",
+      "dimensions" : {
+        "width" : 4304,
+        "height" : 3854
+      },
+      "externalSoftwareSystemBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "13",
+        "x" : 1769,
+        "y" : 2636
+      }, {
+        "id" : "14",
+        "x" : 269,
+        "y" : 2636
+      }, {
+        "id" : "15",
+        "x" : 1019,
+        "y" : 2636
+      }, {
+        "id" : "16",
+        "x" : 1377,
+        "y" : 2036
+      }, {
+        "id" : "27",
+        "x" : 2435,
+        "y" : 1436
+      }, {
+        "id" : "17",
+        "x" : 1377,
+        "y" : 1436
+      }, {
+        "id" : "18",
+        "x" : 1769,
+        "y" : 836
+      }, {
+        "id" : "19",
+        "x" : 319,
+        "y" : 1436
+      }, {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "6",
+        "x" : 2781,
+        "y" : 3236
+      }, {
+        "id" : "7",
+        "x" : 3115,
+        "y" : 2036
+      }, {
+        "id" : "20",
+        "x" : 1019,
+        "y" : 236
+      }, {
+        "id" : "21",
+        "x" : 1769,
+        "y" : 236
+      } ],
+      "relationships" : [ {
+        "id" : "51"
+      }, {
+        "id" : "53",
+        "vertices" : [ {
+          "x" : 1227,
+          "y" : 2336
+        }, {
+          "x" : 973,
+          "y" : 2036
+        } ]
+      }, {
+        "id" : "54"
+      }, {
+        "id" : "32"
+      }, {
+        "id" : "67",
+        "vertices" : [ {
+          "x" : 3390,
+          "y" : 3040
+        }, {
+          "x" : 4019,
+          "y" : 2190
+        }, {
+          "x" : 4019,
+          "y" : 1582
+        }, {
+          "x" : 2823,
+          "y" : 836
+        } ]
+      }, {
+        "id" : "66"
+      }, {
+        "id" : "69",
+        "vertices" : [ {
+          "x" : 3035,
+          "y" : 1436
+        } ]
+      }, {
+        "id" : "88"
+      }, {
+        "id" : "49"
+      }, {
+        "id" : "82"
+      }, {
+        "id" : "61",
+        "vertices" : [ {
+          "x" : 1227,
+          "y" : 1736
+        }, {
+          "x" : 1227,
+          "y" : 1436
+        } ]
+      }, {
+        "id" : "60"
+      }, {
+        "id" : "63"
+      }, {
+        "id" : "62"
+      }, {
+        "id" : "84"
+      }, {
+        "id" : "65"
+      }, {
+        "id" : "64",
+        "vertices" : [ {
+          "x" : 1977,
+          "y" : 1736
+        } ]
+      }, {
+        "id" : "37"
+      }, {
+        "id" : "34"
+      }, {
+        "id" : "55"
+      }, {
+        "id" : "56"
+      }, {
+        "id" : "77"
+      }, {
+        "id" : "57"
+      }, {
+        "id" : "58"
+      }, {
+        "id" : "59"
+      } ]
+    } ],
+    "componentViews" : [ {
+      "key" : "DEEPTrainingFacility-Modelcontainer-Component",
+      "order" : 6,
+      "paperSize" : "A4_Portrait",
+      "dimensions" : {
+        "width" : 1108,
+        "height" : 2754
+      },
+      "containerId" : "21",
+      "externalContainerBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "22",
+        "x" : 328,
+        "y" : 1486
+      }, {
+        "id" : "23",
+        "x" : 328,
+        "y" : 286
+      }, {
+        "id" : "24",
+        "x" : 328,
+        "y" : 886
+      }, {
+        "id" : "6",
+        "x" : 353,
+        "y" : 2086
+      } ],
+      "relationships" : [ {
+        "id" : "26"
+      }, {
+        "id" : "25"
+      }, {
+        "id" : "87"
+      } ]
+    } ],
+    "deploymentViews" : [ {
+      "softwareSystemId" : "12",
+      "key" : "DEEPTrainingFacility-Production-Deployment",
+      "order" : 9,
+      "paperSize" : "A1_Landscape",
+      "dimensions" : {
+        "width" : 6608,
+        "height" : 5608
+      },
+      "environment" : "Production",
+      "elements" : [ {
+        "id" : "130",
+        "x" : 1757,
+        "y" : 3027
+      }, {
+        "id" : "131",
+        "x" : 192,
+        "y" : 175
+      }, {
+        "id" : "110",
+        "x" : 2727,
+        "y" : 3027
+      }, {
+        "id" : "132",
+        "x" : 192,
+        "y" : 175
+      }, {
+        "id" : "133",
+        "x" : 192,
+        "y" : 175
+      }, {
+        "id" : "155",
+        "x" : 4702,
+        "y" : 3027
+      }, {
+        "id" : "134",
+        "x" : 2727,
+        "y" : 3027
+      }, {
+        "id" : "136",
+        "x" : 192,
+        "y" : 175
+      }, {
+        "id" : "137",
+        "x" : 192,
+        "y" : 175
+      }, {
+        "id" : "138",
+        "x" : 786,
+        "y" : 4773
+      }, {
+        "id" : "90",
+        "x" : 192,
+        "y" : 175
+      }, {
+        "id" : "95",
+        "x" : 657,
+        "y" : 1523
+      }, {
+        "id" : "99",
+        "x" : 192,
+        "y" : 175
+      }, {
+        "id" : "140",
+        "x" : 192,
+        "y" : 175
+      }, {
+        "id" : "141",
+        "x" : 192,
+        "y" : 175
+      }, {
+        "id" : "142",
+        "x" : 4357,
+        "y" : 448
+      }, {
+        "id" : "100",
+        "x" : 192,
+        "y" : 175
+      }, {
+        "id" : "144",
+        "x" : 192,
+        "y" : 175
+      }, {
+        "id" : "101",
+        "x" : 192,
+        "y" : 175
+      }, {
+        "id" : "145",
+        "x" : 192,
+        "y" : 175
+      }, {
+        "id" : "102",
+        "x" : 3698,
+        "y" : 3027
+      }, {
+        "id" : "146",
+        "x" : 4702,
+        "y" : 4773
+      }, {
+        "id" : "148",
+        "x" : 4702,
+        "y" : 4173
+      }, {
+        "id" : "105",
+        "x" : 192,
+        "y" : 175
+      }, {
+        "id" : "106",
+        "x" : 1757,
+        "y" : 3027
+      }, {
+        "id" : "128",
+        "x" : 192,
+        "y" : 175
+      }, {
+        "id" : "107",
+        "x" : 192,
+        "y" : 175
+      }, {
+        "id" : "129",
+        "x" : 192,
+        "y" : 175
+      }, {
+        "id" : "108",
+        "x" : 192,
+        "y" : 175
+      }, {
+        "id" : "109",
+        "x" : 192,
+        "y" : 175
+      } ],
+      "relationships" : [ {
+        "id" : "153"
+      }, {
+        "id" : "152",
+        "vertices" : [ {
+          "x" : 5532,
+          "y" : 4140
+        }, {
+          "x" : 6302,
+          "y" : 2473
+        }, {
+          "x" : 6302,
+          "y" : 1106
+        } ]
+      }, {
+        "id" : "151",
+        "vertices" : [ {
+          "x" : 1577,
+          "y" : 4140
+        } ]
+      }, {
+        "id" : "150",
+        "vertices" : [ {
+          "x" : 4523,
+          "y" : 4140
+        } ]
+      }, {
+        "id" : "111"
+      }, {
+        "id" : "157",
+        "vertices" : [ {
+          "x" : 4523,
+          "y" : 2473
+        }, {
+          "x" : 4523,
+          "y" : 1106
+        } ]
+      }, {
+        "id" : "135"
+      }, {
+        "id" : "156"
+      }, {
+        "id" : "143"
+      }, {
+        "id" : "154"
+      }, {
+        "id" : "149"
+      }, {
+        "id" : "103",
+        "vertices" : [ {
+          "x" : 3357,
+          "y" : 2506
+        } ]
+      }, {
+        "id" : "139",
+        "vertices" : [ {
+          "x" : 348,
+          "y" : 4473
+        }, {
+          "x" : 348,
+          "y" : 2506
+        } ]
+      }, {
+        "id" : "147",
+        "vertices" : [ {
+          "x" : 1052,
+          "y" : 4140
+        } ]
+      }, {
+        "id" : "158"
+      } ]
+    }, {
+      "key" : "Production-Deployment",
+      "order" : 7,
+      "paperSize" : "A1_Landscape",
+      "dimensions" : {
+        "width" : 6829,
+        "height" : 6366
+      },
+      "environment" : "Production",
+      "elements" : [ {
+        "id" : "130",
+        "x" : 5902,
+        "y" : 549
+      }, {
+        "id" : "131",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "110",
+        "x" : 1044,
+        "y" : 4557
+      }, {
+        "id" : "132",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "133",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "155",
+        "x" : 4794,
+        "y" : 2328
+      }, {
+        "id" : "134",
+        "x" : 5902,
+        "y" : 1578
+      }, {
+        "id" : "113",
+        "x" : 1044,
+        "y" : 3957
+      }, {
+        "id" : "136",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "137",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "116",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "138",
+        "x" : 3710,
+        "y" : 549
+      }, {
+        "id" : "90",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "117",
+        "x" : 810,
+        "y" : 549
+      }, {
+        "id" : "91",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "92",
+        "x" : 2777,
+        "y" : 1578
+      }, {
+        "id" : "93",
+        "x" : 2673,
+        "y" : 2328
+      }, {
+        "id" : "95",
+        "x" : 3527,
+        "y" : 1578
+      }, {
+        "id" : "96",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "97",
+        "x" : 1044,
+        "y" : 5574
+      }, {
+        "id" : "99",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "140",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "141",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "142",
+        "x" : 4794,
+        "y" : 3957
+      }, {
+        "id" : "121",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "122",
+        "x" : 810,
+        "y" : 2328
+      }, {
+        "id" : "100",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "144",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "101",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "145",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "102",
+        "x" : 1573,
+        "y" : 549
+      }, {
+        "id" : "146",
+        "x" : 4794,
+        "y" : 549
+      }, {
+        "id" : "125",
+        "x" : 810,
+        "y" : 1578
+      }, {
+        "id" : "148",
+        "x" : 4794,
+        "y" : 1578
+      }, {
+        "id" : "105",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "106",
+        "x" : 1573,
+        "y" : 3032
+      }, {
+        "id" : "128",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "107",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "129",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "108",
+        "x" : 1274,
+        "y" : 1225
+      }, {
+        "id" : "109",
+        "x" : 1274,
+        "y" : 1225
+      } ],
+      "relationships" : [ {
+        "id" : "94"
+      }, {
+        "id" : "153"
+      }, {
+        "id" : "98",
+        "vertices" : [ {
+          "x" : 3244,
+          "y" : 2295
+        }, {
+          "x" : 3406,
+          "y" : 2328
+        }, {
+          "x" : 3577,
+          "y" : 3178
+        }, {
+          "x" : 3577,
+          "y" : 4112
+        } ]
+      }, {
+        "id" : "152",
+        "vertices" : [ {
+          "x" : 5394,
+          "y" : 2328
+        }, {
+          "x" : 5394,
+          "y" : 2837
+        }, {
+          "x" : 5248,
+          "y" : 3437
+        } ]
+      }, {
+        "id" : "151",
+        "vertices" : [ {
+          "x" : 4596,
+          "y" : 1728
+        }, {
+          "x" : 4174,
+          "y" : 1728
+        } ]
+      }, {
+        "id" : "150",
+        "vertices" : [ {
+          "x" : 3531,
+          "y" : 1057
+        }, {
+          "x" : 4156,
+          "y" : 1091
+        } ]
+      }, {
+        "id" : "119",
+        "vertices" : [ {
+          "x" : 631,
+          "y" : 1091
+        }, {
+          "x" : 356,
+          "y" : 2474
+        }, {
+          "x" : 356,
+          "y" : 4112
+        }, {
+          "x" : 865,
+          "y" : 5378
+        } ]
+      }, {
+        "id" : "118",
+        "vertices" : [ {
+          "x" : 1935,
+          "y" : 2295
+        }, {
+          "x" : 1440,
+          "y" : 1091
+        }, {
+          "x" : 1394,
+          "y" : 1057
+        } ]
+      }, {
+        "id" : "111",
+        "vertices" : [ {
+          "x" : 1644,
+          "y" : 4466
+        } ]
+      }, {
+        "id" : "157"
+      }, {
+        "id" : "135"
+      }, {
+        "id" : "156",
+        "vertices" : [ {
+          "x" : 4569,
+          "y" : 2837
+        } ]
+      }, {
+        "id" : "112"
+      }, {
+        "id" : "154"
+      }, {
+        "id" : "115"
+      }, {
+        "id" : "114"
+      }, {
+        "id" : "139"
+      }, {
+        "id" : "158"
+      }, {
+        "id" : "120",
+        "vertices" : [ {
+          "x" : 1394,
+          "y" : 1057
+        }, {
+          "x" : 1944,
+          "y" : 1091
+        } ]
+      }, {
+        "id" : "124"
+      }, {
+        "id" : "143"
+      }, {
+        "id" : "123"
+      }, {
+        "id" : "127"
+      }, {
+        "id" : "104",
+        "vertices" : [ {
+          "x" : 2598,
+          "y" : 2295
+        } ]
+      }, {
+        "id" : "149",
+        "vertices" : [ {
+          "x" : 4156,
+          "y" : 2837
+        } ]
+      }, {
+        "id" : "103",
+        "vertices" : [ {
+          "x" : 3406,
+          "y" : 1091
+        } ]
+      }, {
+        "id" : "147"
+      }, {
+        "id" : "126"
+      } ]
+    }, {
+      "softwareSystemId" : "7",
+      "key" : "DEEPOpenCatatalog-Production-Deployment",
+      "order" : 8,
+      "environment" : "Production",
+      "elements" : [ {
+        "id" : "99",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "100",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "116",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "90",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "117",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "91",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "92",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "93",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "96",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "97",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "relationships" : [ {
+        "id" : "119"
+      }, {
+        "id" : "94"
+      }, {
+        "id" : "118"
+      }, {
+        "id" : "98"
+      }, {
+        "id" : "120"
+      } ]
+    } ],
+    "configuration" : {
+      "branding" : { },
+      "styles" : {
+        "elements" : [ {
+          "tag" : "dashboard",
+          "shape" : "WebBrowser"
+        }, {
+          "tag" : "repository",
+          "shape" : "Cylinder"
+        } ]
+      },
+      "themes" : [ "https://static.structurizr.com/themes/default/theme.json" ],
+      "terminology" : { },
+      "lastSavedView" : "eosc"
+    }
+  }
+}

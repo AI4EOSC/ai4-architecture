@@ -1,6 +1,10 @@
-workspace deep "DEEP-Hybrid-DataCloud architecture" {
+workspace extends ../eosc-landscape.dsl {
+    
+    name "DEEP-Hybrid-DataCloud"
+    description "DEEP-Hybrid-DataCloud legacy architecture"
 
     model {
+
         user = person "AI Scientist"
 
         deep = enterprise "DEEP-Hybrid-DataCloud" {
@@ -46,6 +50,8 @@ workspace deep "DEEP-Hybrid-DataCloud architecture" {
                 deep_connector = container "DEEP - Serverless connector"
 
                 deepaas_container = container "DEEPaaS Containar"
+                
+                serverless_coe = container "Container Orchestration Engine" "" "Mesos"
             }
         }
 
@@ -102,13 +108,15 @@ workspace deep "DEEP-Hybrid-DataCloud architecture" {
 
         jenkins -> deep_connector "Trigger update"
         deep_connector -> openwhisk "Create/delete/update actions"
-        openwhisk -> coe "Create container functions"
+        openwhisk -> serverless_coe "Create container functions"
         openwhisk -> deepaas_container "Redirects to"
 
         deepaas_container -> model_container "Stored in"
-        coe -> deepaas_container "Creates Containers"
+        serverless_coe -> deepaas_container "Creates Containers"
 
         user -> api
+
+        aai -> iam "Federate users"
 #        mesos -> model_container
 
         deploymentEnvironment "Production" {
@@ -136,6 +144,7 @@ workspace deep "DEEP-Hybrid-DataCloud architecture" {
                     }
                     deploymentNode "mesos.cloud.ifca.es"  {
                         containerInstance coe 
+                        containerInstance serverless_coe
                     }
                     deploymentNode "vm*.cloud.ifca.es" "" "" "" 100 {
                         deploymentNode "Mesos Agent" {
@@ -228,14 +237,14 @@ workspace deep "DEEP-Hybrid-DataCloud architecture" {
             include *
         }
 
-        styles {
-            element "dashboard" {
-                shape WebBrowser
-            }       
-
-            element "repository" {
-                shape Cylinder
-            }
-        }
+#        styles {
+#            element "dashboard" {
+#                shape WebBrowser
+#            }       
+#
+#            element "repository" {
+#                shape Cylinder
+#            }
+#        }
     }
 }
