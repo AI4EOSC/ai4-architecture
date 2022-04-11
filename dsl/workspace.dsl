@@ -26,6 +26,8 @@ workspace deep "DEEP-Hybrid-DataCloud architecture" {
 
                 tosca_repo = container "Topologies repository" "" "TOSCA" "repository"
 
+                iam = container "Identity and Access Management" "" "INDIGO IAM"
+
                 model_container = container "Model container" "" "Docker" {
                     api = component "API" "" "DEEPaaS API"
 
@@ -37,8 +39,13 @@ workspace deep "DEEP-Hybrid-DataCloud architecture" {
                     user_model -> framework
                 }
             }
+
             deepaas = softwareSystem "DEEP as a Service" {
                 openwhisk = container "Serverless platform" "" "OpenWhisk"
+                
+                deep_connector = container "DEEP - Serverless connector"
+
+                deepaas_container = container "DEEPaaS Containar"
             }
         }
 
@@ -81,23 +88,107 @@ workspace deep "DEEP-Hybrid-DataCloud architecture" {
         paas_orchestrator -> tosca_repo "Read topologies"
         paas_orchestrator -> im "Uses"
 
+        paas_orchestrator -> iam "AuthN/Z"
+        im -> iam "AuthN/Z"
+        coe -> iam "AuthN/Z"
+
         paas_orchestrator -> coe "Create Container"
         im -> coe "Provisions"
 
-        coe -> model_container "Create"
+        coe -> model_container "Create Containers"
         user -> model_container "Train/Predict"
+
+        model_container -> container_repo "Stored in"
+
+        jenkins -> deep_connector "Trigger update"
+        deep_connector -> openwhisk "Create/delete/update actions"
+        openwhisk -> coe "Create container functions"
+        openwhisk -> deepaas_container "Redirects to"
+
+        deepaas_container -> model_container "Stored in"
+        coe -> deepaas_container "Creates Containers"
 
         user -> api
 #        mesos -> model_container
 
         deploymentEnvironment "Production" {
-            deploymentNode "marketplace.deep-hybrid-datacloud.eu" "" "GitHub Pages" {
-                liveMarketplace = containerInstance marketplace
+            ifca_instance = deploymentGroup "IFCA Mesos Instance"
+            iisas_instance = deploymentGroup "IISAS Mesos Instance"
+
+            deploymentNode "GitHub" {
+                deploymentNode "marketplace.deep-hybrid-datacloud.eu" "" "GitHub Pages" {
+                    containerInstance marketplace
+                }
+
+                containerInstance catalog_repo
+                containerInstance tosca_repo
+            }
+
+            deploymentNode "Container registry" "" "Docker registry" {
+                DockerHub = containerInstance container_repo 
             }
             
-            deploymentNode "train.deep-hybrid-datacloud.eu" "" "nginx" {
-                liveDashboard = containerInstance dashboard
+
+            deploymentNode "IFCA-CSIC" {
+                deploymentNode "IFCA Cloud" "" "OpenStack" {
+                    deploymentNode "train.deep-hybrid-datacloud.eu" "" "nginx" {
+                        containerInstance dashboard
+                    }
+                    deploymentNode "mesos.cloud.ifca.es"  {
+                        containerInstance coe 
+                    }
+                    deploymentNode "vm*.cloud.ifca.es" "" "" "" 100 {
+                        deploymentNode "Mesos Agent" {
+                            deploymentNode "Docker" {
+                                containerInstance model_container 
+                                containerInstance deepaas_container 
+                            }
+                        }
+                    }
+                    deploymentNode "jenkins.indigo-datacloud.eu" {
+                        containerInstance jenkins
+                    }
+                    deploymentNode "deepaas.deep-hybrid-datacloud.eu" "" "OpenWhisk" {
+                        containerInstance openwhisk
+                        containerInstance deep_connector
+                    }
+                }
             }
+
+            deploymentNode "IISAS" {
+                deploymentNode "mesos.ui.sav.sk"  {
+                    iisas_mesos = containerInstance coe iisas_instance
+                }
+                deploymentNode "vm*" "" "" "" 10 {
+                    deploymentNode "Mesos Agent" {
+                        deploymentNode "Docker" {
+                            iisas_container = containerInstance model_container iisas_instance
+                        }
+                    }
+                }
+
+            }
+            
+            deploymentNode "LIP" {
+                deploymentNode "a4c.deep-hybrid-datacloud.eu"  {
+                    containerInstance a4c
+                }
+            }
+
+            deploymentNode "INFN-CNAF" {
+                deploymentNode "iam.deep-hybrid-datacloud.eu" "" "nginx" {
+                    containerInstance iam
+                }
+            }
+
+            deploymentNode "INFN-BARI" {
+                deploymentNode "deep-paas.cloud.ba.infn.it" "" "nginx" {
+                    containerInstance paas_dashboard
+                    containerInstance paas_orchestrator
+                    containerInstance im
+                }
+            }
+
         }
     }
 
@@ -117,10 +208,18 @@ workspace deep "DEEP-Hybrid-DataCloud architecture" {
             include *
         }
 
+        container deepaas {
+            include *
+        }
+        
         component model_container {
             include *
         }
         
+        deployment * "Production" {
+            include *
+#            autoLayout
+        }
         deployment catalog "Production" {
             include *
         }
