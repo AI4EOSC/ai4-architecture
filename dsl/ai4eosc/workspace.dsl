@@ -7,6 +7,8 @@ workspace extends ../eosc-landscape.dsl {
 
         user = person "AI Scientist" "EOSC user willing to use an AI platform to develop an AI application."
 
+        paas_ops = person "PaaS Operator" "Resource provider operator or platform operator managing the PaaS deployments."
+
         ai4eosc = enterprise "AI4EOSC" {
             catalog = softwareSystem "DEEP Open Catatalog" "Allows users to store and retrieve AI models and related assets." {
                 marketplace = container "DEEP marketplace" "" "Pelican" "dashboard"
@@ -22,17 +24,21 @@ workspace extends ../eosc-landscape.dsl {
                 iam = container "Identity and Access Management" "" "INDIGO IAM"
             }
 
-            training = softwareSystem "DEEP Training Facility" "Allows users to develop, build and train an AI application." {
-                dashboard = container "DEEP Dashboard" "" "aiohttp" "dashboard"
+            orchestration = softwareSystem "PaaS Orchestration and provisioning" "Allows PaaS operators to manage PaaS deployments and resources." {
                 paas_dashboard = container "PaaS Dashboard" "" "Flask" "dashboard"
+                
                 a4c = container "Topology Composer" "" "Alien4Cloud" "dashboard"
 
                 paas_orchestrator = container "PaaS Orchestrator" "" "INDIGO PaaS Orchestrator"
+
                 im = container "Infrastructure Manager"
 
-                coe = container "Container Orchestration Engine" "" "Mesos"
-
                 tosca_repo = container "Topologies repository" "" "TOSCA" "repository"
+            }
+
+            training = softwareSystem "DEEP Training Facility" "Allows users to develop, build and train an AI application." {
+                dashboard = container "DEEP Dashboard" "" "aiohttp" "dashboard"
+                coe = container "Container Orchestration Engine" "" "Mesos"
 
                 model_container = container "Model container" "" "Docker" {
                     api = component "API" "" "DEEPaaS API"
@@ -63,6 +69,8 @@ workspace extends ../eosc-landscape.dsl {
         user -> catalog "Publish and share model"
         user -> training "Build and train deep learning model"
         user -> deepaas "Deploy model as a service"
+
+        paas_ops -> orchestration "Manage PaaS resources and deployments"
 
         # System - system interaction
         catalog -> training "Reuse and extend"
@@ -140,6 +148,10 @@ workspace extends ../eosc-landscape.dsl {
         }
 
         container deepaas {
+            include *
+        }
+
+        container orchestration {
             include *
         }
 
