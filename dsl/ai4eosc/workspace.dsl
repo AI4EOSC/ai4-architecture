@@ -32,8 +32,6 @@ workspace extends ../eosc-landscape.dsl {
 
             orchestration = softwareSystem "PaaS Orchestration and provisioning" "Allows PaaS operators to manage PaaS deployments and resources." {
                 paas_dashboard = container "PaaS Dashboard" "" "Flask" "dashboard"
-                
-                a4c = container "Topology Composer" "" "Alien4Cloud" "dashboard"
 
                 paas_orchestrator = container "PaaS Orchestrator" "" "INDIGO PaaS Orchestrator"
 
@@ -100,9 +98,6 @@ workspace extends ../eosc-landscape.dsl {
         eosc_user -> dashboard "Train new model or update existing"
         dashboard -> catalog_repo "Read models"
         dashboard -> tosca_repo "Read topologies"
-
-        a4c -> paas_orchestrator "Create topology""
-        a4c -> tosca_repo "Read Topologies"
 
         dashboard -> paas_orchestrator "Create training"
         paas_dashboard -> paas_orchestrator "Create deployment"
