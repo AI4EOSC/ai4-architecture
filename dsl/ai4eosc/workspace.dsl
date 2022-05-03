@@ -16,14 +16,18 @@ workspace extends ../eosc-landscape.dsl {
         paas_ops = person "PaaS Operator" "Resource provider operator or platform operator managing the PaaS deployments."
 
         ai4eosc = enterprise "AI4EOSC" {
-            catalog = softwareSystem "DEEP Open Catatalog" "Allows users to store and retrieve AI models and related assets." {
-                marketplace = container "DEEP marketplace" "" "Pelican" "dashboard"
+            catalog = softwareSystem "AI4EOSC Exchange" "Allows users to store and retrieve AI models and related assets." {
+                marketplace = container "Web portal" "Exposes read-only content to end-users." "Pelican" "dashboard"
 
-                catalog_repo = container "DEEP Catalog" "" "GitHub" "repository"
+                exchange_api =  container "Exchange API" "Provides exchange functionality via HTTPS/JSON API."
+
+                data_repo = container "Model and data repository" "Track AI models and data sets." "dvc" "repository"
+                model_repo = container "Model code repository" "Track AI model code." "Git" "repository"
+                container_repo = container "Container registry" "Store container images." "DockerHub" "repository" 
+
+                exchange_db = container "Database" "Stores AI4EOSC exchange registered models." "" "repository"
 
                 jenkins = container "CI/CD" "" "Jenkins"
-
-                container_repo = container "Container registry" "" "DockerHub" "repository" 
 
                 model_container = container "Model container" "Encapsulates user code." "Docker" {
                     api = component "API" "" "DEEPaaS API"
@@ -80,7 +84,7 @@ workspace extends ../eosc-landscape.dsl {
         storage = softwareSystem "Storage Services" "External storage where data assets are stored."
 
         # User - system interaction
-        eosc_user -> catalog "Publish and share model"
+        eosc_user -> catalog "Browse, publish and share model"
         eosc_user -> training "Build and train deep learning model"
         eosc_user -> deepaas "Deploy model as a service"
         paas_ops -> orchestration "Manage PaaS resources and deployments"
@@ -100,7 +104,7 @@ workspace extends ../eosc-landscape.dsl {
         eosc_user -> dashboard "Train new or existing model"
 
         dashboard -> training_api "Makes API calls to "
-        dashboard -> catalog_repo "Reads available models from"
+        dashboard -> exchange_api "Reads available models from"
         dashboard -> dev "Delivers interactive environments"
 
         dev -> coe "Create on-demand environments"
@@ -117,15 +121,33 @@ workspace extends ../eosc-landscape.dsl {
         iam -> aai "Federate users from" "OpenID Connect"
         order -> iam "Creates new users for new orders"
         
+
+        # AI4EOSC exchange
+        eosc_user -> marketplace "Browse and download models and datasets"
+        eosc_user -> exchange_api "Register new model"
+        marketplace -> exchange_api "Makes API calls to"
+
+        marketplace -> data_repo "Reads from"
+        marketplace -> model_repo "Reads from"
+        marketplace -> container_repo "Reads from"
+
+        exchange_api -> exchange_db "Reads from writes to"
+
+        jenkins -> model_container "Creates"
+        model_container -> container_repo "Stored in"
+
+#        jenkins -> data_repo "Ensures"
+        jenkins -> model_repo "Performs SQA tasks"
+        
+
+
         # Container level
 
-        eosc_user -> marketplace "Browse and download models"
-        eosc_user -> catalog_repo "Create/update model"
-        marketplace -> catalog_repo "Points to"
-        marketplace -> container_repo "Points to"
-        catalog_repo -> jenkins "Triggers catalog update"
-        jenkins -> marketplace "Generates web page"
-        jenkins -> container_repo "Create Docker container"
+#        marketplace -> catalog_repo "Points to"
+#        marketplace -> container_repo "Points to"
+#        catalog_repo -> jenkins "Triggers catalog update"
+#        jenkins -> marketplace "Generates web page"
+#        jenkins -> container_repo "Create Docker container"
 
 
 #        dashboard -> tosca_repo "Read topologies"
@@ -143,19 +165,19 @@ workspace extends ../eosc-landscape.dsl {
 #        im -> coe "Provisions"
 
 #
-        eosc_user -> model_container "Train/Predict"
+#        eosc_user -> model_container "Train/Predict"
 
-        model_container -> container_repo "Stored in"
-
-        jenkins -> deep_connector "Trigger update"
-        deep_connector -> openwhisk "Create/delete/update actions"
-        openwhisk -> serverless_coe "Create container functions"
-        openwhisk -> deepaas_container "Redirects to"
-
-        deepaas_container -> model_container "Stored in"
-        serverless_coe -> deepaas_container "Creates Containers"
-
-        eosc_user -> api
+#        model_container -> container_repo "Stored in"
+#
+#        jenkins -> deep_connector "Trigger update"
+#        deep_connector -> openwhisk "Create/delete/update actions"
+#        openwhisk -> serverless_coe "Create container functions"
+#        openwhisk -> deepaas_container "Redirects to"
+#
+#        deepaas_container -> model_container "Stored in"
+#        serverless_coe -> deepaas_container "Creates Containers"
+#
+#        eosc_user -> api
 
 #        aai -> iam "Federate users"
 #        mesos -> model_container
@@ -190,9 +212,9 @@ workspace extends ../eosc-landscape.dsl {
             include *
         }
         
-        component model_container {
-            include *
-        }
+#        component model_container {
+#            include *
+#        }
         
 #        styles {
 #            element "dashboard" {
