@@ -5,10 +5,10 @@ workspace extends ../eosc-landscape.dsl {
 
     model {
 
-        user = person "AI Scientist"
+        user = person "AI Scientist" "EOSC user willing to use an AI platform to develop an AI application."
 
         ai4eosc = enterprise "AI4EOSC" {
-            catalog = softwareSystem "DEEP Open Catatalog" {
+            catalog = softwareSystem "DEEP Open Catatalog" "Allows users to store and retrieve AI models and related assets." {
                 marketplace = container "DEEP marketplace" "" "Pelican" "dashboard"
 
                 catalog_repo = container "DEEP Catalog" "" "GitHub" "repository"
@@ -18,7 +18,7 @@ workspace extends ../eosc-landscape.dsl {
                 container_repo = container "Container registry" "" "DockerHub" "repository" 
             }
 
-            training = softwareSystem "DEEP Training Facility" {
+            training = softwareSystem "DEEP Training Facility" "Allows users to develop, build and train an AI application." {
                 dashboard = container "DEEP Dashboard" "" "aiohttp" "dashboard"
                 paas_dashboard = container "PaaS Dashboard" "" "Flask" "dashboard"
                 a4c = container "Topology Composer" "" "Alien4Cloud" "dashboard"
@@ -44,7 +44,7 @@ workspace extends ../eosc-landscape.dsl {
                 }
             }
 
-            deepaas = softwareSystem "DEEP as a Service" {
+            deepaas = softwareSystem "DEEP as a Service" "Allows users to deploy an AI application as a service." {
                 openwhisk = container "Serverless platform" "" "OpenWhisk"
                 
                 deep_connector = container "DEEP - Serverless connector"
@@ -55,7 +55,7 @@ workspace extends ../eosc-landscape.dsl {
             }
         }
 
-        storage = softwareSystem "Storage Services"
+        storage = softwareSystem "Storage Services" "External storage where data assets are stored."
 
         # User - system interaction
         user -> catalog "Publish and share model"
