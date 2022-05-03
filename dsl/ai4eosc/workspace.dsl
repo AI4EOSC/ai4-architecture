@@ -40,11 +40,13 @@ workspace extends ../eosc-landscape.dsl {
                 tosca_repo = container "Topologies repository" "" "TOSCA" "repository"
             }
 
-            training = softwareSystem "DEEP Training Facility" "Allows users to develop, build and train an AI application." {
-                dashboard = container "DEEP Dashboard" "" "aiohttp" "dashboard"
-                coe = container "Container Orchestration Engine" "" "Mesos"
+            training = softwareSystem "Training Facility" "Allows users to develop, build and train an AI application." {
 
-                model_container = container "Model container" "" "Docker" {
+                dashboard = container "Dashboard" "Provides access to experiment and training definiton." "aiohttp" "dashboard"
+
+                coe = container "Container Orchestration Engine" "Executes user workloads." "Mesos"
+
+                model_container = container "Model container" "Encapsulates user code." "Docker" {
                     api = component "API" "" "DEEPaaS API"
 
                     framework = component "ML/AI framework"
