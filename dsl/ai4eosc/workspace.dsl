@@ -24,6 +24,17 @@ workspace extends ../eosc-landscape.dsl {
                 jenkins = container "CI/CD" "" "Jenkins"
 
                 container_repo = container "Container registry" "" "DockerHub" "repository" 
+
+                model_container = container "Model container" "Encapsulates user code." "Docker" {
+                    api = component "API" "" "DEEPaaS API"
+
+                    framework = component "ML/AI framework"
+
+                    user_model = component "User code and model"
+
+                    api -> user_model
+                    user_model -> framework
+                }
             }
 
             user_management = softwareSystem "User management system" "Provides tools to manage platform users and new user requests." {
@@ -44,18 +55,13 @@ workspace extends ../eosc-landscape.dsl {
 
                 dashboard = container "Dashboard" "Provides access to experiment and training definiton." "aiohttp" "dashboard"
 
-                coe = container "Container Orchestration Engine" "Executes user workloads." "Mesos"
+                training_api = container "Training API" "Provides training creation and monitoring functionality via a JSON/HTTPS API" "aiohttp"
 
-                model_container = container "Model container" "Encapsulates user code." "Docker" {
-                    api = component "API" "" "DEEPaaS API"
+                dev = container "Interactive development Environment" "An interactive development environment with access to resources and limited execution time." "Jupyter"
 
-                    framework = component "ML/AI framework"
+                coe = container "Workload Management System" "Manages and schedules the execution of compute requests." "Hashicorp Nomad"
 
-                    user_model = component "User code and model"
-
-                    api -> user_model
-                    user_model -> framework
-                }
+                resources = container "Compute resources" "Executes user workloads." "Hashicorp Nomad"
             }
 
             deepaas = softwareSystem "DEEP as a Service" "Allows users to deploy an AI application as a service." {
@@ -87,6 +93,22 @@ workspace extends ../eosc-landscape.dsl {
         training -> catalog "Registers models in"
         training -> storage "Gets model datasets from"
 
+
+        # Train facility
+        eosc_user -> dashboard "Train new or existing model"
+
+        dashboard -> training_api "Makes API calls to "
+        dashboard -> catalog_repo "Reads available models from"
+        dashboard -> dev "Delivers interactive environments"
+
+        dev -> coe "Create on-demand environments"
+        coe -> resources "Execute workload"
+        
+        training_api -> coe "Create training job/task using API calls to"
+
+        training_api -> iam "Authenticates users with"
+        dashboard -> iam "Authenticates users with"
+        
         # Container level
 
         eosc_user -> marketplace "Browse and download models"
@@ -97,24 +119,22 @@ workspace extends ../eosc-landscape.dsl {
         jenkins -> marketplace "Generates web page"
         jenkins -> container_repo "Create Docker container"
 
-        eosc_user -> dashboard "Train new model or update existing"
-        dashboard -> catalog_repo "Read models"
-        dashboard -> tosca_repo "Read topologies"
 
-        dashboard -> paas_orchestrator "Create training"
+#        dashboard -> tosca_repo "Read topologies"
+
         paas_dashboard -> paas_orchestrator "Create deployment"
         paas_dashboard -> tosca_repo "Read topologies"
         paas_orchestrator -> tosca_repo "Read topologies"
         paas_orchestrator -> im "Uses"
 
-        paas_orchestrator -> iam "AuthN/Z"
+        paas_orchestrator -> iam "Authenticates users with"
         im -> iam "AuthN/Z"
-        coe -> iam "AuthN/Z"
+#        coe -> iam "AuthN/Z"
 
-        paas_orchestrator -> coe "Create Container"
-        im -> coe "Provisions"
+        paas_orchestrator -> resources "Provisions resources"
+#        im -> coe "Provisions"
 
-        coe -> model_container "Create Containers"
+#
         eosc_user -> model_container "Train/Predict"
 
         model_container -> container_repo "Stored in"
