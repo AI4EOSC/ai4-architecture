@@ -18,6 +18,10 @@ workspace extends ../eosc-landscape.dsl {
                 container_repo = container "Container registry" "" "DockerHub" "repository" 
             }
 
+            user_management = softwareSystem "User management system" "Provides tools to manage platform users and new user requests" {
+                iam = container "Identity and Access Management" "" "INDIGO IAM"
+            }
+
             training = softwareSystem "DEEP Training Facility" "Allows users to develop, build and train an AI application." {
                 dashboard = container "DEEP Dashboard" "" "aiohttp" "dashboard"
                 paas_dashboard = container "PaaS Dashboard" "" "Flask" "dashboard"
@@ -29,8 +33,6 @@ workspace extends ../eosc-landscape.dsl {
                 coe = container "Container Orchestration Engine" "" "Mesos"
 
                 tosca_repo = container "Topologies repository" "" "TOSCA" "repository"
-
-                iam = container "Identity and Access Management" "" "INDIGO IAM"
 
                 model_container = container "Model container" "" "Docker" {
                     api = component "API" "" "DEEPaaS API"
@@ -138,6 +140,10 @@ workspace extends ../eosc-landscape.dsl {
         }
 
         container deepaas {
+            include *
+        }
+
+        container user_management {
             include *
         }
         
