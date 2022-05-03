@@ -18,7 +18,7 @@ workspace extends ../eosc-landscape.dsl {
                 container_repo = container "Container registry" "" "DockerHub" "repository" 
             }
 
-            user_management = softwareSystem "User management system" "Provides tools to manage platform users and new user requests" {
+            user_management = softwareSystem "User management system" "Provides tools to manage platform users and new user requests." {
                 iam = container "Identity and Access Management" "" "INDIGO IAM"
             }
 
