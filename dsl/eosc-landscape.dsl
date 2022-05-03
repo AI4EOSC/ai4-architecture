@@ -7,7 +7,7 @@ workspace eosc "EOSC architecture" {
         eosc_user = person "EOSC User" "An EU researcher willing to exploit EOSC resources and services."
 
         eosc = group EOSC {
-            aai = softwareSystem "AAI" "Provides Authentication, Authorization and Identity management for EOSC users."
+            aai = softwareSystem "EOSC AAI" "Provides Authentication, Authorization and Identity management for EOSC users."
             portal = softwareSystem "EOSC Portal" "Provides access to EOSC resources and services for users."
         }
 

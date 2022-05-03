@@ -38,7 +38,9 @@ workspace extends ../eosc-landscape.dsl {
             }
 
             user_management = softwareSystem "User management system" "Provides tools to manage platform users and new user requests." {
-                iam = container "Identity and Access Management" "" "INDIGO IAM"
+                iam = container "Identity and Access Management" "Provides user and group management" "INDIGO IAM"
+
+                order = container "Order management system" "Manages orders coming both from the EOSC portal or for new users" ""
             }
 
             orchestration = softwareSystem "PaaS Orchestration and provisioning" "Allows PaaS operators to manage PaaS deployments and resources." {
@@ -108,6 +110,12 @@ workspace extends ../eosc-landscape.dsl {
 
         training_api -> iam "Authenticates users with"
         dashboard -> iam "Authenticates users with"
+
+        # User management
+
+        portal -> order "Creates new order/request for services"
+        iam -> aai "Federate users from" "OpenID Connect"
+        order -> iam "Creates new users for new orders"
         
         # Container level
 
@@ -149,7 +157,7 @@ workspace extends ../eosc-landscape.dsl {
 
         eosc_user -> api
 
-        aai -> iam "Federate users"
+#        aai -> iam "Federate users"
 #        mesos -> model_container
 
     }
