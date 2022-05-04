@@ -16,18 +16,18 @@ workspace extends ../eosc-landscape.dsl {
         paas_ops = person "PaaS Operator" "Resource provider operator or platform operator managing the PaaS deployments."
 
         ai4eosc = enterprise "AI4EOSC" {
-            catalog = softwareSystem "AI4EOSC Exchange" "Allows users to store and retrieve AI models and related assets." {
-                marketplace = container "Web portal" "Exposes read-only content to end-users." "Pelican" "dashboard"
+            ai4eosc_platform = softwareSystem "AI4EOSC Platform" "Allows EOSC users to develop, build and share AI models." {
+                exchange = group "AI4EOSC Exchange" {
+                    marketplace = container "AI4EOSC exchange web portal" "Exposes read-only content to end-users." "Pelican" "dashboard"
 
-                exchange_api =  container "Exchange API" "Provides exchange functionality via HTTPS/JSON API."
-
-                data_repo = container "Model and data repository" "Track AI models and data sets." "dvc" "repository"
-                model_repo = container "Model code repository" "Track AI model code." "Git" "repository"
-                container_repo = container "Container registry" "Store container images." "DockerHub" "repository" 
-
-                exchange_db = container "Database" "Stores AI4EOSC exchange registered models." "" "repository"
-
-                jenkins = container "CI/CD" "" "Jenkins"
+                    exchange_api =  container "Exchange API" "Provides exchange functionality via HTTPS/JSON API."
+    
+                    data_repo = container "Model and data repository" "Track AI models and data sets." "dvc" "repository"
+                    model_repo = container "Model code repository" "Track AI model code." "Git" "repository"
+                    container_repo = container "Container registry" "Store container images." "DockerHub" "repository" 
+    
+                    exchange_db = container "Exchange database" "Stores AI4EOSC exchange registered models." "" "database"
+                }
 
                 model_container = container "Model container" "Encapsulates user code." "Docker" {
                     api = component "API" "" "DEEPaaS API"
@@ -39,12 +39,36 @@ workspace extends ../eosc-landscape.dsl {
                     api -> user_model
                     user_model -> framework
                 }
+
+                identity = group "Identity and user management" {
+
+                    iam = container "Identity and Access Management" "Provides user and group management" "INDIGO IAM"
+    
+                    order = container "Order management system" "Manages orders coming both from the EOSC portal or for new users" ""
+
+                }
+
+                training = group "AI4EOSC training" {
+                    dashboard = container "Training dashboard" "Provides access to experiment and training definiton." "aiohttp" "dashboard"
+    
+                    training_api = container "Training API" "Provides training creation and monitoring functionality via a JSON/HTTPS API" "aiohttp"
+
+                    training_db = container "Training database" "Stores AI4EOSC training requests" "" "database"
+    
+                    dev = container "Interactive development Environment" "An interactive development environment with access to resources and limited execution time." "Jupyter"
+    
+                    coe = container "Workload Management System" "Manages and schedules the execution of compute requests." "Hashicorp Nomad"
+    
+                    resources = container "Compute resources" "Executes user workloads." "Hashicorp Nomad"
+                }
             }
-
-            user_management = softwareSystem "User management system" "Provides tools to manage platform users and new user requests." {
-                iam = container "Identity and Access Management" "Provides user and group management" "INDIGO IAM"
-
-                order = container "Order management system" "Manages orders coming both from the EOSC portal or for new users" ""
+            
+            sqa = softwareSystem "Quality Assurance" "Performs quality assurance checks for software, services and data assets." {
+                cicd = container "CI/CD" "" "Jenkinks + JePL"
+                
+                sqaas = container "Service quality" "" "SQaaS"
+                
+                fairev = container "Data quality" "" "FAIR Evaluator"
             }
 
             orchestration = softwareSystem "PaaS Orchestration and provisioning" "Allows PaaS operators to manage PaaS deployments and resources." {
@@ -55,19 +79,6 @@ workspace extends ../eosc-landscape.dsl {
                 im = container "Infrastructure Manager"
 
                 tosca_repo = container "Topologies repository" "" "TOSCA" "repository"
-            }
-
-            training = softwareSystem "Training Facility" "Allows users to develop, build and train an AI application." {
-
-                dashboard = container "Dashboard" "Provides access to experiment and training definiton." "aiohttp" "dashboard"
-
-                training_api = container "Training API" "Provides training creation and monitoring functionality via a JSON/HTTPS API" "aiohttp"
-
-                dev = container "Interactive development Environment" "An interactive development environment with access to resources and limited execution time." "Jupyter"
-
-                coe = container "Workload Management System" "Manages and schedules the execution of compute requests." "Hashicorp Nomad"
-
-                resources = container "Compute resources" "Executes user workloads." "Hashicorp Nomad"
             }
 
             deepaas = softwareSystem "DEEP as a Service" "Allows users to deploy an AI application as a service." {
@@ -84,20 +95,20 @@ workspace extends ../eosc-landscape.dsl {
         storage = softwareSystem "Storage Services" "External storage where data assets are stored."
 
         # User - system interaction
-        eosc_user -> catalog "Browse, publish and share model"
-        eosc_user -> training "Build and train deep learning model"
-        eosc_user -> deepaas "Deploy model as a service"
+        eosc_user -> ai4eosc_platform "Reuse, develop, publish new AI models"
         paas_ops -> orchestration "Manage PaaS resources and deployments"
 
         # System - system interaction
-        orchestration -> training "Create PaaS deployments and provision resources for"
-        training -> user_management "Authenticate users with"
-        user_management -> aai "Federates users from"
+        orchestration -> ai4eosc_platform "Create PaaS deployments and provision resources for"
+        ai4eosc_platform -> storage "Consumes data from"
+        sqa -> ai4eosc_platform "Ensures quality of project assets"
+#        training -> user_management "Authenticate users with"
+#        user_management -> aai "Federates users from"
 
-        deepaas -> catalog "Deploys models from"
+#        deepaas -> catalog "Deploys models from"
 
-        training -> catalog "Registers models in"
-        training -> storage "Gets model datasets from"
+#        training -> catalog "Registers models in"
+#        training -> storage "Gets model datasets from"
 
 
         # Train facility
@@ -108,9 +119,12 @@ workspace extends ../eosc-landscape.dsl {
         dashboard -> dev "Delivers interactive environments"
 
         dev -> coe "Create on-demand environments"
-        coe -> resources "Execute workload"
+        coe -> resources "Create new task/workload"
+
+        resources -> model_container "Executes user model from a"
         
         training_api -> coe "Create training job/task using API calls to"
+        training_api -> training_db "Stores training data in"
 
         training_api -> iam "Authenticates users with"
         dashboard -> iam "Authenticates users with"
@@ -131,13 +145,15 @@ workspace extends ../eosc-landscape.dsl {
         marketplace -> model_repo "Reads from"
         marketplace -> container_repo "Reads from"
 
+        data_repo -> storage "Refers to data stored in"
+
         exchange_api -> exchange_db "Reads from writes to"
 
-        jenkins -> model_container "Creates"
+        cicd -> model_container "Creates"
         model_container -> container_repo "Stored in"
 
 #        jenkins -> data_repo "Ensures"
-        jenkins -> model_repo "Performs SQA tasks"
+        cicd -> model_repo "Performs SQA tasks"
         
 
 
@@ -191,16 +207,20 @@ workspace extends ../eosc-landscape.dsl {
             include *
         }
         
-        container catalog {
-            include *
-#            autoLayout
-        }
-
-        container training {
-            include *
-        }
-
-        container deepaas {
+#        container catalog {
+#            include *
+##            autoLayout
+#        }
+#
+#        container training {
+#            include *
+#        }
+#
+#        container deepaas {
+#            include *
+#        }
+        
+        container ai4eosc_platform {
             include *
         }
 
@@ -208,9 +228,9 @@ workspace extends ../eosc-landscape.dsl {
             include *
         }
 
-        container user_management {
-            include *
-        }
+#        container user_management {
+#            include *
+#        }
         
 #        component model_container {
 #            include *

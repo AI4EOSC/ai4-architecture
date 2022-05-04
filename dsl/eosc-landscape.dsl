@@ -13,7 +13,7 @@ workspace eosc "EOSC architecture" {
 
         aai -> portal "Provides authentication for"
 
-        eosc_user -> portal "Browse resources"
+        eosc_user -> portal "Browse EOSC resources, create order for new services"
     }
 
     views {
@@ -30,6 +30,10 @@ workspace eosc "EOSC architecture" {
             }       
 
             element "repository" {
+                shape Folder
+            }
+
+            element "database" {
                 shape Cylinder
             }
         }

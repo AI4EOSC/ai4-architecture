@@ -1,0 +1,941 @@
+{
+  "id" : 1,
+  "name" : "DEEP-Hybrid-DataCloud",
+  "description" : "DEEP-Hybrid-DataCloud legacy architecture",
+  "revision" : 0,
+  "lastModifiedDate" : "2022-05-04T10:00:48Z",
+  "lastModifiedAgent" : "structurizr-web/2718/diagram",
+  "properties" : {
+    "structurizr.dsl" : "d29ya3NwYWNlIGV4dGVuZHMgLi4vZW9zYy1sYW5kc2NhcGUuZHNsIHsKICAgIAojICAgICFpbXBsaWVkUmVsYXRpb25zaGlwcyBmYWxzZQoKICAgIG5hbWUgIkRFRVAtSHlicmlkLURhdGFDbG91ZCIKICAgIGRlc2NyaXB0aW9uICJERUVQLUh5YnJpZC1EYXRhQ2xvdWQgbGVnYWN5IGFyY2hpdGVjdHVyZSIKCiAgICBtb2RlbCB7CgoKICAgICAgICAhcmVmIGVvc2NfdXNlciB7CiAgICAgICAgICAgIGRlc2NyaXB0aW9uICJFT1NDIHVzZXIgd2lsbGluZyB0byB1c2UgYW4gQUkgcGxhdGZvcm0gdG8gZGV2ZWxvcCBhbiBBSSBhcHBsaWNhdGlvbi4iCiAgICAgICAgfQoKCiAgICAgICAgcGFhc19vcHMgPSBwZXJzb24gIlBhYVMgT3BlcmF0b3IiICJSZXNvdXJjZSBwcm92aWRlciBvcGVyYXRvciBvciBwbGF0Zm9ybSBvcGVyYXRvciBtYW5hZ2luZyB0aGUgUGFhUyBkZXBsb3ltZW50cy4iCgogICAgICAgIGFpNGVvc2MgPSBlbnRlcnByaXNlICJBSTRFT1NDIiB7CiAgICAgICAgICAgIGFpNGVvc2NfcGxhdGZvcm0gPSBzb2Z0d2FyZVN5c3RlbSAiQUk0RU9TQyBQbGF0Zm9ybSIgIkFsbG93cyBFT1NDIHVzZXJzIHRvIGRldmVsb3AsIGJ1aWxkIGFuZCBzaGFyZSBBSSBtb2RlbHMuIiB7CiAgICAgICAgICAgICAgICBleGNoYW5nZSA9IGdyb3VwICJBSTRFT1NDIEV4Y2hhbmdlIiB7CiAgICAgICAgICAgICAgICAgICAgbWFya2V0cGxhY2UgPSBjb250YWluZXIgIkFJNEVPU0MgZXhjaGFuZ2Ugd2ViIHBvcnRhbCIgIkV4cG9zZXMgcmVhZC1vbmx5IGNvbnRlbnQgdG8gZW5kLXVzZXJzLiIgIlBlbGljYW4iICJkYXNoYm9hcmQiCgogICAgICAgICAgICAgICAgICAgIGV4Y2hhbmdlX2FwaSA9ICBjb250YWluZXIgIkV4Y2hhbmdlIEFQSSIgIlByb3ZpZGVzIGV4Y2hhbmdlIGZ1bmN0aW9uYWxpdHkgdmlhIEhUVFBTL0pTT04gQVBJLiIKICAgIAogICAgICAgICAgICAgICAgICAgIGRhdGFfcmVwbyA9IGNvbnRhaW5lciAiTW9kZWwgYW5kIGRhdGEgcmVwb3NpdG9yeSIgIlRyYWNrIEFJIG1vZGVscyBhbmQgZGF0YSBzZXRzLiIgImR2YyIgInJlcG9zaXRvcnkiCiAgICAgICAgICAgICAgICAgICAgbW9kZWxfcmVwbyA9IGNvbnRhaW5lciAiTW9kZWwgY29kZSByZXBvc2l0b3J5IiAiVHJhY2sgQUkgbW9kZWwgY29kZS4iICJHaXQiICJyZXBvc2l0b3J5IgogICAgICAgICAgICAgICAgICAgIGNvbnRhaW5lcl9yZXBvID0gY29udGFpbmVyICJDb250YWluZXIgcmVnaXN0cnkiICJTdG9yZSBjb250YWluZXIgaW1hZ2VzLiIgIkRvY2tlckh1YiIgInJlcG9zaXRvcnkiIAogICAgCiAgICAgICAgICAgICAgICAgICAgZXhjaGFuZ2VfZGIgPSBjb250YWluZXIgIkV4Y2hhbmdlIGRhdGFiYXNlIiAiU3RvcmVzIEFJNEVPU0MgZXhjaGFuZ2UgcmVnaXN0ZXJlZCBtb2RlbHMuIiAiIiAiZGF0YWJhc2UiCiAgICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgbW9kZWxfY29udGFpbmVyID0gY29udGFpbmVyICJNb2RlbCBjb250YWluZXIiICJFbmNhcHN1bGF0ZXMgdXNlciBjb2RlLiIgIkRvY2tlciIgewogICAgICAgICAgICAgICAgICAgIGFwaSA9IGNvbXBvbmVudCAiQVBJIiAiIiAiREVFUGFhUyBBUEkiCgogICAgICAgICAgICAgICAgICAgIGZyYW1ld29yayA9IGNvbXBvbmVudCAiTUwvQUkgZnJhbWV3b3JrIgoKICAgICAgICAgICAgICAgICAgICB1c2VyX21vZGVsID0gY29tcG9uZW50ICJVc2VyIGNvZGUgYW5kIG1vZGVsIgoKICAgICAgICAgICAgICAgICAgICBhcGkgLT4gdXNlcl9tb2RlbAogICAgICAgICAgICAgICAgICAgIHVzZXJfbW9kZWwgLT4gZnJhbWV3b3JrCiAgICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgaWRlbnRpdHkgPSBncm91cCAiSWRlbnRpdHkgYW5kIHVzZXIgbWFuYWdlbWVudCIgewoKICAgICAgICAgICAgICAgICAgICBpYW0gPSBjb250YWluZXIgIklkZW50aXR5IGFuZCBBY2Nlc3MgTWFuYWdlbWVudCIgIlByb3ZpZGVzIHVzZXIgYW5kIGdyb3VwIG1hbmFnZW1lbnQiICJJTkRJR08gSUFNIgogICAgCiAgICAgICAgICAgICAgICAgICAgb3JkZXIgPSBjb250YWluZXIgIk9yZGVyIG1hbmFnZW1lbnQgc3lzdGVtIiAiTWFuYWdlcyBvcmRlcnMgY29taW5nIGJvdGggZnJvbSB0aGUgRU9TQyBwb3J0YWwgb3IgZm9yIG5ldyB1c2VycyIgIiIKCiAgICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgdHJhaW5pbmcgPSBncm91cCAiQUk0RU9TQyB0cmFpbmluZyIgewogICAgICAgICAgICAgICAgICAgIGRhc2hib2FyZCA9IGNvbnRhaW5lciAiVHJhaW5pbmcgZGFzaGJvYXJkIiAiUHJvdmlkZXMgYWNjZXNzIHRvIGV4cGVyaW1lbnQgYW5kIHRyYWluaW5nIGRlZmluaXRvbi4iICJhaW9odHRwIiAiZGFzaGJvYXJkIgogICAgCiAgICAgICAgICAgICAgICAgICAgdHJhaW5pbmdfYXBpID0gY29udGFpbmVyICJUcmFpbmluZyBBUEkiICJQcm92aWRlcyB0cmFpbmluZyBjcmVhdGlvbiBhbmQgbW9uaXRvcmluZyBmdW5jdGlvbmFsaXR5IHZpYSBhIEpTT04vSFRUUFMgQVBJIiAiYWlvaHR0cCIKCiAgICAgICAgICAgICAgICAgICAgdHJhaW5pbmdfZGIgPSBjb250YWluZXIgIlRyYWluaW5nIGRhdGFiYXNlIiAiU3RvcmVzIEFJNEVPU0MgdHJhaW5pbmcgcmVxdWVzdHMiICIiICJkYXRhYmFzZSIKICAgIAogICAgICAgICAgICAgICAgICAgIGRldiA9IGNvbnRhaW5lciAiSW50ZXJhY3RpdmUgZGV2ZWxvcG1lbnQgRW52aXJvbm1lbnQiICJBbiBpbnRlcmFjdGl2ZSBkZXZlbG9wbWVudCBlbnZpcm9ubWVudCB3aXRoIGFjY2VzcyB0byByZXNvdXJjZXMgYW5kIGxpbWl0ZWQgZXhlY3V0aW9uIHRpbWUuIiAiSnVweXRlciIKICAgIAogICAgICAgICAgICAgICAgICAgIGNvZSA9IGNvbnRhaW5lciAiV29ya2xvYWQgTWFuYWdlbWVudCBTeXN0ZW0iICJNYW5hZ2VzIGFuZCBzY2hlZHVsZXMgdGhlIGV4ZWN1dGlvbiBvZiBjb21wdXRlIHJlcXVlc3RzLiIgIkhhc2hpY29ycCBOb21hZCIKICAgIAogICAgICAgICAgICAgICAgICAgIHJlc291cmNlcyA9IGNvbnRhaW5lciAiQ29tcHV0ZSByZXNvdXJjZXMiICJFeGVjdXRlcyB1c2VyIHdvcmtsb2Fkcy4iICJIYXNoaWNvcnAgTm9tYWQiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgICAgCiAgICAgICAgICAgIHNxYSA9IHNvZnR3YXJlU3lzdGVtICJRdWFsaXR5IEFzc3VyYW5jZSIgIlBlcmZvcm1zIHF1YWxpdHkgYXNzdXJhbmNlIGNoZWNrcyBmb3Igc29mdHdhcmUsIHNlcnZpY2VzIGFuZCBkYXRhIGFzc2V0cy4iIHsKICAgICAgICAgICAgICAgIGNpY2QgPSBjb250YWluZXIgIkNJL0NEIiAiIiAiSmVua2lua3MgKyBKZVBMIgogICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICBzcWFhcyA9IGNvbnRhaW5lciAiU2VydmljZSBxdWFsaXR5IiAiIiAiU1FhYVMiCiAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgIGZhaXJldiA9IGNvbnRhaW5lciAiRGF0YSBxdWFsaXR5IiAiIiAiRkFJUiBFdmFsdWF0b3IiCiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIG9yY2hlc3RyYXRpb24gPSBzb2Z0d2FyZVN5c3RlbSAiUGFhUyBPcmNoZXN0cmF0aW9uIGFuZCBwcm92aXNpb25pbmciICJBbGxvd3MgUGFhUyBvcGVyYXRvcnMgdG8gbWFuYWdlIFBhYVMgZGVwbG95bWVudHMgYW5kIHJlc291cmNlcy4iIHsKICAgICAgICAgICAgICAgIHBhYXNfZGFzaGJvYXJkID0gY29udGFpbmVyICJQYWFTIERhc2hib2FyZCIgIiIgIkZsYXNrIiAiZGFzaGJvYXJkIgoKICAgICAgICAgICAgICAgIHBhYXNfb3JjaGVzdHJhdG9yID0gY29udGFpbmVyICJQYWFTIE9yY2hlc3RyYXRvciIgIiIgIklORElHTyBQYWFTIE9yY2hlc3RyYXRvciIKCiAgICAgICAgICAgICAgICBpbSA9IGNvbnRhaW5lciAiSW5mcmFzdHJ1Y3R1cmUgTWFuYWdlciIKCiAgICAgICAgICAgICAgICB0b3NjYV9yZXBvID0gY29udGFpbmVyICJUb3BvbG9naWVzIHJlcG9zaXRvcnkiICIiICJUT1NDQSIgInJlcG9zaXRvcnkiCiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIGRlZXBhYXMgPSBzb2Z0d2FyZVN5c3RlbSAiREVFUCBhcyBhIFNlcnZpY2UiICJBbGxvd3MgdXNlcnMgdG8gZGVwbG95IGFuIEFJIGFwcGxpY2F0aW9uIGFzIGEgc2VydmljZS4iIHsKICAgICAgICAgICAgICAgIG9wZW53aGlzayA9IGNvbnRhaW5lciAiU2VydmVybGVzcyBwbGF0Zm9ybSIgIiIgIk9wZW5XaGlzayIKICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgZGVlcF9jb25uZWN0b3IgPSBjb250YWluZXIgIkRFRVAgLSBTZXJ2ZXJsZXNzIGNvbm5lY3RvciIKCiAgICAgICAgICAgICAgICBkZWVwYWFzX2NvbnRhaW5lciA9IGNvbnRhaW5lciAiREVFUGFhUyBDb250YWluYXIiCiAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgIHNlcnZlcmxlc3NfY29lID0gY29udGFpbmVyICJDb250YWluZXIgT3JjaGVzdHJhdGlvbiBFbmdpbmUiICIiICJNZXNvcyIKICAgICAgICAgICAgfQogICAgICAgIH0KCiAgICAgICAgc3RvcmFnZSA9IHNvZnR3YXJlU3lzdGVtICJTdG9yYWdlIFNlcnZpY2VzIiAiRXh0ZXJuYWwgc3RvcmFnZSB3aGVyZSBkYXRhIGFzc2V0cyBhcmUgc3RvcmVkLiIKCiAgICAgICAgIyBVc2VyIC0gc3lzdGVtIGludGVyYWN0aW9uCiAgICAgICAgZW9zY191c2VyIC0+IGFpNGVvc2NfcGxhdGZvcm0gIlJldXNlLCBkZXZlbG9wLCBwdWJsaXNoIG5ldyBBSSBtb2RlbHMiCiAgICAgICAgcGFhc19vcHMgLT4gb3JjaGVzdHJhdGlvbiAiTWFuYWdlIFBhYVMgcmVzb3VyY2VzIGFuZCBkZXBsb3ltZW50cyIKCiAgICAgICAgIyBTeXN0ZW0gLSBzeXN0ZW0gaW50ZXJhY3Rpb24KICAgICAgICBvcmNoZXN0cmF0aW9uIC0+IGFpNGVvc2NfcGxhdGZvcm0gIkNyZWF0ZSBQYWFTIGRlcGxveW1lbnRzIGFuZCBwcm92aXNpb24gcmVzb3VyY2VzIGZvciIKICAgICAgICBhaTRlb3NjX3BsYXRmb3JtIC0+IHN0b3JhZ2UgIkNvbnN1bWVzIGRhdGEgZnJvbSIKICAgICAgICBzcWEgLT4gYWk0ZW9zY19wbGF0Zm9ybSAiRW5zdXJlcyBxdWFsaXR5IG9mIHByb2plY3QgYXNzZXRzIgojICAgICAgICB0cmFpbmluZyAtPiB1c2VyX21hbmFnZW1lbnQgIkF1dGhlbnRpY2F0ZSB1c2VycyB3aXRoIgojICAgICAgICB1c2VyX21hbmFnZW1lbnQgLT4gYWFpICJGZWRlcmF0ZXMgdXNlcnMgZnJvbSIKCiMgICAgICAgIGRlZXBhYXMgLT4gY2F0YWxvZyAiRGVwbG95cyBtb2RlbHMgZnJvbSIKCiMgICAgICAgIHRyYWluaW5nIC0+IGNhdGFsb2cgIlJlZ2lzdGVycyBtb2RlbHMgaW4iCiMgICAgICAgIHRyYWluaW5nIC0+IHN0b3JhZ2UgIkdldHMgbW9kZWwgZGF0YXNldHMgZnJvbSIKCgogICAgICAgICMgVHJhaW4gZmFjaWxpdHkKICAgICAgICBlb3NjX3VzZXIgLT4gZGFzaGJvYXJkICJUcmFpbiBuZXcgb3IgZXhpc3RpbmcgbW9kZWwiCgogICAgICAgIGRhc2hib2FyZCAtPiB0cmFpbmluZ19hcGkgIk1ha2VzIEFQSSBjYWxscyB0byAiCiAgICAgICAgZGFzaGJvYXJkIC0+IGV4Y2hhbmdlX2FwaSAiUmVhZHMgYXZhaWxhYmxlIG1vZGVscyBmcm9tIgogICAgICAgIGRhc2hib2FyZCAtPiBkZXYgIkRlbGl2ZXJzIGludGVyYWN0aXZlIGVudmlyb25tZW50cyIKCiAgICAgICAgZGV2IC0+IGNvZSAiQ3JlYXRlIG9uLWRlbWFuZCBlbnZpcm9ubWVudHMiCiAgICAgICAgY29lIC0+IHJlc291cmNlcyAiQ3JlYXRlIG5ldyB0YXNrL3dvcmtsb2FkIgoKICAgICAgICByZXNvdXJjZXMgLT4gbW9kZWxfY29udGFpbmVyICJFeGVjdXRlcyB1c2VyIG1vZGVsIGZyb20gYSIKICAgICAgICAKICAgICAgICB0cmFpbmluZ19hcGkgLT4gY29lICJDcmVhdGUgdHJhaW5pbmcgam9iL3Rhc2sgdXNpbmcgQVBJIGNhbGxzIHRvIgogICAgICAgIHRyYWluaW5nX2FwaSAtPiB0cmFpbmluZ19kYiAiU3RvcmVzIHRyYWluaW5nIGRhdGEgaW4iCgogICAgICAgIHRyYWluaW5nX2FwaSAtPiBpYW0gIkF1dGhlbnRpY2F0ZXMgdXNlcnMgd2l0aCIKICAgICAgICBkYXNoYm9hcmQgLT4gaWFtICJBdXRoZW50aWNhdGVzIHVzZXJzIHdpdGgiCgogICAgICAgICMgVXNlciBtYW5hZ2VtZW50CgogICAgICAgIHBvcnRhbCAtPiBvcmRlciAiQ3JlYXRlcyBuZXcgb3JkZXIvcmVxdWVzdCBmb3Igc2VydmljZXMiCiAgICAgICAgaWFtIC0+IGFhaSAiRmVkZXJhdGUgdXNlcnMgZnJvbSIgIk9wZW5JRCBDb25uZWN0IgogICAgICAgIG9yZGVyIC0+IGlhbSAiQ3JlYXRlcyBuZXcgdXNlcnMgZm9yIG5ldyBvcmRlcnMiCiAgICAgICAgCgogICAgICAgICMgQUk0RU9TQyBleGNoYW5nZQogICAgICAgIGVvc2NfdXNlciAtPiBtYXJrZXRwbGFjZSAiQnJvd3NlIGFuZCBkb3dubG9hZCBtb2RlbHMgYW5kIGRhdGFzZXRzIgogICAgICAgIGVvc2NfdXNlciAtPiBleGNoYW5nZV9hcGkgIlJlZ2lzdGVyIG5ldyBtb2RlbCIKICAgICAgICBtYXJrZXRwbGFjZSAtPiBleGNoYW5nZV9hcGkgIk1ha2VzIEFQSSBjYWxscyB0byIKCiAgICAgICAgbWFya2V0cGxhY2UgLT4gZGF0YV9yZXBvICJSZWFkcyBmcm9tIgogICAgICAgIG1hcmtldHBsYWNlIC0+IG1vZGVsX3JlcG8gIlJlYWRzIGZyb20iCiAgICAgICAgbWFya2V0cGxhY2UgLT4gY29udGFpbmVyX3JlcG8gIlJlYWRzIGZyb20iCgogICAgICAgIGRhdGFfcmVwbyAtPiBzdG9yYWdlICJSZWZlcnMgdG8gZGF0YSBzdG9yZWQgaW4iCgogICAgICAgIGV4Y2hhbmdlX2FwaSAtPiBleGNoYW5nZV9kYiAiUmVhZHMgZnJvbSB3cml0ZXMgdG8iCgogICAgICAgIGNpY2QgLT4gbW9kZWxfY29udGFpbmVyICJDcmVhdGVzIgogICAgICAgIG1vZGVsX2NvbnRhaW5lciAtPiBjb250YWluZXJfcmVwbyAiU3RvcmVkIGluIgoKIyAgICAgICAgamVua2lucyAtPiBkYXRhX3JlcG8gIkVuc3VyZXMiCiAgICAgICAgY2ljZCAtPiBtb2RlbF9yZXBvICJQZXJmb3JtcyBTUUEgdGFza3MiCiAgICAgICAgCgoKICAgICAgICAjIENvbnRhaW5lciBsZXZlbAoKIyAgICAgICAgbWFya2V0cGxhY2UgLT4gY2F0YWxvZ19yZXBvICJQb2ludHMgdG8iCiMgICAgICAgIG1hcmtldHBsYWNlIC0+IGNvbnRhaW5lcl9yZXBvICJQb2ludHMgdG8iCiMgICAgICAgIGNhdGFsb2dfcmVwbyAtPiBqZW5raW5zICJUcmlnZ2VycyBjYXRhbG9nIHVwZGF0ZSIKIyAgICAgICAgamVua2lucyAtPiBtYXJrZXRwbGFjZSAiR2VuZXJhdGVzIHdlYiBwYWdlIgojICAgICAgICBqZW5raW5zIC0+IGNvbnRhaW5lcl9yZXBvICJDcmVhdGUgRG9ja2VyIGNvbnRhaW5lciIKCgojICAgICAgICBkYXNoYm9hcmQgLT4gdG9zY2FfcmVwbyAiUmVhZCB0b3BvbG9naWVzIgoKICAgICAgICBwYWFzX2Rhc2hib2FyZCAtPiBwYWFzX29yY2hlc3RyYXRvciAiQ3JlYXRlIGRlcGxveW1lbnQiCiAgICAgICAgcGFhc19kYXNoYm9hcmQgLT4gdG9zY2FfcmVwbyAiUmVhZCB0b3BvbG9naWVzIgogICAgICAgIHBhYXNfb3JjaGVzdHJhdG9yIC0+IHRvc2NhX3JlcG8gIlJlYWQgdG9wb2xvZ2llcyIKICAgICAgICBwYWFzX29yY2hlc3RyYXRvciAtPiBpbSAiVXNlcyIKCiAgICAgICAgcGFhc19vcmNoZXN0cmF0b3IgLT4gaWFtICJBdXRoZW50aWNhdGVzIHVzZXJzIHdpdGgiCiAgICAgICAgaW0gLT4gaWFtICJBdXRoTi9aIgojICAgICAgICBjb2UgLT4gaWFtICJBdXRoTi9aIgoKICAgICAgICBwYWFzX29yY2hlc3RyYXRvciAtPiByZXNvdXJjZXMgIlByb3Zpc2lvbnMgcmVzb3VyY2VzIgojICAgICAgICBpbSAtPiBjb2UgIlByb3Zpc2lvbnMiCgojCiMgICAgICAgIGVvc2NfdXNlciAtPiBtb2RlbF9jb250YWluZXIgIlRyYWluL1ByZWRpY3QiCgojICAgICAgICBtb2RlbF9jb250YWluZXIgLT4gY29udGFpbmVyX3JlcG8gIlN0b3JlZCBpbiIKIwojICAgICAgICBqZW5raW5zIC0+IGRlZXBfY29ubmVjdG9yICJUcmlnZ2VyIHVwZGF0ZSIKIyAgICAgICAgZGVlcF9jb25uZWN0b3IgLT4gb3BlbndoaXNrICJDcmVhdGUvZGVsZXRlL3VwZGF0ZSBhY3Rpb25zIgojICAgICAgICBvcGVud2hpc2sgLT4gc2VydmVybGVzc19jb2UgIkNyZWF0ZSBjb250YWluZXIgZnVuY3Rpb25zIgojICAgICAgICBvcGVud2hpc2sgLT4gZGVlcGFhc19jb250YWluZXIgIlJlZGlyZWN0cyB0byIKIwojICAgICAgICBkZWVwYWFzX2NvbnRhaW5lciAtPiBtb2RlbF9jb250YWluZXIgIlN0b3JlZCBpbiIKIyAgICAgICAgc2VydmVybGVzc19jb2UgLT4gZGVlcGFhc19jb250YWluZXIgIkNyZWF0ZXMgQ29udGFpbmVycyIKIwojICAgICAgICBlb3NjX3VzZXIgLT4gYXBpCgojICAgICAgICBhYWkgLT4gaWFtICJGZWRlcmF0ZSB1c2VycyIKIyAgICAgICAgbWVzb3MgLT4gbW9kZWxfY29udGFpbmVyCgogICAgfQoKICAgIHZpZXdzIHsKICAgICAgICB0aGVtZSBEZWZhdWx0CiAgICAgICAgCiAgICAgICAgc3lzdGVtTGFuZHNjYXBlIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQogICAgICAgIAojICAgICAgICBjb250YWluZXIgY2F0YWxvZyB7CiMgICAgICAgICAgICBpbmNsdWRlICoKIyMgICAgICAgICAgICBhdXRvTGF5b3V0CiMgICAgICAgIH0KIwojICAgICAgICBjb250YWluZXIgdHJhaW5pbmcgewojICAgICAgICAgICAgaW5jbHVkZSAqCiMgICAgICAgIH0KIwojICAgICAgICBjb250YWluZXIgZGVlcGFhcyB7CiMgICAgICAgICAgICBpbmNsdWRlICoKIyAgICAgICAgfQogICAgICAgIAogICAgICAgIGNvbnRhaW5lciBhaTRlb3NjX3BsYXRmb3JtIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQoKICAgICAgICBjb250YWluZXIgb3JjaGVzdHJhdGlvbiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KCiMgICAgICAgIGNvbnRhaW5lciB1c2VyX21hbmFnZW1lbnQgewojICAgICAgICAgICAgaW5jbHVkZSAqCiMgICAgICAgIH0KICAgICAgICAKIyAgICAgICAgY29tcG9uZW50IG1vZGVsX2NvbnRhaW5lciB7CiMgICAgICAgICAgICBpbmNsdWRlICoKIyAgICAgICAgfQogICAgICAgIAojICAgICAgICBzdHlsZXMgewojICAgICAgICAgICAgZWxlbWVudCAiZGFzaGJvYXJkIiB7CiMgICAgICAgICAgICAgICAgc2hhcGUgV2ViQnJvd3NlcgojICAgICAgICAgICAgfSAgICAgICAKIwojICAgICAgICAgICAgZWxlbWVudCAicmVwb3NpdG9yeSIgewojICAgICAgICAgICAgICAgIHNoYXBlIEN5bGluZGVyCiMgICAgICAgICAgICB9CiMgICAgICAgIH0KICAgIH0KfQoK"
+  },
+  "configuration" : { },
+  "model" : {
+    "enterprise" : {
+      "name" : "AI4EOSC"
+    },
+    "people" : [ {
+      "id" : "6",
+      "tags" : "Element,Person",
+      "name" : "PaaS Operator",
+      "description" : "Resource provider operator or platform operator managing the PaaS deployments.",
+      "relationships" : [ {
+        "id" : "44",
+        "tags" : "Relationship",
+        "sourceId" : "6",
+        "destinationId" : "32",
+        "description" : "Manage PaaS resources and deployments"
+      } ],
+      "location" : "External"
+    }, {
+      "id" : "1",
+      "tags" : "Element,Person",
+      "name" : "EOSC User",
+      "description" : "EOSC user willing to use an AI platform to develop an AI application.",
+      "relationships" : [ {
+        "id" : "43",
+        "tags" : "Relationship",
+        "sourceId" : "1",
+        "destinationId" : "7",
+        "description" : "Reuse, develop, publish new AI models"
+      }, {
+        "id" : "48",
+        "tags" : "Relationship",
+        "sourceId" : "1",
+        "destinationId" : "22",
+        "description" : "Train new or existing model"
+      }, {
+        "id" : "65",
+        "tags" : "Relationship",
+        "sourceId" : "1",
+        "destinationId" : "9",
+        "description" : "Register new model"
+      }, {
+        "id" : "64",
+        "tags" : "Relationship",
+        "sourceId" : "1",
+        "destinationId" : "8",
+        "description" : "Browse and download models and datasets"
+      }, {
+        "id" : "5",
+        "tags" : "Relationship",
+        "sourceId" : "1",
+        "destinationId" : "3",
+        "description" : "Browse EOSC resources, create order for new services"
+      } ],
+      "location" : "External"
+    } ],
+    "softwareSystems" : [ {
+      "id" : "28",
+      "tags" : "Element,Software System",
+      "name" : "Quality Assurance",
+      "description" : "Performs quality assurance checks for software, services and data assets.",
+      "relationships" : [ {
+        "id" : "74",
+        "sourceId" : "28",
+        "destinationId" : "14",
+        "description" : "Creates",
+        "linkedRelationshipId" : "72"
+      }, {
+        "id" : "77",
+        "sourceId" : "28",
+        "destinationId" : "11",
+        "description" : "Performs SQA tasks",
+        "linkedRelationshipId" : "76"
+      }, {
+        "id" : "47",
+        "tags" : "Relationship",
+        "sourceId" : "28",
+        "destinationId" : "7",
+        "description" : "Ensures quality of project assets"
+      } ],
+      "location" : "Internal",
+      "containers" : [ {
+        "id" : "31",
+        "tags" : "Element,Container",
+        "name" : "Data quality",
+        "technology" : "FAIR Evaluator"
+      }, {
+        "id" : "29",
+        "tags" : "Element,Container",
+        "name" : "CI/CD",
+        "relationships" : [ {
+          "id" : "72",
+          "tags" : "Relationship",
+          "sourceId" : "29",
+          "destinationId" : "14",
+          "description" : "Creates"
+        }, {
+          "id" : "76",
+          "tags" : "Relationship",
+          "sourceId" : "29",
+          "destinationId" : "11",
+          "description" : "Performs SQA tasks"
+        }, {
+          "id" : "73",
+          "sourceId" : "29",
+          "destinationId" : "7",
+          "description" : "Creates",
+          "linkedRelationshipId" : "72"
+        } ],
+        "technology" : "Jenkinks + JePL"
+      }, {
+        "id" : "30",
+        "tags" : "Element,Container",
+        "name" : "Service quality",
+        "technology" : "SQaaS"
+      } ],
+      "documentation" : { }
+    }, {
+      "id" : "37",
+      "tags" : "Element,Software System",
+      "name" : "DEEP as a Service",
+      "description" : "Allows users to deploy an AI application as a service.",
+      "location" : "Internal",
+      "containers" : [ {
+        "id" : "38",
+        "tags" : "Element,Container",
+        "name" : "Serverless platform",
+        "technology" : "OpenWhisk"
+      }, {
+        "id" : "41",
+        "tags" : "Element,Container",
+        "name" : "Container Orchestration Engine",
+        "technology" : "Mesos"
+      }, {
+        "id" : "40",
+        "tags" : "Element,Container",
+        "name" : "DEEPaaS Containar"
+      }, {
+        "id" : "39",
+        "tags" : "Element,Container",
+        "name" : "DEEP - Serverless connector"
+      } ],
+      "documentation" : { }
+    }, {
+      "id" : "42",
+      "tags" : "Element,Software System",
+      "name" : "Storage Services",
+      "description" : "External storage where data assets are stored.",
+      "location" : "External",
+      "documentation" : { }
+    }, {
+      "id" : "32",
+      "tags" : "Element,Software System",
+      "name" : "PaaS Orchestration and provisioning",
+      "description" : "Allows PaaS operators to manage PaaS deployments and resources.",
+      "relationships" : [ {
+        "id" : "84",
+        "sourceId" : "32",
+        "destinationId" : "20",
+        "description" : "Authenticates users with",
+        "linkedRelationshipId" : "82"
+      }, {
+        "id" : "45",
+        "tags" : "Relationship",
+        "sourceId" : "32",
+        "destinationId" : "7",
+        "description" : "Create PaaS deployments and provision resources for"
+      }, {
+        "id" : "88",
+        "sourceId" : "32",
+        "destinationId" : "27",
+        "description" : "Provisions resources",
+        "linkedRelationshipId" : "87"
+      } ],
+      "location" : "Internal",
+      "containers" : [ {
+        "id" : "34",
+        "tags" : "Element,Container",
+        "name" : "PaaS Orchestrator",
+        "relationships" : [ {
+          "id" : "80",
+          "tags" : "Relationship",
+          "sourceId" : "34",
+          "destinationId" : "36",
+          "description" : "Read topologies"
+        }, {
+          "id" : "81",
+          "tags" : "Relationship",
+          "sourceId" : "34",
+          "destinationId" : "35",
+          "description" : "Uses"
+        }, {
+          "id" : "82",
+          "tags" : "Relationship",
+          "sourceId" : "34",
+          "destinationId" : "20",
+          "description" : "Authenticates users with"
+        }, {
+          "id" : "83",
+          "sourceId" : "34",
+          "destinationId" : "7",
+          "description" : "Authenticates users with",
+          "linkedRelationshipId" : "82"
+        }, {
+          "id" : "87",
+          "tags" : "Relationship",
+          "sourceId" : "34",
+          "destinationId" : "27",
+          "description" : "Provisions resources"
+        } ],
+        "technology" : "INDIGO PaaS Orchestrator"
+      }, {
+        "id" : "35",
+        "tags" : "Element,Container",
+        "name" : "Infrastructure Manager",
+        "relationships" : [ {
+          "id" : "85",
+          "tags" : "Relationship",
+          "sourceId" : "35",
+          "destinationId" : "20",
+          "description" : "AuthN/Z"
+        }, {
+          "id" : "86",
+          "sourceId" : "35",
+          "destinationId" : "7",
+          "description" : "AuthN/Z",
+          "linkedRelationshipId" : "85"
+        } ]
+      }, {
+        "id" : "33",
+        "tags" : "Element,Container,dashboard",
+        "name" : "PaaS Dashboard",
+        "relationships" : [ {
+          "id" : "79",
+          "tags" : "Relationship",
+          "sourceId" : "33",
+          "destinationId" : "36",
+          "description" : "Read topologies"
+        }, {
+          "id" : "78",
+          "tags" : "Relationship",
+          "sourceId" : "33",
+          "destinationId" : "34",
+          "description" : "Create deployment"
+        } ],
+        "technology" : "Flask"
+      }, {
+        "id" : "36",
+        "tags" : "Element,Container,repository",
+        "name" : "Topologies repository",
+        "technology" : "TOSCA"
+      } ],
+      "documentation" : { }
+    }, {
+      "id" : "3",
+      "tags" : "Element,Software System",
+      "name" : "EOSC Portal",
+      "description" : "Provides access to EOSC resources and services for users.",
+      "relationships" : [ {
+        "id" : "59",
+        "tags" : "Relationship",
+        "sourceId" : "3",
+        "destinationId" : "21",
+        "description" : "Creates new order/request for services"
+      }, {
+        "id" : "60",
+        "sourceId" : "3",
+        "destinationId" : "7",
+        "description" : "Creates new order/request for services",
+        "linkedRelationshipId" : "59"
+      } ],
+      "group" : "EOSC",
+      "location" : "External",
+      "documentation" : { }
+    }, {
+      "id" : "7",
+      "tags" : "Element,Software System",
+      "name" : "AI4EOSC Platform",
+      "description" : "Allows EOSC users to develop, build and share AI models.",
+      "relationships" : [ {
+        "id" : "62",
+        "sourceId" : "7",
+        "destinationId" : "2",
+        "description" : "Federate users from",
+        "technology" : "OpenID Connect",
+        "linkedRelationshipId" : "61"
+      }, {
+        "id" : "46",
+        "tags" : "Relationship",
+        "sourceId" : "7",
+        "destinationId" : "42",
+        "description" : "Consumes data from"
+      } ],
+      "location" : "Internal",
+      "containers" : [ {
+        "id" : "9",
+        "tags" : "Element,Container",
+        "name" : "Exchange API",
+        "description" : "Provides exchange functionality via HTTPS/JSON API.",
+        "relationships" : [ {
+          "id" : "71",
+          "tags" : "Relationship",
+          "sourceId" : "9",
+          "destinationId" : "13",
+          "description" : "Reads from writes to"
+        } ],
+        "group" : "AI4EOSC Exchange"
+      }, {
+        "id" : "24",
+        "tags" : "Element,Container,database",
+        "name" : "Training database",
+        "description" : "Stores AI4EOSC training requests",
+        "group" : "AI4EOSC training"
+      }, {
+        "id" : "8",
+        "tags" : "Element,Container,dashboard",
+        "name" : "AI4EOSC exchange web portal",
+        "description" : "Exposes read-only content to end-users.",
+        "relationships" : [ {
+          "id" : "68",
+          "tags" : "Relationship",
+          "sourceId" : "8",
+          "destinationId" : "11",
+          "description" : "Reads from"
+        }, {
+          "id" : "69",
+          "tags" : "Relationship",
+          "sourceId" : "8",
+          "destinationId" : "12",
+          "description" : "Reads from"
+        }, {
+          "id" : "66",
+          "tags" : "Relationship",
+          "sourceId" : "8",
+          "destinationId" : "9",
+          "description" : "Makes API calls to"
+        }, {
+          "id" : "67",
+          "tags" : "Relationship",
+          "sourceId" : "8",
+          "destinationId" : "10",
+          "description" : "Reads from"
+        } ],
+        "group" : "AI4EOSC Exchange",
+        "technology" : "Pelican"
+      }, {
+        "id" : "22",
+        "tags" : "Element,Container,dashboard",
+        "name" : "Training dashboard",
+        "description" : "Provides access to experiment and training definiton.",
+        "relationships" : [ {
+          "id" : "50",
+          "tags" : "Relationship",
+          "sourceId" : "22",
+          "destinationId" : "9",
+          "description" : "Reads available models from"
+        }, {
+          "id" : "58",
+          "tags" : "Relationship",
+          "sourceId" : "22",
+          "destinationId" : "20",
+          "description" : "Authenticates users with"
+        }, {
+          "id" : "49",
+          "tags" : "Relationship",
+          "sourceId" : "22",
+          "destinationId" : "23",
+          "description" : "Makes API calls to"
+        }, {
+          "id" : "51",
+          "tags" : "Relationship",
+          "sourceId" : "22",
+          "destinationId" : "25",
+          "description" : "Delivers interactive environments"
+        } ],
+        "group" : "AI4EOSC training",
+        "technology" : "aiohttp"
+      }, {
+        "id" : "10",
+        "tags" : "Element,Container,repository",
+        "name" : "Model and data repository",
+        "description" : "Track AI models and data sets.",
+        "relationships" : [ {
+          "id" : "70",
+          "tags" : "Relationship",
+          "sourceId" : "10",
+          "destinationId" : "42",
+          "description" : "Refers to data stored in"
+        } ],
+        "group" : "AI4EOSC Exchange",
+        "technology" : "dvc"
+      }, {
+        "id" : "11",
+        "tags" : "Element,Container,repository",
+        "name" : "Model code repository",
+        "description" : "Track AI model code.",
+        "group" : "AI4EOSC Exchange",
+        "technology" : "Git"
+      }, {
+        "id" : "26",
+        "tags" : "Element,Container",
+        "name" : "Workload Management System",
+        "description" : "Manages and schedules the execution of compute requests.",
+        "relationships" : [ {
+          "id" : "53",
+          "tags" : "Relationship",
+          "sourceId" : "26",
+          "destinationId" : "27",
+          "description" : "Create new task/workload"
+        } ],
+        "group" : "AI4EOSC training",
+        "technology" : "Hashicorp Nomad"
+      }, {
+        "id" : "25",
+        "tags" : "Element,Container",
+        "name" : "Interactive development Environment",
+        "description" : "An interactive development environment with access to resources and limited execution time.",
+        "relationships" : [ {
+          "id" : "52",
+          "tags" : "Relationship",
+          "sourceId" : "25",
+          "destinationId" : "26",
+          "description" : "Create on-demand environments"
+        } ],
+        "group" : "AI4EOSC training",
+        "technology" : "Jupyter"
+      }, {
+        "id" : "20",
+        "tags" : "Element,Container",
+        "name" : "Identity and Access Management",
+        "description" : "Provides user and group management",
+        "relationships" : [ {
+          "id" : "61",
+          "tags" : "Relationship",
+          "sourceId" : "20",
+          "destinationId" : "2",
+          "description" : "Federate users from",
+          "technology" : "OpenID Connect"
+        } ],
+        "group" : "Identity and user management",
+        "technology" : "INDIGO IAM"
+      }, {
+        "id" : "13",
+        "tags" : "Element,Container,database",
+        "name" : "Exchange database",
+        "description" : "Stores AI4EOSC exchange registered models.",
+        "group" : "AI4EOSC Exchange"
+      }, {
+        "id" : "27",
+        "tags" : "Element,Container",
+        "name" : "Compute resources",
+        "description" : "Executes user workloads.",
+        "relationships" : [ {
+          "id" : "54",
+          "tags" : "Relationship",
+          "sourceId" : "27",
+          "destinationId" : "14",
+          "description" : "Executes user model from a"
+        } ],
+        "group" : "AI4EOSC training",
+        "technology" : "Hashicorp Nomad"
+      }, {
+        "id" : "12",
+        "tags" : "Element,Container,repository",
+        "name" : "Container registry",
+        "description" : "Store container images.",
+        "group" : "AI4EOSC Exchange",
+        "technology" : "DockerHub"
+      }, {
+        "id" : "21",
+        "tags" : "Element,Container",
+        "name" : "Order management system",
+        "description" : "Manages orders coming both from the EOSC portal or for new users",
+        "relationships" : [ {
+          "id" : "63",
+          "tags" : "Relationship",
+          "sourceId" : "21",
+          "destinationId" : "20",
+          "description" : "Creates new users for new orders"
+        } ],
+        "group" : "Identity and user management"
+      }, {
+        "id" : "14",
+        "tags" : "Element,Container",
+        "name" : "Model container",
+        "description" : "Encapsulates user code.",
+        "relationships" : [ {
+          "id" : "75",
+          "tags" : "Relationship",
+          "sourceId" : "14",
+          "destinationId" : "12",
+          "description" : "Stored in"
+        } ],
+        "technology" : "Docker",
+        "components" : [ {
+          "id" : "16",
+          "tags" : "Element,Component",
+          "name" : "ML/AI framework",
+          "size" : 0
+        }, {
+          "id" : "17",
+          "tags" : "Element,Component",
+          "name" : "User code and model",
+          "relationships" : [ {
+            "id" : "19",
+            "tags" : "Relationship",
+            "sourceId" : "17",
+            "destinationId" : "16"
+          } ],
+          "size" : 0
+        }, {
+          "id" : "15",
+          "tags" : "Element,Component",
+          "name" : "API",
+          "relationships" : [ {
+            "id" : "18",
+            "tags" : "Relationship",
+            "sourceId" : "15",
+            "destinationId" : "17"
+          } ],
+          "technology" : "DEEPaaS API",
+          "size" : 0
+        } ]
+      }, {
+        "id" : "23",
+        "tags" : "Element,Container",
+        "name" : "Training API",
+        "description" : "Provides training creation and monitoring functionality via a JSON/HTTPS API",
+        "relationships" : [ {
+          "id" : "56",
+          "tags" : "Relationship",
+          "sourceId" : "23",
+          "destinationId" : "24",
+          "description" : "Stores training data in"
+        }, {
+          "id" : "57",
+          "tags" : "Relationship",
+          "sourceId" : "23",
+          "destinationId" : "20",
+          "description" : "Authenticates users with"
+        }, {
+          "id" : "55",
+          "tags" : "Relationship",
+          "sourceId" : "23",
+          "destinationId" : "26",
+          "description" : "Create training job/task using API calls to"
+        } ],
+        "group" : "AI4EOSC training",
+        "technology" : "aiohttp"
+      } ],
+      "documentation" : { }
+    }, {
+      "id" : "2",
+      "tags" : "Element,Software System",
+      "name" : "EOSC AAI",
+      "description" : "Provides Authentication, Authorization and Identity management for EOSC users.",
+      "relationships" : [ {
+        "id" : "4",
+        "tags" : "Relationship",
+        "sourceId" : "2",
+        "destinationId" : "3",
+        "description" : "Provides authentication for"
+      } ],
+      "group" : "EOSC",
+      "location" : "External",
+      "documentation" : { }
+    } ]
+  },
+  "documentation" : {
+    "decisions" : [ {
+      "title" : "Initial architecture: DEEP-Hybrid-DataCloud",
+      "content" : "# 1. Initial architecture: DEEP-Hybrid-DataCloud\n\nDate: 2022-04-11\n\n## Status\n\nAccepted\n\n## Context\n\nThe AI4EOSC will leverage the DEEP-Hybrid-DataCloud project architecture and\nrecord the architectural decisions made on it.\n\n## Decision\n\nWe describe the DEEP-Hybrid-DataCloud architecture using the C4 model.  We will\nuse Architecture Decision Records, as [described by Michael\nNygard](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions).\n",
+      "format" : "Markdown",
+      "id" : "1",
+      "date" : "2022-04-11T00:00:00Z",
+      "status" : "Accepted"
+    }, {
+      "title" : "Remove A4C from AI4EOSC architecture",
+      "content" : "# 2. Remove A4C from AI4EOSC architecture\n\nDate: 2022-05-03\n\n## Status\n\nAccepted\n\n## Context\n\nA4C was not really being used after the DEEP project. It is an external\nproject, not managed by us, and with limited interest for PaaS operators.\n\n## Decision\n\nA4C is deprecated and removed.\n\n## Consequences\n\nNo consequences.\n",
+      "format" : "Markdown",
+      "id" : "2",
+      "date" : "2022-05-03T00:00:00Z",
+      "status" : "Accepted"
+    }, {
+      "title" : "Decouple orchestrator from training system",
+      "content" : "# 3. Decouple orchestrator from training system\n\nDate: 2022-05-03\n\n## Status\n\nAccepted\n\n## Context\n\nCurrently we are using the INDIGO PaaS orchestrator as the tool that provisions\nthe infrastructure and to submit user tasks (i.e. training and request for new\ndevelopment environments) acting as the workload management system. This is\nsub-optimal, as the PaaS orchestrator is built on a generic way, creating\nadditional complexity that we must hide in the dashboard (i.e. removing TOSCA\ncomplexity).\n\n## Decision\n\nThe decision is to decouple the PaaS orchestration from the user workload\nmanagement.\n\n## Consequences\n\nThe PaaS orchestrator will be in charge of the provisioning of the AI4EOSC\nplatform and to provision additional resources when needed. As a side effect,\ntaking into account the Mesos is deprecated, we propose to utilzie Hashicorp\nNomad as a substitute for the orchestration of containers, acting as the new\nworkload management system due to its ability to work in distributed scenarios.\n\nA new API must be developed, as an interface between our dashboard and the\nworkload management system and existing tools must be adapted.\n",
+      "format" : "Markdown",
+      "id" : "3",
+      "date" : "2022-05-03T00:00:00Z",
+      "status" : "Accepted"
+    }, {
+      "title" : "Add order system for user management",
+      "content" : "# 4. Add order system for user management\n\nDate: 2022-05-03\n\n## Status\n\nAccepted\n\n## Context\n\nWe need a way to track the new requests coming from the EOSC portal, as the\nEOSC ordering system is incomplete.\n\n## Decision\n\nImplement an order service so that we can keep track of orders coming from the\nportal or for new users coming directly to our platform.\n\n## Consequences\n\nImplement an ordering application with direct links with the IAM.\n",
+      "format" : "Markdown",
+      "id" : "4",
+      "date" : "2022-05-03T00:00:00Z",
+      "status" : "Accepted"
+    } ]
+  },
+  "views" : {
+    "systemLandscapeViews" : [ {
+      "key" : "eosc",
+      "order" : 1,
+      "automaticLayout" : {
+        "implementation" : "Graphviz",
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "nodeSeparation" : 300,
+        "edgeSeparation" : 0,
+        "vertices" : false
+      },
+      "enterpriseBoundaryVisible" : true,
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "3",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "relationships" : [ {
+        "id" : "4"
+      }, {
+        "id" : "5"
+      } ]
+    }, {
+      "key" : "SystemLandscape",
+      "order" : 2,
+      "dimensions" : {
+        "width" : 3969,
+        "height" : 2939
+      },
+      "enterpriseBoundaryVisible" : true,
+      "elements" : [ {
+        "id" : "1",
+        "x" : 1102,
+        "y" : 180
+      }, {
+        "id" : "2",
+        "x" : 2755,
+        "y" : 230
+      }, {
+        "id" : "3",
+        "x" : 1935,
+        "y" : 230
+      }, {
+        "id" : "37",
+        "x" : 375,
+        "y" : 1225
+      }, {
+        "id" : "28",
+        "x" : 1935,
+        "y" : 1885
+      }, {
+        "id" : "6",
+        "x" : 2775,
+        "y" : 1175
+      }, {
+        "id" : "7",
+        "x" : 1085,
+        "y" : 1225
+      }, {
+        "id" : "42",
+        "x" : 1085,
+        "y" : 1875
+      }, {
+        "id" : "32",
+        "x" : 1935,
+        "y" : 1225
+      } ],
+      "relationships" : [ {
+        "id" : "60"
+      }, {
+        "id" : "4"
+      }, {
+        "id" : "62"
+      }, {
+        "id" : "5"
+      }, {
+        "id" : "43"
+      }, {
+        "id" : "44"
+      }, {
+        "id" : "45"
+      }, {
+        "id" : "46"
+      }, {
+        "id" : "47"
+      } ]
+    } ],
+    "containerViews" : [ {
+      "softwareSystemId" : "32",
+      "key" : "PaaSOrchestrationandprovisioning-Container",
+      "order" : 4,
+      "paperSize" : "A3_Landscape",
+      "dimensions" : {
+        "width" : 3112,
+        "height" : 2654
+      },
+      "externalSoftwareSystemBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "33",
+        "x" : 555,
+        "y" : 290
+      }, {
+        "id" : "34",
+        "x" : 1037,
+        "y" : 886
+      }, {
+        "id" : "35",
+        "x" : 1037,
+        "y" : 1486
+      }, {
+        "id" : "36",
+        "x" : 287,
+        "y" : 1486
+      }, {
+        "id" : "7",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "relationships" : [ {
+        "id" : "83"
+      }, {
+        "id" : "80"
+      }, {
+        "id" : "81"
+      }, {
+        "id" : "86"
+      }, {
+        "id" : "78"
+      }, {
+        "id" : "79"
+      } ]
+    }, {
+      "softwareSystemId" : "7",
+      "key" : "AI4EOSCPlatform-Container",
+      "order" : 3,
+      "dimensions" : {
+        "width" : 5180,
+        "height" : 3436
+      },
+      "externalSoftwareSystemBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "11",
+        "x" : 817,
+        "y" : 1589
+      }, {
+        "id" : "22",
+        "x" : 2748,
+        "y" : 989
+      }, {
+        "id" : "23",
+        "x" : 3454,
+        "y" : 1384
+      }, {
+        "id" : "12",
+        "x" : 1420,
+        "y" : 1590
+      }, {
+        "id" : "24",
+        "x" : 3454,
+        "y" : 2024
+      }, {
+        "id" : "13",
+        "x" : 1975,
+        "y" : 1589
+      }, {
+        "id" : "14",
+        "x" : 1460,
+        "y" : 2400
+      }, {
+        "id" : "25",
+        "x" : 2595,
+        "y" : 1515
+      }, {
+        "id" : "26",
+        "x" : 2590,
+        "y" : 2180
+      }, {
+        "id" : "27",
+        "x" : 3454,
+        "y" : 2409
+      }, {
+        "id" : "28",
+        "x" : 817,
+        "y" : 2935
+      }, {
+        "id" : "1",
+        "x" : 2315,
+        "y" : 160
+      }, {
+        "id" : "2",
+        "x" : 4335,
+        "y" : 340
+      }, {
+        "id" : "3",
+        "x" : 3454,
+        "y" : 340
+      }, {
+        "id" : "8",
+        "x" : 817,
+        "y" : 989
+      }, {
+        "id" : "9",
+        "x" : 1975,
+        "y" : 989
+      }, {
+        "id" : "42",
+        "x" : 245,
+        "y" : 2940
+      }, {
+        "id" : "20",
+        "x" : 4335,
+        "y" : 1640
+      }, {
+        "id" : "10",
+        "x" : 230,
+        "y" : 1595
+      }, {
+        "id" : "32",
+        "x" : 4335,
+        "y" : 2935
+      }, {
+        "id" : "21",
+        "x" : 4335,
+        "y" : 989
+      } ],
+      "relationships" : [ {
+        "id" : "70"
+      }, {
+        "id" : "71"
+      }, {
+        "id" : "50"
+      }, {
+        "id" : "74"
+      }, {
+        "id" : "51"
+      }, {
+        "id" : "52"
+      }, {
+        "id" : "53"
+      }, {
+        "id" : "75"
+      }, {
+        "id" : "54"
+      }, {
+        "id" : "67"
+      }, {
+        "id" : "66"
+      }, {
+        "id" : "69"
+      }, {
+        "id" : "88"
+      }, {
+        "id" : "68"
+      }, {
+        "id" : "48"
+      }, {
+        "id" : "49"
+      }, {
+        "id" : "61",
+        "vertices" : [ {
+          "x" : 4860,
+          "y" : 1605
+        }, {
+          "x" : 4865,
+          "y" : 675
+        } ]
+      }, {
+        "id" : "63"
+      }, {
+        "id" : "84",
+        "vertices" : [ {
+          "x" : 4905,
+          "y" : 3110
+        }, {
+          "x" : 4900,
+          "y" : 2080
+        } ]
+      }, {
+        "id" : "65"
+      }, {
+        "id" : "64"
+      }, {
+        "id" : "4"
+      }, {
+        "id" : "5"
+      }, {
+        "id" : "55"
+      }, {
+        "id" : "56"
+      }, {
+        "id" : "77"
+      }, {
+        "id" : "57"
+      }, {
+        "id" : "58",
+        "vertices" : [ {
+          "x" : 3809,
+          "y" : 1169
+        } ]
+      }, {
+        "id" : "59"
+      } ]
+    } ],
+    "configuration" : {
+      "branding" : { },
+      "styles" : {
+        "elements" : [ {
+          "tag" : "dashboard",
+          "shape" : "WebBrowser"
+        }, {
+          "tag" : "repository",
+          "shape" : "Folder"
+        }, {
+          "tag" : "database",
+          "shape" : "Cylinder"
+        } ]
+      },
+      "themes" : [ "https://static.structurizr.com/themes/default/theme.json" ],
+      "terminology" : { },
+      "lastSavedView" : "AI4EOSCPlatform-Container"
+    }
+  }
+}
