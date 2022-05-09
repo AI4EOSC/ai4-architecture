@@ -224,6 +224,10 @@ workspace extends ../eosc-landscape.dsl {
             include *
         }
 
+        container sqa {
+            include *
+        }
+
         container orchestration {
             include *
         }
