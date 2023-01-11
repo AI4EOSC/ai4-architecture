@@ -2,8 +2,8 @@ workspace extends ../eosc-landscape.dsl {
     
 #    !impliedRelationships false
 
-    name "DEEP-Hybrid-DataCloud"
-    description "DEEP-Hybrid-DataCloud legacy architecture"
+    name "AI4EOSC"
+    description "AI4EOSC architecture"
 
     model {
 
