@@ -7,19 +7,17 @@ on:
     target: ["main"]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     container:
       image: structurizr/cli:latest
       
     steps:
         - uses: actions/checkout@v3
+        
         - name: Validate Structurizr workspace
           run: /usr/local/structurizr-cli/structurizr.sh validate --workspace ./dsl/ai4eosc/
-  build:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
+
         - name: Export Structurizr workspace
           if: ${{ github.event_name == 'push' }}
           run: /usr/local/structurizr-cli/structurizr.sh push -id ${{ secrets.WORKSPACE_ID }} -key ${{ secrets.API_KEY }} -secret ${{ secrets.API_SECRET }} --workspace ./dsl/ai4eosc/
