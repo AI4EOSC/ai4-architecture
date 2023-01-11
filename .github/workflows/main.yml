@@ -1,0 +1,22 @@
+name: Update Structurizr (Cloud)
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    
+    - uses: actions/checkout@v3
+    
+    - name: Validate Structurizr workspace
+      uses: gilbertotcc/structurizr-action@v1
+      with:
+        args: 'validate -workspace ./dsl/ai4eosc/ -format json'
+            
+    - name: Export Structurizr workspace
+      uses: gilbertotcc/structurizr-action@v1
+      with:
+        args: 'push -id ${{ secrets.WORKSPACE_ID }} -key ${{ secrets.API_KEY }} -secret ${{ secrets.API_SECRET }} -workspace ./dsl/ai4eosc/'
