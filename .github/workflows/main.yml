@@ -18,4 +18,4 @@ jobs:
       run: /usr/local/structurizr-cli/structurizr.sh validate --workspace ./dsl/ai4eosc/
             
     - name: Export Structurizr workspace
-      run: /usr/local/structurizr-cli/structurizr.sh push --id ${{ secrets.WORKSPACE_ID }} --key ${{ secrets.API_KEY }} --secret ${{ secrets.API_SECRET }} --workspace ./dsl/ai4eosc/
+      run: /usr/local/structurizr-cli/structurizr.sh push -id ${{ secrets.WORKSPACE_ID }} -key ${{ secrets.API_KEY }} -secret ${{ secrets.API_SECRET }} --workspace ./dsl/ai4eosc/
