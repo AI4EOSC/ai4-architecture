@@ -206,6 +206,22 @@ workspace extends ../eosc-landscape.dsl {
         systemLandscape {
             include *
         }
+
+        systemContext ai4eosc_platform {
+            include *
+        }
+
+        systemContext sqa {
+            include *
+        }
+
+        systemContext orchestration {
+            include *
+        }
+
+        systemContext deepaas {
+            include *
+        }
         
 #        container catalog {
 #            include *
