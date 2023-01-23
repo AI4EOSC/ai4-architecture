@@ -18,8 +18,6 @@ workspace extends ../eosc-landscape.dsl {
         ai4eosc = enterprise "AI4EOSC" {
             ai4eosc_platform = softwareSystem "AI4EOSC Platform" "Allows EOSC users to develop, build and share AI models." {
                 exchange = group "AI4EOSC Exchange" {
-                    marketplace = container "AI4EOSC exchange web portal" "Exposes read-only content to end-users." "Pelican" "dashboard"
-
                     exchange_api =  container "Exchange API" "Provides exchange functionality via HTTPS/JSON API."
     
                     data_repo = container "Model and data repository" "Track AI models and data sets." "dvc" "repository"
@@ -47,10 +45,10 @@ workspace extends ../eosc-landscape.dsl {
                     order = container "Order management system" "Manages orders coming both from the EOSC portal or for new users" ""
 
                 }
+                
+                dashboard = container "AI4EOSC dashboard" "Provides access to existing modules (anonymous), experiment and training definition (logged users)." "aiohttp" "dashboard"
 
                 training = group "AI4EOSC training" {
-                    dashboard = container "Training dashboard" "Provides access to experiment and training definiton." "aiohttp" "dashboard"
-    
                     training_api = container "Training API" "Provides training creation and monitoring functionality via a JSON/HTTPS API" "aiohttp"
 
                     training_db = container "Training database" "Stores AI4EOSC training requests" "" "database"
@@ -118,9 +116,7 @@ workspace extends ../eosc-landscape.dsl {
 
 
         # Train facility
-        eosc_user -> dashboard "Train new or existing model"
-
-        dashboard -> training_api "Makes API calls to "
+        dashboard -> training_api "Define new trainings, check training status, etc. "
         dashboard -> exchange_api "Reads available models from"
         dashboard -> dev "Delivers interactive environments"
 
@@ -143,13 +139,12 @@ workspace extends ../eosc-landscape.dsl {
         
 
         # AI4EOSC exchange
-        eosc_user -> marketplace "Browse and download models and datasets"
+        eosc_user -> dashboard "Browse models, train existing model, build new one."
         eosc_user -> exchange_api "Register new model"
-        marketplace -> exchange_api "Makes API calls to"
 
-        marketplace -> data_repo "Reads from"
-        marketplace -> model_repo "Reads from"
-        marketplace -> container_repo "Reads from"
+        exchange_api -> data_repo "Reads from"
+        exchange_api -> model_repo "Reads from"
+        exchange_api -> container_repo "Reads from"
 
         data_repo -> storage "Refers to data stored in"
 
