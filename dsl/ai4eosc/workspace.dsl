@@ -94,14 +94,20 @@ workspace extends ../eosc-landscape.dsl {
 
         storage = softwareSystem "Storage Services" "External storage where data assets are stored."
 
+        end_user = person "User" "An end-user, willing to exploit existing production models."
+
         # User - system interaction
         eosc_user -> ai4eosc_platform "Reuse, develop, publish new AI models"
         paas_ops -> orchestration "Manage PaaS resources and deployments"
+        end_user -> deepaas "Uses deployed models from"
+        eosc_user -> deepaas "Deploy models as services"
 
         # System - system interaction
         orchestration -> ai4eosc_platform "Create PaaS deployments and provision resources for"
         ai4eosc_platform -> storage "Consumes data from"
         sqa -> ai4eosc_platform "Ensures quality of project assets"
+
+        deepaas -> ai4eosc_platform "Deploy models developed with"
 #        training -> user_management "Authenticate users with"
 #        user_management -> aai "Federates users from"
 
