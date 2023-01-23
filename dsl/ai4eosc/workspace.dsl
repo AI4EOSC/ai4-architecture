@@ -202,6 +202,18 @@ workspace extends ../eosc-landscape.dsl {
 
     views {
         theme Default
+
+        terminology {
+            enterprise "Project"
+            container "Component"
+            component "OldComponent"
+        }
+
+        branding {
+            /* logo "logo.png" */
+            font "Roboto" "http://fonts.googleapis.com/css?family=Roboto"
+        }
+
         
         systemLandscape {
             include *
