@@ -1,17 +1,15 @@
 workspace extends ../eosc-landscape.dsl {
     
-#    !impliedRelationships false
+    !impliedRelationships false
 
     name "AI4EOSC"
     description "AI4EOSC architecture"
 
     model {
 
-
         !ref eosc_user {
             description "EOSC user willing to use an AI platform to develop an AI application."
         }
-
 
         paas_ops = person "PaaS Operator" "Resource provider operator or platform operator managing the PaaS deployments."
 
@@ -25,6 +23,9 @@ workspace extends ../eosc-landscape.dsl {
                     container_repo = container "Container registry" "Store container images." "DockerHub" "repository" 
     
                     exchange_db = container "Exchange database" "Stores AI4EOSC exchange registered models." "" "database"
+
+                    ci = container "Continuous Integration" "Ensures quality aspects are fulfilled (code checks, unit checks, etc.)."
+                    cd = container "Continuous Delivery & Deployment" "Ensures delivery and deployment of new assets."
                 }
 
                 model_container = container "Model container" "Encapsulates user code." "Docker" {
@@ -61,14 +62,6 @@ workspace extends ../eosc-landscape.dsl {
                 }
             }
             
-            sqa = softwareSystem "Quality Assurance" "Performs quality assurance checks for software, services and data assets." {
-                cicd = container "CI/CD" "" "Jenkinks + JePL"
-                
-                sqaas = container "Service quality" "" "SQaaS"
-                
-                fairev = container "Data quality" "" "FAIR Evaluator"
-            }
-
             orchestration = softwareSystem "PaaS Orchestration and provisioning" "Allows PaaS operators to manage PaaS deployments and resources." {
                 paas_dashboard = container "PaaS Dashboard" "" "Flask" "dashboard"
 
@@ -98,36 +91,35 @@ workspace extends ../eosc-landscape.dsl {
         eosc_user -> ai4eosc_platform "Reuse, develop, publish new AI models"
         paas_ops -> orchestration "Manage PaaS resources and deployments"
         end_user -> deepaas "Uses deployed models from"
-        eosc_user -> deepaas "Deploy models as services"
+        /* eosc_user -> deepaas "Deploy models as services" */
 
         # System - system interaction
         orchestration -> ai4eosc_platform "Create PaaS deployments and provision resources for"
         ai4eosc_platform -> storage "Consumes data from"
-        sqa -> ai4eosc_platform "Ensures quality of project assets"
-
+        ai4eosc_platform -> aai "Is integrated with"
+        ai4eosc_platform -> portal "Is integrated with"
         deepaas -> ai4eosc_platform "Deploy models developed with"
-#        training -> user_management "Authenticate users with"
-#        user_management -> aai "Federates users from"
-
-#        deepaas -> catalog "Deploys models from"
-
-#        training -> catalog "Registers models in"
-#        training -> storage "Gets model datasets from"
 
 
-        # Train facility
+        # AI4EOSC platform
+
+        eosc_user -> dashboard "Browse models, train existing model, build new one."
+
+        # Training 
+        eosc_user -> dev "Access interactive environments"
+
         dashboard -> training_api "Define new trainings, check training status, etc. "
-        dashboard -> exchange_api "Reads available models from"
-        dashboard -> dev "Delivers interactive environments"
 
-        dev -> coe "Create on-demand environments"
+        training_api -> coe "Create training job, interactive environment using API calls to"
+        training_api -> training_db "Stores training data in"
+        training_api -> model_container "Queries training status"
+
         coe -> resources "Create new task/workload"
 
+        resources -> dev "Create on-demand environments"
         resources -> model_container "Executes user model from a"
-        
-        training_api -> coe "Create training job/task using API calls to"
-        training_api -> training_db "Stores training data in"
 
+        exchange_api -> iam "Authenticates users with"
         training_api -> iam "Authenticates users with"
         dashboard -> iam "Authenticates users with"
 
@@ -139,36 +131,32 @@ workspace extends ../eosc-landscape.dsl {
         
 
         # AI4EOSC exchange
-        eosc_user -> dashboard "Browse models, train existing model, build new one."
-        eosc_user -> exchange_api "Register new model"
+        /* eosc_user -> exchange_api "Register new model" */
+        dashboard -> exchange_api "Reads available models from"
 
         exchange_api -> data_repo "Reads from"
         exchange_api -> model_repo "Reads from"
         exchange_api -> container_repo "Reads from"
 
+        ci -> data_repo "Ensures QA aspects"
+        ci -> model_repo "Ensures QA aspects"
+
+        cd -> model_repo "Reacts to events from"
+        cd -> container_repo "Creates containers"
+        cd -> deepaas "Triggers deployment updates"
+
         data_repo -> storage "Refers to data stored in"
 
         exchange_api -> exchange_db "Reads from writes to"
 
-        cicd -> model_container "Creates"
         model_container -> container_repo "Stored in"
 
-#        jenkins -> data_repo "Ensures"
-        cicd -> model_repo "Performs SQA tasks"
-        
+        orchestration -> resources "Provisions"
 
 
-        # Container level
+        # Orchestration
 
-#        marketplace -> catalog_repo "Points to"
-#        marketplace -> container_repo "Points to"
-#        catalog_repo -> jenkins "Triggers catalog update"
-#        jenkins -> marketplace "Generates web page"
-#        jenkins -> container_repo "Create Docker container"
-
-
-#        dashboard -> tosca_repo "Read topologies"
-
+        paas_ops -> paas_dashboard "Manages AI4EOSC PaaS deployments"
         paas_dashboard -> paas_orchestrator "Create deployment"
         paas_dashboard -> tosca_repo "Read topologies"
         paas_orchestrator -> tosca_repo "Read topologies"
@@ -176,29 +164,8 @@ workspace extends ../eosc-landscape.dsl {
 
         paas_orchestrator -> iam "Authenticates users with"
         im -> iam "AuthN/Z"
-#        coe -> iam "AuthN/Z"
 
         paas_orchestrator -> resources "Provisions resources"
-#        im -> coe "Provisions"
-
-#
-#        eosc_user -> model_container "Train/Predict"
-
-#        model_container -> container_repo "Stored in"
-#
-#        jenkins -> deep_connector "Trigger update"
-#        deep_connector -> openwhisk "Create/delete/update actions"
-#        openwhisk -> serverless_coe "Create container functions"
-#        openwhisk -> deepaas_container "Redirects to"
-#
-#        deepaas_container -> model_container "Stored in"
-#        serverless_coe -> deepaas_container "Creates Containers"
-#
-#        eosc_user -> api
-
-#        aai -> iam "Federate users"
-#        mesos -> model_container
-
     }
 
     views {
@@ -224,9 +191,9 @@ workspace extends ../eosc-landscape.dsl {
             include *
         }
 
-        systemContext sqa {
-            include *
-        }
+        /* systemContext sqa { */
+        /*     include * */
+        /* } */
 
         systemContext orchestration {
             include *
@@ -253,9 +220,9 @@ workspace extends ../eosc-landscape.dsl {
             include *
         }
 
-        container sqa {
-            include *
-        }
+        /* container sqa { */
+        /*     include * */
+        /* } */
 
         container orchestration {
             include *

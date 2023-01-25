@@ -11,7 +11,7 @@ workspace eosc "EOSC architecture" {
             portal = softwareSystem "EOSC Portal" "Provides access to EOSC resources and services for users."
         }
 
-        aai -> portal "Provides authentication for"
+        /* aai -> portal "Provides authentication for" */
 
         eosc_user -> portal "Browse EOSC resources, create order for new services"
     }
