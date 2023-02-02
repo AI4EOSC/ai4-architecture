@@ -73,6 +73,19 @@ workspace extends ../eosc-landscape.dsl {
             }
 
             deepaas = softwareSystem "DEEP as a Service" "Allows users to deploy an AI application as a service." {
+                OSCARSystem = group "OSCAR"{
+                    OSCAR = container "OSCAR Manager" 
+                    Kubernetes = container "Kubernetes API" 
+                    MinIO = container "MinIO" 
+                    Knative = container "Knative" 
+                    FaaSS = container "FaaS Supervisor" 
+                }
+                ESP = group "External Storage Provider"{
+                    s3 = container "Amazon S3"
+                    MinIOExternal = container "MinIO External"
+                    oneData = container "Onedata"
+                    dcache = container "dCache"
+                }
                 openwhisk = container "Serverless platform" "" "OpenWhisk"
                 
                 deep_connector = container "DEEP - Serverless connector"
@@ -166,6 +179,23 @@ workspace extends ../eosc-landscape.dsl {
         im -> iam "AuthN/Z"
 
         paas_orchestrator -> resources "Provisions resources"
+
+        # DEEPaaS OSCAR
+        MinIO -> OSCAR 
+        OSCAR -> MinIO "Create buckets and folders. Configure event and notifications. Download/ Upload Files. Trigger jobs (webhook events)"
+        OSCAR -> Kubernetes "Manage services. Register jobs. Retrieve logs"
+        Kubernetes -> OSCAR
+        OSCAR -> Knative "Execute services syncrhonously (optional)"
+        Knative -> FaaSS "Assign to function's pod(s)"
+        FaaSS -> Knative 
+        Kubernetes -> FaaSS "Create jobs"
+            #FaaSS -> ESP "Upload Output"
+        FaaSS -> MinIO "Download input. Upload output"
+        FaaSS -> storage
+        FaaSS -> s3
+        FaaSS -> MinIOExternal
+        FaaSS -> oneData
+        FaaSS -> dcache
     }
 
     views {
@@ -212,9 +242,10 @@ workspace extends ../eosc-landscape.dsl {
 #            include *
 #        }
 #
-#        container deepaas {
-#            include *
-#        }
+        container deepaas {
+            include *
+        }
+
         
         container ai4eosc_platform {
             include *
