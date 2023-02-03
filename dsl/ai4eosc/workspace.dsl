@@ -181,13 +181,10 @@ workspace extends ../eosc-landscape.dsl {
         paas_orchestrator -> resources "Provisions resources"
 
         # DEEPaaS OSCAR
-        MinIO -> OSCAR 
         OSCAR -> MinIO "Create buckets and folders. Configure event and notifications. Download/ Upload Files. Trigger jobs (webhook events)"
         OSCAR -> Kubernetes "Manage services. Register jobs. Retrieve logs"
-        Kubernetes -> OSCAR
         OSCAR -> Knative "Execute services syncrhonously (optional)"
-        Knative -> FaaSS "Assign to function's pod(s)"
-        FaaSS -> Knative 
+        FaaSS -> Knative "Assign to function's pod(s)"
         Kubernetes -> FaaSS "Create jobs"
             #FaaSS -> ESP "Upload Output"
         FaaSS -> MinIO "Download input. Upload output"
