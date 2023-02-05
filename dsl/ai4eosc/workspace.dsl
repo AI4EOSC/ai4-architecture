@@ -63,9 +63,15 @@ workspace extends ../eosc-landscape.dsl {
             }
             
             orchestration = softwareSystem "PaaS Orchestration and provisioning" "Allows PaaS operators to manage PaaS deployments and resources." {
-                paas_dashboard = container "PaaS Dashboard" "" "Flask" "dashboard"
+                paas_dashboard = container "PaaS Dashboard" "Web User Interface that allows to easily interact with the PaaS services" "Flask" "dashboard"
 
                 paas_orchestrator = container "PaaS Orchestrator" "" "INDIGO PaaS Orchestrator"
+
+                federated_service_catalogue = container "Federated Service Catalogue" "Provides information about the available capabilities offered by the resource (compute and data) providers" 
+
+                monitoring_system = container "Monitoring & Metering System" "Gathers metrics from the different services (status, resource availabilty, performance, etc.)"
+
+                cloud_provider_ranker = container "Cloud Provider Ranker" "Returns the service/resource offers that best fit the deployment requiments"
 
                 im = container "Infrastructure Manager"
 
@@ -91,6 +97,7 @@ workspace extends ../eosc-landscape.dsl {
                 dcache = container "dCache"
             }
         }
+        cloud_providers = softwareSystem "Cloud/HPC Providers" "" external
 
         end_user = person "User" "An end-user, willing to exploit existing production models."
 
@@ -169,11 +176,17 @@ workspace extends ../eosc-landscape.dsl {
         paas_dashboard -> tosca_repo "Read topologies"
         paas_orchestrator -> tosca_repo "Read topologies"
         paas_orchestrator -> im "Uses"
+        paas_orchestrator -> federated_service_catalogue "Get information"
+        monitoring_system -> federated_service_catalogue "Send aggregated metrics"
+        paas_orchestrator -> cloud_provider_ranker "Get matching offers"
 
         /* paas_orchestrator -> iam "Authenticates users with" */
         /* im -> iam "AuthN/Z" */
 
         paas_orchestrator -> resources "Provisions resources"
+        cloud_providers -> resources "offer"
+        cloud_providers -> federated_service_catalogue "register/update service & resources metadata"
+        cloud_providers -> monitoring_system "push/pull metrics"
 
         paas_orchestrator -> resources "Provisions resources"
         paas_orchestrator -> Knative "Provisions resources" 
@@ -252,6 +265,15 @@ workspace extends ../eosc-landscape.dsl {
         /* } */
 
         container orchestration {
+            include *
+            include cloud_providers
+        }
+
+        component federated_service_catalogue {
+            include *
+        }
+
+        component monitoring_system {
             include *
         }
 
