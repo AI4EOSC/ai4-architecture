@@ -36,6 +36,9 @@ workspace eosc "EOSC architecture" {
             element "database" {
                 shape Cylinder
             }
+            element "external" {
+                background grey
+            }
         }
     }
 }
