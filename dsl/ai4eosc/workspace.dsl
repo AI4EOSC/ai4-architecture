@@ -89,7 +89,7 @@ workspace extends ../eosc-landscape.dsl {
             }
         }
 
-        storage = softwareSystem "Storage Services" "External storage where data assets are stored." {
+        storage = softwareSystem "Storage Services" "External storage where data assets are stored." "external" {
             ESP = group "External Storage Provider"{
                 s3 = container "Amazon S3"
                 MinIOExternal = container "MinIO External"
