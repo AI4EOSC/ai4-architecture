@@ -1,6 +1,6 @@
 workspace extends ../eosc-landscape.dsl {
     
-    !impliedRelationships false
+    /* !impliedRelationships false */
 
     name "AI4EOSC"
     description "AI4EOSC architecture"
