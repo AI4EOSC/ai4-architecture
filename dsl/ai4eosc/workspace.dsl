@@ -269,14 +269,6 @@ workspace extends ../eosc-landscape.dsl {
             include cloud_providers
         }
 
-        component federated_service_catalogue {
-            include *
-        }
-
-        component monitoring_system {
-            include *
-        }
-
 #        container user_management {
 #            include *
 #        }
