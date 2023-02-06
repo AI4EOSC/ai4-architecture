@@ -37,7 +37,7 @@ workspace eosc "EOSC architecture" {
                 shape Cylinder
             }
             element "external" {
-                background grey
+                background lightgrey
             }
         }
     }

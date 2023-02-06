@@ -277,7 +277,22 @@ workspace extends ../eosc-landscape.dsl {
 #            include *
 #        }
         
-#        styles {
+        styles {
+            element "Container" {
+                background #008792
+                /* color #ffffff */
+                /* shape RoundedBox */
+            }
+
+            element "Software System" {
+                background #ff9db2
+                color #000000
+            }
+
+            element "Person" {
+                background #004f56
+            }
+
 #            element "dashboard" {
 #                shape WebBrowser
 #            }       
@@ -285,7 +300,7 @@ workspace extends ../eosc-landscape.dsl {
 #            element "repository" {
 #                shape Cylinder
 #            }
-#        }
+        }
     }
 }
 
