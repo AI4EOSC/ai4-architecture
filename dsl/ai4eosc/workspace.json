@@ -2,11 +2,10 @@
   "id" : 1,
   "name" : "AI4EOSC",
   "description" : "AI4EOSC architecture",
-  "revision" : 0,
-  "lastModifiedDate" : "2023-02-03T07:11:08Z",
-  "lastModifiedAgent" : "structurizr-web/2914/diagram",
+  "lastModifiedDate" : "2023-02-06T11:04:58Z",
+  "lastModifiedAgent" : "structurizr-javascript",
   "properties" : {
-    "structurizr.dsl" : "d29ya3NwYWNlIGV4dGVuZHMgLi4vZW9zYy1sYW5kc2NhcGUuZHNsIHsKICAgIAogICAgIWltcGxpZWRSZWxhdGlvbnNoaXBzIGZhbHNlCgogICAgbmFtZSAiQUk0RU9TQyIKICAgIGRlc2NyaXB0aW9uICJBSTRFT1NDIGFyY2hpdGVjdHVyZSIKCiAgICBtb2RlbCB7CgogICAgICAgICFyZWYgZW9zY191c2VyIHsKICAgICAgICAgICAgZGVzY3JpcHRpb24gIkVPU0MgdXNlciB3aWxsaW5nIHRvIHVzZSBhbiBBSSBwbGF0Zm9ybSB0byBkZXZlbG9wIGFuIEFJIGFwcGxpY2F0aW9uLiIKICAgICAgICB9CgogICAgICAgIHBhYXNfb3BzID0gcGVyc29uICJQYWFTIE9wZXJhdG9yIiAiUmVzb3VyY2UgcHJvdmlkZXIgb3BlcmF0b3Igb3IgcGxhdGZvcm0gb3BlcmF0b3IgbWFuYWdpbmcgdGhlIFBhYVMgZGVwbG95bWVudHMuIgoKICAgICAgICBhaTRlb3NjID0gZW50ZXJwcmlzZSAiQUk0RU9TQyIgewogICAgICAgICAgICBhaTRlb3NjX3BsYXRmb3JtID0gc29mdHdhcmVTeXN0ZW0gIkFJNEVPU0MgUGxhdGZvcm0iICJBbGxvd3MgRU9TQyB1c2VycyB0byBkZXZlbG9wLCBidWlsZCBhbmQgc2hhcmUgQUkgbW9kZWxzLiIgewogICAgICAgICAgICAgICAgZXhjaGFuZ2UgPSBncm91cCAiQUk0RU9TQyBFeGNoYW5nZSIgewogICAgICAgICAgICAgICAgICAgIGV4Y2hhbmdlX2FwaSA9ICBjb250YWluZXIgIkV4Y2hhbmdlIEFQSSIgIlByb3ZpZGVzIGV4Y2hhbmdlIGZ1bmN0aW9uYWxpdHkgdmlhIEhUVFBTL0pTT04gQVBJLiIKICAgIAogICAgICAgICAgICAgICAgICAgIGRhdGFfcmVwbyA9IGNvbnRhaW5lciAiTW9kZWwgYW5kIGRhdGEgcmVwb3NpdG9yeSIgIlRyYWNrIEFJIG1vZGVscyBhbmQgZGF0YSBzZXRzLiIgImR2YyIgInJlcG9zaXRvcnkiCiAgICAgICAgICAgICAgICAgICAgbW9kZWxfcmVwbyA9IGNvbnRhaW5lciAiTW9kZWwgY29kZSByZXBvc2l0b3J5IiAiVHJhY2sgQUkgbW9kZWwgY29kZS4iICJHaXQiICJyZXBvc2l0b3J5IgogICAgICAgICAgICAgICAgICAgIGNvbnRhaW5lcl9yZXBvID0gY29udGFpbmVyICJDb250YWluZXIgcmVnaXN0cnkiICJTdG9yZSBjb250YWluZXIgaW1hZ2VzLiIgIkRvY2tlckh1YiIgInJlcG9zaXRvcnkiIAogICAgCiAgICAgICAgICAgICAgICAgICAgZXhjaGFuZ2VfZGIgPSBjb250YWluZXIgIkV4Y2hhbmdlIGRhdGFiYXNlIiAiU3RvcmVzIEFJNEVPU0MgZXhjaGFuZ2UgcmVnaXN0ZXJlZCBtb2RlbHMuIiAiIiAiZGF0YWJhc2UiCgogICAgICAgICAgICAgICAgICAgIGNpID0gY29udGFpbmVyICJDb250aW51b3VzIEludGVncmF0aW9uIiAiRW5zdXJlcyBxdWFsaXR5IGFzcGVjdHMgYXJlIGZ1bGZpbGxlZCAoY29kZSBjaGVja3MsIHVuaXQgY2hlY2tzLCBldGMuKS4iCiAgICAgICAgICAgICAgICAgICAgY2QgPSBjb250YWluZXIgIkNvbnRpbnVvdXMgRGVsaXZlcnkgJiBEZXBsb3ltZW50IiAiRW5zdXJlcyBkZWxpdmVyeSBhbmQgZGVwbG95bWVudCBvZiBuZXcgYXNzZXRzLiIKICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICBtb2RlbF9jb250YWluZXIgPSBjb250YWluZXIgIk1vZGVsIGNvbnRhaW5lciIgIkVuY2Fwc3VsYXRlcyB1c2VyIGNvZGUuIiAiRG9ja2VyIiB7CiAgICAgICAgICAgICAgICAgICAgYXBpID0gY29tcG9uZW50ICJBUEkiICIiICJERUVQYWFTIEFQSSIKCiAgICAgICAgICAgICAgICAgICAgZnJhbWV3b3JrID0gY29tcG9uZW50ICJNTC9BSSBmcmFtZXdvcmsiCgogICAgICAgICAgICAgICAgICAgIHVzZXJfbW9kZWwgPSBjb21wb25lbnQgIlVzZXIgY29kZSBhbmQgbW9kZWwiCgogICAgICAgICAgICAgICAgICAgIGFwaSAtPiB1c2VyX21vZGVsCiAgICAgICAgICAgICAgICAgICAgdXNlcl9tb2RlbCAtPiBmcmFtZXdvcmsKICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICBpZGVudGl0eSA9IGdyb3VwICJJZGVudGl0eSBhbmQgdXNlciBtYW5hZ2VtZW50IiB7CgogICAgICAgICAgICAgICAgICAgIGlhbSA9IGNvbnRhaW5lciAiSWRlbnRpdHkgYW5kIEFjY2VzcyBNYW5hZ2VtZW50IiAiUHJvdmlkZXMgdXNlciBhbmQgZ3JvdXAgbWFuYWdlbWVudCIgIklORElHTyBJQU0iCiAgICAKICAgICAgICAgICAgICAgICAgICBvcmRlciA9IGNvbnRhaW5lciAiT3JkZXIgbWFuYWdlbWVudCBzeXN0ZW0iICJNYW5hZ2VzIG9yZGVycyBjb21pbmcgYm90aCBmcm9tIHRoZSBFT1NDIHBvcnRhbCBvciBmb3IgbmV3IHVzZXJzIiAiIgoKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgZGFzaGJvYXJkID0gY29udGFpbmVyICJBSTRFT1NDIGRhc2hib2FyZCIgIlByb3ZpZGVzIGFjY2VzcyB0byBleGlzdGluZyBtb2R1bGVzIChhbm9ueW1vdXMpLCBleHBlcmltZW50IGFuZCB0cmFpbmluZyBkZWZpbml0aW9uIChsb2dnZWQgdXNlcnMpLiIgImFpb2h0dHAiICJkYXNoYm9hcmQiCgogICAgICAgICAgICAgICAgdHJhaW5pbmcgPSBncm91cCAiQUk0RU9TQyB0cmFpbmluZyIgewogICAgICAgICAgICAgICAgICAgIHRyYWluaW5nX2FwaSA9IGNvbnRhaW5lciAiVHJhaW5pbmcgQVBJIiAiUHJvdmlkZXMgdHJhaW5pbmcgY3JlYXRpb24gYW5kIG1vbml0b3JpbmcgZnVuY3Rpb25hbGl0eSB2aWEgYSBKU09OL0hUVFBTIEFQSSIgImFpb2h0dHAiCgogICAgICAgICAgICAgICAgICAgIHRyYWluaW5nX2RiID0gY29udGFpbmVyICJUcmFpbmluZyBkYXRhYmFzZSIgIlN0b3JlcyBBSTRFT1NDIHRyYWluaW5nIHJlcXVlc3RzIiAiIiAiZGF0YWJhc2UiCiAgICAKICAgICAgICAgICAgICAgICAgICBkZXYgPSBjb250YWluZXIgIkludGVyYWN0aXZlIGRldmVsb3BtZW50IEVudmlyb25tZW50IiAiQW4gaW50ZXJhY3RpdmUgZGV2ZWxvcG1lbnQgZW52aXJvbm1lbnQgd2l0aCBhY2Nlc3MgdG8gcmVzb3VyY2VzIGFuZCBsaW1pdGVkIGV4ZWN1dGlvbiB0aW1lLiIgIkp1cHl0ZXIiCiAgICAKICAgICAgICAgICAgICAgICAgICBjb2UgPSBjb250YWluZXIgIldvcmtsb2FkIE1hbmFnZW1lbnQgU3lzdGVtIiAiTWFuYWdlcyBhbmQgc2NoZWR1bGVzIHRoZSBleGVjdXRpb24gb2YgY29tcHV0ZSByZXF1ZXN0cy4iICJIYXNoaWNvcnAgTm9tYWQiCiAgICAKICAgICAgICAgICAgICAgICAgICByZXNvdXJjZXMgPSBjb250YWluZXIgIkNvbXB1dGUgcmVzb3VyY2VzIiAiRXhlY3V0ZXMgdXNlciB3b3JrbG9hZHMuIiAiSGFzaGljb3JwIE5vbWFkIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgICAgIAogICAgICAgICAgICBvcmNoZXN0cmF0aW9uID0gc29mdHdhcmVTeXN0ZW0gIlBhYVMgT3JjaGVzdHJhdGlvbiBhbmQgcHJvdmlzaW9uaW5nIiAiQWxsb3dzIFBhYVMgb3BlcmF0b3JzIHRvIG1hbmFnZSBQYWFTIGRlcGxveW1lbnRzIGFuZCByZXNvdXJjZXMuIiB7CiAgICAgICAgICAgICAgICBwYWFzX2Rhc2hib2FyZCA9IGNvbnRhaW5lciAiUGFhUyBEYXNoYm9hcmQiICIiICJGbGFzayIgImRhc2hib2FyZCIKCiAgICAgICAgICAgICAgICBwYWFzX29yY2hlc3RyYXRvciA9IGNvbnRhaW5lciAiUGFhUyBPcmNoZXN0cmF0b3IiICIiICJJTkRJR08gUGFhUyBPcmNoZXN0cmF0b3IiCgogICAgICAgICAgICAgICAgaW0gPSBjb250YWluZXIgIkluZnJhc3RydWN0dXJlIE1hbmFnZXIiCgogICAgICAgICAgICAgICAgdG9zY2FfcmVwbyA9IGNvbnRhaW5lciAiVG9wb2xvZ2llcyByZXBvc2l0b3J5IiAiIiAiVE9TQ0EiICJyZXBvc2l0b3J5IgogICAgICAgICAgICB9CgogICAgICAgICAgICBkZWVwYWFzID0gc29mdHdhcmVTeXN0ZW0gIkRFRVAgYXMgYSBTZXJ2aWNlIiAiQWxsb3dzIHVzZXJzIHRvIGRlcGxveSBhbiBBSSBhcHBsaWNhdGlvbiBhcyBhIHNlcnZpY2UuIiB7CiAgICAgICAgICAgICAgICBPU0NBUlN5c3RlbSA9IGdyb3VwICJPU0NBUiJ7CiAgICAgICAgICAgICAgICAgICAgT1NDQVIgPSBjb250YWluZXIgIk9TQ0FSIE1hbmFnZXIiIAogICAgICAgICAgICAgICAgICAgIEt1YmVybmV0ZXMgPSBjb250YWluZXIgIkt1YmVybmV0ZXMgQVBJIiAKICAgICAgICAgICAgICAgICAgICBNaW5JTyA9IGNvbnRhaW5lciAiTWluSU8iIAogICAgICAgICAgICAgICAgICAgIEtuYXRpdmUgPSBjb250YWluZXIgIktuYXRpdmUiIAogICAgICAgICAgICAgICAgICAgIEZhYVNTID0gY29udGFpbmVyICJGYWFTIFN1cGVydmlzb3IiIAogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgRVNQID0gZ3JvdXAgIkV4dGVybmFsIFN0b3JhZ2UgUHJvdmlkZXIiewogICAgICAgICAgICAgICAgICAgIHMzID0gY29udGFpbmVyICJBbWF6b24gUzMiCiAgICAgICAgICAgICAgICAgICAgTWluSU9FeHRlcm5hbCA9IGNvbnRhaW5lciAiTWluSU8gRXh0ZXJuYWwiCiAgICAgICAgICAgICAgICAgICAgb25lRGF0YSA9IGNvbnRhaW5lciAiT25lZGF0YSIKICAgICAgICAgICAgICAgICAgICBkY2FjaGUgPSBjb250YWluZXIgImRDYWNoZSIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIG9wZW53aGlzayA9IGNvbnRhaW5lciAiU2VydmVybGVzcyBwbGF0Zm9ybSIgIiIgIk9wZW5XaGlzayIKICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgZGVlcF9jb25uZWN0b3IgPSBjb250YWluZXIgIkRFRVAgLSBTZXJ2ZXJsZXNzIGNvbm5lY3RvciIKCiAgICAgICAgICAgICAgICBkZWVwYWFzX2NvbnRhaW5lciA9IGNvbnRhaW5lciAiREVFUGFhUyBDb250YWluYXIiCiAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgIHNlcnZlcmxlc3NfY29lID0gY29udGFpbmVyICJDb250YWluZXIgT3JjaGVzdHJhdGlvbiBFbmdpbmUiICIiICJNZXNvcyIKICAgICAgICAgICAgfQogICAgICAgIH0KCiAgICAgICAgc3RvcmFnZSA9IHNvZnR3YXJlU3lzdGVtICJTdG9yYWdlIFNlcnZpY2VzIiAiRXh0ZXJuYWwgc3RvcmFnZSB3aGVyZSBkYXRhIGFzc2V0cyBhcmUgc3RvcmVkLiIKCiAgICAgICAgZW5kX3VzZXIgPSBwZXJzb24gIlVzZXIiICJBbiBlbmQtdXNlciwgd2lsbGluZyB0byBleHBsb2l0IGV4aXN0aW5nIHByb2R1Y3Rpb24gbW9kZWxzLiIKCiAgICAgICAgIyBVc2VyIC0gc3lzdGVtIGludGVyYWN0aW9uCiAgICAgICAgZW9zY191c2VyIC0+IGFpNGVvc2NfcGxhdGZvcm0gIlJldXNlLCBkZXZlbG9wLCBwdWJsaXNoIG5ldyBBSSBtb2RlbHMiCiAgICAgICAgcGFhc19vcHMgLT4gb3JjaGVzdHJhdGlvbiAiTWFuYWdlIFBhYVMgcmVzb3VyY2VzIGFuZCBkZXBsb3ltZW50cyIKICAgICAgICBlbmRfdXNlciAtPiBkZWVwYWFzICJVc2VzIGRlcGxveWVkIG1vZGVscyBmcm9tIgogICAgICAgIC8qIGVvc2NfdXNlciAtPiBkZWVwYWFzICJEZXBsb3kgbW9kZWxzIGFzIHNlcnZpY2VzIiAqLwoKICAgICAgICAjIFN5c3RlbSAtIHN5c3RlbSBpbnRlcmFjdGlvbgogICAgICAgIG9yY2hlc3RyYXRpb24gLT4gYWk0ZW9zY19wbGF0Zm9ybSAiQ3JlYXRlIFBhYVMgZGVwbG95bWVudHMgYW5kIHByb3Zpc2lvbiByZXNvdXJjZXMgZm9yIgogICAgICAgIGFpNGVvc2NfcGxhdGZvcm0gLT4gc3RvcmFnZSAiQ29uc3VtZXMgZGF0YSBmcm9tIgogICAgICAgIGFpNGVvc2NfcGxhdGZvcm0gLT4gYWFpICJJcyBpbnRlZ3JhdGVkIHdpdGgiCiAgICAgICAgYWk0ZW9zY19wbGF0Zm9ybSAtPiBwb3J0YWwgIklzIGludGVncmF0ZWQgd2l0aCIKICAgICAgICBkZWVwYWFzIC0+IGFpNGVvc2NfcGxhdGZvcm0gIkRlcGxveSBtb2RlbHMgZGV2ZWxvcGVkIHdpdGgiCgoKICAgICAgICAjIEFJNEVPU0MgcGxhdGZvcm0KCiAgICAgICAgZW9zY191c2VyIC0+IGRhc2hib2FyZCAiQnJvd3NlIG1vZGVscywgdHJhaW4gZXhpc3RpbmcgbW9kZWwsIGJ1aWxkIG5ldyBvbmUuIgoKICAgICAgICAjIFRyYWluaW5nIAogICAgICAgIGVvc2NfdXNlciAtPiBkZXYgIkFjY2VzcyBpbnRlcmFjdGl2ZSBlbnZpcm9ubWVudHMiCgogICAgICAgIGRhc2hib2FyZCAtPiB0cmFpbmluZ19hcGkgIkRlZmluZSBuZXcgdHJhaW5pbmdzLCBjaGVjayB0cmFpbmluZyBzdGF0dXMsIGV0Yy4gIgoKICAgICAgICB0cmFpbmluZ19hcGkgLT4gY29lICJDcmVhdGUgdHJhaW5pbmcgam9iLCBpbnRlcmFjdGl2ZSBlbnZpcm9ubWVudCB1c2luZyBBUEkgY2FsbHMgdG8iCiAgICAgICAgdHJhaW5pbmdfYXBpIC0+IHRyYWluaW5nX2RiICJTdG9yZXMgdHJhaW5pbmcgZGF0YSBpbiIKICAgICAgICB0cmFpbmluZ19hcGkgLT4gbW9kZWxfY29udGFpbmVyICJRdWVyaWVzIHRyYWluaW5nIHN0YXR1cyIKCiAgICAgICAgY29lIC0+IHJlc291cmNlcyAiQ3JlYXRlIG5ldyB0YXNrL3dvcmtsb2FkIgoKICAgICAgICByZXNvdXJjZXMgLT4gZGV2ICJDcmVhdGUgb24tZGVtYW5kIGVudmlyb25tZW50cyIKICAgICAgICByZXNvdXJjZXMgLT4gbW9kZWxfY29udGFpbmVyICJFeGVjdXRlcyB1c2VyIG1vZGVsIGZyb20gYSIKCiAgICAgICAgZXhjaGFuZ2VfYXBpIC0+IGlhbSAiQXV0aGVudGljYXRlcyB1c2VycyB3aXRoIgogICAgICAgIHRyYWluaW5nX2FwaSAtPiBpYW0gIkF1dGhlbnRpY2F0ZXMgdXNlcnMgd2l0aCIKICAgICAgICBkYXNoYm9hcmQgLT4gaWFtICJBdXRoZW50aWNhdGVzIHVzZXJzIHdpdGgiCgogICAgICAgICMgVXNlciBtYW5hZ2VtZW50CgogICAgICAgIHBvcnRhbCAtPiBvcmRlciAiQ3JlYXRlcyBuZXcgb3JkZXIvcmVxdWVzdCBmb3Igc2VydmljZXMiCiAgICAgICAgaWFtIC0+IGFhaSAiRmVkZXJhdGUgdXNlcnMgZnJvbSIgIk9wZW5JRCBDb25uZWN0IgogICAgICAgIG9yZGVyIC0+IGlhbSAiQ3JlYXRlcyBuZXcgdXNlcnMgZm9yIG5ldyBvcmRlcnMiCiAgICAgICAgCgogICAgICAgICMgQUk0RU9TQyBleGNoYW5nZQogICAgICAgIC8qIGVvc2NfdXNlciAtPiBleGNoYW5nZV9hcGkgIlJlZ2lzdGVyIG5ldyBtb2RlbCIgKi8KICAgICAgICBkYXNoYm9hcmQgLT4gZXhjaGFuZ2VfYXBpICJSZWFkcyBhdmFpbGFibGUgbW9kZWxzIGZyb20iCgogICAgICAgIGV4Y2hhbmdlX2FwaSAtPiBkYXRhX3JlcG8gIlJlYWRzIGZyb20iCiAgICAgICAgZXhjaGFuZ2VfYXBpIC0+IG1vZGVsX3JlcG8gIlJlYWRzIGZyb20iCiAgICAgICAgZXhjaGFuZ2VfYXBpIC0+IGNvbnRhaW5lcl9yZXBvICJSZWFkcyBmcm9tIgoKICAgICAgICBjaSAtPiBkYXRhX3JlcG8gIkVuc3VyZXMgUUEgYXNwZWN0cyIKICAgICAgICBjaSAtPiBtb2RlbF9yZXBvICJFbnN1cmVzIFFBIGFzcGVjdHMiCgogICAgICAgIGNkIC0+IG1vZGVsX3JlcG8gIlJlYWN0cyB0byBldmVudHMgZnJvbSIKICAgICAgICBjZCAtPiBjb250YWluZXJfcmVwbyAiQ3JlYXRlcyBjb250YWluZXJzIgogICAgICAgIGNkIC0+IGRlZXBhYXMgIlRyaWdnZXJzIGRlcGxveW1lbnQgdXBkYXRlcyIKCiAgICAgICAgZGF0YV9yZXBvIC0+IHN0b3JhZ2UgIlJlZmVycyB0byBkYXRhIHN0b3JlZCBpbiIKCiAgICAgICAgZXhjaGFuZ2VfYXBpIC0+IGV4Y2hhbmdlX2RiICJSZWFkcyBmcm9tIHdyaXRlcyB0byIKCiAgICAgICAgbW9kZWxfY29udGFpbmVyIC0+IGNvbnRhaW5lcl9yZXBvICJTdG9yZWQgaW4iCgogICAgICAgIG9yY2hlc3RyYXRpb24gLT4gcmVzb3VyY2VzICJQcm92aXNpb25zIgoKCiAgICAgICAgIyBPcmNoZXN0cmF0aW9uCgogICAgICAgIHBhYXNfb3BzIC0+IHBhYXNfZGFzaGJvYXJkICJNYW5hZ2VzIEFJNEVPU0MgUGFhUyBkZXBsb3ltZW50cyIKICAgICAgICBwYWFzX2Rhc2hib2FyZCAtPiBwYWFzX29yY2hlc3RyYXRvciAiQ3JlYXRlIGRlcGxveW1lbnQiCiAgICAgICAgcGFhc19kYXNoYm9hcmQgLT4gdG9zY2FfcmVwbyAiUmVhZCB0b3BvbG9naWVzIgogICAgICAgIHBhYXNfb3JjaGVzdHJhdG9yIC0+IHRvc2NhX3JlcG8gIlJlYWQgdG9wb2xvZ2llcyIKICAgICAgICBwYWFzX29yY2hlc3RyYXRvciAtPiBpbSAiVXNlcyIKCiAgICAgICAgcGFhc19vcmNoZXN0cmF0b3IgLT4gaWFtICJBdXRoZW50aWNhdGVzIHVzZXJzIHdpdGgiCiAgICAgICAgaW0gLT4gaWFtICJBdXRoTi9aIgoKICAgICAgICBwYWFzX29yY2hlc3RyYXRvciAtPiByZXNvdXJjZXMgIlByb3Zpc2lvbnMgcmVzb3VyY2VzIgoKICAgICAgICAjIERFRVBhYVMgT1NDQVIKICAgICAgICBPU0NBUiAtPiBNaW5JTyAiQ3JlYXRlIGJ1Y2tldHMgYW5kIGZvbGRlcnMuIENvbmZpZ3VyZSBldmVudCBhbmQgbm90aWZpY2F0aW9ucy4gRG93bmxvYWQvIFVwbG9hZCBGaWxlcy4gVHJpZ2dlciBqb2JzICh3ZWJob29rIGV2ZW50cykiCiAgICAgICAgT1NDQVIgLT4gS3ViZXJuZXRlcyAiTWFuYWdlIHNlcnZpY2VzLiBSZWdpc3RlciBqb2JzLiBSZXRyaWV2ZSBsb2dzIgogICAgICAgIE9TQ0FSIC0+IEtuYXRpdmUgIkV4ZWN1dGUgc2VydmljZXMgc3luY3Job25vdXNseSAob3B0aW9uYWwpIgogICAgICAgIEZhYVNTIC0+IEtuYXRpdmUgIkFzc2lnbiB0byBmdW5jdGlvbidzIHBvZChzKSIKICAgICAgICBLdWJlcm5ldGVzIC0+IEZhYVNTICJDcmVhdGUgam9icyIKICAgICAgICAgICAgI0ZhYVNTIC0+IEVTUCAiVXBsb2FkIE91dHB1dCIKICAgICAgICBGYWFTUyAtPiBNaW5JTyAiRG93bmxvYWQgaW5wdXQuIFVwbG9hZCBvdXRwdXQiCiAgICAgICAgRmFhU1MgLT4gc3RvcmFnZQogICAgICAgIEZhYVNTIC0+IHMzCiAgICAgICAgRmFhU1MgLT4gTWluSU9FeHRlcm5hbAogICAgICAgIEZhYVNTIC0+IG9uZURhdGEKICAgICAgICBGYWFTUyAtPiBkY2FjaGUKICAgIH0KCiAgICB2aWV3cyB7CiAgICAgICAgdGhlbWUgRGVmYXVsdAoKICAgICAgICB0ZXJtaW5vbG9neSB7CiAgICAgICAgICAgIGVudGVycHJpc2UgIlByb2plY3QiCiAgICAgICAgICAgIGNvbnRhaW5lciAiQ29tcG9uZW50IgogICAgICAgICAgICBjb21wb25lbnQgIk9sZENvbXBvbmVudCIKICAgICAgICB9CgogICAgICAgIGJyYW5kaW5nIHsKICAgICAgICAgICAgLyogbG9nbyAibG9nby5wbmciICovCiAgICAgICAgICAgIGZvbnQgIlJvYm90byIgImh0dHA6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3M/ZmFtaWx5PVJvYm90byIKICAgICAgICB9CgogICAgICAgIAogICAgICAgIHN5c3RlbUxhbmRzY2FwZSB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KCiAgICAgICAgc3lzdGVtQ29udGV4dCBhaTRlb3NjX3BsYXRmb3JtIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQoKICAgICAgICAvKiBzeXN0ZW1Db250ZXh0IHNxYSB7ICovCiAgICAgICAgLyogICAgIGluY2x1ZGUgKiAqLwogICAgICAgIC8qIH0gKi8KCiAgICAgICAgc3lzdGVtQ29udGV4dCBvcmNoZXN0cmF0aW9uIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQoKICAgICAgICBzeXN0ZW1Db250ZXh0IGRlZXBhYXMgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CiAgICAgICAgCiMgICAgICAgIGNvbnRhaW5lciBjYXRhbG9nIHsKIyAgICAgICAgICAgIGluY2x1ZGUgKgojIyAgICAgICAgICAgIGF1dG9MYXlvdXQKIyAgICAgICAgfQojCiMgICAgICAgIGNvbnRhaW5lciB0cmFpbmluZyB7CiMgICAgICAgICAgICBpbmNsdWRlICoKIyAgICAgICAgfQojCiAgICAgICAgY29udGFpbmVyIGRlZXBhYXMgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CgogICAgICAgIAogICAgICAgIGNvbnRhaW5lciBhaTRlb3NjX3BsYXRmb3JtIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQoKICAgICAgICAvKiBjb250YWluZXIgc3FhIHsgKi8KICAgICAgICAvKiAgICAgaW5jbHVkZSAqICovCiAgICAgICAgLyogfSAqLwoKICAgICAgICBjb250YWluZXIgb3JjaGVzdHJhdGlvbiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KCiMgICAgICAgIGNvbnRhaW5lciB1c2VyX21hbmFnZW1lbnQgewojICAgICAgICAgICAgaW5jbHVkZSAqCiMgICAgICAgIH0KICAgICAgICAKIyAgICAgICAgY29tcG9uZW50IG1vZGVsX2NvbnRhaW5lciB7CiMgICAgICAgICAgICBpbmNsdWRlICoKIyAgICAgICAgfQogICAgICAgIAojICAgICAgICBzdHlsZXMgewojICAgICAgICAgICAgZWxlbWVudCAiZGFzaGJvYXJkIiB7CiMgICAgICAgICAgICAgICAgc2hhcGUgV2ViQnJvd3NlcgojICAgICAgICAgICAgfSAgICAgICAKIwojICAgICAgICAgICAgZWxlbWVudCAicmVwb3NpdG9yeSIgewojICAgICAgICAgICAgICAgIHNoYXBlIEN5bGluZGVyCiMgICAgICAgICAgICB9CiMgICAgICAgIH0KICAgIH0KfQoK"
+    "structurizr.dsl" : "d29ya3NwYWNlIGV4dGVuZHMgLi4vZW9zYy1sYW5kc2NhcGUuZHNsIHsKICAgIAogICAgLyogIWltcGxpZWRSZWxhdGlvbnNoaXBzIGZhbHNlICovCgogICAgbmFtZSAiQUk0RU9TQyIKICAgIGRlc2NyaXB0aW9uICJBSTRFT1NDIGFyY2hpdGVjdHVyZSIKCiAgICBtb2RlbCB7CgogICAgICAgICFyZWYgZW9zY191c2VyIHsKICAgICAgICAgICAgZGVzY3JpcHRpb24gIkVPU0MgdXNlciB3aWxsaW5nIHRvIHVzZSBhbiBBSSBwbGF0Zm9ybSB0byBkZXZlbG9wIGFuIEFJIGFwcGxpY2F0aW9uLiIKICAgICAgICB9CgogICAgICAgIHBhYXNfb3BzID0gcGVyc29uICJQYWFTIE9wZXJhdG9yIiAiUmVzb3VyY2UgcHJvdmlkZXIgb3BlcmF0b3Igb3IgcGxhdGZvcm0gb3BlcmF0b3IgbWFuYWdpbmcgdGhlIFBhYVMgZGVwbG95bWVudHMuIgoKICAgICAgICBhaTRlb3NjID0gZW50ZXJwcmlzZSAiQUk0RU9TQyIgewogICAgICAgICAgICBhaTRlb3NjX3BsYXRmb3JtID0gc29mdHdhcmVTeXN0ZW0gIkFJNEVPU0MgUGxhdGZvcm0iICJBbGxvd3MgRU9TQyB1c2VycyB0byBkZXZlbG9wLCBidWlsZCBhbmQgc2hhcmUgQUkgbW9kZWxzLiIgewogICAgICAgICAgICAgICAgZXhjaGFuZ2UgPSBncm91cCAiQUk0RU9TQyBFeGNoYW5nZSIgewogICAgICAgICAgICAgICAgICAgIGV4Y2hhbmdlX2FwaSA9ICBjb250YWluZXIgIkV4Y2hhbmdlIEFQSSIgIlByb3ZpZGVzIGV4Y2hhbmdlIGZ1bmN0aW9uYWxpdHkgdmlhIEhUVFBTL0pTT04gQVBJLiIKICAgIAogICAgICAgICAgICAgICAgICAgIGRhdGFfcmVwbyA9IGNvbnRhaW5lciAiTW9kZWwgYW5kIGRhdGEgcmVwb3NpdG9yeSIgIlRyYWNrIEFJIG1vZGVscyBhbmQgZGF0YSBzZXRzLiIgImR2YyIgInJlcG9zaXRvcnkiCiAgICAgICAgICAgICAgICAgICAgbW9kZWxfcmVwbyA9IGNvbnRhaW5lciAiTW9kZWwgY29kZSByZXBvc2l0b3J5IiAiVHJhY2sgQUkgbW9kZWwgY29kZS4iICJHaXQiICJyZXBvc2l0b3J5IgogICAgICAgICAgICAgICAgICAgIGNvbnRhaW5lcl9yZXBvID0gY29udGFpbmVyICJDb250YWluZXIgcmVnaXN0cnkiICJTdG9yZSBjb250YWluZXIgaW1hZ2VzLiIgIkRvY2tlckh1YiIgInJlcG9zaXRvcnkiIAogICAgCiAgICAgICAgICAgICAgICAgICAgZXhjaGFuZ2VfZGIgPSBjb250YWluZXIgIkV4Y2hhbmdlIGRhdGFiYXNlIiAiU3RvcmVzIEFJNEVPU0MgZXhjaGFuZ2UgcmVnaXN0ZXJlZCBtb2RlbHMuIiAiIiAiZGF0YWJhc2UiCgogICAgICAgICAgICAgICAgICAgIGNpID0gY29udGFpbmVyICJDb250aW51b3VzIEludGVncmF0aW9uIiAiRW5zdXJlcyBxdWFsaXR5IGFzcGVjdHMgYXJlIGZ1bGZpbGxlZCAoY29kZSBjaGVja3MsIHVuaXQgY2hlY2tzLCBldGMuKS4iCiAgICAgICAgICAgICAgICAgICAgY2QgPSBjb250YWluZXIgIkNvbnRpbnVvdXMgRGVsaXZlcnkgJiBEZXBsb3ltZW50IiAiRW5zdXJlcyBkZWxpdmVyeSBhbmQgZGVwbG95bWVudCBvZiBuZXcgYXNzZXRzLiIKICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICBtb2RlbF9jb250YWluZXIgPSBjb250YWluZXIgIk1vZGVsIGNvbnRhaW5lciIgIkVuY2Fwc3VsYXRlcyB1c2VyIGNvZGUuIiAiRG9ja2VyIiB7CiAgICAgICAgICAgICAgICAgICAgYXBpID0gY29tcG9uZW50ICJBUEkiICIiICJERUVQYWFTIEFQSSIKCiAgICAgICAgICAgICAgICAgICAgZnJhbWV3b3JrID0gY29tcG9uZW50ICJNTC9BSSBmcmFtZXdvcmsiCgogICAgICAgICAgICAgICAgICAgIHVzZXJfbW9kZWwgPSBjb21wb25lbnQgIlVzZXIgY29kZSBhbmQgbW9kZWwiCgogICAgICAgICAgICAgICAgICAgIGFwaSAtPiB1c2VyX21vZGVsCiAgICAgICAgICAgICAgICAgICAgdXNlcl9tb2RlbCAtPiBmcmFtZXdvcmsKICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICBpZGVudGl0eSA9IGdyb3VwICJJZGVudGl0eSBhbmQgdXNlciBtYW5hZ2VtZW50IiB7CgogICAgICAgICAgICAgICAgICAgIGlhbSA9IGNvbnRhaW5lciAiSWRlbnRpdHkgYW5kIEFjY2VzcyBNYW5hZ2VtZW50IiAiUHJvdmlkZXMgdXNlciBhbmQgZ3JvdXAgbWFuYWdlbWVudCIgIklORElHTyBJQU0iCiAgICAKICAgICAgICAgICAgICAgICAgICBvcmRlciA9IGNvbnRhaW5lciAiT3JkZXIgbWFuYWdlbWVudCBzeXN0ZW0iICJNYW5hZ2VzIG9yZGVycyBjb21pbmcgYm90aCBmcm9tIHRoZSBFT1NDIHBvcnRhbCBvciBmb3IgbmV3IHVzZXJzIiAiIgoKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgZGFzaGJvYXJkID0gY29udGFpbmVyICJBSTRFT1NDIGRhc2hib2FyZCIgIlByb3ZpZGVzIGFjY2VzcyB0byBleGlzdGluZyBtb2R1bGVzIChhbm9ueW1vdXMpLCBleHBlcmltZW50IGFuZCB0cmFpbmluZyBkZWZpbml0aW9uIChsb2dnZWQgdXNlcnMpLiIgImFpb2h0dHAiICJkYXNoYm9hcmQiCgogICAgICAgICAgICAgICAgdHJhaW5pbmcgPSBncm91cCAiQUk0RU9TQyB0cmFpbmluZyIgewogICAgICAgICAgICAgICAgICAgIHRyYWluaW5nX2FwaSA9IGNvbnRhaW5lciAiVHJhaW5pbmcgQVBJIiAiUHJvdmlkZXMgdHJhaW5pbmcgY3JlYXRpb24gYW5kIG1vbml0b3JpbmcgZnVuY3Rpb25hbGl0eSB2aWEgYSBKU09OL0hUVFBTIEFQSSIgImFpb2h0dHAiCgogICAgICAgICAgICAgICAgICAgIHRyYWluaW5nX2RiID0gY29udGFpbmVyICJUcmFpbmluZyBkYXRhYmFzZSIgIlN0b3JlcyBBSTRFT1NDIHRyYWluaW5nIHJlcXVlc3RzIiAiIiAiZGF0YWJhc2UiCiAgICAKICAgICAgICAgICAgICAgICAgICBkZXYgPSBjb250YWluZXIgIkludGVyYWN0aXZlIGRldmVsb3BtZW50IEVudmlyb25tZW50IiAiQW4gaW50ZXJhY3RpdmUgZGV2ZWxvcG1lbnQgZW52aXJvbm1lbnQgd2l0aCBhY2Nlc3MgdG8gcmVzb3VyY2VzIGFuZCBsaW1pdGVkIGV4ZWN1dGlvbiB0aW1lLiIgIkp1cHl0ZXIiCiAgICAKICAgICAgICAgICAgICAgICAgICBjb2UgPSBjb250YWluZXIgIldvcmtsb2FkIE1hbmFnZW1lbnQgU3lzdGVtIiAiTWFuYWdlcyBhbmQgc2NoZWR1bGVzIHRoZSBleGVjdXRpb24gb2YgY29tcHV0ZSByZXF1ZXN0cy4iICJIYXNoaWNvcnAgTm9tYWQiCiAgICAKICAgICAgICAgICAgICAgICAgICByZXNvdXJjZXMgPSBjb250YWluZXIgIkNvbXB1dGUgcmVzb3VyY2VzIiAiRXhlY3V0ZXMgdXNlciB3b3JrbG9hZHMuIiAiSGFzaGljb3JwIE5vbWFkIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgICAgIAogICAgICAgICAgICBvcmNoZXN0cmF0aW9uID0gc29mdHdhcmVTeXN0ZW0gIlBhYVMgT3JjaGVzdHJhdGlvbiBhbmQgcHJvdmlzaW9uaW5nIiAiQWxsb3dzIFBhYVMgb3BlcmF0b3JzIHRvIG1hbmFnZSBQYWFTIGRlcGxveW1lbnRzIGFuZCByZXNvdXJjZXMuIiB7CiAgICAgICAgICAgICAgICBwYWFzX2Rhc2hib2FyZCA9IGNvbnRhaW5lciAiUGFhUyBEYXNoYm9hcmQiICIiICJGbGFzayIgImRhc2hib2FyZCIKCiAgICAgICAgICAgICAgICBwYWFzX29yY2hlc3RyYXRvciA9IGNvbnRhaW5lciAiUGFhUyBPcmNoZXN0cmF0b3IiICIiICJJTkRJR08gUGFhUyBPcmNoZXN0cmF0b3IiCgogICAgICAgICAgICAgICAgaW0gPSBjb250YWluZXIgIkluZnJhc3RydWN0dXJlIE1hbmFnZXIiCgogICAgICAgICAgICAgICAgdG9zY2FfcmVwbyA9IGNvbnRhaW5lciAiVG9wb2xvZ2llcyByZXBvc2l0b3J5IiAiIiAiVE9TQ0EiICJyZXBvc2l0b3J5IgogICAgICAgICAgICB9CgogICAgICAgICAgICBkZWVwYWFzID0gc29mdHdhcmVTeXN0ZW0gIkRFRVAgYXMgYSBTZXJ2aWNlIiAiQWxsb3dzIHVzZXJzIHRvIGRlcGxveSBhbiBBSSBhcHBsaWNhdGlvbiBhcyBhIHNlcnZpY2UuIiB7CiAgICAgICAgICAgICAgICBPU0NBUlN5c3RlbSA9IGdyb3VwICJPU0NBUiJ7CiAgICAgICAgICAgICAgICAgICAgT1NDQVIgPSBjb250YWluZXIgIk9TQ0FSIE1hbmFnZXIiIAogICAgICAgICAgICAgICAgICAgIEt1YmVybmV0ZXMgPSBjb250YWluZXIgIkt1YmVybmV0ZXMgQVBJIiAKICAgICAgICAgICAgICAgICAgICBNaW5JTyA9IGNvbnRhaW5lciAiTWluSU8iIAogICAgICAgICAgICAgICAgICAgIEtuYXRpdmUgPSBjb250YWluZXIgIktuYXRpdmUiIAogICAgICAgICAgICAgICAgICAgIEZhYVNTID0gY29udGFpbmVyICJGYWFTIFN1cGVydmlzb3IiIAogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgfQoKICAgICAgICBzdG9yYWdlID0gc29mdHdhcmVTeXN0ZW0gIlN0b3JhZ2UgU2VydmljZXMiICJFeHRlcm5hbCBzdG9yYWdlIHdoZXJlIGRhdGEgYXNzZXRzIGFyZSBzdG9yZWQuIiB7CiAgICAgICAgICAgIEVTUCA9IGdyb3VwICJFeHRlcm5hbCBTdG9yYWdlIFByb3ZpZGVyInsKICAgICAgICAgICAgICAgIHMzID0gY29udGFpbmVyICJBbWF6b24gUzMiCiAgICAgICAgICAgICAgICBNaW5JT0V4dGVybmFsID0gY29udGFpbmVyICJNaW5JTyBFeHRlcm5hbCIKICAgICAgICAgICAgICAgIG9uZURhdGEgPSBjb250YWluZXIgIk9uZWRhdGEiCiAgICAgICAgICAgICAgICBkY2FjaGUgPSBjb250YWluZXIgImRDYWNoZSIKICAgICAgICAgICAgfQogICAgICAgIH0KCiAgICAgICAgZW5kX3VzZXIgPSBwZXJzb24gIlVzZXIiICJBbiBlbmQtdXNlciwgd2lsbGluZyB0byBleHBsb2l0IGV4aXN0aW5nIHByb2R1Y3Rpb24gbW9kZWxzLiIKCiAgICAgICAgIyBVc2VyIC0gc3lzdGVtIGludGVyYWN0aW9uCiAgICAgICAgZW9zY191c2VyIC0+IGFpNGVvc2NfcGxhdGZvcm0gIlJldXNlLCBkZXZlbG9wLCBwdWJsaXNoIG5ldyBBSSBtb2RlbHMiCiAgICAgICAgcGFhc19vcHMgLT4gb3JjaGVzdHJhdGlvbiAiTWFuYWdlIFBhYVMgcmVzb3VyY2VzIGFuZCBkZXBsb3ltZW50cyIKICAgICAgICBlbmRfdXNlciAtPiBkZWVwYWFzICJVc2VzIGRlcGxveWVkIG1vZGVscyBmcm9tIgogICAgICAgIC8qIGVvc2NfdXNlciAtPiBkZWVwYWFzICJEZXBsb3kgbW9kZWxzIGFzIHNlcnZpY2VzIiAqLwoKICAgICAgICAjIFN5c3RlbSAtIHN5c3RlbSBpbnRlcmFjdGlvbgogICAgICAgIG9yY2hlc3RyYXRpb24gLT4gYWk0ZW9zY19wbGF0Zm9ybSAiQ3JlYXRlcyBQYWFTIGRlcGxveW1lbnRzIGFuZCBwcm92aXNpb25zIHJlc291cmNlcyBmb3IiCiAgICAgICAgb3JjaGVzdHJhdGlvbiAtPiBkZWVwYWFzICJQcm92aXNpb3MgcmVzb3VyY2VzIGZvciIKICAgICAgICBhaTRlb3NjX3BsYXRmb3JtIC0+IHN0b3JhZ2UgIkNvbnN1bWVzIGRhdGEgZnJvbSIKICAgICAgICBhaTRlb3NjX3BsYXRmb3JtIC0+IGFhaSAiSXMgaW50ZWdyYXRlZCB3aXRoIgogICAgICAgIC8qIGFpNGVvc2NfcGxhdGZvcm0gLT4gcG9ydGFsICJJcyBpbnRlZ3JhdGVkIHdpdGgiICovCiAgICAgICAgYWk0ZW9zY19wbGF0Zm9ybSAtPiBkZWVwYWFzICJEZXBsb3kgbW9kZWxzIG9uIgoKCiAgICAgICAgIyBBSTRFT1NDIHBsYXRmb3JtCgogICAgICAgIGVvc2NfdXNlciAtPiBkYXNoYm9hcmQgIkJyb3dzZSBtb2RlbHMsIHRyYWluIGV4aXN0aW5nIG1vZGVsLCBidWlsZCBuZXcgb25lLiIKCiAgICAgICAgIyBUcmFpbmluZyAKICAgICAgICBlb3NjX3VzZXIgLT4gZGV2ICJBY2Nlc3MgaW50ZXJhY3RpdmUgZW52aXJvbm1lbnRzIgoKICAgICAgICBkYXNoYm9hcmQgLT4gdHJhaW5pbmdfYXBpICJEZWZpbmUgbmV3IHRyYWluaW5ncywgY2hlY2sgdHJhaW5pbmcgc3RhdHVzLCBldGMuICIKCiAgICAgICAgdHJhaW5pbmdfYXBpIC0+IGNvZSAiQ3JlYXRlIHRyYWluaW5nIGpvYiwgaW50ZXJhY3RpdmUgZW52aXJvbm1lbnQgdXNpbmcgQVBJIGNhbGxzIHRvIgogICAgICAgIHRyYWluaW5nX2FwaSAtPiB0cmFpbmluZ19kYiAiU3RvcmVzIHRyYWluaW5nIGRhdGEgaW4iCiAgICAgICAgdHJhaW5pbmdfYXBpIC0+IG1vZGVsX2NvbnRhaW5lciAiUXVlcmllcyB0cmFpbmluZyBzdGF0dXMiCgogICAgICAgIGNvZSAtPiByZXNvdXJjZXMgIkNyZWF0ZSBuZXcgdGFzay93b3JrbG9hZCIKCiAgICAgICAgcmVzb3VyY2VzIC0+IGRldiAiQ3JlYXRlIG9uLWRlbWFuZCBlbnZpcm9ubWVudHMiCiAgICAgICAgcmVzb3VyY2VzIC0+IG1vZGVsX2NvbnRhaW5lciAiRXhlY3V0ZXMgdXNlciBtb2RlbCBmcm9tIGEiCgogICAgICAgIGV4Y2hhbmdlX2FwaSAtPiBpYW0gIkF1dGhlbnRpY2F0ZXMgdXNlcnMgd2l0aCIKICAgICAgICB0cmFpbmluZ19hcGkgLT4gaWFtICJBdXRoZW50aWNhdGVzIHVzZXJzIHdpdGgiCiAgICAgICAgLyogZGFzaGJvYXJkIC0+IGlhbSAiQXV0aGVudGljYXRlcyB1c2VycyB3aXRoIiAqLwoKICAgICAgICAjIFVzZXIgbWFuYWdlbWVudAoKICAgICAgICBwb3J0YWwgLT4gb3JkZXIgIkNyZWF0ZXMgbmV3IG9yZGVyL3JlcXVlc3QgZm9yIHNlcnZpY2VzIgogICAgICAgIGlhbSAtPiBhYWkgIkZlZGVyYXRlIHVzZXJzIGZyb20iICJPcGVuSUQgQ29ubmVjdCIKICAgICAgICBvcmRlciAtPiBpYW0gIkNyZWF0ZXMgbmV3IHVzZXJzIGZvciBuZXcgb3JkZXJzIgogICAgICAgIAoKICAgICAgICAjIEFJNEVPU0MgZXhjaGFuZ2UKICAgICAgICAvKiBlb3NjX3VzZXIgLT4gZXhjaGFuZ2VfYXBpICJSZWdpc3RlciBuZXcgbW9kZWwiICovCiAgICAgICAgZGFzaGJvYXJkIC0+IGV4Y2hhbmdlX2FwaSAiUmVhZHMgYXZhaWxhYmxlIG1vZGVscyBmcm9tIgoKICAgICAgICBleGNoYW5nZV9hcGkgLT4gZGF0YV9yZXBvICJSZWFkcyBmcm9tIgogICAgICAgIGV4Y2hhbmdlX2FwaSAtPiBtb2RlbF9yZXBvICJSZWFkcyBmcm9tIgogICAgICAgIGV4Y2hhbmdlX2FwaSAtPiBjb250YWluZXJfcmVwbyAiUmVhZHMgZnJvbSIKCiAgICAgICAgY2kgLT4gZGF0YV9yZXBvICJFbnN1cmVzIFFBIGFzcGVjdHMiCiAgICAgICAgY2kgLT4gbW9kZWxfcmVwbyAiRW5zdXJlcyBRQSBhc3BlY3RzIgoKICAgICAgICBjZCAtPiBtb2RlbF9yZXBvICJSZWFjdHMgdG8gZXZlbnRzIGZyb20iCiAgICAgICAgY2QgLT4gY29udGFpbmVyX3JlcG8gIkNyZWF0ZXMgY29udGFpbmVycyIKICAgICAgICBjZCAtPiBkZWVwYWFzICJEZXBsb3lzIG1vZGVscyBvbiIKCiAgICAgICAgZGF0YV9yZXBvIC0+IHN0b3JhZ2UgIlJlZmVycyB0byBkYXRhIHN0b3JlZCBpbiIKCiAgICAgICAgZXhjaGFuZ2VfYXBpIC0+IGV4Y2hhbmdlX2RiICJSZWFkcyBmcm9tIHdyaXRlcyB0byIKCiAgICAgICAgbW9kZWxfY29udGFpbmVyIC0+IGNvbnRhaW5lcl9yZXBvICJTdG9yZWQgaW4iCgogICAgICAgIG9yY2hlc3RyYXRpb24gLT4gcmVzb3VyY2VzICJQcm92aXNpb25zIgoKCiAgICAgICAgIyBPcmNoZXN0cmF0aW9uCgogICAgICAgIHBhYXNfb3BzIC0+IHBhYXNfZGFzaGJvYXJkICJNYW5hZ2VzIEFJNEVPU0MgUGFhUyBkZXBsb3ltZW50cyIKICAgICAgICBwYWFzX2Rhc2hib2FyZCAtPiBwYWFzX29yY2hlc3RyYXRvciAiQ3JlYXRlIGRlcGxveW1lbnQiCiAgICAgICAgcGFhc19kYXNoYm9hcmQgLT4gdG9zY2FfcmVwbyAiUmVhZCB0b3BvbG9naWVzIgogICAgICAgIHBhYXNfb3JjaGVzdHJhdG9yIC0+IHRvc2NhX3JlcG8gIlJlYWQgdG9wb2xvZ2llcyIKICAgICAgICBwYWFzX29yY2hlc3RyYXRvciAtPiBpbSAiVXNlcyIKCiAgICAgICAgLyogcGFhc19vcmNoZXN0cmF0b3IgLT4gaWFtICJBdXRoZW50aWNhdGVzIHVzZXJzIHdpdGgiICovCiAgICAgICAgLyogaW0gLT4gaWFtICJBdXRoTi9aIiAqLwoKICAgICAgICBwYWFzX29yY2hlc3RyYXRvciAtPiByZXNvdXJjZXMgIlByb3Zpc2lvbnMgcmVzb3VyY2VzIgoKICAgICAgICBwYWFzX29yY2hlc3RyYXRvciAtPiByZXNvdXJjZXMgIlByb3Zpc2lvbnMgcmVzb3VyY2VzIgogICAgICAgIHBhYXNfb3JjaGVzdHJhdG9yIC0+IEtuYXRpdmUgIlByb3Zpc2lvbnMgcmVzb3VyY2VzIiAKCiAgICAgICAgIyBERUVQYWFTIE9TQ0FSCiAgICAgICAgT1NDQVIgLT4gTWluSU8gIkNyZWF0ZSBidWNrZXRzIGFuZCBmb2xkZXJzLiBDb25maWd1cmUgZXZlbnQgYW5kIG5vdGlmaWNhdGlvbnMuIERvd25sb2FkLyBVcGxvYWQgRmlsZXMuIFRyaWdnZXIgam9icyAod2ViaG9vayBldmVudHMpIgogICAgICAgIE9TQ0FSIC0+IEt1YmVybmV0ZXMgIk1hbmFnZSBzZXJ2aWNlcy4gUmVnaXN0ZXIgam9icy4gUmV0cmlldmUgbG9ncyIKICAgICAgICBPU0NBUiAtPiBLbmF0aXZlICJFeGVjdXRlIHNlcnZpY2VzIHN5bmNyaG9ub3VzbHkgKG9wdGlvbmFsKSIKICAgICAgICBGYWFTUyAtPiBLbmF0aXZlICJBc3NpZ24gdG8gZnVuY3Rpb24ncyBwb2QocykiCiAgICAgICAgS3ViZXJuZXRlcyAtPiBGYWFTUyAiQ3JlYXRlIGpvYnMiCiAgICAgICAgICAgICNGYWFTUyAtPiBFU1AgIlVwbG9hZCBPdXRwdXQiCiAgICAgICAgRmFhU1MgLT4gTWluSU8gIkRvd25sb2FkIGlucHV0LiBVcGxvYWQgb3V0cHV0IgogICAgICAgIEZhYVNTIC0+IHN0b3JhZ2UgIlJlYWQvc3RvcmUgZGF0YSIKICAgICAgICBGYWFTUyAtPiBzMyAiUmVhZC9zdG9yZSBkYXRhIgogICAgICAgIEZhYVNTIC0+IE1pbklPRXh0ZXJuYWwgIlJlYWQvc3RvcmUgZGF0YSIKICAgICAgICBGYWFTUyAtPiBvbmVEYXRhICJSZWFkL3N0b3JlIGRhdGEiCiAgICAgICAgRmFhU1MgLT4gZGNhY2hlICJSZWFkL3N0b3JlIGRhdGEiCgogICAgfQoKICAgIHZpZXdzIHsKICAgICAgICB0aGVtZSBEZWZhdWx0CgogICAgICAgIHRlcm1pbm9sb2d5IHsKICAgICAgICAgICAgZW50ZXJwcmlzZSAiUHJvamVjdCIKICAgICAgICAgICAgY29udGFpbmVyICJDb21wb25lbnQiCiAgICAgICAgICAgIGNvbXBvbmVudCAiT2xkQ29tcG9uZW50IgogICAgICAgIH0KCiAgICAgICAgYnJhbmRpbmcgewogICAgICAgICAgICAvKiBsb2dvICJsb2dvLnBuZyIgKi8KICAgICAgICAgICAgZm9udCAiUm9ib3RvIiAiaHR0cDovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9Um9ib3RvIgogICAgICAgIH0KCiAgICAgICAgCiAgICAgICAgc3lzdGVtTGFuZHNjYXBlIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQoKICAgICAgICBzeXN0ZW1Db250ZXh0IGFpNGVvc2NfcGxhdGZvcm0gewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CgogICAgICAgIC8qIHN5c3RlbUNvbnRleHQgc3FhIHsgKi8KICAgICAgICAvKiAgICAgaW5jbHVkZSAqICovCiAgICAgICAgLyogfSAqLwoKICAgICAgICBzeXN0ZW1Db250ZXh0IG9yY2hlc3RyYXRpb24gewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CgogICAgICAgIHN5c3RlbUNvbnRleHQgZGVlcGFhcyB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KICAgICAgICAKIyAgICAgICAgY29udGFpbmVyIGNhdGFsb2cgewojICAgICAgICAgICAgaW5jbHVkZSAqCiMjICAgICAgICAgICAgYXV0b0xheW91dAojICAgICAgICB9CiMKIyAgICAgICAgY29udGFpbmVyIHRyYWluaW5nIHsKIyAgICAgICAgICAgIGluY2x1ZGUgKgojICAgICAgICB9CiMKICAgICAgICBjb250YWluZXIgZGVlcGFhcyB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KCiAgICAgICAgCiAgICAgICAgY29udGFpbmVyIGFpNGVvc2NfcGxhdGZvcm0gewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CgogICAgICAgIC8qIGNvbnRhaW5lciBzcWEgeyAqLwogICAgICAgIC8qICAgICBpbmNsdWRlICogKi8KICAgICAgICAvKiB9ICovCgogICAgICAgIGNvbnRhaW5lciBvcmNoZXN0cmF0aW9uIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQoKIyAgICAgICAgY29udGFpbmVyIHVzZXJfbWFuYWdlbWVudCB7CiMgICAgICAgICAgICBpbmNsdWRlICoKIyAgICAgICAgfQogICAgICAgIAojICAgICAgICBjb21wb25lbnQgbW9kZWxfY29udGFpbmVyIHsKIyAgICAgICAgICAgIGluY2x1ZGUgKgojICAgICAgICB9CiAgICAgICAgCiMgICAgICAgIHN0eWxlcyB7CiMgICAgICAgICAgICBlbGVtZW50ICJkYXNoYm9hcmQiIHsKIyAgICAgICAgICAgICAgICBzaGFwZSBXZWJCcm93c2VyCiMgICAgICAgICAgICB9ICAgICAgIAojCiMgICAgICAgICAgICBlbGVtZW50ICJyZXBvc2l0b3J5IiB7CiMgICAgICAgICAgICAgICAgc2hhcGUgQ3lsaW5kZXIKIyAgICAgICAgICAgIH0KIyAgICAgICAgfQogICAgfQp9Cgo="
   },
   "configuration" : { },
   "model" : {
@@ -14,47 +13,47 @@
       "name" : "AI4EOSC"
     },
     "people" : [ {
-      "id" : "48",
-      "tags" : "Element,Person",
-      "name" : "User",
-      "description" : "An end-user, willing to exploit existing production models.",
-      "relationships" : [ {
-        "id" : "51",
-        "tags" : "Relationship",
-        "sourceId" : "48",
-        "destinationId" : "33",
-        "description" : "Uses deployed models from"
-      } ],
-      "location" : "External"
-    }, {
       "id" : "1",
       "tags" : "Element,Person",
       "name" : "EOSC User",
       "description" : "EOSC user willing to use an AI platform to develop an AI application.",
       "relationships" : [ {
-        "id" : "49",
-        "tags" : "Relationship",
-        "sourceId" : "1",
-        "destinationId" : "6",
-        "description" : "Reuse, develop, publish new AI models"
-      }, {
-        "id" : "58",
+        "id" : "54",
         "tags" : "Relationship",
         "sourceId" : "1",
         "destinationId" : "25",
         "description" : "Access interactive environments"
-      }, {
-        "id" : "57",
-        "tags" : "Relationship",
-        "sourceId" : "1",
-        "destinationId" : "22",
-        "description" : "Browse models, train existing model, build new one."
       }, {
         "id" : "4",
         "tags" : "Relationship",
         "sourceId" : "1",
         "destinationId" : "3",
         "description" : "Browse EOSC resources, create order for new services"
+      }, {
+        "id" : "45",
+        "tags" : "Relationship",
+        "sourceId" : "1",
+        "destinationId" : "6",
+        "description" : "Reuse, develop, publish new AI models"
+      }, {
+        "id" : "53",
+        "tags" : "Relationship",
+        "sourceId" : "1",
+        "destinationId" : "22",
+        "description" : "Browse models, train existing model, build new one."
+      } ],
+      "location" : "External"
+    }, {
+      "id" : "44",
+      "tags" : "Element,Person",
+      "name" : "User",
+      "description" : "An end-user, willing to exploit existing production models.",
+      "relationships" : [ {
+        "id" : "47",
+        "tags" : "Relationship",
+        "sourceId" : "44",
+        "destinationId" : "33",
+        "description" : "Uses deployed models from"
       } ],
       "location" : "External"
     }, {
@@ -63,313 +62,39 @@
       "name" : "PaaS Operator",
       "description" : "Resource provider operator or platform operator managing the PaaS deployments.",
       "relationships" : [ {
-        "id" : "85",
-        "tags" : "Relationship",
-        "sourceId" : "5",
-        "destinationId" : "29",
-        "description" : "Manages AI4EOSC PaaS deployments"
-      }, {
-        "id" : "50",
+        "id" : "46",
         "tags" : "Relationship",
         "sourceId" : "5",
         "destinationId" : "28",
         "description" : "Manage PaaS resources and deployments"
+      }, {
+        "id" : "81",
+        "tags" : "Relationship",
+        "sourceId" : "5",
+        "destinationId" : "29",
+        "description" : "Manages AI4EOSC PaaS deployments"
       } ],
       "location" : "External"
     } ],
     "softwareSystems" : [ {
-      "id" : "47",
-      "tags" : "Element,Software System",
-      "name" : "Storage Services",
-      "description" : "External storage where data assets are stored.",
-      "location" : "External",
-      "documentation" : { }
-    }, {
-      "id" : "3",
-      "tags" : "Element,Software System",
-      "name" : "EOSC Portal",
-      "description" : "Provides access to EOSC resources and services for users.",
-      "relationships" : [ {
-        "id" : "69",
-        "tags" : "Relationship",
-        "sourceId" : "3",
-        "destinationId" : "21",
-        "description" : "Creates new order/request for services"
-      } ],
-      "group" : "EOSC",
-      "location" : "External",
-      "documentation" : { }
-    }, {
-      "id" : "28",
-      "tags" : "Element,Software System",
-      "name" : "PaaS Orchestration and provisioning",
-      "description" : "Allows PaaS operators to manage PaaS deployments and resources.",
-      "relationships" : [ {
-        "id" : "84",
-        "tags" : "Relationship",
-        "sourceId" : "28",
-        "destinationId" : "27",
-        "description" : "Provisions"
-      }, {
-        "id" : "52",
-        "tags" : "Relationship",
-        "sourceId" : "28",
-        "destinationId" : "6",
-        "description" : "Create PaaS deployments and provision resources for"
-      } ],
-      "location" : "Internal",
-      "containers" : [ {
-        "id" : "32",
-        "tags" : "Element,Container,repository",
-        "name" : "Topologies repository",
-        "technology" : "TOSCA",
-        "documentation" : { }
-      }, {
-        "id" : "31",
-        "tags" : "Element,Container",
-        "name" : "Infrastructure Manager",
-        "relationships" : [ {
-          "id" : "91",
-          "tags" : "Relationship",
-          "sourceId" : "31",
-          "destinationId" : "20",
-          "description" : "AuthN/Z"
-        } ],
-        "documentation" : { }
-      }, {
-        "id" : "29",
-        "tags" : "Element,Container,dashboard",
-        "name" : "PaaS Dashboard",
-        "relationships" : [ {
-          "id" : "87",
-          "tags" : "Relationship",
-          "sourceId" : "29",
-          "destinationId" : "32",
-          "description" : "Read topologies"
-        }, {
-          "id" : "86",
-          "tags" : "Relationship",
-          "sourceId" : "29",
-          "destinationId" : "30",
-          "description" : "Create deployment"
-        } ],
-        "technology" : "Flask",
-        "documentation" : { }
-      }, {
-        "id" : "30",
-        "tags" : "Element,Container",
-        "name" : "PaaS Orchestrator",
-        "relationships" : [ {
-          "id" : "90",
-          "tags" : "Relationship",
-          "sourceId" : "30",
-          "destinationId" : "20",
-          "description" : "Authenticates users with"
-        }, {
-          "id" : "89",
-          "tags" : "Relationship",
-          "sourceId" : "30",
-          "destinationId" : "31",
-          "description" : "Uses"
-        }, {
-          "id" : "88",
-          "tags" : "Relationship",
-          "sourceId" : "30",
-          "destinationId" : "32",
-          "description" : "Read topologies"
-        }, {
-          "id" : "92",
-          "tags" : "Relationship",
-          "sourceId" : "30",
-          "destinationId" : "27",
-          "description" : "Provisions resources"
-        } ],
-        "technology" : "INDIGO PaaS Orchestrator",
-        "documentation" : { }
-      } ],
-      "documentation" : { }
-    }, {
-      "id" : "2",
-      "tags" : "Element,Software System",
-      "name" : "EOSC AAI",
-      "description" : "Provides Authentication, Authorization and Identity management for EOSC users.",
-      "group" : "EOSC",
-      "location" : "External",
-      "documentation" : { }
-    }, {
-      "id" : "33",
-      "tags" : "Element,Software System",
-      "name" : "DEEP as a Service",
-      "description" : "Allows users to deploy an AI application as a service.",
-      "relationships" : [ {
-        "id" : "56",
-        "tags" : "Relationship",
-        "sourceId" : "33",
-        "destinationId" : "6",
-        "description" : "Deploy models developed with"
-      } ],
-      "location" : "Internal",
-      "containers" : [ {
-        "id" : "43",
-        "tags" : "Element,Container",
-        "name" : "Serverless platform",
-        "technology" : "OpenWhisk",
-        "documentation" : { }
-      }, {
-        "id" : "38",
-        "tags" : "Element,Container",
-        "name" : "FaaS Supervisor",
-        "relationships" : [ {
-          "id" : "96",
-          "tags" : "Relationship",
-          "sourceId" : "38",
-          "destinationId" : "37",
-          "description" : "Assign to function's pod(s)"
-        }, {
-          "id" : "103",
-          "tags" : "Relationship",
-          "sourceId" : "38",
-          "destinationId" : "42"
-        }, {
-          "id" : "102",
-          "tags" : "Relationship",
-          "sourceId" : "38",
-          "destinationId" : "41"
-        }, {
-          "id" : "98",
-          "tags" : "Relationship",
-          "sourceId" : "38",
-          "destinationId" : "36",
-          "description" : "Download input. Upload output"
-        }, {
-          "id" : "101",
-          "tags" : "Relationship",
-          "sourceId" : "38",
-          "destinationId" : "40"
-        }, {
-          "id" : "99",
-          "tags" : "Relationship",
-          "sourceId" : "38",
-          "destinationId" : "47"
-        }, {
-          "id" : "100",
-          "tags" : "Relationship",
-          "sourceId" : "38",
-          "destinationId" : "39"
-        } ],
-        "group" : "OSCAR",
-        "documentation" : { }
-      }, {
-        "id" : "42",
-        "tags" : "Element,Container",
-        "name" : "dCache",
-        "group" : "External Storage Provider",
-        "documentation" : { }
-      }, {
-        "id" : "36",
-        "tags" : "Element,Container",
-        "name" : "MinIO",
-        "group" : "OSCAR",
-        "documentation" : { }
-      }, {
-        "id" : "34",
-        "tags" : "Element,Container",
-        "name" : "OSCAR Manager",
-        "relationships" : [ {
-          "id" : "93",
-          "tags" : "Relationship",
-          "sourceId" : "34",
-          "destinationId" : "36",
-          "description" : "Create buckets and folders. Configure event and notifications. Download/ Upload Files. Trigger jobs (webhook events)"
-        }, {
-          "id" : "94",
-          "tags" : "Relationship",
-          "sourceId" : "34",
-          "destinationId" : "35",
-          "description" : "Manage services. Register jobs. Retrieve logs"
-        }, {
-          "id" : "95",
-          "tags" : "Relationship",
-          "sourceId" : "34",
-          "destinationId" : "37",
-          "description" : "Execute services syncrhonously (optional)"
-        } ],
-        "group" : "OSCAR",
-        "documentation" : { }
-      }, {
-        "id" : "35",
-        "tags" : "Element,Container",
-        "name" : "Kubernetes API",
-        "relationships" : [ {
-          "id" : "97",
-          "tags" : "Relationship",
-          "sourceId" : "35",
-          "destinationId" : "38",
-          "description" : "Create jobs"
-        } ],
-        "group" : "OSCAR",
-        "documentation" : { }
-      }, {
-        "id" : "41",
-        "tags" : "Element,Container",
-        "name" : "Onedata",
-        "group" : "External Storage Provider",
-        "documentation" : { }
-      }, {
-        "id" : "40",
-        "tags" : "Element,Container",
-        "name" : "MinIO External",
-        "group" : "External Storage Provider",
-        "documentation" : { }
-      }, {
-        "id" : "39",
-        "tags" : "Element,Container",
-        "name" : "Amazon S3",
-        "group" : "External Storage Provider",
-        "documentation" : { }
-      }, {
-        "id" : "44",
-        "tags" : "Element,Container",
-        "name" : "DEEP - Serverless connector",
-        "documentation" : { }
-      }, {
-        "id" : "46",
-        "tags" : "Element,Container",
-        "name" : "Container Orchestration Engine",
-        "technology" : "Mesos",
-        "documentation" : { }
-      }, {
-        "id" : "45",
-        "tags" : "Element,Container",
-        "name" : "DEEPaaS Containar",
-        "documentation" : { }
-      }, {
-        "id" : "37",
-        "tags" : "Element,Container",
-        "name" : "Knative",
-        "group" : "OSCAR",
-        "documentation" : { }
-      } ],
-      "documentation" : { }
-    }, {
       "id" : "6",
       "tags" : "Element,Software System",
       "name" : "AI4EOSC Platform",
       "description" : "Allows EOSC users to develop, build and share AI models.",
       "relationships" : [ {
-        "id" : "53",
+        "id" : "50",
         "tags" : "Relationship",
         "sourceId" : "6",
-        "destinationId" : "47",
+        "destinationId" : "39",
         "description" : "Consumes data from"
       }, {
-        "id" : "55",
+        "id" : "52",
         "tags" : "Relationship",
         "sourceId" : "6",
-        "destinationId" : "3",
-        "description" : "Is integrated with"
+        "destinationId" : "33",
+        "description" : "Deploy models on"
       }, {
-        "id" : "54",
+        "id" : "51",
         "tags" : "Relationship",
         "sourceId" : "6",
         "destinationId" : "2",
@@ -377,51 +102,163 @@
       } ],
       "location" : "Internal",
       "containers" : [ {
+        "id" : "21",
+        "tags" : "Element,Container",
+        "name" : "Order management system",
+        "description" : "Manages orders coming both from the EOSC portal or for new users",
+        "relationships" : [ {
+          "id" : "67",
+          "tags" : "Relationship",
+          "sourceId" : "21",
+          "destinationId" : "20",
+          "description" : "Creates new users for new orders"
+        } ],
+        "group" : "Identity and user management",
+        "documentation" : { }
+      }, {
+        "id" : "20",
+        "tags" : "Element,Container",
+        "name" : "Identity and Access Management",
+        "description" : "Provides user and group management",
+        "relationships" : [ {
+          "id" : "66",
+          "tags" : "Relationship",
+          "sourceId" : "20",
+          "destinationId" : "2",
+          "description" : "Federate users from",
+          "technology" : "OpenID Connect"
+        } ],
+        "group" : "Identity and user management",
+        "technology" : "INDIGO IAM",
+        "documentation" : { }
+      }, {
+        "id" : "25",
+        "tags" : "Element,Container",
+        "name" : "Interactive development Environment",
+        "description" : "An interactive development environment with access to resources and limited execution time.",
+        "group" : "AI4EOSC training",
+        "technology" : "Jupyter",
+        "documentation" : { }
+      }, {
+        "id" : "8",
+        "tags" : "Element,Container,repository",
+        "name" : "Model and data repository",
+        "description" : "Track AI models and data sets.",
+        "relationships" : [ {
+          "id" : "77",
+          "tags" : "Relationship",
+          "sourceId" : "8",
+          "destinationId" : "39",
+          "description" : "Refers to data stored in"
+        } ],
+        "group" : "AI4EOSC Exchange",
+        "technology" : "dvc",
+        "documentation" : { }
+      }, {
+        "id" : "10",
+        "tags" : "Element,Container,repository",
+        "name" : "Container registry",
+        "description" : "Store container images.",
+        "group" : "AI4EOSC Exchange",
+        "technology" : "DockerHub",
+        "documentation" : { }
+      }, {
+        "id" : "7",
+        "tags" : "Element,Container",
+        "name" : "Exchange API",
+        "description" : "Provides exchange functionality via HTTPS/JSON API.",
+        "relationships" : [ {
+          "id" : "70",
+          "tags" : "Relationship",
+          "sourceId" : "7",
+          "destinationId" : "9",
+          "description" : "Reads from"
+        }, {
+          "id" : "62",
+          "tags" : "Relationship",
+          "sourceId" : "7",
+          "destinationId" : "20",
+          "description" : "Authenticates users with"
+        }, {
+          "id" : "69",
+          "tags" : "Relationship",
+          "sourceId" : "7",
+          "destinationId" : "8",
+          "description" : "Reads from"
+        }, {
+          "id" : "78",
+          "tags" : "Relationship",
+          "sourceId" : "7",
+          "destinationId" : "11",
+          "description" : "Reads from writes to"
+        }, {
+          "id" : "71",
+          "tags" : "Relationship",
+          "sourceId" : "7",
+          "destinationId" : "10",
+          "description" : "Reads from"
+        } ],
+        "group" : "AI4EOSC Exchange",
+        "documentation" : { }
+      }, {
+        "id" : "22",
+        "tags" : "Element,Container,dashboard",
+        "name" : "AI4EOSC dashboard",
+        "description" : "Provides access to existing modules (anonymous), experiment and training definition (logged users).",
+        "relationships" : [ {
+          "id" : "68",
+          "tags" : "Relationship",
+          "sourceId" : "22",
+          "destinationId" : "7",
+          "description" : "Reads available models from"
+        }, {
+          "id" : "55",
+          "tags" : "Relationship",
+          "sourceId" : "22",
+          "destinationId" : "23",
+          "description" : "Define new trainings, check training status, etc."
+        } ],
+        "technology" : "aiohttp",
+        "documentation" : { }
+      }, {
         "id" : "13",
         "tags" : "Element,Container",
         "name" : "Continuous Delivery & Deployment",
         "description" : "Ensures delivery and deployment of new assets.",
         "relationships" : [ {
-          "id" : "80",
-          "tags" : "Relationship",
-          "sourceId" : "13",
-          "destinationId" : "33",
-          "description" : "Triggers deployment updates"
-        }, {
-          "id" : "78",
+          "id" : "74",
           "tags" : "Relationship",
           "sourceId" : "13",
           "destinationId" : "9",
           "description" : "Reacts to events from"
         }, {
-          "id" : "79",
+          "id" : "75",
           "tags" : "Relationship",
           "sourceId" : "13",
           "destinationId" : "10",
           "description" : "Creates containers"
+        }, {
+          "id" : "76",
+          "tags" : "Relationship",
+          "sourceId" : "13",
+          "destinationId" : "33",
+          "description" : "Deploys models on"
         } ],
         "group" : "AI4EOSC Exchange",
         "documentation" : { }
       }, {
-        "id" : "27",
-        "tags" : "Element,Container",
-        "name" : "Compute resources",
-        "description" : "Executes user workloads.",
-        "relationships" : [ {
-          "id" : "65",
-          "tags" : "Relationship",
-          "sourceId" : "27",
-          "destinationId" : "14",
-          "description" : "Executes user model from a"
-        }, {
-          "id" : "64",
-          "tags" : "Relationship",
-          "sourceId" : "27",
-          "destinationId" : "25",
-          "description" : "Create on-demand environments"
-        } ],
+        "id" : "24",
+        "tags" : "Element,Container,database",
+        "name" : "Training database",
+        "description" : "Stores AI4EOSC training requests",
         "group" : "AI4EOSC training",
-        "technology" : "Hashicorp Nomad",
+        "documentation" : { }
+      }, {
+        "id" : "11",
+        "tags" : "Element,Container,database",
+        "name" : "Exchange database",
+        "description" : "Stores AI4EOSC exchange registered models.",
+        "group" : "AI4EOSC Exchange",
         "documentation" : { }
       }, {
         "id" : "14",
@@ -429,7 +266,7 @@
         "name" : "Model container",
         "description" : "Encapsulates user code.",
         "relationships" : [ {
-          "id" : "83",
+          "id" : "79",
           "tags" : "Relationship",
           "sourceId" : "14",
           "destinationId" : "10",
@@ -467,81 +304,19 @@
         } ],
         "documentation" : { }
       }, {
-        "id" : "22",
-        "tags" : "Element,Container,dashboard",
-        "name" : "AI4EOSC dashboard",
-        "description" : "Provides access to existing modules (anonymous), experiment and training definition (logged users).",
+        "id" : "26",
+        "tags" : "Element,Container",
+        "name" : "Workload Management System",
+        "description" : "Manages and schedules the execution of compute requests.",
         "relationships" : [ {
-          "id" : "68",
-          "tags" : "Relationship",
-          "sourceId" : "22",
-          "destinationId" : "20",
-          "description" : "Authenticates users with"
-        }, {
-          "id" : "72",
-          "tags" : "Relationship",
-          "sourceId" : "22",
-          "destinationId" : "7",
-          "description" : "Reads available models from"
-        }, {
           "id" : "59",
           "tags" : "Relationship",
-          "sourceId" : "22",
-          "destinationId" : "23",
-          "description" : "Define new trainings, check training status, etc."
+          "sourceId" : "26",
+          "destinationId" : "27",
+          "description" : "Create new task/workload"
         } ],
-        "technology" : "aiohttp",
-        "documentation" : { }
-      }, {
-        "id" : "12",
-        "tags" : "Element,Container",
-        "name" : "Continuous Integration",
-        "description" : "Ensures quality aspects are fulfilled (code checks, unit checks, etc.).",
-        "relationships" : [ {
-          "id" : "76",
-          "tags" : "Relationship",
-          "sourceId" : "12",
-          "destinationId" : "8",
-          "description" : "Ensures QA aspects"
-        }, {
-          "id" : "77",
-          "tags" : "Relationship",
-          "sourceId" : "12",
-          "destinationId" : "9",
-          "description" : "Ensures QA aspects"
-        } ],
-        "group" : "AI4EOSC Exchange",
-        "documentation" : { }
-      }, {
-        "id" : "8",
-        "tags" : "Element,Container,repository",
-        "name" : "Model and data repository",
-        "description" : "Track AI models and data sets.",
-        "relationships" : [ {
-          "id" : "81",
-          "tags" : "Relationship",
-          "sourceId" : "8",
-          "destinationId" : "47",
-          "description" : "Refers to data stored in"
-        } ],
-        "group" : "AI4EOSC Exchange",
-        "technology" : "dvc",
-        "documentation" : { }
-      }, {
-        "id" : "20",
-        "tags" : "Element,Container",
-        "name" : "Identity and Access Management",
-        "description" : "Provides user and group management",
-        "relationships" : [ {
-          "id" : "70",
-          "tags" : "Relationship",
-          "sourceId" : "20",
-          "destinationId" : "2",
-          "description" : "Federate users from",
-          "technology" : "OpenID Connect"
-        } ],
-        "group" : "Identity and user management",
-        "technology" : "INDIGO IAM",
+        "group" : "AI4EOSC training",
+        "technology" : "Hashicorp Nomad",
         "documentation" : { }
       }, {
         "id" : "9",
@@ -552,65 +327,24 @@
         "technology" : "Git",
         "documentation" : { }
       }, {
-        "id" : "10",
-        "tags" : "Element,Container,repository",
-        "name" : "Container registry",
-        "description" : "Store container images.",
-        "group" : "AI4EOSC Exchange",
-        "technology" : "DockerHub",
-        "documentation" : { }
-      }, {
-        "id" : "7",
+        "id" : "12",
         "tags" : "Element,Container",
-        "name" : "Exchange API",
-        "description" : "Provides exchange functionality via HTTPS/JSON API.",
+        "name" : "Continuous Integration",
+        "description" : "Ensures quality aspects are fulfilled (code checks, unit checks, etc.).",
         "relationships" : [ {
+          "id" : "72",
+          "tags" : "Relationship",
+          "sourceId" : "12",
+          "destinationId" : "8",
+          "description" : "Ensures QA aspects"
+        }, {
           "id" : "73",
           "tags" : "Relationship",
-          "sourceId" : "7",
-          "destinationId" : "8",
-          "description" : "Reads from"
-        }, {
-          "id" : "82",
-          "tags" : "Relationship",
-          "sourceId" : "7",
-          "destinationId" : "11",
-          "description" : "Reads from writes to"
-        }, {
-          "id" : "66",
-          "tags" : "Relationship",
-          "sourceId" : "7",
-          "destinationId" : "20",
-          "description" : "Authenticates users with"
-        }, {
-          "id" : "75",
-          "tags" : "Relationship",
-          "sourceId" : "7",
-          "destinationId" : "10",
-          "description" : "Reads from"
-        }, {
-          "id" : "74",
-          "tags" : "Relationship",
-          "sourceId" : "7",
+          "sourceId" : "12",
           "destinationId" : "9",
-          "description" : "Reads from"
+          "description" : "Ensures QA aspects"
         } ],
         "group" : "AI4EOSC Exchange",
-        "documentation" : { }
-      }, {
-        "id" : "11",
-        "tags" : "Element,Container,database",
-        "name" : "Exchange database",
-        "description" : "Stores AI4EOSC exchange registered models.",
-        "group" : "AI4EOSC Exchange",
-        "documentation" : { }
-      }, {
-        "id" : "25",
-        "tags" : "Element,Container",
-        "name" : "Interactive development Environment",
-        "description" : "An interactive development environment with access to resources and limited execution time.",
-        "group" : "AI4EOSC training",
-        "technology" : "Jupyter",
         "documentation" : { }
       }, {
         "id" : "23",
@@ -618,25 +352,25 @@
         "name" : "Training API",
         "description" : "Provides training creation and monitoring functionality via a JSON/HTTPS API",
         "relationships" : [ {
-          "id" : "61",
-          "tags" : "Relationship",
-          "sourceId" : "23",
-          "destinationId" : "24",
-          "description" : "Stores training data in"
-        }, {
-          "id" : "67",
+          "id" : "63",
           "tags" : "Relationship",
           "sourceId" : "23",
           "destinationId" : "20",
           "description" : "Authenticates users with"
         }, {
-          "id" : "60",
+          "id" : "57",
+          "tags" : "Relationship",
+          "sourceId" : "23",
+          "destinationId" : "24",
+          "description" : "Stores training data in"
+        }, {
+          "id" : "56",
           "tags" : "Relationship",
           "sourceId" : "23",
           "destinationId" : "26",
           "description" : "Create training job, interactive environment using API calls to"
         }, {
-          "id" : "62",
+          "id" : "58",
           "tags" : "Relationship",
           "sourceId" : "23",
           "destinationId" : "14",
@@ -646,42 +380,332 @@
         "technology" : "aiohttp",
         "documentation" : { }
       }, {
-        "id" : "24",
-        "tags" : "Element,Container,database",
-        "name" : "Training database",
-        "description" : "Stores AI4EOSC training requests",
-        "group" : "AI4EOSC training",
-        "documentation" : { }
-      }, {
-        "id" : "26",
+        "id" : "27",
         "tags" : "Element,Container",
-        "name" : "Workload Management System",
-        "description" : "Manages and schedules the execution of compute requests.",
+        "name" : "Compute resources",
+        "description" : "Executes user workloads.",
         "relationships" : [ {
-          "id" : "63",
+          "id" : "60",
           "tags" : "Relationship",
-          "sourceId" : "26",
-          "destinationId" : "27",
-          "description" : "Create new task/workload"
+          "sourceId" : "27",
+          "destinationId" : "25",
+          "description" : "Create on-demand environments"
+        }, {
+          "id" : "61",
+          "tags" : "Relationship",
+          "sourceId" : "27",
+          "destinationId" : "14",
+          "description" : "Executes user model from a"
         } ],
         "group" : "AI4EOSC training",
         "technology" : "Hashicorp Nomad",
         "documentation" : { }
+      } ],
+      "documentation" : { }
+    }, {
+      "id" : "3",
+      "tags" : "Element,Software System",
+      "name" : "EOSC Portal",
+      "description" : "Provides access to EOSC resources and services for users.",
+      "relationships" : [ {
+        "id" : "65",
+        "sourceId" : "3",
+        "destinationId" : "6",
+        "description" : "Creates new order/request for services",
+        "linkedRelationshipId" : "64"
       }, {
-        "id" : "21",
+        "id" : "64",
+        "tags" : "Relationship",
+        "sourceId" : "3",
+        "destinationId" : "21",
+        "description" : "Creates new order/request for services"
+      } ],
+      "group" : "EOSC",
+      "location" : "External",
+      "documentation" : { }
+    }, {
+      "id" : "33",
+      "tags" : "Element,Software System",
+      "name" : "DEEP as a Service",
+      "description" : "Allows users to deploy an AI application as a service.",
+      "relationships" : [ {
+        "id" : "98",
+        "sourceId" : "33",
+        "destinationId" : "39",
+        "description" : "Read/store data",
+        "linkedRelationshipId" : "97"
+      }, {
+        "id" : "102",
+        "sourceId" : "33",
+        "destinationId" : "41",
+        "description" : "Read/store data",
+        "linkedRelationshipId" : "101"
+      }, {
+        "id" : "106",
+        "sourceId" : "33",
+        "destinationId" : "43",
+        "description" : "Read/store data",
+        "linkedRelationshipId" : "105"
+      }, {
+        "id" : "100",
+        "sourceId" : "33",
+        "destinationId" : "40",
+        "description" : "Read/store data",
+        "linkedRelationshipId" : "99"
+      }, {
+        "id" : "104",
+        "sourceId" : "33",
+        "destinationId" : "42",
+        "description" : "Read/store data",
+        "linkedRelationshipId" : "103"
+      } ],
+      "location" : "Internal",
+      "containers" : [ {
+        "id" : "35",
         "tags" : "Element,Container",
-        "name" : "Order management system",
-        "description" : "Manages orders coming both from the EOSC portal or for new users",
+        "name" : "Kubernetes API",
         "relationships" : [ {
-          "id" : "71",
+          "id" : "95",
           "tags" : "Relationship",
-          "sourceId" : "21",
-          "destinationId" : "20",
-          "description" : "Creates new users for new orders"
+          "sourceId" : "35",
+          "destinationId" : "38",
+          "description" : "Create jobs"
         } ],
-        "group" : "Identity and user management",
+        "group" : "OSCAR",
+        "documentation" : { }
+      }, {
+        "id" : "38",
+        "tags" : "Element,Container",
+        "name" : "FaaS Supervisor",
+        "relationships" : [ {
+          "id" : "101",
+          "tags" : "Relationship",
+          "sourceId" : "38",
+          "destinationId" : "41",
+          "description" : "Read/store data"
+        }, {
+          "id" : "105",
+          "tags" : "Relationship",
+          "sourceId" : "38",
+          "destinationId" : "43",
+          "description" : "Read/store data"
+        }, {
+          "id" : "94",
+          "tags" : "Relationship",
+          "sourceId" : "38",
+          "destinationId" : "37",
+          "description" : "Assign to function's pod(s)"
+        }, {
+          "id" : "103",
+          "tags" : "Relationship",
+          "sourceId" : "38",
+          "destinationId" : "42",
+          "description" : "Read/store data"
+        }, {
+          "id" : "99",
+          "tags" : "Relationship",
+          "sourceId" : "38",
+          "destinationId" : "40",
+          "description" : "Read/store data"
+        }, {
+          "id" : "96",
+          "tags" : "Relationship",
+          "sourceId" : "38",
+          "destinationId" : "36",
+          "description" : "Download input. Upload output"
+        }, {
+          "id" : "97",
+          "tags" : "Relationship",
+          "sourceId" : "38",
+          "destinationId" : "39",
+          "description" : "Read/store data"
+        } ],
+        "group" : "OSCAR",
+        "documentation" : { }
+      }, {
+        "id" : "34",
+        "tags" : "Element,Container",
+        "name" : "OSCAR Manager",
+        "relationships" : [ {
+          "id" : "91",
+          "tags" : "Relationship",
+          "sourceId" : "34",
+          "destinationId" : "36",
+          "description" : "Create buckets and folders. Configure event and notifications. Download/ Upload Files. Trigger jobs (webhook events)"
+        }, {
+          "id" : "92",
+          "tags" : "Relationship",
+          "sourceId" : "34",
+          "destinationId" : "35",
+          "description" : "Manage services. Register jobs. Retrieve logs"
+        }, {
+          "id" : "93",
+          "tags" : "Relationship",
+          "sourceId" : "34",
+          "destinationId" : "37",
+          "description" : "Execute services syncrhonously (optional)"
+        } ],
+        "group" : "OSCAR",
+        "documentation" : { }
+      }, {
+        "id" : "37",
+        "tags" : "Element,Container",
+        "name" : "Knative",
+        "group" : "OSCAR",
+        "documentation" : { }
+      }, {
+        "id" : "36",
+        "tags" : "Element,Container",
+        "name" : "MinIO",
+        "group" : "OSCAR",
         "documentation" : { }
       } ],
+      "documentation" : { }
+    }, {
+      "id" : "39",
+      "tags" : "Element,Software System",
+      "name" : "Storage Services",
+      "description" : "External storage where data assets are stored.",
+      "location" : "External",
+      "containers" : [ {
+        "id" : "41",
+        "tags" : "Element,Container",
+        "name" : "MinIO External",
+        "group" : "External Storage Provider",
+        "documentation" : { }
+      }, {
+        "id" : "43",
+        "tags" : "Element,Container",
+        "name" : "dCache",
+        "group" : "External Storage Provider",
+        "documentation" : { }
+      }, {
+        "id" : "40",
+        "tags" : "Element,Container",
+        "name" : "Amazon S3",
+        "group" : "External Storage Provider",
+        "documentation" : { }
+      }, {
+        "id" : "42",
+        "tags" : "Element,Container",
+        "name" : "Onedata",
+        "group" : "External Storage Provider",
+        "documentation" : { }
+      } ],
+      "documentation" : { }
+    }, {
+      "id" : "28",
+      "tags" : "Element,Software System",
+      "name" : "PaaS Orchestration and provisioning",
+      "description" : "Allows PaaS operators to manage PaaS deployments and resources.",
+      "relationships" : [ {
+        "id" : "49",
+        "tags" : "Relationship",
+        "sourceId" : "28",
+        "destinationId" : "33",
+        "description" : "Provisios resources for"
+      }, {
+        "id" : "48",
+        "tags" : "Relationship",
+        "sourceId" : "28",
+        "destinationId" : "6",
+        "description" : "Creates PaaS deployments and provisions resources for"
+      }, {
+        "id" : "80",
+        "tags" : "Relationship",
+        "sourceId" : "28",
+        "destinationId" : "27",
+        "description" : "Provisions"
+      }, {
+        "id" : "90",
+        "sourceId" : "28",
+        "destinationId" : "37",
+        "description" : "Provisions resources",
+        "linkedRelationshipId" : "88"
+      } ],
+      "location" : "Internal",
+      "containers" : [ {
+        "id" : "32",
+        "tags" : "Element,Container,repository",
+        "name" : "Topologies repository",
+        "technology" : "TOSCA",
+        "documentation" : { }
+      }, {
+        "id" : "31",
+        "tags" : "Element,Container",
+        "name" : "Infrastructure Manager",
+        "documentation" : { }
+      }, {
+        "id" : "30",
+        "tags" : "Element,Container",
+        "name" : "PaaS Orchestrator",
+        "relationships" : [ {
+          "id" : "87",
+          "sourceId" : "30",
+          "destinationId" : "6",
+          "description" : "Provisions resources",
+          "linkedRelationshipId" : "86"
+        }, {
+          "id" : "88",
+          "tags" : "Relationship",
+          "sourceId" : "30",
+          "destinationId" : "37",
+          "description" : "Provisions resources"
+        }, {
+          "id" : "85",
+          "tags" : "Relationship",
+          "sourceId" : "30",
+          "destinationId" : "31",
+          "description" : "Uses"
+        }, {
+          "id" : "84",
+          "tags" : "Relationship",
+          "sourceId" : "30",
+          "destinationId" : "32",
+          "description" : "Read topologies"
+        }, {
+          "id" : "89",
+          "sourceId" : "30",
+          "destinationId" : "33",
+          "description" : "Provisions resources",
+          "linkedRelationshipId" : "88"
+        }, {
+          "id" : "86",
+          "tags" : "Relationship",
+          "sourceId" : "30",
+          "destinationId" : "27",
+          "description" : "Provisions resources"
+        } ],
+        "technology" : "INDIGO PaaS Orchestrator",
+        "documentation" : { }
+      }, {
+        "id" : "29",
+        "tags" : "Element,Container,dashboard",
+        "name" : "PaaS Dashboard",
+        "relationships" : [ {
+          "id" : "82",
+          "tags" : "Relationship",
+          "sourceId" : "29",
+          "destinationId" : "30",
+          "description" : "Create deployment"
+        }, {
+          "id" : "83",
+          "tags" : "Relationship",
+          "sourceId" : "29",
+          "destinationId" : "32",
+          "description" : "Read topologies"
+        } ],
+        "technology" : "Flask",
+        "documentation" : { }
+      } ],
+      "documentation" : { }
+    }, {
+      "id" : "2",
+      "tags" : "Element,Software System",
+      "name" : "EOSC AAI",
+      "description" : "Provides Authentication, Authorization and Identity management for EOSC users.",
+      "group" : "EOSC",
+      "location" : "External",
       "documentation" : { }
     } ]
   },
@@ -725,72 +749,81 @@
   },
   "views" : {
     "systemLandscapeViews" : [ {
-      "key" : "SystemLandscape",
+      "key" : "SystemLandscape-1",
       "order" : 2,
       "dimensions" : {
-        "width" : 2449,
-        "height" : 2374
+        "width" : 2683,
+        "height" : 2419
       },
       "enterpriseBoundaryVisible" : true,
+      "elements" : [ {
+        "id" : "33",
+        "x" : 220,
+        "y" : 1265
+      }, {
+        "id" : "44",
+        "x" : 285,
+        "y" : 200
+      }, {
+        "id" : "1",
+        "x" : 1181,
+        "y" : 245
+      }, {
+        "id" : "2",
+        "x" : 2014,
+        "y" : 816
+      }, {
+        "id" : "3",
+        "x" : 2014,
+        "y" : 295
+      }, {
+        "id" : "5",
+        "x" : 2039,
+        "y" : 1776
+      }, {
+        "id" : "6",
+        "x" : 1164,
+        "y" : 1290
+      }, {
+        "id" : "28",
+        "x" : 1170,
+        "y" : 1826
+      }, {
+        "id" : "39",
+        "x" : 692,
+        "y" : 766
+      } ],
       "relationships" : [ {
         "id" : "50"
       }, {
-        "id" : "4"
-      }, {
         "id" : "51"
+      }, {
+        "id" : "4"
       }, {
         "id" : "52"
       }, {
-        "id" : "53"
+        "id" : "98"
       }, {
-        "id" : "54"
+        "id" : "65"
       }, {
-        "id" : "55"
+        "id" : "45"
       }, {
-        "id" : "56"
+        "id" : "46"
+      }, {
+        "id" : "47"
+      }, {
+        "id" : "48"
       }, {
         "id" : "49"
-      } ],
-      "elements" : [ {
-        "id" : "33",
-        "x" : 219,
-        "y" : 1241
-      }, {
-        "id" : "1",
-        "x" : 946,
-        "y" : 200
-      }, {
-        "id" : "2",
-        "x" : 1779,
-        "y" : 771
-      }, {
-        "id" : "3",
-        "x" : 1779,
-        "y" : 250
-      }, {
-        "id" : "47",
-        "x" : 1779,
-        "y" : 1245
-      }, {
-        "id" : "48",
-        "x" : 244,
-        "y" : 200
-      }, {
-        "id" : "5",
-        "x" : 1804,
-        "y" : 1731
-      }, {
-        "id" : "6",
-        "x" : 929,
-        "y" : 1245
-      }, {
-        "id" : "28",
-        "x" : 935,
-        "y" : 1781
       } ]
     }, {
       "key" : "eosc",
       "order" : 1,
+      "paperSize" : "A5_Landscape",
+      "dimensions" : {
+        "width" : 1670,
+        "height" : 1558
+      },
       "automaticLayout" : {
         "implementation" : "Graphviz",
         "rankDirection" : "LeftRight",
@@ -800,233 +833,261 @@
         "vertices" : false
       },
       "enterpriseBoundaryVisible" : true,
-      "relationships" : [ {
-        "id" : "4"
-      } ],
       "elements" : [ {
         "id" : "1",
-        "x" : 0,
-        "y" : 0
+        "x" : 208,
+        "y" : 879
       }, {
         "id" : "2",
-        "x" : 0,
-        "y" : 0
+        "x" : 908,
+        "y" : 329
       }, {
         "id" : "3",
-        "x" : 0,
-        "y" : 0
+        "x" : 908,
+        "y" : 929
+      } ],
+      "relationships" : [ {
+        "id" : "4"
       } ]
     } ],
     "systemContextViews" : [ {
-      "softwareSystemId" : "6",
-      "key" : "AI4EOSCPlatform-SystemContext",
-      "order" : 3,
-      "dimensions" : {
-        "width" : 3406,
-        "height" : 2093
-      },
-      "enterpriseBoundaryVisible" : true,
-      "relationships" : [ {
-        "id" : "4"
-      }, {
-        "id" : "52"
-      }, {
-        "id" : "53"
-      }, {
-        "id" : "54"
-      }, {
-        "id" : "55"
-      }, {
-        "id" : "56"
-      }, {
-        "id" : "49",
-        "vertices" : [ {
-          "x" : 1695,
-          "y" : 1160
-        } ]
-      } ],
-      "elements" : [ {
-        "id" : "33",
-        "x" : 220,
-        "y" : 655
-      }, {
-        "id" : "1",
-        "x" : 1825,
-        "y" : 75
-      }, {
-        "id" : "2",
-        "x" : 2585,
-        "y" : 1060
-      }, {
-        "id" : "47",
-        "x" : 2585,
-        "y" : 1500
-      }, {
-        "id" : "3",
-        "x" : 2585,
-        "y" : 655
-      }, {
-        "id" : "6",
-        "x" : 1140,
-        "y" : 1500
-      }, {
-        "id" : "28",
-        "x" : 220,
-        "y" : 1500
-      } ]
-    }, {
       "softwareSystemId" : "33",
-      "key" : "DEEPasaService-SystemContext",
+      "key" : "SystemContext-3",
       "order" : 5,
       "dimensions" : {
-        "width" : 1656,
-        "height" : 1381
+        "width" : 2529,
+        "height" : 2047
       },
       "enterpriseBoundaryVisible" : true,
-      "relationships" : [ {
-        "id" : "51"
-      }, {
-        "id" : "56"
-      } ],
       "elements" : [ {
         "id" : "33",
-        "x" : 220,
-        "y" : 721
+        "x" : 834,
+        "y" : 869
       }, {
-        "id" : "48",
-        "x" : 245,
-        "y" : 95
+        "id" : "44",
+        "x" : 95,
+        "y" : 819
+      }, {
+        "id" : "39",
+        "x" : 1346,
+        "y" : 199
+      }, {
+        "id" : "28",
+        "x" : 1346,
+        "y" : 1454
       }, {
         "id" : "6",
-        "x" : 970,
-        "y" : 721
-      } ]
-    }, {
-      "softwareSystemId" : "28",
-      "key" : "PaaSOrchestrationandprovisioning-SystemContext",
-      "order" : 4,
-      "dimensions" : {
-        "width" : 1614,
-        "height" : 1504
-      },
-      "enterpriseBoundaryVisible" : true,
+        "x" : 1859,
+        "y" : 859
+      } ],
       "relationships" : [ {
         "id" : "50"
       }, {
+        "id" : "98"
+      }, {
         "id" : "52"
-      } ],
+      }, {
+        "id" : "47"
+      }, {
+        "id" : "48"
+      }, {
+        "id" : "49"
+      } ]
+    }, {
+      "softwareSystemId" : "28",
+      "key" : "SystemContext-2",
+      "order" : 4,
+      "dimensions" : {
+        "width" : 1614,
+        "height" : 2099
+      },
+      "enterpriseBoundaryVisible" : true,
       "elements" : [ {
+        "id" : "33",
+        "x" : 561,
+        "y" : 1506
+      }, {
         "id" : "5",
-        "x" : 244,
+        "x" : 245,
         "y" : 200
       }, {
         "id" : "28",
-        "x" : 219,
+        "x" : 220,
         "y" : 900
       }, {
         "id" : "6",
-        "x" : 943,
+        "x" : 944,
         "y" : 911
-      } ]
-    } ],
-    "containerViews" : [ {
-      "softwareSystemId" : "33",
-      "key" : "DEEPasaService-Container",
-      "order" : 6,
-      "dimensions" : {
-        "width" : 3580,
-        "height" : 2848
-      },
-      "externalSoftwareSystemBoundariesVisible" : true,
-      "relationships" : [ {
-        "id" : "93"
-      }, {
-        "id" : "94"
-      }, {
-        "id" : "97"
-      }, {
-        "id" : "98"
-      }, {
-        "id" : "95"
-      }, {
-        "id" : "96"
-      }, {
-        "id" : "100"
-      }, {
-        "id" : "102"
-      }, {
-        "id" : "99"
-      }, {
-        "id" : "101"
-      }, {
-        "id" : "103"
       } ],
-      "elements" : [ {
-        "id" : "44",
-        "x" : 434,
-        "y" : 2007
+      "relationships" : [ {
+        "id" : "52"
       }, {
-        "id" : "34",
-        "x" : 955,
-        "y" : 890
+        "id" : "46"
       }, {
-        "id" : "45",
-        "x" : 439,
-        "y" : 1522
+        "id" : "48"
       }, {
-        "id" : "35",
-        "x" : 1685,
-        "y" : 1435
-      }, {
-        "id" : "46",
-        "x" : 415,
-        "y" : 1060
-      }, {
-        "id" : "36",
-        "x" : 1700,
-        "y" : 1010
-      }, {
-        "id" : "47",
-        "x" : 2385,
-        "y" : 100
-      }, {
-        "id" : "37",
-        "x" : 1745,
-        "y" : 500
-      }, {
-        "id" : "38",
-        "x" : 2395,
-        "y" : 990
-      }, {
-        "id" : "39",
-        "x" : 2930,
-        "y" : 515
-      }, {
-        "id" : "40",
-        "x" : 2940,
-        "y" : 1505
-      }, {
-        "id" : "41",
-        "x" : 2930,
-        "y" : 840
-      }, {
-        "id" : "42",
-        "x" : 2925,
-        "y" : 1150
-      }, {
-        "id" : "43",
-        "x" : 420,
-        "y" : 530
+        "id" : "49"
       } ]
     }, {
       "softwareSystemId" : "6",
-      "key" : "AI4EOSCPlatform-Container",
+      "key" : "SystemContext-1",
+      "order" : 3,
+      "dimensions" : {
+        "width" : 3255,
+        "height" : 2218
+      },
+      "enterpriseBoundaryVisible" : true,
+      "elements" : [ {
+        "id" : "33",
+        "x" : 220,
+        "y" : 780
+      }, {
+        "id" : "1",
+        "x" : 1825,
+        "y" : 200
+      }, {
+        "id" : "2",
+        "x" : 2585,
+        "y" : 1185
+      }, {
+        "id" : "3",
+        "x" : 2585,
+        "y" : 780
+      }, {
+        "id" : "6",
+        "x" : 1140,
+        "y" : 1625
+      }, {
+        "id" : "39",
+        "x" : 1135,
+        "y" : 300
+      }, {
+        "id" : "28",
+        "x" : 220,
+        "y" : 1625
+      } ],
+      "relationships" : [ {
+        "id" : "50"
+      }, {
+        "id" : "51"
+      }, {
+        "id" : "4"
+      }, {
+        "id" : "98"
+      }, {
+        "id" : "52"
+      }, {
+        "id" : "65"
+      }, {
+        "id" : "45",
+        "vertices" : [ {
+          "x" : 1695,
+          "y" : 1285
+        } ]
+      }, {
+        "id" : "48"
+      }, {
+        "id" : "49"
+      } ]
+    } ],
+    "containerViews" : [ {
+      "softwareSystemId" : "6",
+      "key" : "Container-2",
       "order" : 7,
       "dimensions" : {
-        "width" : 6030,
-        "height" : 3993
+        "width" : 5270,
+        "height" : 3704
       },
       "externalSoftwareSystemBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "22",
+        "x" : 2631,
+        "y" : 1284
+      }, {
+        "id" : "33",
+        "x" : 2150,
+        "y" : 3204
+      }, {
+        "id" : "11",
+        "x" : 2091,
+        "y" : 1895
+      }, {
+        "id" : "12",
+        "x" : 548,
+        "y" : 2604
+      }, {
+        "id" : "23",
+        "x" : 3280,
+        "y" : 1879
+      }, {
+        "id" : "13",
+        "x" : 1165,
+        "y" : 2604
+      }, {
+        "id" : "24",
+        "x" : 3935,
+        "y" : 1879
+      }, {
+        "id" : "14",
+        "x" : 2631,
+        "y" : 2604
+      }, {
+        "id" : "25",
+        "x" : 4580,
+        "y" : 1879
+      }, {
+        "id" : "26",
+        "x" : 3935,
+        "y" : 2329
+      }, {
+        "id" : "27",
+        "x" : 4580,
+        "y" : 2604
+      }, {
+        "id" : "28",
+        "x" : 4580,
+        "y" : 3204
+      }, {
+        "id" : "39",
+        "x" : 240,
+        "y" : 3204
+      }, {
+        "id" : "1",
+        "x" : 2656,
+        "y" : 200
+      }, {
+        "id" : "2",
+        "x" : 3280,
+        "y" : 709
+      }, {
+        "id" : "3",
+        "x" : 4120,
+        "y" : 714
+      }, {
+        "id" : "7",
+        "x" : 1165,
+        "y" : 1314
+      }, {
+        "id" : "8",
+        "x" : 240,
+        "y" : 1879
+      }, {
+        "id" : "9",
+        "x" : 857,
+        "y" : 1879
+      }, {
+        "id" : "20",
+        "x" : 3280,
+        "y" : 1284
+      }, {
+        "id" : "21",
+        "x" : 4120,
+        "y" : 1284
+      }, {
+        "id" : "10",
+        "x" : 1474,
+        "y" : 1880
+      } ],
       "relationships" : [ {
         "id" : "70"
       }, {
@@ -1036,43 +1097,45 @@
       }, {
         "id" : "74"
       }, {
+        "id" : "98"
+      }, {
         "id" : "73"
       }, {
+        "id" : "53"
+      }, {
         "id" : "76"
+      }, {
+        "id" : "54",
+        "vertices" : [ {
+          "x" : 4895,
+          "y" : 564
+        } ]
       }, {
         "id" : "75"
       }, {
         "id" : "67"
       }, {
-        "id" : "66",
-        "vertices" : [ {
-          "x" : 2435,
-          "y" : 1650
-        } ]
+        "id" : "66"
       }, {
         "id" : "69"
       }, {
         "id" : "68"
       }, {
-        "id" : "82"
-      }, {
-        "id" : "83"
+        "id" : "49"
       }, {
         "id" : "80"
       }, {
         "id" : "61"
       }, {
-        "id" : "81"
-      }, {
         "id" : "60"
       }, {
         "id" : "63"
       }, {
-        "id" : "62"
-      }, {
-        "id" : "84"
-      }, {
-        "id" : "65"
+        "id" : "62",
+        "vertices" : [ {
+          "x" : 2595,
+          "y" : 1809
+        } ]
       }, {
         "id" : "64"
       }, {
@@ -1080,136 +1143,99 @@
       }, {
         "id" : "78"
       }, {
+        "id" : "55"
+      }, {
         "id" : "77"
+      }, {
+        "id" : "56"
       }, {
         "id" : "57"
       }, {
         "id" : "79"
       }, {
-        "id" : "58",
-        "vertices" : [ {
-          "x" : 4735,
-          "y" : 405
-        } ]
+        "id" : "58"
       }, {
         "id" : "59"
-      } ],
+      } ]
+    }, {
+      "softwareSystemId" : "33",
+      "key" : "Container-1",
+      "order" : 6,
+      "dimensions" : {
+        "width" : 3480,
+        "height" : 2187
+      },
+      "externalSoftwareSystemBoundariesVisible" : true,
       "elements" : [ {
-        "id" : "33",
-        "x" : 1990,
-        "y" : 3045
+        "id" : "34",
+        "x" : 239,
+        "y" : 879
       }, {
-        "id" : "11",
-        "x" : 1910,
-        "y" : 1720
+        "id" : "35",
+        "x" : 1234,
+        "y" : 1519
       }, {
-        "id" : "22",
-        "x" : 2395,
-        "y" : 1140
+        "id" : "36",
+        "x" : 1234,
+        "y" : 879
       }, {
-        "id" : "23",
-        "x" : 3095,
-        "y" : 1720
+        "id" : "37",
+        "x" : 1234,
+        "y" : 239
       }, {
-        "id" : "12",
-        "x" : 570,
-        "y" : 2425
-      }, {
-        "id" : "13",
-        "x" : 1285,
-        "y" : 2430
-      }, {
-        "id" : "24",
-        "x" : 3775,
-        "y" : 1710
-      }, {
-        "id" : "47",
-        "x" : 155,
-        "y" : 3045
-      }, {
-        "id" : "14",
-        "x" : 2975,
-        "y" : 2425
-      }, {
-        "id" : "25",
-        "x" : 4420,
-        "y" : 1670
-      }, {
-        "id" : "26",
-        "x" : 3745,
-        "y" : 2170
-      }, {
-        "id" : "27",
-        "x" : 4410,
-        "y" : 2445
+        "id" : "38",
+        "x" : 2054,
+        "y" : 879
       }, {
         "id" : "28",
-        "x" : 5090,
-        "y" : 2545
+        "x" : 2824,
+        "y" : 239
       }, {
-        "id" : "1",
-        "x" : 2440,
-        "y" : 45
+        "id" : "39",
+        "x" : 2829,
+        "y" : 879
+      } ],
+      "relationships" : [ {
+        "id" : "93"
       }, {
-        "id" : "2",
-        "x" : 3120,
-        "y" : 550
+        "id" : "94"
       }, {
-        "id" : "3",
-        "x" : 3915,
-        "y" : 555
+        "id" : "91"
       }, {
-        "id" : "7",
-        "x" : 840,
-        "y" : 1155
+        "id" : "92"
       }, {
-        "id" : "8",
-        "x" : 80,
-        "y" : 1695
+        "id" : "97"
       }, {
-        "id" : "9",
-        "x" : 705,
-        "y" : 1690
+        "id" : "95"
       }, {
-        "id" : "20",
-        "x" : 3140,
-        "y" : 1125
+        "id" : "96"
       }, {
-        "id" : "21",
-        "x" : 3960,
-        "y" : 1125
-      }, {
-        "id" : "10",
-        "x" : 1365,
-        "y" : 1915
+        "id" : "90"
       } ]
     }, {
       "softwareSystemId" : "28",
-      "key" : "PaaSOrchestrationandprovisioning-Container",
+      "key" : "Container-3",
       "order" : 8,
       "dimensions" : {
         "width" : 2833,
         "height" : 2008
       },
       "externalSoftwareSystemBoundariesVisible" : true,
-      "relationships" : [ {
-        "id" : "86"
-      }, {
-        "id" : "87"
-      }, {
-        "id" : "85"
-      }, {
-        "id" : "88"
-      }, {
-        "id" : "89"
-      } ],
       "elements" : [ {
+        "id" : "33",
+        "x" : 1880,
+        "y" : 815
+      }, {
         "id" : "5",
         "x" : 1905,
         "y" : 169
       }, {
+        "id" : "6",
+        "x" : 1880,
+        "y" : 1415
+      }, {
         "id" : "29",
-        "x" : 488,
+        "x" : 220,
         "y" : 219
       }, {
         "id" : "30",
@@ -1223,6 +1249,23 @@
         "id" : "32",
         "x" : 220,
         "y" : 1415
+      } ],
+      "relationships" : [ {
+        "id" : "82"
+      }, {
+        "id" : "83"
+      }, {
+        "id" : "81"
+      }, {
+        "id" : "52"
+      }, {
+        "id" : "87"
+      }, {
+        "id" : "84"
+      }, {
+        "id" : "85"
+      }, {
+        "id" : "89"
       } ]
     } ],
     "configuration" : {
@@ -1250,7 +1293,8 @@
         "container" : "Component",
         "component" : "OldComponent"
       },
-      "lastSavedView" : "DEEPasaService-Container"
+      "metadataSymbols" : "SquareBrackets",
+      "lastSavedView" : "eosc"
     }
   }
 }

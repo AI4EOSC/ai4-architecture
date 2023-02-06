@@ -80,23 +80,17 @@ workspace extends ../eosc-landscape.dsl {
                     Knative = container "Knative" 
                     FaaSS = container "FaaS Supervisor" 
                 }
-                ESP = group "External Storage Provider"{
-                    s3 = container "Amazon S3"
-                    MinIOExternal = container "MinIO External"
-                    oneData = container "Onedata"
-                    dcache = container "dCache"
-                }
-                openwhisk = container "Serverless platform" "" "OpenWhisk"
-                
-                deep_connector = container "DEEP - Serverless connector"
-
-                deepaas_container = container "DEEPaaS Containar"
-                
-                serverless_coe = container "Container Orchestration Engine" "" "Mesos"
             }
         }
 
-        storage = softwareSystem "Storage Services" "External storage where data assets are stored."
+        storage = softwareSystem "Storage Services" "External storage where data assets are stored." {
+            ESP = group "External Storage Provider"{
+                s3 = container "Amazon S3"
+                MinIOExternal = container "MinIO External"
+                oneData = container "Onedata"
+                dcache = container "dCache"
+            }
+        }
 
         end_user = person "User" "An end-user, willing to exploit existing production models."
 
@@ -107,11 +101,12 @@ workspace extends ../eosc-landscape.dsl {
         /* eosc_user -> deepaas "Deploy models as services" */
 
         # System - system interaction
-        orchestration -> ai4eosc_platform "Create PaaS deployments and provision resources for"
+        orchestration -> ai4eosc_platform "Creates PaaS deployments and provisions resources for"
+        orchestration -> deepaas "Provisions resources for"
         ai4eosc_platform -> storage "Consumes data from"
         ai4eosc_platform -> aai "Is integrated with"
-        ai4eosc_platform -> portal "Is integrated with"
-        deepaas -> ai4eosc_platform "Deploy models developed with"
+        /* ai4eosc_platform -> portal "Is integrated with" */
+        ai4eosc_platform -> deepaas "Deploy models on"
 
 
         # AI4EOSC platform
@@ -134,7 +129,7 @@ workspace extends ../eosc-landscape.dsl {
 
         exchange_api -> iam "Authenticates users with"
         training_api -> iam "Authenticates users with"
-        dashboard -> iam "Authenticates users with"
+        /* dashboard -> iam "Authenticates users with" */
 
         # User management
 
@@ -156,7 +151,7 @@ workspace extends ../eosc-landscape.dsl {
 
         cd -> model_repo "Reacts to events from"
         cd -> container_repo "Creates containers"
-        cd -> deepaas "Triggers deployment updates"
+        cd -> deepaas "Deploys models on"
 
         data_repo -> storage "Refers to data stored in"
 
@@ -175,10 +170,13 @@ workspace extends ../eosc-landscape.dsl {
         paas_orchestrator -> tosca_repo "Read topologies"
         paas_orchestrator -> im "Uses"
 
-        paas_orchestrator -> iam "Authenticates users with"
-        im -> iam "AuthN/Z"
+        /* paas_orchestrator -> iam "Authenticates users with" */
+        /* im -> iam "AuthN/Z" */
 
         paas_orchestrator -> resources "Provisions resources"
+
+        paas_orchestrator -> resources "Provisions resources"
+        paas_orchestrator -> Knative "Provisions resources" 
 
         # DEEPaaS OSCAR
         OSCAR -> MinIO "Create buckets and folders. Configure event and notifications. Download/ Upload Files. Trigger jobs (webhook events)"
@@ -188,11 +186,12 @@ workspace extends ../eosc-landscape.dsl {
         Kubernetes -> FaaSS "Create jobs"
             #FaaSS -> ESP "Upload Output"
         FaaSS -> MinIO "Download input. Upload output"
-        FaaSS -> storage
-        FaaSS -> s3
-        FaaSS -> MinIOExternal
-        FaaSS -> oneData
-        FaaSS -> dcache
+        FaaSS -> storage "Read/store data"
+        FaaSS -> s3 "Read/store data"
+        FaaSS -> MinIOExternal "Read/store data"
+        FaaSS -> oneData "Read/store data"
+        FaaSS -> dcache "Read/store data"
+
     }
 
     views {
