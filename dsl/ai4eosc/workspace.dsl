@@ -41,18 +41,18 @@ workspace extends ../eosc-landscape.dsl {
 
                 identity = group "Identity and user management" {
 
-                    iam = container "Identity and Access Management" "Provides user and group management" "INDIGO IAM"
+                    iam = container "Identity and Access Management" "Provides user and group management." "INDIGO IAM"
     
-                    order = container "Order management system" "Manages orders coming both from the EOSC portal or for new users" ""
+                    order = container "Order management system" "Manages orders coming both from the EOSC portal or for new users." ""
 
                 }
                 
                 dashboard = container "AI4EOSC dashboard" "Provides access to existing modules (anonymous), experiment and training definition (logged users)." "aiohttp" "dashboard"
 
                 training = group "AI4EOSC training" {
-                    training_api = container "Training API" "Provides training creation and monitoring functionality via a JSON/HTTPS API" "aiohttp"
+                    training_api = container "Training API" "Provides training creation and monitoring functionality via a JSON/HTTPS API." "aiohttp"
 
-                    training_db = container "Training database" "Stores AI4EOSC training requests" "" "database"
+                    training_db = container "Training database" "Stores AI4EOSC training requests." "" "database"
     
                     dev = container "Interactive development Environment" "An interactive development environment with access to resources and limited execution time." "Jupyter"
     
