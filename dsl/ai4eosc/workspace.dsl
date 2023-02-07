@@ -206,7 +206,9 @@ workspace extends ../eosc-landscape.dsl {
         FaaSS -> oneData "Read/store data"
         FaaSS -> dcache "Read/store data"
 
-        eosc_user -> OSCAR "Requests the depoyment of inference services"
+        /* eosc_user -> OSCAR "Requests the depoyment of inference services" */
+
+        ai4eosc_platform -> OSCAR "Deployment of inference services"
         end_user -> OSCAR "Synchronous inference request"
         end_user -> MinIO "Store data for asynchronous inference"
 
@@ -258,6 +260,7 @@ workspace extends ../eosc-landscape.dsl {
 #
         container deepaas {
             include *
+            exclude "ai4eosc_platform -> storage" 
         }
 
         
