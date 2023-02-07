@@ -183,13 +183,14 @@ workspace extends ../eosc-landscape.dsl {
         /* paas_orchestrator -> iam "Authenticates users with" */
         /* im -> iam "AuthN/Z" */
 
-        paas_orchestrator -> resources "Provisions resources"
+        paas_orchestrator -> resources "Provisions resources for"
         cloud_providers -> resources "offer"
         cloud_providers -> federated_service_catalogue "register/update service & resources metadata"
         cloud_providers -> monitoring_system "push/pull metrics"
 
-        paas_orchestrator -> resources "Provisions resources"
-        paas_orchestrator -> Knative "Provisions resources" 
+        paas_orchestrator -> resources "Provisions resources for"
+        paas_orchestrator -> Knative "Provisions resources for" 
+        paas_orchestrator -> OSCAR "Provisions resources for" 
 
         # DEEPaaS OSCAR
         OSCAR -> MinIO "Create buckets and folders. Configure event and notifications. Download/ Upload Files. Trigger jobs (webhook events)"
