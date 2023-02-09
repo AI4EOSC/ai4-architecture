@@ -132,11 +132,16 @@ workspace extends ../eosc-landscape.dsl {
         coe -> resources "Create new task/workload"
 
         resources -> dev "Create on-demand environments"
-        resources -> model_container "Executes user model from a"
+        resources -> model_container "Executes user model in a"
+
+        /* eosc_user -> model_container "Trigger new training jobs" */
 
         exchange_api -> iam "Authenticates users with"
         training_api -> iam "Authenticates users with"
         dashboard -> iam "Authenticates users with" 
+            
+        dev -> storage "Read data from"
+        model_container -> storage "Read data from"
 
         # User management
 
@@ -152,6 +157,10 @@ workspace extends ../eosc-landscape.dsl {
         exchange_api -> data_repo "Reads from"
         exchange_api -> model_repo "Reads from"
         exchange_api -> container_repo "Reads from"
+
+        eosc_user -> data_repo "Registers data"
+        eosc_user -> model_repo "Registers model"
+        eosc_user -> container_repo "Registers container"
 
         ci -> data_repo "Ensures QA aspects"
         ci -> model_repo "Ensures QA aspects"
@@ -235,6 +244,9 @@ workspace extends ../eosc-landscape.dsl {
 
         systemContext ai4eosc_platform {
             include *
+            exclude "eosc_user -> data_repo"
+            exclude "eosc_user -> model_repo"
+            exclude "eosc_user -> container_repo"
         }
 
         systemContext orchestration {
@@ -253,6 +265,9 @@ workspace extends ../eosc-landscape.dsl {
         
         container ai4eosc_platform {
             include *
+            exclude "eosc_user -> data_repo"
+            exclude "eosc_user -> model_repo"
+            exclude "eosc_user -> container_repo"
         }
 
         container orchestration {
@@ -263,7 +278,7 @@ workspace extends ../eosc-landscape.dsl {
         # Dynamic views
 
         dynamic ai4eosc_platform {
-            title "Develop and train a model"
+            title "Develop and register a model"
             eosc_user -> dashboard "Requests a development environment"
             dashboard -> iam "Checks user credentials"
             iam -> dashboard "Returns access token"
@@ -272,11 +287,39 @@ workspace extends ../eosc-landscape.dsl {
             coe -> resources "Submit Nomad job to Nomad agent on provisioned resources"
             resources -> dev "Executes Development Environment as container"
 
-            eosc_user -> dev
+            dev -> storage "Read and store data from"
+
+            eosc_user -> dev "Develops new model"
+            eosc_user -> data_repo
+            eosc_user -> model_repo
+            eosc_user -> container_repo
+            dashboard -> exchange_api "Registers new model"
             /* dashboard -> exchange_api */
             /* exchange_api -> dashboard "Provides list of models" */
+        }
+        
+        dynamic ai4eosc_platform {
+            title "Retrain a model"
 
-            
+            eosc_user -> dashboard "Requests available modules"
+            dashboard -> iam "Checks user credentials"
+            iam -> dashboard "Returns access token"
+            dashboard -> training_api "Requests new training job"
+            training_api -> coe "Register new Nomad job, using robot account"
+            coe -> resources "Submit Nomad job to Nomad agent on provisioned resources"
+            resources -> model_container "Executes training job as container"
+
+            storage -> model_container "Read training data"
+            model_container -> storage "Write training results"
+
+
+            /* eosc_user -> dev "Develops new model" */
+            /* eosc_user -> data_repo */
+            /* eosc_user -> model_repo */
+            /* eosc_user -> container_repo */
+            /* dashboard -> exchange_api "Registers new model" */
+            /* dashboard -> exchange_api */
+            /* exchange_api -> dashboard "Provides list of models" */
         }
 
         styles {
