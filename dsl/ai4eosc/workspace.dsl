@@ -237,10 +237,6 @@ workspace extends ../eosc-landscape.dsl {
             include *
         }
 
-        /* systemContext sqa { */
-        /*     include * */
-        /* } */
-
         systemContext orchestration {
             include *
         }
@@ -249,15 +245,6 @@ workspace extends ../eosc-landscape.dsl {
             include *
         }
         
-#        container catalog {
-#            include *
-##            autoLayout
-#        }
-#
-#        container training {
-#            include *
-#        }
-#
         container deepaas {
             include *
             exclude "ai4eosc_platform -> storage" 
@@ -268,23 +255,11 @@ workspace extends ../eosc-landscape.dsl {
             include *
         }
 
-        /* container sqa { */
-        /*     include * */
-        /* } */
-
         container orchestration {
             include *
             include cloud_providers
         }
 
-#        container user_management {
-#            include *
-#        }
-        
-#        component model_container {
-#            include *
-#        }
-        
         styles {
             element "Container" {
                 background #008792
