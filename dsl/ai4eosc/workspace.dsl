@@ -136,7 +136,7 @@ workspace extends ../eosc-landscape.dsl {
 
         exchange_api -> iam "Authenticates users with"
         training_api -> iam "Authenticates users with"
-        /* dashboard -> iam "Authenticates users with" */
+        dashboard -> iam "Authenticates users with" 
 
         # User management
 
@@ -258,6 +258,25 @@ workspace extends ../eosc-landscape.dsl {
         container orchestration {
             include *
             include cloud_providers
+        }
+
+        # Dynamic views
+
+        dynamic ai4eosc_platform {
+            title "Develop and train a model"
+            eosc_user -> dashboard "Requests a development environment"
+            dashboard -> iam "Checks user credentials"
+            iam -> dashboard "Returns access token"
+            dashboard -> training_api "Requests new development enviroment with user access token"
+            training_api -> coe "Register new Nomad job, using robot account"
+            coe -> resources "Submit Nomad job to Nomad agent on provisioned resources"
+            resources -> dev "Executes Development Environment as container"
+
+            eosc_user -> dev
+            /* dashboard -> exchange_api */
+            /* exchange_api -> dashboard "Provides list of models" */
+
+            
         }
 
         styles {
