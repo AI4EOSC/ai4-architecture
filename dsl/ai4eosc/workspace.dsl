@@ -79,6 +79,7 @@ workspace extends ../eosc-landscape.dsl {
             }
 
             deepaas = softwareSystem "DEEP as a Service" "Allows users to deploy an AI application as a service." {
+                ai4compose = container "AI4Compose"
                 OSCARSystem = group "OSCAR"{
                     OSCAR = container "OSCAR Manager" 
                     Kubernetes = container "Kubernetes API" 
@@ -202,12 +203,12 @@ workspace extends ../eosc-landscape.dsl {
         paas_orchestrator -> OSCAR "Provisions resources for" 
 
         # DEEPaaS OSCAR
-        OSCAR -> MinIO "Create buckets and folders. Configure event and notifications. Download/ Upload Files. Trigger jobs (webhook events)"
-        OSCAR -> Kubernetes "Manage services. Register jobs. Retrieve logs"
-        OSCAR -> Knative "Execute services synchronously (optional)"
-        FaaSS -> Knative "Assign to function's pod(s)"
+        ai4compose -> OSCAR "Trigger inference"
+        OSCAR -> MinIO "Manage buckets, folders, event and notifications"
+        OSCAR -> Kubernetes "Manage services"
+        OSCAR -> Knative "Execute services synchronously"
+        Knative -> FaaSS "Assign to function's pod(s)"
         Kubernetes -> FaaSS "Create jobs"
-            #FaaSS -> ESP "Upload Output"
         FaaSS -> MinIO "Download input. Upload output"
         FaaSS -> storage "Read/store data"
         FaaSS -> s3 "Read/store data"
@@ -320,6 +321,18 @@ workspace extends ../eosc-landscape.dsl {
             /* dashboard -> exchange_api "Registers new model" */
             /* dashboard -> exchange_api */
             /* exchange_api -> dashboard "Provides list of models" */
+        }
+        dynamic deepaas {
+            title "OSCAR dynamic view"
+            end_user -> OSCAR "Deploy service"
+            OSCAR -> MinIO "Buckets and folders will be created"
+            end_user -> MinIO "Store data for asynchronous inference (Option A)"
+            OSCAR -> Knative "Execute services synchronously (Option B)"
+            OSCAR -> Kubernetes "Manage services. Register jobs. Retrieve logs (Option A)"
+            Kubernetes -> FaaSS "Create jobs (Option A)"
+            Knative -> FaaSS  "Assign to function's pod(s). (Option B)"
+            FaaSS -> MinIO "Download input. Upload output."
+            FaaSS -> storage "Read/store data "
         }
 
         styles {
