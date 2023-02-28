@@ -228,15 +228,9 @@ workspace extends ../eosc-landscape.dsl {
 
         /* training_api -> drift_detection "Receives model performance metrics" */
         /* data_validation -> training_api "Sends validated data for monitoring" */
-        
-
- 
-
   
         #     model_monitor -> dashboard "Monitors model performance"
         #     dashboard -> model_monitor "Receives performance metrics"
-
-
 
         # Orchestration
 
@@ -298,11 +292,11 @@ workspace extends ../eosc-landscape.dsl {
         }
 
         
-        systemLandscape {
+        systemLandscape system_view {
             include *
         }
 
-        systemContext ai4eosc_platform {
+        systemContext ai4eosc_platform ai4eosc_view {
             include *
             exclude "eosc_user -> data_repo"
             exclude "eosc_user -> model_repo"
@@ -315,25 +309,25 @@ workspace extends ../eosc-landscape.dsl {
             exclude "data_validation -> training_api"
         }
 
-        systemContext orchestration {
+        systemContext orchestration orchestration_view {
             include *
         }
 
-        systemContext deepaas {
+        systemContext deepaas deepaas_view {
             include *
         }
         
-        systemContext mlops {
+        systemContext mlops mlops_view {
             include *
         }
 
-        container deepaas {
+        container deepaas deepaas_container_view {
             include *
             exclude "ai4eosc_platform -> storage" 
         }
 
         
-        container ai4eosc_platform {
+        container ai4eosc_platform ai4eosc_container_view {
             include *
             exclude "eosc_user -> data_repo"
             exclude "eosc_user -> model_repo"
@@ -356,22 +350,20 @@ workspace extends ../eosc-landscape.dsl {
             exclude "model_container -> deepaas"
             exclude "oscar -> model_container"
             exclude "deepaas -> model_container"
-
-                 
         }
         
-        container mlops {
+        container mlops mlops_container_view {
             include *
         }
 
-        container orchestration {
+        container orchestration orchestration_container_view {
             include *
             include cloud_providers
         }
 
         # Dynamic views
 
-        dynamic ai4eosc_platform {
+        dynamic ai4eosc_platform develop_view {
             title "Develop and register a model"
             eosc_user -> dashboard "Requests a development environment"
             dashboard -> iam "Checks user credentials"
@@ -392,8 +384,8 @@ workspace extends ../eosc-landscape.dsl {
             /* exchange_api -> dashboard "Provides list of models" */
         }
         
-        dynamic ai4eosc_platform {
-            title "Retrain a model"
+        dynamic ai4eosc_platform manual_retrain_view {
+            title "Manually retrain a model"
 
             eosc_user -> dashboard "Requests available modules"
             dashboard -> iam "Checks user credentials"
@@ -405,11 +397,29 @@ workspace extends ../eosc-landscape.dsl {
 
             storage -> model_container "Read training data"
             model_container -> storage "Write training results"
+        }
+
+        dynamic ai4eosc_platform automatic_retrain_view {
+            title "Automatically retrain a model through MLOps"
+
+            /* data_repo -> data_preproc "Notifies of new data" */
+            /* data_preproc -> data_validation "foo" */
+            /* eosc_user -> dashboard "Requests available modules" */
+            /* dashboard -> iam "Checks user credentials" */
+            /* iam -> dashboard "Returns access token" */
+            /* dashboard -> training_api "Requests new training job" */
+            /* training_api -> coe "Register new Nomad job, using robot account" */
+            /* coe -> resources "Submit Nomad job to Nomad agent on provisioned resources" */
+            /* resources -> model_container "Executes training job as container" */
+
+            /* storage -> model_container "Read training data" */
+            /* model_container -> storage "Write training results" */
 
             #mlops --new data
             
+            /* data_preproc -> data_repo "Retrieves new data" */
             #data_repo -> data_preproc "Retrieves data"
-            #data_preproc -> dev "Preprocesses data"
+            /* data_preproc -> dev "Preprocesses data" */
             #dev -> training_api "Starts training job"
             #training_api -> drift_detection "Receives model performance metrics"
      
@@ -431,7 +441,8 @@ workspace extends ../eosc-landscape.dsl {
             /* dashboard -> exchange_api */
             /* exchange_api -> dashboard "Provides list of models" */
         }
-        dynamic deepaas {
+        
+        dynamic deepaas oscar_dynamic {
             title "OSCAR dynamic view"
             end_user -> OSCAR "Deploy service"
             OSCAR -> MinIO "Buckets and folders will be created"
@@ -445,18 +456,18 @@ workspace extends ../eosc-landscape.dsl {
         }
 
         /* #Another dynamic view */
-        /*  dynamic ai4eosc_platform { */
-        /*    title "Managing Model/Data Drift" */
-
-        /*      data_repo -> data_validation "Sends data for validation" */
-        /*      data_validation -> training_api "Sends validated data for monitoring" */
-        /*      training_api -> drift_detection "Detects drift in model performance" */
-        /*      drift_detection -> feedback_loop "Triggers model retraining" */
-        /*      feedback_loop -> training_api "Starts model retraining" */
-        /*      training_api -> deployment_workflow "Deploys new model" */
-        /*      deployment_workflow -> oscar "Updates model in production" */
-        /*  } */ 
-        
+        dynamic ai4eosc_platform model_data_drift {
+            title "Managing Model/Data Drift"
+ 
+            /* data_preproc -> data_repo "Read data updates from" */
+            /* data_preproc -> data_validation "Sends data for validation" */
+            /* data_validation -> training_api "Sends validated data for monitoring" */
+            /* training_api -> drift_detection "Detects drift in model performance" */
+            /* drift_detection -> feedback_loop "Triggers model retraining" */
+            /* feedback_loop -> training_api "Starts model retraining" */
+            /* training_api -> deployment_workflow "Deploys new model" */
+            /* deployment_workflow -> oscar "Updates model in production" */
+        } 
 
         styles {
             element "Container" {
