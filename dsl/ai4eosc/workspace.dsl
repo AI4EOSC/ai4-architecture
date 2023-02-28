@@ -39,25 +39,6 @@ workspace extends ../eosc-landscape.dsl {
                     user_model -> framework
                 }
 
-                mlops = group "Machine Learning Operations (MLOps)" {
-                    data_preproc = container "Data preparation" "Prepare and process data for training"
-                    
-                    data_validation = container "Data validation" "Validate data (if accurate, complete) before using for training or inference" "database"
-                    
-                   # model_monitor = container "Model monitoring" "track the performance of models in production" ""
-                   
-                    drift_detection = container "Drift detection" "Detects drifts in model performance"
-                    
-                    feedback_loop = container "Feedback loop" "Determines when to trigger a new training job" "DS"
-                   
-                    deployment_workflow = container "Deployment workflow" "Deploy the newly trained model to production" "pipeline"
-                    #production = container "Production stage" "The environment where the model is used for inference"
-                    
-                   data_preproc -> data_validation "Validate the prepared data"
-      
-
-                }
-
                 identity = group "Identity and user management" {
 
                     iam = container "Identity and Access Management" "Provides user and group management." "INDIGO IAM"
@@ -79,6 +60,23 @@ workspace extends ../eosc-landscape.dsl {
     
                     resources = container "Compute resources" "Executes user workloads." "Hashicorp Nomad"
                 }
+            }
+
+            mlops = softwareSystem "Machine Learning Operations (MLOps)" "Provides the ability to implement MLOps techniques, as needed from use cases" {
+                data_preproc = container "Data preparation" "Prepare and process data for training"
+                
+                data_validation = container "Data validation" "Validate data (if accurate, complete) before using for training or inference" "database"
+                
+                # model_monitor = container "Model monitoring" "track the performance of models in production" ""
+                
+                drift_detection = container "Drift detection" "Detects drifts in model performance"
+                
+                feedback_loop = container "Feedback loop" "Determines when to trigger a new training job" "DS"
+                
+                deployment_workflow = container "Deployment workflow" "Deploy the newly trained model to production" "pipeline"
+                # production = container "Production stage" "The environment where the model is used for inference"
+                
+                data_preproc -> data_validation "Validate the prepared data"
             }
             
             orchestration = softwareSystem "PaaS Orchestration and provisioning" "Allows PaaS operators to manage PaaS deployments and resources." {
@@ -134,6 +132,9 @@ workspace extends ../eosc-landscape.dsl {
         ai4eosc_platform -> aai "Is integrated with"
         /* ai4eosc_platform -> portal "Is integrated with" */
         ai4eosc_platform -> deepaas "Deploy models on"
+
+        mlops -> deepaas "Monitors production model"
+        mlops -> ai4eosc_platform "Triggers model update/retraining"
 
 
         # AI4EOSC platform
@@ -198,33 +199,35 @@ workspace extends ../eosc-landscape.dsl {
 
         orchestration -> resources "Provisions"
 
-        # #MLOps --new data available
+        mlops -> training_api "Trigger model update/retraining"
+        mlops -> data_repo "Monitor new data available, update model after training"
+        mlops -> cd "Trigger model update"
 
-        data_preproc -> data_repo "Ingest datasets to MLOps system"
-        ci -> data_validation "integrate validated data"
+        /* # #MLOps --new data available */
+        data_preproc -> data_repo "Read datasets or new model updates from" 
+        /* /1* ci -> data_validation "integrate validated data" *1/ */
 
-        model_container -> container_repo "Pulls trained model from registry"
-        model_container -> oscar "Loads model into inference service"
-        oscar -> model_container "Receives prediction requests"
+        /* /1* model_container -> container_repo "Pulls trained model from registry" *1/ */
+        /* model_container -> oscar "Loads model into inference service" */
+        /* /1* oscar -> model_container "Receives prediction requests" *1/ */
 
-            
-
-        #MLOps --a new trained model
-
-        
-        deployment_workflow -> cd "define the recent deployed model"
+        /* #MLOps --a new trained model */
+        deployment_workflow -> cd "Trigger update of most recent model"
 
 
-        #mlops other relationships
-             data_repo -> data_validation "Sends data for validation"
-             data_validation -> drift_detection "Sends validated data for monitoring"
-             drift_detection -> feedback_loop "Triggers model retraining"
-             feedback_loop -> training_api "Starts model retraining"
-             training_api -> deployment_workflow "Deploys new model"
-             deployment_workflow -> oscar "Updates model in production"
+        /* #mlops other relationships */
+        /* /1* data_repo -> data_validation "Sends data for validation" *1/ */
+        data_validation -> drift_detection "Sends validated data for monitoring"
+        drift_detection -> feedback_loop "Triggers model retraining"
+        feedback_loop -> training_api "Starts model retraining"
+        feedback_loop -> deployment_workflow "Notifies of model retraining"
 
-             training_api -> drift_detection "Receives model performance metrics"
-             data_validation -> training_api "Sends validated data for monitoring"
+        drift_detection -> oscar "Monitor deployed model"
+        /* training_api -> deployment_workflow "Deploys new model" */
+        /* deployment_workflow -> oscar "Updates model in production" */
+
+        /* training_api -> drift_detection "Receives model performance metrics" */
+        /* data_validation -> training_api "Sends validated data for monitoring" */
         
 
  
@@ -274,7 +277,7 @@ workspace extends ../eosc-landscape.dsl {
 
         /* eosc_user -> OSCAR "Requests the depoyment of inference services" */
 
-        ai4eosc_platform -> OSCAR "Deployment of inference services"
+        ai4eosc_platform -> OSCAR "Deployment or update of inference services"
         end_user -> OSCAR "Synchronous inference request"
         end_user -> MinIO "Store data for asynchronous inference"
 
@@ -320,6 +323,10 @@ workspace extends ../eosc-landscape.dsl {
             include *
         }
         
+        systemContext mlops {
+            include *
+        }
+
         container deepaas {
             include *
             exclude "ai4eosc_platform -> storage" 
@@ -333,12 +340,28 @@ workspace extends ../eosc-landscape.dsl {
             exclude "eosc_user -> container_repo"
 
             exclude "ci -> data_validation"
+            exclude "ci -> mlops"
+
             exclude "data_repo -> data_validation"
+            exclude "data_repo -> mlops"
+
             exclude "training_api -> deployment_workflow" 
+            exclude "training_api -> mlops"
+
             exclude "deployment_workflow -> oscar"
 
             exclude "data_validation -> training_api"
+
+            exclude "model_container -> oscar"
+            exclude "model_container -> deepaas"
+            exclude "oscar -> model_container"
+            exclude "deepaas -> model_container"
+
                  
+        }
+        
+        container mlops {
+            include *
         }
 
         container orchestration {
@@ -392,9 +415,9 @@ workspace extends ../eosc-landscape.dsl {
      
 
             #
-            model_container -> container_repo "Push trained model to registry"
-            model_container -> oscar "Loads model into inference service"
-            oscar -> model_container "Receives recent prediction requests"
+            /* model_container -> container_repo "Push trained model to registry" */
+            /* model_container -> oscar "Loads model into inference service" */
+            /* oscar -> model_container "Receives recent prediction requests" */
       
 
             
@@ -421,18 +444,18 @@ workspace extends ../eosc-landscape.dsl {
             FaaSS -> storage "Read/store data "
         }
 
-        #Another dynamic view
-         dynamic ai4eosc_platform {
-           title "Managing Model/Data Drift"
+        /* #Another dynamic view */
+        /*  dynamic ai4eosc_platform { */
+        /*    title "Managing Model/Data Drift" */
 
-             data_repo -> data_validation "Sends data for validation"
-             data_validation -> training_api "Sends validated data for monitoring"
-             training_api -> drift_detection "Detects drift in model performance"
-             drift_detection -> feedback_loop "Triggers model retraining"
-             feedback_loop -> training_api "Starts model retraining"
-             training_api -> deployment_workflow "Deploys new model"
-             deployment_workflow -> oscar "Updates model in production"
-         } 
+        /*      data_repo -> data_validation "Sends data for validation" */
+        /*      data_validation -> training_api "Sends validated data for monitoring" */
+        /*      training_api -> drift_detection "Detects drift in model performance" */
+        /*      drift_detection -> feedback_loop "Triggers model retraining" */
+        /*      feedback_loop -> training_api "Starts model retraining" */
+        /*      training_api -> deployment_workflow "Deploys new model" */
+        /*      deployment_workflow -> oscar "Updates model in production" */
+        /*  } */ 
         
 
         styles {
