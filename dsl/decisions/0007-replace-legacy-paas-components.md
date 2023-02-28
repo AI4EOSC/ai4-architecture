@@ -1,4 +1,4 @@
-# 6. Replace legacy and unmaintained PaaS components
+# 7. Replace legacy and unmaintained PaaS components
 
 Date: 2023-01-10
 
