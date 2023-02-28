@@ -58,7 +58,7 @@ workspace extends ../eosc-landscape.dsl {
     
                     coe = container "Workload Management System" "Manages and schedules the execution of compute requests." "Hashicorp Nomad"
     
-                    resources = container "Compute resources" "Executes user workloads." "Hashicorp Nomad"
+                    resources = container "Compute client" "Executes user workloads." "Hashicorp Nomad"
                 }
             }
 
@@ -274,7 +274,103 @@ workspace extends ../eosc-landscape.dsl {
         ai4eosc_platform -> OSCAR "Deployment or update of inference services"
         end_user -> OSCAR "Synchronous inference request"
         end_user -> MinIO "Store data for asynchronous inference"
+        
+        deploymentEnvironment "Production" {
+            ifca_instance = deploymentGroup "IFCA Cloud Instance"
+            iisas_instance = deploymentGroup "IISAS Cloud"
+            cnaf_instance = deploymentGroup "INFN-CNAF Cloud"
+            bari_instance = deploymentGroup "INFN-BARI Cloud"
+            incd_instance = deploymentGroup "INCD Cloud"
 
+            deploymentNode "GitHub / Gitlab" {
+                containerInstance model_repo
+                containerInstance data_repo
+                containerInstance tosca_repo
+            }
+
+            deploymentNode "DockerHub" {
+                containerInstance container_repo
+            }
+
+            deploymentNode "IFCA-CSIC" {
+                deploymentNode "IFCA Cloud" "" "OpenStack" {
+                    deploymentNode "dasboard.ai4eosc.eu" "" "nginx" {
+                        containerInstance dashboard
+                    }
+                    
+                    deploymentNode "AI4 Control pane" "" "Kubernetes" {
+                        containerInstance exchange_api
+                        containerInstance exchange_db
+                        containerInstance training_api
+                        containerInstance training_db
+
+                        containerInstance ci
+                        containerInstance cd
+                    }
+
+                    deploymentNode "vm*.cloud.ifca.es" "" "" "" 100 {
+                        containerInstance coe
+                        containerInstance resources
+                        containerInstance model_container 
+                        containerInstance dev
+                    }
+
+                }
+            }
+            
+            deploymentNode "IISAS" {
+                deploymentNode "cloud.ui.sav.sk"  {
+                    deploymentNode "vm*" "" "" "" 10 {
+                        iisas_coe = containerInstance coe iisas_instance
+                        iisas_resources = containerInstance resources iisas_instance
+                        iisas_container = containerInstance model_container iisas_instance
+                        iisas_dev = containerInstance dev iisas_instance
+                    }
+                }
+            }
+
+            deploymentNode "INFN-CNAF" {
+                deploymentNode "cloud.cnaf.infn.it"  {
+                    deploymentNode "iam.ai4eosc.eu" "" "nginx" {
+                        containerInstance iam
+                    }
+                    /* deploymentNode "vm*" "" "" "" 10 { */
+                    /*     cnaf_coe = containerInstance coe                    cnaf_instance */
+                    /*     cnaf_resources = containerInstance resources        cnaf_instance */
+                    /*     cnaf_container = containerInstance model_container  cnaf_instance */
+                    /*     cnaf_dev = containerInstance dev                    cnaf_instance */
+                    /* } */
+                    deploymentNode "AI4 Control pane" "" "Kubernetes" {
+                        cnaf_eapi = containerInstance exchange_api   cnaf_instance
+                        cnaf_edb = containerInstance exchange_db     cnaf_instance
+                        cnaf_tapi = containerInstance training_api   cnaf_instance
+                        cnaf_tdb = containerInstance training_db     cnaf_instance
+
+                        cnaf_ci = containerInstance ci               cnaf_instance
+                        cnaf_cd = containerInstance cd               cnaf_instance
+                    }
+                }
+            }
+            
+            deploymentNode "INFN-BARI" {
+                deploymentNode "cloud.ba.infn.it"  {
+                    deploymentNode "vm*" "" "" "" 10 {
+                        bari_coe = containerInstance coe                    bari_instance
+                        bari_resources = containerInstance resources        bari_instance
+                        bari_container = containerInstance model_container  bari_instance
+                        bari_dev = containerInstance dev                    bari_instance
+                    }
+                    deploymentNode "paas.ai4eosc.eu" "" "nginx" {
+                        containerInstance paas_dashboard
+                        containerInstance paas_orchestrator
+                        containerInstance im
+                        containerInstance federated_service_catalogue 
+                        containerInstance monitoring_system 
+                        containerInstance cloud_provider_ranker
+                    }
+                }
+            }
+        }
     }
 
     views {
@@ -468,6 +564,11 @@ workspace extends ../eosc-landscape.dsl {
             /* training_api -> deployment_workflow "Deploys new model" */
             /* deployment_workflow -> oscar "Updates model in production" */
         } 
+        
+        deployment * "Production" production_deployment {
+            include *
+            /* autoLayout */
+        }
 
         styles {
             element "Container" {
