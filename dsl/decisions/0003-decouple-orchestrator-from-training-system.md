@@ -6,6 +6,8 @@ Date: 2022-05-03
 
 Accepted
 
+Extended by [8. Use Nomad as workload management system](0008-use-nomad-as-workload-management-system.md)
+
 ## Context
 
 Currently we are using the INDIGO PaaS orchestrator as the tool that provisions
