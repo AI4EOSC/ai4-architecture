@@ -27,18 +27,6 @@ workspace extends ../eosc-landscape.dsl {
                     ci = container "Continuous Integration" "Ensures quality aspects are fulfilled (code checks, unit checks, etc.)."
                     cd = container "Continuous Delivery & Deployment" "Ensures delivery and deployment of new assets."
                 }
-
-                model_container = container "Model container" "Encapsulates user code." "Docker" {
-                    api = component "API" "" "DEEPaaS API"
-
-                    framework = component "ML/AI framework"
-
-                    user_model = component "User code and model"
-
-                    api -> user_model
-                    user_model -> framework
-                }
-
                 identity = group "Identity and user management" {
 
                     iam = container "Identity and Access Management" "Provides user and group management." "INDIGO IAM"
@@ -59,7 +47,26 @@ workspace extends ../eosc-landscape.dsl {
                     coe = container "Workload Management System" "Manages and schedules the execution of compute requests." "Hashicorp Nomad"
     
                     resources = container "Compute client" "Executes user workloads." "Hashicorp Nomad"
+
+                    federated_server = container "Federated learning server" "Agregates federated client updates" "flower.io"
+
+                model_container = container "Model container" "Encapsulates user code." "Docker" {
+                    api = component "API" "" "DEEPaaS API"
+
+                    framework = component "ML/AI framework"
+
+                    user_model = component "User code and model"
+
+                    api -> user_model
+                    user_model -> framework
                 }
+
+                }
+            
+                # This is a special case, added here, but ignored in the view, just to
+                # be included in the dynamic view
+                external_container = container "User-managed model container" "Encapsulates user code, not executed on the platform" "Docker" 
+                external_container -> federated_server "Gets updated model, sends weights to server"
             }
 
             mlops = softwareSystem "Machine Learning Operations (MLOps)" "Provides the ability to implement MLOps techniques, as needed from use cases" {
@@ -154,6 +161,10 @@ workspace extends ../eosc-landscape.dsl {
 
         resources -> dev "Create on-demand environments"
         resources -> model_container "Executes user model in a"
+
+        coe -> federated_server "Creates"
+        model_container -> federated_server "Gets updated model, sends new weights"
+        training_api -> federated_server "Manages federated learning rounds"
 
         /* eosc_user -> model_container "Trigger new training jobs" */
 
@@ -283,6 +294,7 @@ workspace extends ../eosc-landscape.dsl {
             incd_instance = deploymentGroup "INCD Cloud"
             nomad_cluster = deploymentGroup "Nomad Cluster"
             global = deploymentGroup "Global deployment"
+            federated = deploymentGroup "FL deployment"
 
             deploymentNode "GitHub / Gitlab" {
                 containerInstance model_repo global
@@ -315,6 +327,7 @@ workspace extends ../eosc-landscape.dsl {
                         containerInstance resources         ifca_instance
                         containerInstance model_container   ifca_instance
                         containerInstance dev               ifca_instance
+                        containerInstance federated_server  ifca_instance,federated
                     }
 
                 }
@@ -325,7 +338,7 @@ workspace extends ../eosc-landscape.dsl {
                     deploymentNode "vm*" "" "" "" 10 {
                         iisas_coe = containerInstance coe                   iisas_instance,nomad_cluster
                         iisas_resources = containerInstance resources       iisas_instance
-                        iisas_container = containerInstance model_container iisas_instance
+                        iisas_container = containerInstance model_container iisas_instance,federated
                         iisas_dev = containerInstance dev                   iisas_instance
                     }
                 }
@@ -359,7 +372,7 @@ workspace extends ../eosc-landscape.dsl {
                     deploymentNode "vm*" "" "" "" 10 {
                         bari_coe = containerInstance coe                    bari_instance,nomad_cluster
                         bari_resources = containerInstance resources        bari_instance
-                        bari_container = containerInstance model_container  bari_instance
+                        bari_container = containerInstance model_container  bari_instance,federated
                         bari_dev = containerInstance dev                    bari_instance
                     }
                     deploymentNode "paas.ai4eosc.eu" "" "nginx" {
@@ -371,6 +384,10 @@ workspace extends ../eosc-landscape.dsl {
                         containerInstance cloud_provider_ranker         global
                     }
                 }
+            }
+
+            deploymentNode "External resources" {
+                containerInstance external_container federated
             }
         }
     }
@@ -427,6 +444,9 @@ workspace extends ../eosc-landscape.dsl {
         
         container ai4eosc_platform ai4eosc_container_view {
             include *
+            exclude "external_container"
+            exclude "external_container -> federated_server"
+
             exclude "eosc_user -> data_repo"
             exclude "eosc_user -> model_repo"
             exclude "eosc_user -> container_repo"
@@ -492,6 +512,34 @@ workspace extends ../eosc-landscape.dsl {
             training_api -> coe "Register new Nomad job, using robot account"
             coe -> resources "Submit Nomad job to Nomad agent on provisioned resources"
             resources -> model_container "Executes training job as container"
+
+            storage -> model_container "Read training data"
+            model_container -> storage "Write training results"
+        }
+
+        dynamic ai4eosc_platform federated_train_view {
+            title "Federated learning scenario"
+
+            eosc_user -> dashboard "Requests available modules"
+            dashboard -> iam "Checks user credentials"
+            iam -> dashboard "Returns access token"
+
+            dashboard -> training_api "Requests new federated learning job"
+            training_api -> coe "Register new federated learning Nomad job, using robot account"
+            coe -> federated_server "Deploy federated learning server"
+            training_api -> federated_server "Get federated learning server credentials to interact with it"
+
+            training_api -> coe "Register new training Nomad job, using robot account"
+            coe -> resources "Submit Nomad job to Nomad agent on provisioned resources"
+            resources -> model_container "Executes training job as container"
+
+            model_container -> federated_server "Get updated model, using server credentials"
+            model_container -> federated_server "Send updates to server, using server credentials"
+            
+            external_container -> federated_server "Get updated model, using server credentials"
+            external_container -> federated_server "Send updates to server, using server credentials"
+
+            training_api -> federated_server "Query federated learning status"
 
             storage -> model_container "Read training data"
             model_container -> storage "Write training results"
