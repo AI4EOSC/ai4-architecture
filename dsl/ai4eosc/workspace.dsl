@@ -281,38 +281,40 @@ workspace extends ../eosc-landscape.dsl {
             cnaf_instance = deploymentGroup "INFN-CNAF Cloud"
             bari_instance = deploymentGroup "INFN-BARI Cloud"
             incd_instance = deploymentGroup "INCD Cloud"
+            nomad_cluster = deploymentGroup "Nomad Cluster"
+            global = deploymentGroup "Global deployment"
 
             deploymentNode "GitHub / Gitlab" {
-                containerInstance model_repo
-                containerInstance data_repo
-                containerInstance tosca_repo
+                containerInstance model_repo global
+                containerInstance data_repo  global
+                containerInstance tosca_repo global
             }
 
             deploymentNode "DockerHub" {
-                containerInstance container_repo
+                containerInstance container_repo global
             }
 
             deploymentNode "IFCA-CSIC" {
                 deploymentNode "IFCA Cloud" "" "OpenStack" {
                     deploymentNode "dasboard.ai4eosc.eu" "" "nginx" {
-                        containerInstance dashboard
+                        containerInstance dashboard global
                     }
                     
                     deploymentNode "AI4 Control pane" "" "Kubernetes" {
-                        containerInstance exchange_api
-                        containerInstance exchange_db
-                        containerInstance training_api
-                        containerInstance training_db
+                        containerInstance exchange_api global
+                        containerInstance exchange_db  global
+                        containerInstance training_api global,nomad_cluster
+                        containerInstance training_db  global
 
-                        containerInstance ci
-                        containerInstance cd
+                        containerInstance ci           global
+                        containerInstance cd           global
                     }
 
                     deploymentNode "vm*.cloud.ifca.es" "" "" "" 100 {
-                        containerInstance coe
-                        containerInstance resources
-                        containerInstance model_container 
-                        containerInstance dev
+                        containerInstance coe               nomad_cluster,ifca_instance
+                        containerInstance resources         ifca_instance
+                        containerInstance model_container   ifca_instance
+                        containerInstance dev               ifca_instance
                     }
 
                 }
@@ -321,10 +323,10 @@ workspace extends ../eosc-landscape.dsl {
             deploymentNode "IISAS" {
                 deploymentNode "cloud.ui.sav.sk"  {
                     deploymentNode "vm*" "" "" "" 10 {
-                        iisas_coe = containerInstance coe iisas_instance
-                        iisas_resources = containerInstance resources iisas_instance
+                        iisas_coe = containerInstance coe                   iisas_instance,nomad_cluster
+                        iisas_resources = containerInstance resources       iisas_instance
                         iisas_container = containerInstance model_container iisas_instance
-                        iisas_dev = containerInstance dev iisas_instance
+                        iisas_dev = containerInstance dev                   iisas_instance
                     }
                 }
             }
@@ -332,7 +334,7 @@ workspace extends ../eosc-landscape.dsl {
             deploymentNode "INFN-CNAF" {
                 deploymentNode "cloud.cnaf.infn.it"  {
                     deploymentNode "iam.ai4eosc.eu" "" "nginx" {
-                        containerInstance iam
+                        containerInstance iam   global
                     }
                     /* deploymentNode "vm*" "" "" "" 10 { */
                     /*     cnaf_coe = containerInstance coe                    cnaf_instance */
@@ -355,18 +357,18 @@ workspace extends ../eosc-landscape.dsl {
             deploymentNode "INFN-BARI" {
                 deploymentNode "cloud.ba.infn.it"  {
                     deploymentNode "vm*" "" "" "" 10 {
-                        bari_coe = containerInstance coe                    bari_instance
+                        bari_coe = containerInstance coe                    bari_instance,nomad_cluster
                         bari_resources = containerInstance resources        bari_instance
                         bari_container = containerInstance model_container  bari_instance
                         bari_dev = containerInstance dev                    bari_instance
                     }
                     deploymentNode "paas.ai4eosc.eu" "" "nginx" {
-                        containerInstance paas_dashboard
-                        containerInstance paas_orchestrator
+                        containerInstance paas_dashboard                global
+                        containerInstance paas_orchestrator             global
                         containerInstance im
-                        containerInstance federated_service_catalogue 
-                        containerInstance monitoring_system 
-                        containerInstance cloud_provider_ranker
+                        containerInstance federated_service_catalogue   global
+                        containerInstance monitoring_system             global
+                        containerInstance cloud_provider_ranker         global
                     }
                 }
             }
