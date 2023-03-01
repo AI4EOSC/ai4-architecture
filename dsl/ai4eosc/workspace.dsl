@@ -102,7 +102,7 @@ workspace extends ../eosc-landscape.dsl {
                 tosca_repo = container "Topologies repository" "" "TOSCA" "repository"
             }
 
-            deepaas = softwareSystem "DEEP as a Service" "Allows users to deploy an AI application as a service." {
+            deepaas = softwareSystem "AI as a Service" "Allows users to deploy an AI application as a service." {
                 ai4compose = container "AI4Compose"
                 OSCARSystem = group "OSCAR"{
                     OSCAR = container "OSCAR Manager" 
@@ -409,10 +409,12 @@ workspace extends ../eosc-landscape.dsl {
         
         systemLandscape system_view {
             include *
+            title "[System Landscape] AI4EOSC"
         }
 
         systemContext ai4eosc_platform ai4eosc_view {
             include *
+            title "[System Context] AI4EOSC Platform"
             exclude "eosc_user -> data_repo"
             exclude "eosc_user -> model_repo"
             exclude "eosc_user -> container_repo"
@@ -426,24 +428,31 @@ workspace extends ../eosc-landscape.dsl {
 
         systemContext orchestration orchestration_view {
             include *
+            title "[System Context] PaaS Orchestration and provisioning"
         }
 
         systemContext deepaas deepaas_view {
             include *
+            title "[System Context] AI4EOSC AI as a Service"
         }
         
         systemContext mlops mlops_view {
             include *
+            title "[System Context] Machine Learning Operations (MLOps)"
         }
 
         container deepaas deepaas_container_view {
             include *
             exclude "ai4eosc_platform -> storage" 
+            title "[Component] AI4EOSC AI as a Service "
         }
 
         
         container ai4eosc_platform ai4eosc_container_view {
             include *
+
+            title "[Component] AI4EOSC Platform"
+
             exclude "external_container"
             exclude "external_container -> federated_server"
 
@@ -472,10 +481,12 @@ workspace extends ../eosc-landscape.dsl {
         
         container mlops mlops_container_view {
             include *
+            title "[Component] Machine Learning Operations (MLOps)"
         }
 
         container orchestration orchestration_container_view {
             include *
+            title "[Component] PaaS Orchestration and Provisioning"
             include cloud_providers
         }
 
