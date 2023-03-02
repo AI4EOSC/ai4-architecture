@@ -35,10 +35,10 @@ workspace extends ../eosc-landscape.dsl {
 
                 }
                 
-                dashboard = container "AI4EOSC dashboard" "Provides access to existing modules (anonymous), experiment and training definition (logged users)." "aiohttp" "dashboard"
+                dashboard = container "AI4EOSC dashboard" "Provides access to existing modules (anonymous), experiment and training definition (logged users)." "Angular" "dashboard"
 
                 training = group "AI4EOSC training" {
-                    training_api = container "Training API" "Provides training creation and monitoring functionality via a JSON/HTTPS API." "aiohttp"
+                    training_api = container "Training API" "Provides training creation and monitoring functionality via a JSON/HTTPS API." "FastAPI + python-nomad"
 
                     training_db = container "Training database" "Stores AI4EOSC training requests." "" "database"
     
