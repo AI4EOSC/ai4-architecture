@@ -397,8 +397,6 @@ workspace extends ../eosc-landscape.dsl {
 
         terminology {
             enterprise "Project"
-            container "Component"
-            component "OldComponent"
         }
 
         branding {
@@ -409,12 +407,10 @@ workspace extends ../eosc-landscape.dsl {
         
         systemLandscape system_view {
             include *
-            title "[System Landscape] AI4EOSC"
         }
 
         systemContext ai4eosc_platform ai4eosc_view {
             include *
-            title "[System Context] AI4EOSC Platform"
             exclude "eosc_user -> data_repo"
             exclude "eosc_user -> model_repo"
             exclude "eosc_user -> container_repo"
@@ -428,30 +424,24 @@ workspace extends ../eosc-landscape.dsl {
 
         systemContext orchestration orchestration_view {
             include *
-            title "[System Context] PaaS Orchestration and provisioning"
         }
 
         systemContext deepaas deepaas_view {
             include *
-            title "[System Context] AI4EOSC AI as a Service"
         }
         
         systemContext mlops mlops_view {
             include *
-            title "[System Context] Machine Learning Operations (MLOps)"
         }
 
         container deepaas deepaas_container_view {
             include *
             exclude "ai4eosc_platform -> storage" 
-            title "[Component] AI4EOSC AI as a Service "
         }
 
         
         container ai4eosc_platform ai4eosc_container_view {
             include *
-
-            title "[Component] AI4EOSC Platform"
 
             exclude "external_container"
             exclude "external_container -> federated_server"
@@ -481,19 +471,17 @@ workspace extends ../eosc-landscape.dsl {
         
         container mlops mlops_container_view {
             include *
-            title "[Component] Machine Learning Operations (MLOps)"
         }
 
         container orchestration orchestration_container_view {
             include *
-            title "[Component] PaaS Orchestration and Provisioning"
             include cloud_providers
         }
 
         # Dynamic views
 
         dynamic ai4eosc_platform develop_view {
-            title "Develop and register a model"
+            title "[Dynamic view] Develop and register a model"
             eosc_user -> dashboard "Requests a development environment"
             dashboard -> iam "Checks user credentials"
             iam -> dashboard "Returns access token"
@@ -514,7 +502,7 @@ workspace extends ../eosc-landscape.dsl {
         }
         
         dynamic ai4eosc_platform manual_retrain_view {
-            title "Manually retrain a model"
+            title "[Dynamic view] Manually retrain a model"
 
             eosc_user -> dashboard "Requests available modules"
             dashboard -> iam "Checks user credentials"
@@ -529,7 +517,7 @@ workspace extends ../eosc-landscape.dsl {
         }
 
         dynamic ai4eosc_platform federated_train_view {
-            title "Federated learning scenario"
+            title "[Dynamic view] Federated learning scenario"
 
             eosc_user -> dashboard "Requests available modules"
             dashboard -> iam "Checks user credentials"
@@ -557,7 +545,7 @@ workspace extends ../eosc-landscape.dsl {
         }
 
         dynamic ai4eosc_platform automatic_retrain_view {
-            title "Automatically retrain a model through MLOps"
+            title "[Dynamic view] Automatically retrain a model through MLOps"
 
             /* data_repo -> data_preproc "Notifies of new data" */
             /* data_preproc -> data_validation "foo" */
@@ -600,7 +588,7 @@ workspace extends ../eosc-landscape.dsl {
         }
         
         dynamic deepaas oscar_dynamic {
-            title "OSCAR dynamic view"
+            title "[Dynamic view] OSCAR dynamic view"
             end_user -> OSCAR "Deploy service"
             OSCAR -> MinIO "Buckets and folders will be created"
             end_user -> MinIO "Store data for asynchronous inference (Option A)"
@@ -613,18 +601,18 @@ workspace extends ../eosc-landscape.dsl {
         }
 
         /* #Another dynamic view */
-        dynamic ai4eosc_platform model_data_drift {
-            title "Managing Model/Data Drift"
+        /* dynamic ai4eosc_platform model_data_drift { */
+        /*     title "[Dynamic view] Managing Model/Data Drift" */
  
-            /* data_preproc -> data_repo "Read data updates from" */
-            /* data_preproc -> data_validation "Sends data for validation" */
-            /* data_validation -> training_api "Sends validated data for monitoring" */
-            /* training_api -> drift_detection "Detects drift in model performance" */
-            /* drift_detection -> feedback_loop "Triggers model retraining" */
-            /* feedback_loop -> training_api "Starts model retraining" */
-            /* training_api -> deployment_workflow "Deploys new model" */
-            /* deployment_workflow -> oscar "Updates model in production" */
-        } 
+        /*     /1* data_preproc -> data_repo "Read data updates from" *1/ */
+        /*     /1* data_preproc -> data_validation "Sends data for validation" *1/ */
+        /*     /1* data_validation -> training_api "Sends validated data for monitoring" *1/ */
+        /*     /1* training_api -> drift_detection "Detects drift in model performance" *1/ */
+        /*     /1* drift_detection -> feedback_loop "Triggers model retraining" *1/ */
+        /*     /1* feedback_loop -> training_api "Starts model retraining" *1/ */
+        /*     /1* training_api -> deployment_workflow "Deploys new model" *1/ */
+        /*     /1* deployment_workflow -> oscar "Updates model in production" *1/ */
+        /* } */ 
         
         deployment * "Production" production_deployment {
             include *
