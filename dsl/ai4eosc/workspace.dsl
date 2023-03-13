@@ -544,48 +544,48 @@ workspace extends ../eosc-landscape.dsl {
             model_container -> storage "Write training results"
         }
 
-        dynamic ai4eosc_platform automatic_retrain_view {
-            title "[Dynamic view] Automatically retrain a model through MLOps"
+        /* dynamic ai4eosc_platform automatic_retrain_view { */
+        /*     title "[Dynamic view] Automatically retrain a model through MLOps" */
 
-            /* data_repo -> data_preproc "Notifies of new data" */
-            /* data_preproc -> data_validation "foo" */
-            /* eosc_user -> dashboard "Requests available modules" */
-            /* dashboard -> iam "Checks user credentials" */
-            /* iam -> dashboard "Returns access token" */
-            /* dashboard -> training_api "Requests new training job" */
-            /* training_api -> coe "Register new Nomad job, using robot account" */
-            /* coe -> resources "Submit Nomad job to Nomad agent on provisioned resources" */
-            /* resources -> model_container "Executes training job as container" */
+        /*     /1* data_repo -> data_preproc "Notifies of new data" *1/ */
+        /*     /1* data_preproc -> data_validation "foo" *1/ */
+        /*     /1* eosc_user -> dashboard "Requests available modules" *1/ */
+        /*     /1* dashboard -> iam "Checks user credentials" *1/ */
+        /*     /1* iam -> dashboard "Returns access token" *1/ */
+        /*     /1* dashboard -> training_api "Requests new training job" *1/ */
+        /*     /1* training_api -> coe "Register new Nomad job, using robot account" *1/ */
+        /*     /1* coe -> resources "Submit Nomad job to Nomad agent on provisioned resources" *1/ */
+        /*     /1* resources -> model_container "Executes training job as container" *1/ */
 
-            /* storage -> model_container "Read training data" */
-            /* model_container -> storage "Write training results" */
+        /*     /1* storage -> model_container "Read training data" *1/ */
+        /*     /1* model_container -> storage "Write training results" *1/ */
 
-            #mlops --new data
+        /*     #mlops --new data */
             
-            /* data_preproc -> data_repo "Retrieves new data" */
-            #data_repo -> data_preproc "Retrieves data"
-            /* data_preproc -> dev "Preprocesses data" */
-            #dev -> training_api "Starts training job"
-            #training_api -> drift_detection "Receives model performance metrics"
+        /*     /1* data_preproc -> data_repo "Retrieves new data" *1/ */
+        /*     #data_repo -> data_preproc "Retrieves data" */
+        /*     /1* data_preproc -> dev "Preprocesses data" *1/ */
+        /*     #dev -> training_api "Starts training job" */
+        /*     #training_api -> drift_detection "Receives model performance metrics" */
      
 
-            #
-            /* model_container -> container_repo "Push trained model to registry" */
-            /* model_container -> oscar "Loads model into inference service" */
-            /* oscar -> model_container "Receives recent prediction requests" */
+        /*     # */
+        /*     /1* model_container -> container_repo "Push trained model to registry" *1/ */
+        /*     /1* model_container -> oscar "Loads model into inference service" *1/ */
+        /*     /1* oscar -> model_container "Receives recent prediction requests" *1/ */
       
 
             
 
 
-            /* eosc_user -> dev "Develops new model" */
-            /* eosc_user -> data_repo */
-            /* eosc_user -> model_repo */
-            /* eosc_user -> container_repo */
-            /* dashboard -> exchange_api "Registers new model" */
-            /* dashboard -> exchange_api */
-            /* exchange_api -> dashboard "Provides list of models" */
-        }
+        /*     /1* eosc_user -> dev "Develops new model" *1/ */
+        /*     /1* eosc_user -> data_repo *1/ */
+        /*     /1* eosc_user -> model_repo *1/ */
+        /*     /1* eosc_user -> container_repo *1/ */
+        /*     /1* dashboard -> exchange_api "Registers new model" *1/ */
+        /*     /1* dashboard -> exchange_api *1/ */
+        /*     /1* exchange_api -> dashboard "Provides list of models" *1/ */
+        /* } */
         
         dynamic deepaas oscar_dynamic {
             title "[Dynamic view] OSCAR dynamic view"
