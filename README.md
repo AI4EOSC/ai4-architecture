@@ -1,7 +1,8 @@
 # AI4EOSC Architecture repository
 
 This repository contains the [AI4EOSC](https://ai4eosc.eu) project architecture
-diagrams.
+diagrams. An online read-only version is available at the following
+[Structurizr Workspace](https://structurizr.com/share/73873/2f769b91-f208-41b0-b79f-5e196435bdb1).
 
 ## Instructions
 
