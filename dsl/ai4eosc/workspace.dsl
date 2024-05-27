@@ -21,21 +21,29 @@ workspace extends ../eosc-landscape.dsl {
 
                 /* data_repo = container "Model and data repository" "Track AI models and data sets." "dvc" "repository" */
                 model_repo = container "Model code repository" "Track AI model code." "Git" "repository"
-                container_repo = container "Container registry" "Store container images." "DockerHub" "repository" 
+                container_repo = container "Container registry" "Store container images." "Harbor.io" "repository" 
 
                 cicd = container "Continuous Integration, Delivery & Deployment" "Ensures quality aspects are fulfilled (code checks, unit checks, etc.). Performs delivery and deployment of new assets." "Jenkins"
                 
                 dashboard = container "AI4EOSC dashboard" "Provides access to existing modules (anonymous), experiment and training definition (logged users)." "Angular" "dashboard"
 
-                dev = container "Interactive development Environment" "An interactive development environment with access to resources and limited execution time." "Jupyter"
+                coe = container "Workload Management System" "Manages and schedules the execution of compute requests." "Hashicorp Nomad" {
+                    networking = component "Ingress service" "Manage ingress rules via reverse proxy" "Traefik"
+                }
 
-                coe = container "Workload Management System" "Manages and schedules the execution of compute requests." "Hashicorp Nomad"
+                federated_server = container "Federated learning server" "Agregates federated client updates" "Docker Nomad Job" {
+                    flower = component "Flower" "Federated learning monitoring tool" "Flower.ai"
+                    nvflaer = component "NVIDIA Federated Learning" "Federated learning framework" "NVFlare"
+                }
 
-                resources = container "Compute client" "Executes user workloads." "Hashicorp Nomad"
+                secrets = container "Secret management system" "Manages user secrets" "Hashicorp Vault"
 
-                federated_server = container "Federated learning server" "Agregates federated client updates" "flower.io"
+                user_task = container "User job/task deployment" "Encapsulates a user task to be executed in the platform." "Docker Nomad Job" {
 
-                model_container = container "Model container" "Encapsulates user code." "Docker" {
+                    dev = component "Interactive development Environment" "An interactive development environment with access to resources and limited execution time." "Jupyter"
+
+                    storage_task = component "Storage task" "Reads and writes data from/to storage" "Docker"
+
                     api = component "API" "" "DEEPaaS API"
 
                     framework = component "ML/AI framework"
@@ -46,6 +54,7 @@ workspace extends ../eosc-landscape.dsl {
                     user_model -> framework
                 }
 
+                platform_storage = container "Platform storage services" "Provides storage for the users" "NextCloud"
             
                 # This is a special case, added here, but ignored in the view, just to
                 # be included in the dynamic view
@@ -100,14 +109,19 @@ workspace extends ../eosc-landscape.dsl {
             }
         }
 
-        storage = softwareSystem "Storage Services" "External storage where data assets are stored." "external" {
-            ESP = group "External Storage Provider"{
-                s3 = container "Amazon S3"
-                MinIOExternal = container "MinIO External"
-                oneData = container "Onedata"
-                dcache = container "dCache"
+        external_storages = group "External storage services" {
+            storage = softwareSystem "Storage Services" "External storage where data assets are stored." "external" {
+                ESP = group "External Storage Provider"{
+                    s3 = container "Amazon S3"
+                    MinIOExternal = container "MinIO External"
+                    oneData = container "Onedata"
+                    dcache = container "dCache"
+                }
             }
+    
+            zenodo = softwareSystem "Zenodo" "A general-purpose open-access repository developed within the OpenAIRE project and operated by CERN." "external"
         }
+
         cloud_providers = softwareSystem "Cloud/HPC Providers" "" external
 
         end_user = person "User" "An end-user, willing to exploit existing production models."
@@ -116,6 +130,7 @@ workspace extends ../eosc-landscape.dsl {
         eosc_user -> ai4eosc_platform "Reuse, develop, publish new AI models"
         paas_ops -> orchestration "Manage PaaS resources and deployments"
         end_user -> deepaas "Uses deployed models from"
+        eosc_user -> platform_storage "Stores data in"
         /* eosc_user -> deepaas "Deploy models as services" */
 
         # System - system interaction
@@ -126,8 +141,8 @@ workspace extends ../eosc-landscape.dsl {
         /* ai4eosc_platform -> portal "Is integrated with" */
         ai4eosc_platform -> deepaas "Deploy models on"
 
-        mlops -> deepaas "Monitors production model"
-        mlops -> ai4eosc_platform "Triggers model update/retraining"
+        /* mlops -> deepaas "Monitors production model" */
+        /* mlops -> ai4eosc_platform "Triggers model update/retraining" */
 
 
         # AI4EOSC platform
@@ -136,28 +151,29 @@ workspace extends ../eosc-landscape.dsl {
 
         # Training 
         eosc_user -> dev "Access interactive environments"
+        eosc_user -> federated_server "Access federated learning server"
 
         dashboard -> platform_api "Reads available models, defines new trainings, checks training status, etc. "
 
         platform_api -> coe "Create training job, interactive environment using API calls to"
-        /* platform_api -> model_container "Queries training status" */
+        /* platform_api -> user_task "Queries training status" */
 
-        coe -> resources "Create new task/workload"
+        platform_api -> secrets "Creates and manages user secrets"
+    
+        coe -> user_task "Creates and manages"
 
-        resources -> dev "Create on-demand environments"
-        resources -> model_container "Executes user model in a"
+        coe -> federated_server "Creates and manages"
+        /* user_task -> federated_server "Gets updated model, sends new weights" */
+        federated_server -> secrets "Gets secrets for federated server/clients"
 
-        coe -> federated_server "Creates"
-        model_container -> federated_server "Gets updated model, sends new weights"
-        platform_api -> federated_server "Manages federated learning rounds"
-
-        /* eosc_user -> model_container "Trigger new training jobs" */
+        /* eosc_user -> user_task "Trigger new training jobs" */
 
         platform_api -> aai "Authenticates users with"
         dashboard -> aai "Authenticates users with" 
             
-        dev -> storage "Read data from"
-        model_container -> storage "Read data from"
+        /* dev -> storage "Read data from" */
+        user_task -> platform_storage "Reads and writes data from"
+        user_task -> storage "Syncs external data from"
 
         # AI4EOSC exchange
 
@@ -172,46 +188,52 @@ workspace extends ../eosc-landscape.dsl {
         /* cicd -> data_repo "Ensures QA aspects" */
         cicd -> model_repo "Ensures QA aspects"
         cicd -> container_repo "Creates containers"
-        cicd -> deepaas "Deploys models on"
+        cicd -> deepaas "Deploys and updates models as services on"
+
+        /* cicd -> zenodo "Publishes models to" */
+        model_repo -> zenodo "Publishes models to"
+        platform_api -> zenodo "Read available datasets from"
+
+        storage_task -> zenodo "Syncs external data from"
 
         /* data_repo -> storage "Refers to data stored in" */
 
-        model_container -> container_repo "Stored in"
+        coe -> container_repo "Gets Docker containers from"
 
-        orchestration -> resources "Provisions"
+        orchestration -> coe "Provisions resources for"
 
-        mlops -> platform_api "Trigger model update/retraining"
+        /* mlops -> platform_api "Trigger model update/retraining" */
         /* mlops -> data_repo "Monitor new data available, update model after training" */
-        mlops -> cicd "Trigger model update"
+        /* mlops -> cicd "Trigger model update" */
 
-        /* # #MLOps --new data available */
-        /* data_preproc -> data_repo "Read datasets or new model updates from" */ 
-        /* /1* ci -> data_validation "integrate validated data" *1/ */
+        /* /1* # #MLOps --new data available *1/ */
+        /* /1* data_preproc -> data_repo "Read datasets or new model updates from" *1/ */ 
+        /* /1* /2* ci -> data_validation "integrate validated data" *2/ *1/ */
 
-        /* /1* model_container -> container_repo "Pulls trained model from registry" *1/ */
-        /* model_container -> oscar "Loads model into inference service" */
-        /* /1* oscar -> model_container "Receives prediction requests" *1/ */
+        /* /1* /2* user_task -> container_repo "Pulls trained model from registry" *2/ *1/ */
+        /* /1* user_task -> oscar "Loads model into inference service" *1/ */
+        /* /1* /2* oscar -> user_task "Receives prediction requests" *2/ *1/ */
 
-        /* #MLOps --a new trained model */
-        deployment_workflow -> cicd "Trigger update of most recent model"
+        /* /1* #MLOps --a new trained model *1/ */
+        /* deployment_workflow -> cicd "Trigger update of most recent model" */
 
 
-        /* #mlops other relationships */
-        /* /1* data_repo -> data_validation "Sends data for validation" *1/ */
-        data_validation -> drift_detection "Sends validated data for monitoring"
-        drift_detection -> feedback_loop "Triggers model retraining"
-        feedback_loop -> platform_api "Starts model retraining"
-        feedback_loop -> deployment_workflow "Notifies of model retraining"
+        /* /1* #mlops other relationships *1/ */
+        /* /1* /2* data_repo -> data_validation "Sends data for validation" *2/ *1/ */
+        /* data_validation -> drift_detection "Sends validated data for monitoring" */
+        /* drift_detection -> feedback_loop "Triggers model retraining" */
+        /* feedback_loop -> platform_api "Starts model retraining" */
+        /* feedback_loop -> deployment_workflow "Notifies of model retraining" */
 
-        drift_detection -> oscar "Monitor deployed model"
-        /* platform_api -> deployment_workflow "Deploys new model" */
-        /* deployment_workflow -> oscar "Updates model in production" */
+        /* drift_detection -> oscar "Monitor deployed model" */
+        /* /1* platform_api -> deployment_workflow "Deploys new model" *1/ */
+        /* /1* deployment_workflow -> oscar "Updates model in production" *1/ */
 
-        /* platform_api -> drift_detection "Receives model performance metrics" */
-        /* data_validation -> platform_api "Sends validated data for monitoring" */
+        /* /1* platform_api -> drift_detection "Receives model performance metrics" *1/ */
+        /* /1* data_validation -> platform_api "Sends validated data for monitoring" *1/ */
   
-        #     model_monitor -> dashboard "Monitors model performance"
-        #     dashboard -> model_monitor "Receives performance metrics"
+        /* #     model_monitor -> dashboard "Monitors model performance" */
+        /* #     dashboard -> model_monitor "Receives performance metrics" */
 
         # Orchestration
 
@@ -228,11 +250,12 @@ workspace extends ../eosc-landscape.dsl {
         /* paas_orchestrator -> iam "Authenticates users with" */
         /* im -> iam "AuthN/Z" */
 
-        cloud_providers -> resources "offer"
+        // FIXME (not sure of this)
+        /* cloud_providers -> user_task "Provides resources for" */
         cloud_providers -> federated_service_catalogue "register/update service & resources metadata"
         cloud_providers -> monitoring_system "push/pull metrics"
 
-        paas_orchestrator -> resources "Provisions resources for"
+        /* paas_orchestrator -> resources "Provisions resources for" */
         paas_orchestrator -> Knative "Provisions resources for" 
         paas_orchestrator -> OSCAR "Provisions resources for" 
 
@@ -244,11 +267,11 @@ workspace extends ../eosc-landscape.dsl {
         Knative -> FaaSS "Assign to function's pod(s)"
         Kubernetes -> FaaSS "Create jobs"
         FaaSS -> MinIO "Download input. Upload output"
-        FaaSS -> storage "Read/store data"
-        FaaSS -> s3 "Read/store data"
-        FaaSS -> MinIOExternal "Read/store data"
-        FaaSS -> oneData "Read/store data"
-        FaaSS -> dcache "Read/store data"
+        /* FaaSS -> storage "Read/store data" */
+        /* /1* FaaSS -> s3 "Read/store data" *1/ */
+        /* FaaSS -> MinIOExternal "Read/store data" */
+        /* FaaSS -> oneData "Read/store data" */
+        /* FaaSS -> dcache "Read/store data" */
 
         /* eosc_user -> OSCAR "Requests the depoyment of inference services" */
 
@@ -295,7 +318,7 @@ workspace extends ../eosc-landscape.dsl {
         /*             deploymentNode "vm*.cloud.ifca.es" "" "" "" 100 { */
         /*                 containerInstance coe               nomad_cluster,ifca_instance */
         /*                 containerInstance resources         ifca_instance */
-        /*                 containerInstance model_container   ifca_instance */
+        /*                 containerInstance user_task   ifca_instance */
         /*                 containerInstance dev               ifca_instance */
         /*                 containerInstance federated_server  ifca_instance,federated */
         /*             } */
@@ -308,7 +331,7 @@ workspace extends ../eosc-landscape.dsl {
         /*             deploymentNode "vm*" "" "" "" 10 { */
         /*                 iisas_coe = containerInstance coe                   iisas_instance,nomad_cluster */
         /*                 iisas_resources = containerInstance resources       iisas_instance */
-        /*                 iisas_container = containerInstance model_container iisas_instance,federated */
+        /*                 iisas_container = containerInstance user_task iisas_instance,federated */
         /*                 iisas_dev = containerInstance dev                   iisas_instance */
         /*             } */
         /*         } */
@@ -322,7 +345,7 @@ workspace extends ../eosc-landscape.dsl {
         /*             /1* deploymentNode "vm*" "" "" "" 10 { *1/ */
         /*             /1*     cnaf_coe = containerInstance coe                    cnaf_instance *1/ */
         /*             /1*     cnaf_resources = containerInstance resources        cnaf_instance *1/ */
-        /*             /1*     cnaf_container = containerInstance model_container  cnaf_instance *1/ */
+        /*             /1*     cnaf_container = containerInstance user_task  cnaf_instance *1/ */
         /*             /1*     cnaf_dev = containerInstance dev                    cnaf_instance *1/ */
         /*             /1* } *1/ */
         /*             deploymentNode "AI4 Control pane" "" "Kubernetes" { */
@@ -342,7 +365,7 @@ workspace extends ../eosc-landscape.dsl {
         /*             deploymentNode "vm*" "" "" "" 10 { */
         /*                 bari_coe = containerInstance coe                    bari_instance,nomad_cluster */
         /*                 bari_resources = containerInstance resources        bari_instance */
-        /*                 bari_container = containerInstance model_container  bari_instance,federated */
+        /*                 bari_container = containerInstance user_task  bari_instance,federated */
         /*                 bari_dev = containerInstance dev                    bari_instance */
         /*             } */
         /*             deploymentNode "paas.ai4eosc.eu" "" "nginx" { */
@@ -387,24 +410,31 @@ workspace extends ../eosc-landscape.dsl {
             exclude "data_validation -> platform_api"
         }
 
-        systemContext orchestration orchestration_view {
-            include *
-        }
+        /* systemContext orchestration orchestration_view { */
+        /*     include * */
+        /* } */
 
-        systemContext deepaas deepaas_view {
-            include *
-        }
+        /* systemContext deepaas deepaas_view { */
+        /*     include * */
+        /* } */
         
-        systemContext mlops mlops_view {
+        /* systemContext mlops mlops_view { */
+        /*     include * */
+        /* } */
+
+        /* container deepaas deepaas_container_view { */
+        /*     include * */
+        /*     exclude "ai4eosc_platform -> storage" */ 
+        /* } */
+
+        component user_task user_task_component_view {
             include *
         }
 
-        container deepaas deepaas_container_view {
+        component federated_server fl_component_view {
             include *
-            exclude "ai4eosc_platform -> storage" 
         }
 
-        
         container ai4eosc_platform ai4eosc_container_view {
             include *
 
@@ -428,10 +458,10 @@ workspace extends ../eosc-landscape.dsl {
 
             exclude "data_validation -> platform_api"
 
-            exclude "model_container -> oscar"
-            exclude "model_container -> deepaas"
-            exclude "oscar -> model_container"
-            exclude "deepaas -> model_container"
+            exclude "user_task -> oscar"
+            exclude "user_task -> deepaas"
+            exclude "oscar -> user_task"
+            exclude "deepaas -> user_task"
         }
         
         container mlops mlops_container_view {
@@ -475,10 +505,10 @@ workspace extends ../eosc-landscape.dsl {
         /*     dashboard -> platform_api "Requests new training job" */
         /*     platform_api -> coe "Register new Nomad job, using robot account" */
         /*     coe -> resources "Submit Nomad job to Nomad agent on provisioned resources" */
-        /*     resources -> model_container "Executes training job as container" */
+        /*     resources -> user_task "Executes training job as container" */
 
-        /*     storage -> model_container "Read training data" */
-        /*     model_container -> storage "Write training results" */
+        /*     storage -> user_task "Read training data" */
+        /*     user_task -> storage "Write training results" */
         /* } */
 
         /* dynamic ai4eosc_platform federated_train_view { */
@@ -495,18 +525,18 @@ workspace extends ../eosc-landscape.dsl {
 
         /*     platform_api -> coe "Register new training Nomad job, using robot account" */
         /*     coe -> resources "Submit Nomad job to Nomad agent on provisioned resources" */
-        /*     resources -> model_container "Executes training job as container" */
+        /*     resources -> user_task "Executes training job as container" */
 
-        /*     model_container -> federated_server "Get updated model, using server credentials" */
-        /*     model_container -> federated_server "Send updates to server, using server credentials" */
+        /*     user_task -> federated_server "Get updated model, using server credentials" */
+        /*     user_task -> federated_server "Send updates to server, using server credentials" */
             
         /*     external_container -> federated_server "Get updated model, using server credentials" */
         /*     external_container -> federated_server "Send updates to server, using server credentials" */
 
         /*     platform_api -> federated_server "Query federated learning status" */
 
-        /*     storage -> model_container "Read training data" */
-        /*     model_container -> storage "Write training results" */
+        /*     storage -> user_task "Read training data" */
+        /*     user_task -> storage "Write training results" */
         /* } */
 
         /* /1* dynamic ai4eosc_platform automatic_retrain_view { *1/ */
@@ -520,10 +550,10 @@ workspace extends ../eosc-landscape.dsl {
         /* /1*     /2* dashboard -> platform_api "Requests new training job" *2/ *1/ */
         /* /1*     /2* platform_api -> coe "Register new Nomad job, using robot account" *2/ *1/ */
         /* /1*     /2* coe -> resources "Submit Nomad job to Nomad agent on provisioned resources" *2/ *1/ */
-        /* /1*     /2* resources -> model_container "Executes training job as container" *2/ *1/ */
+        /* /1*     /2* resources -> user_task "Executes training job as container" *2/ *1/ */
 
-        /* /1*     /2* storage -> model_container "Read training data" *2/ *1/ */
-        /* /1*     /2* model_container -> storage "Write training results" *2/ *1/ */
+        /* /1*     /2* storage -> user_task "Read training data" *2/ *1/ */
+        /* /1*     /2* user_task -> storage "Write training results" *2/ *1/ */
 
         /* /1*     #mlops --new data *1/ */
             
@@ -535,9 +565,9 @@ workspace extends ../eosc-landscape.dsl {
      
 
         /* /1*     # *1/ */
-        /* /1*     /2* model_container -> container_repo "Push trained model to registry" *2/ *1/ */
-        /* /1*     /2* model_container -> oscar "Loads model into inference service" *2/ *1/ */
-        /* /1*     /2* oscar -> model_container "Receives recent prediction requests" *2/ *1/ */
+        /* /1*     /2* user_task -> container_repo "Push trained model to registry" *2/ *1/ */
+        /* /1*     /2* user_task -> oscar "Loads model into inference service" *2/ *1/ */
+        /* /1*     /2* oscar -> user_task "Receives recent prediction requests" *2/ *1/ */
       
 
             
