@@ -285,110 +285,110 @@ workspace extends ../eosc-landscape.dsl {
         end_user -> OSCAR "Synchronous inference request"
         end_user -> MinIO "Store data for asynchronous inference"
         
-        deploymentEnvironment "Production" {
-            ifca_instance = deploymentGroup "IFCA Cloud Instance"
-            iisas_instance = deploymentGroup "IISAS Cloud"
-            cnaf_instance = deploymentGroup "INFN-CNAF Cloud"
-            bari_instance = deploymentGroup "INFN-BARI Cloud"
-            incd_instance = deploymentGroup "INCD Cloud"
-            nomad_cluster = deploymentGroup "Nomad Cluster"
-            global = deploymentGroup "Global deployment"
-            federated = deploymentGroup "FL deployment"
+        /* deploymentEnvironment "Production" { */
+        /*     ifca_instance = deploymentGroup "IFCA Cloud Instance" */
+        /*     iisas_instance = deploymentGroup "IISAS Cloud" */
+        /*     cnaf_instance = deploymentGroup "INFN-CNAF Cloud" */
+        /*     bari_instance = deploymentGroup "INFN-BARI Cloud" */
+        /*     incd_instance = deploymentGroup "INCD Cloud" */
+        /*     nomad_cluster = deploymentGroup "Nomad Cluster" */
+        /*     global = deploymentGroup "Global deployment" */
+        /*     federated = deploymentGroup "FL deployment" */
 
-            deploymentNode "GitHub / Gitlab" {
-                containerInstance model_repo global
-                containerInstance data_repo  global
-                containerInstance tosca_repo global
-            }
+        /*     deploymentNode "GitHub / Gitlab" { */
+        /*         containerInstance model_repo global */
+        /*         containerInstance data_repo  global */
+        /*         containerInstance tosca_repo global */
+        /*     } */
 
-            deploymentNode "DockerHub" {
-                containerInstance container_repo global
-            }
+        /*     deploymentNode "DockerHub" { */
+        /*         containerInstance container_repo global */
+        /*     } */
 
-            deploymentNode "IFCA-CSIC" {
-                deploymentNode "IFCA Cloud" "" "OpenStack" {
-                    deploymentNode "dasboard.ai4eosc.eu" "" "nginx" {
-                        containerInstance dashboard global
-                    }
+        /*     deploymentNode "IFCA-CSIC" { */
+        /*         deploymentNode "IFCA Cloud" "" "OpenStack" { */
+        /*             deploymentNode "dasboard.ai4eosc.eu" "" "nginx" { */
+        /*                 containerInstance dashboard global */
+        /*             } */
                     
-                    deploymentNode "AI4 Control pane" "" "Kubernetes" {
-                        containerInstance exchange_api global
-                        containerInstance exchange_db  global
-                        containerInstance training_api global,nomad_cluster
-                        containerInstance training_db  global
+        /*             deploymentNode "AI4 Control pane" "" "Kubernetes" { */
+        /*                 containerInstance exchange_api global */
+        /*                 containerInstance exchange_db  global */
+        /*                 containerInstance training_api global,nomad_cluster */
+        /*                 containerInstance training_db  global */
 
-                        containerInstance ci           global
-                        containerInstance cd           global
-                    }
+        /*                 containerInstance ci           global */
+        /*                 containerInstance cd           global */
+        /*             } */
 
-                    deploymentNode "vm*.cloud.ifca.es" "" "" "" 100 {
-                        containerInstance coe               nomad_cluster,ifca_instance
-                        containerInstance resources         ifca_instance
-                        containerInstance model_container   ifca_instance
-                        containerInstance dev               ifca_instance
-                        containerInstance federated_server  ifca_instance,federated
-                    }
+        /*             deploymentNode "vm*.cloud.ifca.es" "" "" "" 100 { */
+        /*                 containerInstance coe               nomad_cluster,ifca_instance */
+        /*                 containerInstance resources         ifca_instance */
+        /*                 containerInstance model_container   ifca_instance */
+        /*                 containerInstance dev               ifca_instance */
+        /*                 containerInstance federated_server  ifca_instance,federated */
+        /*             } */
 
-                }
-            }
+        /*         } */
+        /*     } */
             
-            deploymentNode "IISAS" {
-                deploymentNode "cloud.ui.sav.sk"  {
-                    deploymentNode "vm*" "" "" "" 10 {
-                        iisas_coe = containerInstance coe                   iisas_instance,nomad_cluster
-                        iisas_resources = containerInstance resources       iisas_instance
-                        iisas_container = containerInstance model_container iisas_instance,federated
-                        iisas_dev = containerInstance dev                   iisas_instance
-                    }
-                }
-            }
+        /*     deploymentNode "IISAS" { */
+        /*         deploymentNode "cloud.ui.sav.sk"  { */
+        /*             deploymentNode "vm*" "" "" "" 10 { */
+        /*                 iisas_coe = containerInstance coe                   iisas_instance,nomad_cluster */
+        /*                 iisas_resources = containerInstance resources       iisas_instance */
+        /*                 iisas_container = containerInstance model_container iisas_instance,federated */
+        /*                 iisas_dev = containerInstance dev                   iisas_instance */
+        /*             } */
+        /*         } */
+        /*     } */
 
-            deploymentNode "INFN-CNAF" {
-                deploymentNode "cloud.cnaf.infn.it"  {
-                    deploymentNode "iam.ai4eosc.eu" "" "nginx" {
-                        containerInstance iam   global
-                    }
-                    /* deploymentNode "vm*" "" "" "" 10 { */
-                    /*     cnaf_coe = containerInstance coe                    cnaf_instance */
-                    /*     cnaf_resources = containerInstance resources        cnaf_instance */
-                    /*     cnaf_container = containerInstance model_container  cnaf_instance */
-                    /*     cnaf_dev = containerInstance dev                    cnaf_instance */
-                    /* } */
-                    deploymentNode "AI4 Control pane" "" "Kubernetes" {
-                        cnaf_eapi = containerInstance exchange_api   cnaf_instance
-                        cnaf_edb = containerInstance exchange_db     cnaf_instance
-                        cnaf_tapi = containerInstance training_api   cnaf_instance
-                        cnaf_tdb = containerInstance training_db     cnaf_instance
+        /*     deploymentNode "INFN-CNAF" { */
+        /*         deploymentNode "cloud.cnaf.infn.it"  { */
+        /*             deploymentNode "iam.ai4eosc.eu" "" "nginx" { */
+        /*                 containerInstance iam   global */
+        /*             } */
+        /*             /1* deploymentNode "vm*" "" "" "" 10 { *1/ */
+        /*             /1*     cnaf_coe = containerInstance coe                    cnaf_instance *1/ */
+        /*             /1*     cnaf_resources = containerInstance resources        cnaf_instance *1/ */
+        /*             /1*     cnaf_container = containerInstance model_container  cnaf_instance *1/ */
+        /*             /1*     cnaf_dev = containerInstance dev                    cnaf_instance *1/ */
+        /*             /1* } *1/ */
+        /*             deploymentNode "AI4 Control pane" "" "Kubernetes" { */
+        /*                 cnaf_eapi = containerInstance exchange_api   cnaf_instance */
+        /*                 cnaf_edb = containerInstance exchange_db     cnaf_instance */
+        /*                 cnaf_tapi = containerInstance training_api   cnaf_instance */
+        /*                 cnaf_tdb = containerInstance training_db     cnaf_instance */
 
-                        cnaf_ci = containerInstance ci               cnaf_instance
-                        cnaf_cd = containerInstance cd               cnaf_instance
-                    }
-                }
-            }
+        /*                 cnaf_ci = containerInstance ci               cnaf_instance */
+        /*                 cnaf_cd = containerInstance cd               cnaf_instance */
+        /*             } */
+        /*         } */
+        /*     } */
             
-            deploymentNode "INFN-BARI" {
-                deploymentNode "cloud.ba.infn.it"  {
-                    deploymentNode "vm*" "" "" "" 10 {
-                        bari_coe = containerInstance coe                    bari_instance,nomad_cluster
-                        bari_resources = containerInstance resources        bari_instance
-                        bari_container = containerInstance model_container  bari_instance,federated
-                        bari_dev = containerInstance dev                    bari_instance
-                    }
-                    deploymentNode "paas.ai4eosc.eu" "" "nginx" {
-                        containerInstance paas_dashboard                global
-                        containerInstance paas_orchestrator             global
-                        containerInstance im
-                        containerInstance federated_service_catalogue   global
-                        containerInstance monitoring_system             global
-                        containerInstance cloud_provider_ranker         global
-                    }
-                }
-            }
+        /*     deploymentNode "INFN-BARI" { */
+        /*         deploymentNode "cloud.ba.infn.it"  { */
+        /*             deploymentNode "vm*" "" "" "" 10 { */
+        /*                 bari_coe = containerInstance coe                    bari_instance,nomad_cluster */
+        /*                 bari_resources = containerInstance resources        bari_instance */
+        /*                 bari_container = containerInstance model_container  bari_instance,federated */
+        /*                 bari_dev = containerInstance dev                    bari_instance */
+        /*             } */
+        /*             deploymentNode "paas.ai4eosc.eu" "" "nginx" { */
+        /*                 containerInstance paas_dashboard                global */
+        /*                 containerInstance paas_orchestrator             global */
+        /*                 containerInstance im */
+        /*                 containerInstance federated_service_catalogue   global */
+        /*                 containerInstance monitoring_system             global */
+        /*                 containerInstance cloud_provider_ranker         global */
+        /*             } */
+        /*         } */
+        /*     } */
 
-            deploymentNode "External resources" {
-                containerInstance external_container federated
-            }
-        }
+        /*     deploymentNode "External resources" { */
+        /*         containerInstance external_container federated */
+        /*     } */
+        /* } */
     }
 
     views {
