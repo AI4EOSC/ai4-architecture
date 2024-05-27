@@ -15,18 +15,6 @@ workspace extends ../eosc-landscape.dsl {
 
         ai4eosc = group "AI4EOSC" {
             ai4eosc_platform = softwareSystem "AI4EOSC Platform" "Allows EOSC users to develop, build and share AI models." {
-                exchange = group "AI4EOSC Exchange" {
-                    exchange_api =  container "Exchange API" "Provides exchange functionality via HTTPS/JSON API."
-    
-                    data_repo = container "Model and data repository" "Track AI models and data sets." "dvc" "repository"
-                    model_repo = container "Model code repository" "Track AI model code." "Git" "repository"
-                    container_repo = container "Container registry" "Store container images." "DockerHub" "repository" 
-    
-                    exchange_db = container "Exchange database" "Stores AI4EOSC exchange registered models." "" "database"
-
-                    ci = container "Continuous Integration" "Ensures quality aspects are fulfilled (code checks, unit checks, etc.)."
-                    cd = container "Continuous Delivery & Deployment" "Ensures delivery and deployment of new assets."
-                }
                 identity = group "Identity and user management" {
 
                     iam = container "Identity and Access Management" "Provides user and group management." "INDIGO IAM"
@@ -34,21 +22,31 @@ workspace extends ../eosc-landscape.dsl {
                     order = container "Order management system" "Manages orders coming both from the EOSC portal or for new users." ""
 
                 }
+
+                exchange_api =  container "Exchange API" "Provides exchange functionality via HTTPS/JSON API."
+
+                data_repo = container "Model and data repository" "Track AI models and data sets." "dvc" "repository"
+                model_repo = container "Model code repository" "Track AI model code." "Git" "repository"
+                container_repo = container "Container registry" "Store container images." "DockerHub" "repository" 
+
+                exchange_db = container "Exchange database" "Stores AI4EOSC exchange registered models." "" "database"
+
+                ci = container "Continuous Integration" "Ensures quality aspects are fulfilled (code checks, unit checks, etc.)."
+                cd = container "Continuous Delivery & Deployment" "Ensures delivery and deployment of new assets."
                 
                 dashboard = container "AI4EOSC dashboard" "Provides access to existing modules (anonymous), experiment and training definition (logged users)." "Angular" "dashboard"
 
-                training = group "AI4EOSC training" {
-                    training_api = container "Training API" "Provides training creation and monitoring functionality via a JSON/HTTPS API." "FastAPI + python-nomad"
+                training_api = container "Training API" "Provides training creation and monitoring functionality via a JSON/HTTPS API." "FastAPI + python-nomad"
 
-                    training_db = container "Training database" "Stores AI4EOSC training requests." "" "database"
-    
-                    dev = container "Interactive development Environment" "An interactive development environment with access to resources and limited execution time." "Jupyter"
-    
-                    coe = container "Workload Management System" "Manages and schedules the execution of compute requests." "Hashicorp Nomad"
-    
-                    resources = container "Compute client" "Executes user workloads." "Hashicorp Nomad"
+                training_db = container "Training database" "Stores AI4EOSC training requests." "" "database"
 
-                    federated_server = container "Federated learning server" "Agregates federated client updates" "flower.io"
+                dev = container "Interactive development Environment" "An interactive development environment with access to resources and limited execution time." "Jupyter"
+
+                coe = container "Workload Management System" "Manages and schedules the execution of compute requests." "Hashicorp Nomad"
+
+                resources = container "Compute client" "Executes user workloads." "Hashicorp Nomad"
+
+                federated_server = container "Federated learning server" "Agregates federated client updates" "flower.io"
 
                 model_container = container "Model container" "Encapsulates user code." "Docker" {
                     api = component "API" "" "DEEPaaS API"
@@ -61,7 +59,6 @@ workspace extends ../eosc-landscape.dsl {
                     user_model -> framework
                 }
 
-                }
             
                 # This is a special case, added here, but ignored in the view, just to
                 # be included in the dynamic view
