@@ -23,7 +23,8 @@ workspace extends ../eosc-landscape.dsl {
 
                 }
 
-                exchange_api =  container "Exchange API" "Provides exchange functionality via HTTPS/JSON API."
+                /* platform_api = container "Exchange API" "Provides exchange functionality via HTTPS/JSON API." */
+                platform_api = container "AI4 Platform API" "Provides marketplace browseing, training creation and monitoring functionality via a JSON/HTTPS API." "FastAPI + python-nomad"
 
                 data_repo = container "Model and data repository" "Track AI models and data sets." "dvc" "repository"
                 model_repo = container "Model code repository" "Track AI model code." "Git" "repository"
@@ -35,8 +36,6 @@ workspace extends ../eosc-landscape.dsl {
                 cd = container "Continuous Delivery & Deployment" "Ensures delivery and deployment of new assets."
                 
                 dashboard = container "AI4EOSC dashboard" "Provides access to existing modules (anonymous), experiment and training definition (logged users)." "Angular" "dashboard"
-
-                training_api = container "Training API" "Provides training creation and monitoring functionality via a JSON/HTTPS API." "FastAPI + python-nomad"
 
                 training_db = container "Training database" "Stores AI4EOSC training requests." "" "database"
 
@@ -148,11 +147,11 @@ workspace extends ../eosc-landscape.dsl {
         # Training 
         eosc_user -> dev "Access interactive environments"
 
-        dashboard -> training_api "Define new trainings, check training status, etc. "
+        dashboard -> platform_api "Reads available models, defines new trainings, checks training status, etc. "
 
-        training_api -> coe "Create training job, interactive environment using API calls to"
-        training_api -> training_db "Stores training data in"
-        training_api -> model_container "Queries training status"
+        platform_api -> coe "Create training job, interactive environment using API calls to"
+        platform_api -> training_db "Stores training data in"
+        platform_api -> model_container "Queries training status"
 
         coe -> resources "Create new task/workload"
 
@@ -161,12 +160,11 @@ workspace extends ../eosc-landscape.dsl {
 
         coe -> federated_server "Creates"
         model_container -> federated_server "Gets updated model, sends new weights"
-        training_api -> federated_server "Manages federated learning rounds"
+        platform_api -> federated_server "Manages federated learning rounds"
 
         /* eosc_user -> model_container "Trigger new training jobs" */
 
-        exchange_api -> iam "Authenticates users with"
-        training_api -> iam "Authenticates users with"
+        platform_api -> iam "Authenticates users with"
         dashboard -> iam "Authenticates users with" 
             
         dev -> storage "Read data from"
@@ -180,12 +178,10 @@ workspace extends ../eosc-landscape.dsl {
         
 
         # AI4EOSC exchange
-        /* eosc_user -> exchange_api "Register new model" */
-        dashboard -> exchange_api "Reads available models from"
 
-        exchange_api -> data_repo "Reads from"
-        exchange_api -> model_repo "Reads from"
-        exchange_api -> container_repo "Reads from"
+        platform_api -> data_repo "Reads from"
+        platform_api -> model_repo "Reads from"
+        platform_api -> container_repo "Reads from"
 
         eosc_user -> data_repo "Registers data"
         eosc_user -> model_repo "Registers model"
@@ -201,13 +197,13 @@ workspace extends ../eosc-landscape.dsl {
 
         data_repo -> storage "Refers to data stored in"
 
-        exchange_api -> exchange_db "Reads from writes to"
+        platform_api -> exchange_db "Reads from writes to"
 
         model_container -> container_repo "Stored in"
 
         orchestration -> resources "Provisions"
 
-        mlops -> training_api "Trigger model update/retraining"
+        mlops -> platform_api "Trigger model update/retraining"
         mlops -> data_repo "Monitor new data available, update model after training"
         mlops -> cd "Trigger model update"
 
@@ -227,15 +223,15 @@ workspace extends ../eosc-landscape.dsl {
         /* /1* data_repo -> data_validation "Sends data for validation" *1/ */
         data_validation -> drift_detection "Sends validated data for monitoring"
         drift_detection -> feedback_loop "Triggers model retraining"
-        feedback_loop -> training_api "Starts model retraining"
+        feedback_loop -> platform_api "Starts model retraining"
         feedback_loop -> deployment_workflow "Notifies of model retraining"
 
         drift_detection -> oscar "Monitor deployed model"
-        /* training_api -> deployment_workflow "Deploys new model" */
+        /* platform_api -> deployment_workflow "Deploys new model" */
         /* deployment_workflow -> oscar "Updates model in production" */
 
-        /* training_api -> drift_detection "Receives model performance metrics" */
-        /* data_validation -> training_api "Sends validated data for monitoring" */
+        /* platform_api -> drift_detection "Receives model performance metrics" */
+        /* data_validation -> platform_api "Sends validated data for monitoring" */
   
         #     model_monitor -> dashboard "Monitors model performance"
         #     dashboard -> model_monitor "Receives performance metrics"
@@ -309,9 +305,9 @@ workspace extends ../eosc-landscape.dsl {
         /*             } */
                     
         /*             deploymentNode "AI4 Control pane" "" "Kubernetes" { */
-        /*                 containerInstance exchange_api global */
+        /*                 containerInstance platform_api global */
         /*                 containerInstance exchange_db  global */
-        /*                 containerInstance training_api global,nomad_cluster */
+        /*                 containerInstance platform_api global,nomad_cluster */
         /*                 containerInstance training_db  global */
 
         /*                 containerInstance ci           global */
@@ -352,9 +348,9 @@ workspace extends ../eosc-landscape.dsl {
         /*             /1*     cnaf_dev = containerInstance dev                    cnaf_instance *1/ */
         /*             /1* } *1/ */
         /*             deploymentNode "AI4 Control pane" "" "Kubernetes" { */
-        /*                 cnaf_eapi = containerInstance exchange_api   cnaf_instance */
+        /*                 cnaf_eapi = containerInstance platform_api   cnaf_instance */
         /*                 cnaf_edb = containerInstance exchange_db     cnaf_instance */
-        /*                 cnaf_tapi = containerInstance training_api   cnaf_instance */
+        /*                 cnaf_tapi = containerInstance platform_api   cnaf_instance */
         /*                 cnaf_tdb = containerInstance training_db     cnaf_instance */
 
         /*                 cnaf_ci = containerInstance ci               cnaf_instance */
@@ -408,9 +404,9 @@ workspace extends ../eosc-landscape.dsl {
 
             exclude "ci -> data_validation"
             exclude "data_repo -> data_validation"
-            exclude "training_api -> deployment_workflow" 
+            exclude "platform_api -> deployment_workflow" 
             exclude "deployment_workflow -> oscar"
-            exclude "data_validation -> training_api"
+            exclude "data_validation -> platform_api"
         }
 
         systemContext orchestration orchestration_view {
@@ -447,12 +443,12 @@ workspace extends ../eosc-landscape.dsl {
             exclude "data_repo -> data_validation"
             exclude "data_repo -> mlops"
 
-            exclude "training_api -> deployment_workflow" 
-            exclude "training_api -> mlops"
+            exclude "platform_api -> deployment_workflow" 
+            exclude "platform_api -> mlops"
 
             exclude "deployment_workflow -> oscar"
 
-            exclude "data_validation -> training_api"
+            exclude "data_validation -> platform_api"
 
             exclude "model_container -> oscar"
             exclude "model_container -> deepaas"
@@ -476,8 +472,8 @@ workspace extends ../eosc-landscape.dsl {
         /*     eosc_user -> dashboard "Requests a development environment" */
         /*     dashboard -> iam "Checks user credentials" */
         /*     iam -> dashboard "Returns access token" */
-        /*     dashboard -> training_api "Requests new development enviroment with user access token" */
-        /*     training_api -> coe "Register new Nomad job, using robot account" */
+        /*     dashboard -> platform_api "Requests new development enviroment with user access token" */
+        /*     platform_api -> coe "Register new Nomad job, using robot account" */
         /*     coe -> resources "Submit Nomad job to Nomad agent on provisioned resources" */
         /*     resources -> dev "Executes Development Environment as container" */
 
@@ -487,9 +483,9 @@ workspace extends ../eosc-landscape.dsl {
         /*     eosc_user -> data_repo */
         /*     eosc_user -> model_repo */
         /*     eosc_user -> container_repo */
-        /*     dashboard -> exchange_api "Registers new model" */
-        /*     /1* dashboard -> exchange_api *1/ */
-        /*     /1* exchange_api -> dashboard "Provides list of models" *1/ */
+        /*     dashboard -> platform_api "Registers new model" */
+        /*     /1* dashboard -> platform_api *1/ */
+        /*     /1* platform_api -> dashboard "Provides list of models" *1/ */
         /* } */
         
         /* dynamic ai4eosc_platform manual_retrain_view { */
@@ -498,8 +494,8 @@ workspace extends ../eosc-landscape.dsl {
         /*     eosc_user -> dashboard "Requests available modules" */
         /*     dashboard -> iam "Checks user credentials" */
         /*     iam -> dashboard "Returns access token" */
-        /*     dashboard -> training_api "Requests new training job" */
-        /*     training_api -> coe "Register new Nomad job, using robot account" */
+        /*     dashboard -> platform_api "Requests new training job" */
+        /*     platform_api -> coe "Register new Nomad job, using robot account" */
         /*     coe -> resources "Submit Nomad job to Nomad agent on provisioned resources" */
         /*     resources -> model_container "Executes training job as container" */
 
@@ -514,12 +510,12 @@ workspace extends ../eosc-landscape.dsl {
         /*     dashboard -> iam "Checks user credentials" */
         /*     iam -> dashboard "Returns access token" */
 
-        /*     dashboard -> training_api "Requests new federated learning job" */
-        /*     training_api -> coe "Register new federated learning Nomad job, using robot account" */
+        /*     dashboard -> platform_api "Requests new federated learning job" */
+        /*     platform_api -> coe "Register new federated learning Nomad job, using robot account" */
         /*     coe -> federated_server "Deploy federated learning server" */
-        /*     training_api -> federated_server "Get federated learning server credentials to interact with it" */
+        /*     platform_api -> federated_server "Get federated learning server credentials to interact with it" */
 
-        /*     training_api -> coe "Register new training Nomad job, using robot account" */
+        /*     platform_api -> coe "Register new training Nomad job, using robot account" */
         /*     coe -> resources "Submit Nomad job to Nomad agent on provisioned resources" */
         /*     resources -> model_container "Executes training job as container" */
 
@@ -529,7 +525,7 @@ workspace extends ../eosc-landscape.dsl {
         /*     external_container -> federated_server "Get updated model, using server credentials" */
         /*     external_container -> federated_server "Send updates to server, using server credentials" */
 
-        /*     training_api -> federated_server "Query federated learning status" */
+        /*     platform_api -> federated_server "Query federated learning status" */
 
         /*     storage -> model_container "Read training data" */
         /*     model_container -> storage "Write training results" */
@@ -543,8 +539,8 @@ workspace extends ../eosc-landscape.dsl {
         /* /1*     /2* eosc_user -> dashboard "Requests available modules" *2/ *1/ */
         /* /1*     /2* dashboard -> iam "Checks user credentials" *2/ *1/ */
         /* /1*     /2* iam -> dashboard "Returns access token" *2/ *1/ */
-        /* /1*     /2* dashboard -> training_api "Requests new training job" *2/ *1/ */
-        /* /1*     /2* training_api -> coe "Register new Nomad job, using robot account" *2/ *1/ */
+        /* /1*     /2* dashboard -> platform_api "Requests new training job" *2/ *1/ */
+        /* /1*     /2* platform_api -> coe "Register new Nomad job, using robot account" *2/ *1/ */
         /* /1*     /2* coe -> resources "Submit Nomad job to Nomad agent on provisioned resources" *2/ *1/ */
         /* /1*     /2* resources -> model_container "Executes training job as container" *2/ *1/ */
 
@@ -556,8 +552,8 @@ workspace extends ../eosc-landscape.dsl {
         /* /1*     /2* data_preproc -> data_repo "Retrieves new data" *2/ *1/ */
         /* /1*     #data_repo -> data_preproc "Retrieves data" *1/ */
         /* /1*     /2* data_preproc -> dev "Preprocesses data" *2/ *1/ */
-        /* /1*     #dev -> training_api "Starts training job" *1/ */
-        /* /1*     #training_api -> drift_detection "Receives model performance metrics" *1/ */
+        /* /1*     #dev -> platform_api "Starts training job" *1/ */
+        /* /1*     #platform_api -> drift_detection "Receives model performance metrics" *1/ */
      
 
         /* /1*     # *1/ */
@@ -573,9 +569,9 @@ workspace extends ../eosc-landscape.dsl {
         /* /1*     /2* eosc_user -> data_repo *2/ *1/ */
         /* /1*     /2* eosc_user -> model_repo *2/ *1/ */
         /* /1*     /2* eosc_user -> container_repo *2/ *1/ */
-        /* /1*     /2* dashboard -> exchange_api "Registers new model" *2/ *1/ */
-        /* /1*     /2* dashboard -> exchange_api *2/ *1/ */
-        /* /1*     /2* exchange_api -> dashboard "Provides list of models" *2/ *1/ */
+        /* /1*     /2* dashboard -> platform_api "Registers new model" *2/ *1/ */
+        /* /1*     /2* dashboard -> platform_api *2/ *1/ */
+        /* /1*     /2* platform_api -> dashboard "Provides list of models" *2/ *1/ */
         /* /1* } *1/ */
         
         /* dynamic deepaas oscar_dynamic { */
@@ -597,11 +593,11 @@ workspace extends ../eosc-landscape.dsl {
  
         /*     /1* data_preproc -> data_repo "Read data updates from" *1/ */
         /*     /1* data_preproc -> data_validation "Sends data for validation" *1/ */
-        /*     /1* data_validation -> training_api "Sends validated data for monitoring" *1/ */
-        /*     /1* training_api -> drift_detection "Detects drift in model performance" *1/ */
+        /*     /1* data_validation -> platform_api "Sends validated data for monitoring" *1/ */
+        /*     /1* platform_api -> drift_detection "Detects drift in model performance" *1/ */
         /*     /1* drift_detection -> feedback_loop "Triggers model retraining" *1/ */
-        /*     /1* feedback_loop -> training_api "Starts model retraining" *1/ */
-        /*     /1* training_api -> deployment_workflow "Deploys new model" *1/ */
+        /*     /1* feedback_loop -> platform_api "Starts model retraining" *1/ */
+        /*     /1* platform_api -> deployment_workflow "Deploys new model" *1/ */
         /*     /1* deployment_workflow -> oscar "Updates model in production" *1/ */
         /* } */ 
         
