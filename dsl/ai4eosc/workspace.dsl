@@ -13,7 +13,7 @@ workspace extends ../eosc-landscape.dsl {
 
         paas_ops = person "PaaS Operator" "Resource provider operator or platform operator managing the PaaS deployments."
 
-        ai4eosc = enterprise "AI4EOSC" {
+        ai4eosc = group "AI4EOSC" {
             ai4eosc_platform = softwareSystem "AI4EOSC Platform" "Allows EOSC users to develop, build and share AI models." {
                 exchange = group "AI4EOSC Exchange" {
                     exchange_api =  container "Exchange API" "Provides exchange functionality via HTTPS/JSON API."
@@ -395,15 +395,10 @@ workspace extends ../eosc-landscape.dsl {
     views {
         theme Default
 
-        terminology {
-            enterprise "Project"
-        }
-
         branding {
             /* logo "logo.png" */
             font "Roboto" "http://fonts.googleapis.com/css?family=Roboto"
         }
-
         
         systemLandscape system_view {
             include *
