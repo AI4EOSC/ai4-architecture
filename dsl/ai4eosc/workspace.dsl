@@ -399,15 +399,15 @@ workspace extends ../eosc-landscape.dsl {
 
         systemContext ai4eosc_platform ai4eosc_view {
             include *
-            /* exclude "eosc_user -> data_repo" */
-            exclude "eosc_user -> model_repo"
-            exclude "eosc_user -> container_repo"
+            /* /1* exclude "eosc_user -> data_repo" *1/ */
+            /* exclude "eosc_user -> model_repo" */
+            /* exclude "eosc_user -> container_repo" */
 
-            /* exclude "ci -> data_validation" */
-            /* exclude "data_repo -> data_validation" */
-            exclude "platform_api -> deployment_workflow" 
-            exclude "deployment_workflow -> oscar"
-            exclude "data_validation -> platform_api"
+            /* /1* exclude "ci -> data_validation" *1/ */
+            /* /1* exclude "data_repo -> data_validation" *1/ */
+            /* exclude "platform_api -> deployment_workflow" */ 
+            /* exclude "deployment_workflow -> oscar" */
+            /* exclude "data_validation -> platform_api" */
         }
 
         /* systemContext orchestration orchestration_view { */
@@ -464,14 +464,14 @@ workspace extends ../eosc-landscape.dsl {
             exclude "deepaas -> user_task"
         }
         
-        container mlops mlops_container_view {
-            include *
-        }
+        /* container mlops mlops_container_view { */
+        /*     include * */
+        /* } */
 
-        container orchestration orchestration_container_view {
-            include *
-            include cloud_providers
-        }
+        /* container orchestration orchestration_container_view { */
+        /*     include * */
+        /*     include cloud_providers */
+        /* } */
 
         # Dynamic views
 
