@@ -257,7 +257,6 @@ workspace extends ../eosc-landscape.dsl {
         /* paas_orchestrator -> iam "Authenticates users with" */
         /* im -> iam "AuthN/Z" */
 
-        paas_orchestrator -> resources "Provisions resources for"
         cloud_providers -> resources "offer"
         cloud_providers -> federated_service_catalogue "register/update service & resources metadata"
         cloud_providers -> monitoring_system "push/pull metrics"
