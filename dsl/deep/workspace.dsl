@@ -7,7 +7,7 @@ workspace extends ../eosc-landscape.dsl {
 
         user = person "AI Scientist" "EOSC user willing to use an AI platform to develop an AI application."
 
-        deep = enterprise "DEEP-Hybrid-DataCloud" {
+        deep = group "DEEP-Hybrid-DataCloud" {
             catalog = softwareSystem "DEEP Open Catatalog" "Allows users to store and retrieve AI models and related assets." {
                 marketplace = container "DEEP marketplace" "" "Pelican" "dashboard"
 
