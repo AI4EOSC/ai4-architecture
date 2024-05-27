@@ -234,7 +234,7 @@ workspace extends ../eosc-landscape.dsl {
         paas_orchestrator -> federated_service_catalogue "Get information"
         monitoring_system -> federated_service_catalogue "Send aggregated metrics"
         paas_orchestrator -> cloud_provider_ranker "Get matching offers"
-        iam -> aai "Federate users from" "OpenID Connect"
+        /* iam -> aai "Federate users from" "OpenID Connect" */
 
         /* paas_orchestrator -> iam "Authenticates users with" */
         /* im -> iam "AuthN/Z" */
