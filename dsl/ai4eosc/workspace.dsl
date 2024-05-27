@@ -474,125 +474,125 @@ workspace extends ../eosc-landscape.dsl {
 
         # Dynamic views
 
-        dynamic ai4eosc_platform develop_view {
-            title "[Dynamic view] Develop and register a model"
-            eosc_user -> dashboard "Requests a development environment"
-            dashboard -> iam "Checks user credentials"
-            iam -> dashboard "Returns access token"
-            dashboard -> training_api "Requests new development enviroment with user access token"
-            training_api -> coe "Register new Nomad job, using robot account"
-            coe -> resources "Submit Nomad job to Nomad agent on provisioned resources"
-            resources -> dev "Executes Development Environment as container"
+        /* dynamic ai4eosc_platform develop_view { */
+        /*     title "[Dynamic view] Develop and register a model" */
+        /*     eosc_user -> dashboard "Requests a development environment" */
+        /*     dashboard -> iam "Checks user credentials" */
+        /*     iam -> dashboard "Returns access token" */
+        /*     dashboard -> training_api "Requests new development enviroment with user access token" */
+        /*     training_api -> coe "Register new Nomad job, using robot account" */
+        /*     coe -> resources "Submit Nomad job to Nomad agent on provisioned resources" */
+        /*     resources -> dev "Executes Development Environment as container" */
 
-            dev -> storage "Read and store data from"
+        /*     dev -> storage "Read and store data from" */
 
-            eosc_user -> dev "Develops new model"
-            eosc_user -> data_repo
-            eosc_user -> model_repo
-            eosc_user -> container_repo
-            dashboard -> exchange_api "Registers new model"
-            /* dashboard -> exchange_api */
-            /* exchange_api -> dashboard "Provides list of models" */
-        }
+        /*     eosc_user -> dev "Develops new model" */
+        /*     eosc_user -> data_repo */
+        /*     eosc_user -> model_repo */
+        /*     eosc_user -> container_repo */
+        /*     dashboard -> exchange_api "Registers new model" */
+        /*     /1* dashboard -> exchange_api *1/ */
+        /*     /1* exchange_api -> dashboard "Provides list of models" *1/ */
+        /* } */
         
-        dynamic ai4eosc_platform manual_retrain_view {
-            title "[Dynamic view] Manually retrain a model"
+        /* dynamic ai4eosc_platform manual_retrain_view { */
+        /*     title "[Dynamic view] Manually retrain a model" */
 
-            eosc_user -> dashboard "Requests available modules"
-            dashboard -> iam "Checks user credentials"
-            iam -> dashboard "Returns access token"
-            dashboard -> training_api "Requests new training job"
-            training_api -> coe "Register new Nomad job, using robot account"
-            coe -> resources "Submit Nomad job to Nomad agent on provisioned resources"
-            resources -> model_container "Executes training job as container"
+        /*     eosc_user -> dashboard "Requests available modules" */
+        /*     dashboard -> iam "Checks user credentials" */
+        /*     iam -> dashboard "Returns access token" */
+        /*     dashboard -> training_api "Requests new training job" */
+        /*     training_api -> coe "Register new Nomad job, using robot account" */
+        /*     coe -> resources "Submit Nomad job to Nomad agent on provisioned resources" */
+        /*     resources -> model_container "Executes training job as container" */
 
-            storage -> model_container "Read training data"
-            model_container -> storage "Write training results"
-        }
+        /*     storage -> model_container "Read training data" */
+        /*     model_container -> storage "Write training results" */
+        /* } */
 
-        dynamic ai4eosc_platform federated_train_view {
-            title "[Dynamic view] Federated learning scenario"
+        /* dynamic ai4eosc_platform federated_train_view { */
+        /*     title "[Dynamic view] Federated learning scenario" */
 
-            eosc_user -> dashboard "Requests available modules"
-            dashboard -> iam "Checks user credentials"
-            iam -> dashboard "Returns access token"
+        /*     eosc_user -> dashboard "Requests available modules" */
+        /*     dashboard -> iam "Checks user credentials" */
+        /*     iam -> dashboard "Returns access token" */
 
-            dashboard -> training_api "Requests new federated learning job"
-            training_api -> coe "Register new federated learning Nomad job, using robot account"
-            coe -> federated_server "Deploy federated learning server"
-            training_api -> federated_server "Get federated learning server credentials to interact with it"
+        /*     dashboard -> training_api "Requests new federated learning job" */
+        /*     training_api -> coe "Register new federated learning Nomad job, using robot account" */
+        /*     coe -> federated_server "Deploy federated learning server" */
+        /*     training_api -> federated_server "Get federated learning server credentials to interact with it" */
 
-            training_api -> coe "Register new training Nomad job, using robot account"
-            coe -> resources "Submit Nomad job to Nomad agent on provisioned resources"
-            resources -> model_container "Executes training job as container"
+        /*     training_api -> coe "Register new training Nomad job, using robot account" */
+        /*     coe -> resources "Submit Nomad job to Nomad agent on provisioned resources" */
+        /*     resources -> model_container "Executes training job as container" */
 
-            model_container -> federated_server "Get updated model, using server credentials"
-            model_container -> federated_server "Send updates to server, using server credentials"
+        /*     model_container -> federated_server "Get updated model, using server credentials" */
+        /*     model_container -> federated_server "Send updates to server, using server credentials" */
             
-            external_container -> federated_server "Get updated model, using server credentials"
-            external_container -> federated_server "Send updates to server, using server credentials"
+        /*     external_container -> federated_server "Get updated model, using server credentials" */
+        /*     external_container -> federated_server "Send updates to server, using server credentials" */
 
-            training_api -> federated_server "Query federated learning status"
+        /*     training_api -> federated_server "Query federated learning status" */
 
-            storage -> model_container "Read training data"
-            model_container -> storage "Write training results"
-        }
+        /*     storage -> model_container "Read training data" */
+        /*     model_container -> storage "Write training results" */
+        /* } */
 
-        /* dynamic ai4eosc_platform automatic_retrain_view { */
-        /*     title "[Dynamic view] Automatically retrain a model through MLOps" */
+        /* /1* dynamic ai4eosc_platform automatic_retrain_view { *1/ */
+        /* /1*     title "[Dynamic view] Automatically retrain a model through MLOps" *1/ */
 
-        /*     /1* data_repo -> data_preproc "Notifies of new data" *1/ */
-        /*     /1* data_preproc -> data_validation "foo" *1/ */
-        /*     /1* eosc_user -> dashboard "Requests available modules" *1/ */
-        /*     /1* dashboard -> iam "Checks user credentials" *1/ */
-        /*     /1* iam -> dashboard "Returns access token" *1/ */
-        /*     /1* dashboard -> training_api "Requests new training job" *1/ */
-        /*     /1* training_api -> coe "Register new Nomad job, using robot account" *1/ */
-        /*     /1* coe -> resources "Submit Nomad job to Nomad agent on provisioned resources" *1/ */
-        /*     /1* resources -> model_container "Executes training job as container" *1/ */
+        /* /1*     /2* data_repo -> data_preproc "Notifies of new data" *2/ *1/ */
+        /* /1*     /2* data_preproc -> data_validation "foo" *2/ *1/ */
+        /* /1*     /2* eosc_user -> dashboard "Requests available modules" *2/ *1/ */
+        /* /1*     /2* dashboard -> iam "Checks user credentials" *2/ *1/ */
+        /* /1*     /2* iam -> dashboard "Returns access token" *2/ *1/ */
+        /* /1*     /2* dashboard -> training_api "Requests new training job" *2/ *1/ */
+        /* /1*     /2* training_api -> coe "Register new Nomad job, using robot account" *2/ *1/ */
+        /* /1*     /2* coe -> resources "Submit Nomad job to Nomad agent on provisioned resources" *2/ *1/ */
+        /* /1*     /2* resources -> model_container "Executes training job as container" *2/ *1/ */
 
-        /*     /1* storage -> model_container "Read training data" *1/ */
-        /*     /1* model_container -> storage "Write training results" *1/ */
+        /* /1*     /2* storage -> model_container "Read training data" *2/ *1/ */
+        /* /1*     /2* model_container -> storage "Write training results" *2/ *1/ */
 
-        /*     #mlops --new data */
+        /* /1*     #mlops --new data *1/ */
             
-        /*     /1* data_preproc -> data_repo "Retrieves new data" *1/ */
-        /*     #data_repo -> data_preproc "Retrieves data" */
-        /*     /1* data_preproc -> dev "Preprocesses data" *1/ */
-        /*     #dev -> training_api "Starts training job" */
-        /*     #training_api -> drift_detection "Receives model performance metrics" */
+        /* /1*     /2* data_preproc -> data_repo "Retrieves new data" *2/ *1/ */
+        /* /1*     #data_repo -> data_preproc "Retrieves data" *1/ */
+        /* /1*     /2* data_preproc -> dev "Preprocesses data" *2/ *1/ */
+        /* /1*     #dev -> training_api "Starts training job" *1/ */
+        /* /1*     #training_api -> drift_detection "Receives model performance metrics" *1/ */
      
 
-        /*     # */
-        /*     /1* model_container -> container_repo "Push trained model to registry" *1/ */
-        /*     /1* model_container -> oscar "Loads model into inference service" *1/ */
-        /*     /1* oscar -> model_container "Receives recent prediction requests" *1/ */
+        /* /1*     # *1/ */
+        /* /1*     /2* model_container -> container_repo "Push trained model to registry" *2/ *1/ */
+        /* /1*     /2* model_container -> oscar "Loads model into inference service" *2/ *1/ */
+        /* /1*     /2* oscar -> model_container "Receives recent prediction requests" *2/ *1/ */
       
 
             
 
 
-        /*     /1* eosc_user -> dev "Develops new model" *1/ */
-        /*     /1* eosc_user -> data_repo *1/ */
-        /*     /1* eosc_user -> model_repo *1/ */
-        /*     /1* eosc_user -> container_repo *1/ */
-        /*     /1* dashboard -> exchange_api "Registers new model" *1/ */
-        /*     /1* dashboard -> exchange_api *1/ */
-        /*     /1* exchange_api -> dashboard "Provides list of models" *1/ */
-        /* } */
+        /* /1*     /2* eosc_user -> dev "Develops new model" *2/ *1/ */
+        /* /1*     /2* eosc_user -> data_repo *2/ *1/ */
+        /* /1*     /2* eosc_user -> model_repo *2/ *1/ */
+        /* /1*     /2* eosc_user -> container_repo *2/ *1/ */
+        /* /1*     /2* dashboard -> exchange_api "Registers new model" *2/ *1/ */
+        /* /1*     /2* dashboard -> exchange_api *2/ *1/ */
+        /* /1*     /2* exchange_api -> dashboard "Provides list of models" *2/ *1/ */
+        /* /1* } *1/ */
         
-        dynamic deepaas oscar_dynamic {
-            title "[Dynamic view] OSCAR dynamic view"
-            end_user -> OSCAR "Deploy service"
-            OSCAR -> MinIO "Buckets and folders will be created"
-            end_user -> MinIO "Store data for asynchronous inference (Option A)"
-            OSCAR -> Knative "Execute services synchronously (Option B)"
-            OSCAR -> Kubernetes "Manage services. Register jobs. Retrieve logs (Option A)"
-            Kubernetes -> FaaSS "Create jobs (Option A)"
-            Knative -> FaaSS  "Assign to function's pod(s). (Option B)"
-            FaaSS -> MinIO "Download input. Upload output."
-            FaaSS -> storage "Read/store data "
-        }
+        /* dynamic deepaas oscar_dynamic { */
+        /*     title "[Dynamic view] OSCAR dynamic view" */
+        /*     end_user -> OSCAR "Deploy service" */
+        /*     OSCAR -> MinIO "Buckets and folders will be created" */
+        /*     end_user -> MinIO "Store data for asynchronous inference (Option A)" */
+        /*     OSCAR -> Knative "Execute services synchronously (Option B)" */
+        /*     OSCAR -> Kubernetes "Manage services. Register jobs. Retrieve logs (Option A)" */
+        /*     Kubernetes -> FaaSS "Create jobs (Option A)" */
+        /*     Knative -> FaaSS  "Assign to function's pod(s). (Option B)" */
+        /*     FaaSS -> MinIO "Download input. Upload output." */
+        /*     FaaSS -> storage "Read/store data " */
+        /* } */
 
         /* #Another dynamic view */
         /* dynamic ai4eosc_platform model_data_drift { */
