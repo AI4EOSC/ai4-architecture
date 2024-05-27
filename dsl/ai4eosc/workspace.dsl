@@ -27,8 +27,6 @@ workspace extends ../eosc-landscape.dsl {
                 
                 dashboard = container "AI4EOSC dashboard" "Provides access to existing modules (anonymous), experiment and training definition (logged users)." "Angular" "dashboard"
 
-                training_db = container "Training database" "Stores AI4EOSC training requests." "" "database"
-
                 dev = container "Interactive development Environment" "An interactive development environment with access to resources and limited execution time." "Jupyter"
 
                 coe = container "Workload Management System" "Manages and schedules the execution of compute requests." "Hashicorp Nomad"
@@ -142,8 +140,7 @@ workspace extends ../eosc-landscape.dsl {
         dashboard -> platform_api "Reads available models, defines new trainings, checks training status, etc. "
 
         platform_api -> coe "Create training job, interactive environment using API calls to"
-        platform_api -> training_db "Stores training data in"
-        platform_api -> model_container "Queries training status"
+        /* platform_api -> model_container "Queries training status" */
 
         coe -> resources "Create new task/workload"
 
