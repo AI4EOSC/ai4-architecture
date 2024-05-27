@@ -608,10 +608,10 @@ workspace extends ../eosc-landscape.dsl {
         /*     /1* deployment_workflow -> oscar "Updates model in production" *1/ */
         /* } */ 
         
-        deployment * "Production" production_deployment {
-            include *
-            /* autoLayout */
-        }
+        /* deployment * "Production" production_deployment { */
+        /*     include * */
+        /*     /1* autoLayout *1/ */
+        /* } */
 
         styles {
             element "Container" {
