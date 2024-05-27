@@ -19,7 +19,7 @@ workspace extends ../eosc-landscape.dsl {
                 /* platform_api = container "Exchange API" "Provides exchange functionality via HTTPS/JSON API." */
                 platform_api = container "AI4 Platform API" "Provides marketplace browseing, training creation and monitoring functionality via a JSON/HTTPS API." "FastAPI + python-nomad"
 
-                data_repo = container "Model and data repository" "Track AI models and data sets." "dvc" "repository"
+                /* data_repo = container "Model and data repository" "Track AI models and data sets." "dvc" "repository" */
                 model_repo = container "Model code repository" "Track AI model code." "Git" "repository"
                 container_repo = container "Container registry" "Store container images." "DockerHub" "repository" 
 
@@ -164,31 +164,31 @@ workspace extends ../eosc-landscape.dsl {
 
         # AI4EOSC exchange
 
-        platform_api -> data_repo "Reads from"
+        /* platform_api -> data_repo "Reads from" */
         platform_api -> model_repo "Reads from"
         platform_api -> container_repo "Reads from"
 
-        eosc_user -> data_repo "Registers data"
+        /* eosc_user -> data_repo "Registers data" */
         eosc_user -> model_repo "Registers model"
         eosc_user -> container_repo "Registers container"
 
-        cicd -> data_repo "Ensures QA aspects"
+        /* cicd -> data_repo "Ensures QA aspects" */
         cicd -> model_repo "Ensures QA aspects"
         cicd -> container_repo "Creates containers"
         cicd -> deepaas "Deploys models on"
 
-        data_repo -> storage "Refers to data stored in"
+        /* data_repo -> storage "Refers to data stored in" */
 
         model_container -> container_repo "Stored in"
 
         orchestration -> resources "Provisions"
 
         mlops -> platform_api "Trigger model update/retraining"
-        mlops -> data_repo "Monitor new data available, update model after training"
+        /* mlops -> data_repo "Monitor new data available, update model after training" */
         mlops -> cicd "Trigger model update"
 
         /* # #MLOps --new data available */
-        data_preproc -> data_repo "Read datasets or new model updates from" 
+        /* data_preproc -> data_repo "Read datasets or new model updates from" */ 
         /* /1* ci -> data_validation "integrate validated data" *1/ */
 
         /* /1* model_container -> container_repo "Pulls trained model from registry" *1/ */
@@ -379,12 +379,12 @@ workspace extends ../eosc-landscape.dsl {
 
         systemContext ai4eosc_platform ai4eosc_view {
             include *
-            exclude "eosc_user -> data_repo"
+            /* exclude "eosc_user -> data_repo" */
             exclude "eosc_user -> model_repo"
             exclude "eosc_user -> container_repo"
 
             /* exclude "ci -> data_validation" */
-            exclude "data_repo -> data_validation"
+            /* exclude "data_repo -> data_validation" */
             exclude "platform_api -> deployment_workflow" 
             exclude "deployment_workflow -> oscar"
             exclude "data_validation -> platform_api"
@@ -414,15 +414,15 @@ workspace extends ../eosc-landscape.dsl {
             exclude "external_container"
             exclude "external_container -> federated_server"
 
-            exclude "eosc_user -> data_repo"
+            /* exclude "eosc_user -> data_repo" */
             exclude "eosc_user -> model_repo"
             exclude "eosc_user -> container_repo"
 
             /* exclude "ci -> data_validation" */
             /* exclude "ci -> mlops" */
 
-            exclude "data_repo -> data_validation"
-            exclude "data_repo -> mlops"
+            /* exclude "data_repo -> data_validation" */
+            /* exclude "data_repo -> mlops" */
 
             exclude "platform_api -> deployment_workflow" 
             exclude "platform_api -> mlops"
