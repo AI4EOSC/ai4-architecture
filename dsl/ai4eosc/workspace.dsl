@@ -23,10 +23,7 @@ workspace extends ../eosc-landscape.dsl {
                 model_repo = container "Model code repository" "Track AI model code." "Git" "repository"
                 container_repo = container "Container registry" "Store container images." "DockerHub" "repository" 
 
-                exchange_db = container "Exchange database" "Stores AI4EOSC exchange registered models." "" "database"
-
-                ci = container "Continuous Integration" "Ensures quality aspects are fulfilled (code checks, unit checks, etc.)."
-                cd = container "Continuous Delivery & Deployment" "Ensures delivery and deployment of new assets."
+                cicd = container "Continuous Integration, Delivery & Deployment" "Ensures quality aspects are fulfilled (code checks, unit checks, etc.). Performs delivery and deployment of new assets." "Jenkins"
                 
                 dashboard = container "AI4EOSC dashboard" "Provides access to existing modules (anonymous), experiment and training definition (logged users)." "Angular" "dashboard"
 
@@ -175,17 +172,12 @@ workspace extends ../eosc-landscape.dsl {
         eosc_user -> model_repo "Registers model"
         eosc_user -> container_repo "Registers container"
 
-        ci -> data_repo "Ensures QA aspects"
-        ci -> model_repo "Ensures QA aspects"
-        
-
-        cd -> model_repo "Reacts to events from"
-        cd -> container_repo "Creates containers"
-        cd -> deepaas "Deploys models on"
+        cicd -> data_repo "Ensures QA aspects"
+        cicd -> model_repo "Ensures QA aspects"
+        cicd -> container_repo "Creates containers"
+        cicd -> deepaas "Deploys models on"
 
         data_repo -> storage "Refers to data stored in"
-
-        platform_api -> exchange_db "Reads from writes to"
 
         model_container -> container_repo "Stored in"
 
@@ -193,7 +185,7 @@ workspace extends ../eosc-landscape.dsl {
 
         mlops -> platform_api "Trigger model update/retraining"
         mlops -> data_repo "Monitor new data available, update model after training"
-        mlops -> cd "Trigger model update"
+        mlops -> cicd "Trigger model update"
 
         /* # #MLOps --new data available */
         data_preproc -> data_repo "Read datasets or new model updates from" 
@@ -204,7 +196,7 @@ workspace extends ../eosc-landscape.dsl {
         /* /1* oscar -> model_container "Receives prediction requests" *1/ */
 
         /* #MLOps --a new trained model */
-        deployment_workflow -> cd "Trigger update of most recent model"
+        deployment_workflow -> cicd "Trigger update of most recent model"
 
 
         /* #mlops other relationships */
@@ -391,7 +383,7 @@ workspace extends ../eosc-landscape.dsl {
             exclude "eosc_user -> model_repo"
             exclude "eosc_user -> container_repo"
 
-            exclude "ci -> data_validation"
+            /* exclude "ci -> data_validation" */
             exclude "data_repo -> data_validation"
             exclude "platform_api -> deployment_workflow" 
             exclude "deployment_workflow -> oscar"
@@ -426,8 +418,8 @@ workspace extends ../eosc-landscape.dsl {
             exclude "eosc_user -> model_repo"
             exclude "eosc_user -> container_repo"
 
-            exclude "ci -> data_validation"
-            exclude "ci -> mlops"
+            /* exclude "ci -> data_validation" */
+            /* exclude "ci -> mlops" */
 
             exclude "data_repo -> data_validation"
             exclude "data_repo -> mlops"
