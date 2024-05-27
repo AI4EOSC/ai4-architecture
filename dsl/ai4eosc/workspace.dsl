@@ -16,8 +16,6 @@ workspace extends ../eosc-landscape.dsl {
         ai4eosc = group "AI4EOSC" {
             ai4eosc_platform = softwareSystem "AI4EOSC Platform" "Allows EOSC users to develop, build and share AI models." {
                 identity = group "Identity and user management" {
-
-                    iam = container "Identity and Access Management" "Provides user and group management." "INDIGO IAM"
     
                     order = container "Order management system" "Manages orders coming both from the EOSC portal or for new users." ""
 
@@ -83,6 +81,8 @@ workspace extends ../eosc-landscape.dsl {
             }
             
             orchestration = softwareSystem "PaaS Orchestration and provisioning" "Allows PaaS operators to manage PaaS deployments and resources." {
+                iam = container "Identity and Access Management" "Provides user and group management." "INDIGO IAM"
+
                 paas_dashboard = container "PaaS Dashboard" "Web User Interface that allows to easily interact with the PaaS services" "Flask" "dashboard"
 
                 paas_orchestrator = container "PaaS Orchestrator" "" "INDIGO PaaS Orchestrator"
@@ -164,8 +164,8 @@ workspace extends ../eosc-landscape.dsl {
 
         /* eosc_user -> model_container "Trigger new training jobs" */
 
-        platform_api -> iam "Authenticates users with"
-        dashboard -> iam "Authenticates users with" 
+        platform_api -> aai "Authenticates users with"
+        dashboard -> aai "Authenticates users with" 
             
         dev -> storage "Read data from"
         model_container -> storage "Read data from"
@@ -173,8 +173,6 @@ workspace extends ../eosc-landscape.dsl {
         # User management
 
         portal -> order "Creates new order/request for services"
-        iam -> aai "Federate users from" "OpenID Connect"
-        order -> iam "Creates new users for new orders"
         
 
         # AI4EOSC exchange
@@ -246,6 +244,7 @@ workspace extends ../eosc-landscape.dsl {
         paas_orchestrator -> federated_service_catalogue "Get information"
         monitoring_system -> federated_service_catalogue "Send aggregated metrics"
         paas_orchestrator -> cloud_provider_ranker "Get matching offers"
+        iam -> aai "Federate users from" "OpenID Connect"
 
         /* paas_orchestrator -> iam "Authenticates users with" */
         /* im -> iam "AuthN/Z" */
