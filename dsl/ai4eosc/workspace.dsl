@@ -15,11 +15,6 @@ workspace extends ../eosc-landscape.dsl {
 
         ai4eosc = group "AI4EOSC" {
             ai4eosc_platform = softwareSystem "AI4EOSC Platform" "Allows EOSC users to develop, build and share AI models." {
-                identity = group "Identity and user management" {
-    
-                    order = container "Order management system" "Manages orders coming both from the EOSC portal or for new users." ""
-
-                }
 
                 /* platform_api = container "Exchange API" "Provides exchange functionality via HTTPS/JSON API." */
                 platform_api = container "AI4 Platform API" "Provides marketplace browseing, training creation and monitoring functionality via a JSON/HTTPS API." "FastAPI + python-nomad"
@@ -169,11 +164,6 @@ workspace extends ../eosc-landscape.dsl {
             
         dev -> storage "Read data from"
         model_container -> storage "Read data from"
-
-        # User management
-
-        portal -> order "Creates new order/request for services"
-        
 
         # AI4EOSC exchange
 
