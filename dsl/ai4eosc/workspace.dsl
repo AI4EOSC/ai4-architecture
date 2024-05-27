@@ -40,18 +40,17 @@ workspace extends ../eosc-landscape.dsl {
 
                 user_task = container "User job/task deployment" "Encapsulates a user task to be executed in the platform." "Docker Nomad Job" {
 
-                    dev = component "Interactive development Environment" "An interactive development environment with access to resources and limited execution time." "Jupyter"
+                    dev = component "Interactive development Environment" "An interactive development environment with access to resources and limited execution time." "Jupyter / VSCode"
 
-                    storage_task = component "Storage task" "Reads and writes data from/to storage" "Docker"
+                    storage_task = component "Storage task" "Providesa acess to external storage" "Docker"
 
-                    api = component "API" "" "DEEPaaS API"
+                    zenodo_task = component "Zenodo task" "Gets dataset from Zenodo DOI" "Docker"
 
-                    framework = component "ML/AI framework"
+                    deepaas_task = component "DEEPaaS task" "Provides access to prediction/training API" "DEEPaaS API"
 
-                    user_model = component "User code and model"
-
-                    api -> user_model
-                    user_model -> framework
+                    zenodo_task -> storage_task "Saves data to"
+                    storage_task -> dev "Provides data to"
+                    storage_task -> deepaas_task "Provides data to"
                 }
 
                 platform_storage = container "Platform storage services" "Provides storage for the users" "NextCloud"
@@ -144,14 +143,17 @@ workspace extends ../eosc-landscape.dsl {
         /* mlops -> deepaas "Monitors production model" */
         /* mlops -> ai4eosc_platform "Triggers model update/retraining" */
 
-
+    
         # AI4EOSC platform
 
         eosc_user -> dashboard "Browse models, train existing model, build new one."
 
         # Training 
         eosc_user -> dev "Access interactive environments"
+        eosc_user -> deepaas_task "Access DEEPaaS API"
         eosc_user -> federated_server "Access federated learning server"
+
+        dev -> secrets "Access user secrets"
 
         dashboard -> platform_api "Reads available models, defines new trainings, checks training status, etc. "
 
@@ -175,6 +177,9 @@ workspace extends ../eosc-landscape.dsl {
         user_task -> platform_storage "Reads and writes data from"
         user_task -> storage "Syncs external data from"
 
+        storage_task -> platform_storage "Reads and writes data from"
+        storage_task -> storage "Reads and writes data from"
+
         # AI4EOSC exchange
 
         /* platform_api -> data_repo "Reads from" */
@@ -194,7 +199,7 @@ workspace extends ../eosc-landscape.dsl {
         model_repo -> zenodo "Publishes models to"
         platform_api -> zenodo "Read available datasets from"
 
-        storage_task -> zenodo "Syncs external data from"
+        zenodo_task -> zenodo "Pull dataset from"
 
         /* data_repo -> storage "Refers to data stored in" */
 
