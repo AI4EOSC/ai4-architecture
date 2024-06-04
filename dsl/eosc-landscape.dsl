@@ -13,7 +13,7 @@ workspace eosc "EOSC architecture" {
 
         /* aai -> portal "Provides authentication for" */
 
-        eosc_user -> portal "Browse EOSC resources, create order for new services"
+        eosc_user -> portal "Browse EOSC resources, services and datasets"
     }
 
     views {

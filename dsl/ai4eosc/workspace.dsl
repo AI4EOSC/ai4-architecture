@@ -40,7 +40,7 @@ workspace extends ../eosc-landscape.dsl {
 
                 user_task = container "User job/task deployment" "Encapsulates a user task to be executed in the platform." "Docker Nomad Job" {
 
-                    dev = component "Interactive development Environment" "An interactive development environment with access to resources and limited execution time." "Jupyter / VSCode"
+                    dev_task = component "Interactive development Environment" "An interactive development environment with access to resources and limited execution time." "Jupyter / VSCode"
 
                     storage_task = component "Storage task" "Providesa acess to external storage" "Docker"
 
@@ -49,7 +49,7 @@ workspace extends ../eosc-landscape.dsl {
                     deepaas_task = component "DEEPaaS task" "Provides access to prediction/training API" "DEEPaaS API"
 
                     zenodo_task -> storage_task "Saves data to"
-                    storage_task -> dev "Provides data to"
+                    storage_task -> dev_task "Provides data to"
                     storage_task -> deepaas_task "Provides data to"
                 }
 
@@ -57,8 +57,8 @@ workspace extends ../eosc-landscape.dsl {
             
                 # This is a special case, added here, but ignored in the view, just to
                 # be included in the dynamic view
-                external_container = container "User-managed model container" "Encapsulates user code, not executed on the platform" "Docker" 
-                external_container -> federated_server "Gets updated model, sends weights to server"
+                /* external_container = container "User-managed model container" "Encapsulates user code, not executed on the platform" "Docker" */ 
+                /* external_container -> federated_server "Gets updated model, sends weights to server" */
             }
 
             mlops = softwareSystem "Machine Learning Operations (MLOps)" "Provides the ability to implement MLOps techniques, as needed from use cases" {
@@ -96,7 +96,7 @@ workspace extends ../eosc-landscape.dsl {
                 tosca_repo = container "Topologies repository" "" "TOSCA" "repository"
             }
 
-            deepaas = softwareSystem "AI as a Service" "Allows users to deploy an AI application as a service." {
+            aiaas = softwareSystem "AI as a Service" "Allows users to deploy an AI application as a service." {
                 ai4compose = container "AI4Compose"
                 OSCARSystem = group "OSCAR"{
                     OSCAR = container "OSCAR Manager" 
@@ -125,23 +125,25 @@ workspace extends ../eosc-landscape.dsl {
 
         end_user = person "User" "An end-user, willing to exploit existing production models."
 
-        # User - system interaction
+        # System landscape interactions
+
+        ## User - system interaction
         eosc_user -> ai4eosc_platform "Reuse, develop, publish new AI models"
         paas_ops -> orchestration "Manage PaaS resources and deployments"
-        end_user -> deepaas "Uses deployed models from"
+        end_user -> aiaas "Uses deployed models from"
         eosc_user -> platform_storage "Stores data in"
-        /* eosc_user -> deepaas "Deploy models as services" */
+        /* eosc_user -> aiaas "Deploy models as services" */
 
-        # System - system interaction
+        ## System - system interaction
         orchestration -> ai4eosc_platform "Creates PaaS deployments and provisions resources for"
-        orchestration -> deepaas "Provisions resources for"
+        orchestration -> aiaas "Provisions resources for"
         ai4eosc_platform -> storage "Consumes data from"
         ai4eosc_platform -> aai "Is integrated with"
-        /* ai4eosc_platform -> portal "Is integrated with" */
-        ai4eosc_platform -> deepaas "Deploy models on"
+        ai4eosc_platform -> portal "is Registered in"
+        ai4eosc_platform -> aiaas "Deploy models on"
 
-        /* mlops -> deepaas "Monitors production model" */
-        /* mlops -> ai4eosc_platform "Triggers model update/retraining" */
+        mlops -> aiaas "Monitors production model"
+        mlops -> ai4eosc_platform "Triggers model update/retraining"
 
     
         # AI4EOSC platform
@@ -149,11 +151,11 @@ workspace extends ../eosc-landscape.dsl {
         eosc_user -> dashboard "Browse models, train existing model, build new one."
 
         # Training 
-        eosc_user -> dev "Access interactive environments"
+        eosc_user -> dev_task "Access interactive environments"
         eosc_user -> deepaas_task "Access DEEPaaS API"
         eosc_user -> federated_server "Access federated learning server"
 
-        dev -> secrets "Access user secrets"
+        dev_task -> secrets "Access user secrets"
 
         dashboard -> platform_api "Reads available models, defines new trainings, checks training status, etc. "
 
@@ -163,6 +165,10 @@ workspace extends ../eosc-landscape.dsl {
         platform_api -> secrets "Creates and manages user secrets"
     
         coe -> user_task "Creates and manages"
+        coe -> dev_task "Creates and manages"
+        coe -> deepaas_task "Creates and manages"
+        coe -> zenodo_task "Creates and manages"
+        coe -> storage_task "Creates and manages"
 
         coe -> federated_server "Creates and manages"
         /* user_task -> federated_server "Gets updated model, sends new weights" */
@@ -173,7 +179,7 @@ workspace extends ../eosc-landscape.dsl {
         platform_api -> aai "Authenticates users with"
         dashboard -> aai "Authenticates users with" 
             
-        /* dev -> storage "Read data from" */
+        /* dev_task -> storage "Read data from" */
         user_task -> platform_storage "Reads and writes data from"
         user_task -> storage "Syncs external data from"
 
@@ -193,9 +199,9 @@ workspace extends ../eosc-landscape.dsl {
         /* cicd -> data_repo "Ensures QA aspects" */
         cicd -> model_repo "Ensures QA aspects"
         cicd -> container_repo "Creates containers"
-        cicd -> deepaas "Deploys and updates models as services on"
+        cicd -> aiaas "Deploys and updates models as services on"
 
-        /* cicd -> zenodo "Publishes models to" */
+        cicd -> zenodo "Publishes models to"
         model_repo -> zenodo "Publishes models to"
         platform_api -> zenodo "Read available datasets from"
 
@@ -250,7 +256,8 @@ workspace extends ../eosc-landscape.dsl {
         paas_orchestrator -> federated_service_catalogue "Get information"
         monitoring_system -> federated_service_catalogue "Send aggregated metrics"
         paas_orchestrator -> cloud_provider_ranker "Get matching offers"
-        /* iam -> aai "Federate users from" "OpenID Connect" */
+        iam -> aai "Federate users from" "OpenID Connect"
+        paas_orchestrator -> iam "Authenticate users with"
 
         /* paas_orchestrator -> iam "Authenticates users with" */
         /* im -> iam "AuthN/Z" */
@@ -400,10 +407,12 @@ workspace extends ../eosc-landscape.dsl {
         
         systemLandscape system_view {
             include *
+            exclude "orchestration -> aai"
         }
 
         systemContext ai4eosc_platform ai4eosc_view {
             include *
+            exclude "orchestration -> aai"
             /* /1* exclude "eosc_user -> data_repo" *1/ */
             /* exclude "eosc_user -> model_repo" */
             /* exclude "eosc_user -> container_repo" */
@@ -415,36 +424,31 @@ workspace extends ../eosc-landscape.dsl {
             /* exclude "data_validation -> platform_api" */
         }
 
-        /* systemContext orchestration orchestration_view { */
-        /*     include * */
-        /* } */
+        systemContext orchestration orchestration_view {
+            include *
+            exclude "ai4eosc_platform -> aai"
+        }
 
-        /* systemContext deepaas deepaas_view { */
-        /*     include * */
-        /* } */
+        systemContext aiaas aiaas_view {
+            include *
+        }
         
-        /* systemContext mlops mlops_view { */
-        /*     include * */
-        /* } */
-
-        /* container deepaas deepaas_container_view { */
-        /*     include * */
-        /*     exclude "ai4eosc_platform -> storage" */ 
-        /* } */
-
-        component user_task user_task_component_view {
+        systemContext mlops mlops_view {
             include *
         }
 
-        component federated_server fl_component_view {
+        container aiaas aiaas_container_view {
             include *
+            /* exclude "ai4eosc_platform -> storage" */ 
         }
 
         container ai4eosc_platform ai4eosc_container_view {
             include *
 
-            exclude "external_container"
-            exclude "external_container -> federated_server"
+            exclude "orchestration -> aai"
+        
+            /* exclude "external_container" */
+            /* exclude "external_container -> federated_server" */
 
             /* exclude "eosc_user -> data_repo" */
             exclude "eosc_user -> model_repo"
@@ -464,42 +468,59 @@ workspace extends ../eosc-landscape.dsl {
             exclude "data_validation -> platform_api"
 
             exclude "user_task -> oscar"
-            exclude "user_task -> deepaas"
+            exclude "user_task -> aiaas"
             exclude "oscar -> user_task"
-            exclude "deepaas -> user_task"
+            exclude "aiaas -> user_task"
         }
         
-        /* container mlops mlops_container_view { */
-        /*     include * */
-        /* } */
+        container mlops mlops_container_view {
+            include *
+        }
 
-        /* container orchestration orchestration_container_view { */
-        /*     include * */
-        /*     include cloud_providers */
-        /* } */
+        container orchestration orchestration_container_view {
+            include *
+            include cloud_providers
+        }
+
+        component user_task user_task_component_view {
+            include *
+
+            exclude "coe -> storage_task"
+            exclude "coe -> zenodo_task"
+        }
+
+        component federated_server fl_component_view {
+            include *
+        }
 
         # Dynamic views
 
-        /* dynamic ai4eosc_platform develop_view { */
-        /*     title "[Dynamic view] Develop and register a model" */
-        /*     eosc_user -> dashboard "Requests a development environment" */
-        /*     dashboard -> iam "Checks user credentials" */
-        /*     iam -> dashboard "Returns access token" */
-        /*     dashboard -> platform_api "Requests new development enviroment with user access token" */
-        /*     platform_api -> coe "Register new Nomad job, using robot account" */
-        /*     coe -> resources "Submit Nomad job to Nomad agent on provisioned resources" */
-        /*     resources -> dev "Executes Development Environment as container" */
+        dynamic user_task develop_view {
+            title "[Dynamic view] Develop and register a model"
+            eosc_user -> dashboard "Requests a development environment"
+            dashboard -> aai "Checks user credentials"
+            aai -> dashboard "Returns access token"
+            dashboard -> platform_api "Requests new development enviroment"
+            dashboard -> platform_api "Creates secret for development enviromment"
+            platform_api -> secrets "Creates secret in "
+            platform_api -> coe "Register new Nomad job"
+            coe -> container_repo "Gets container from"
+            coe -> storage_task "Creates sidecar storage task for the user"
+            coe -> zenodo_task "Creates sync task for Zenodo dataset"
+            zenodo_task -> zenodo "Read dataset from"
+            zenodo_task -> storage_task "Writes dataset to"
 
-        /*     dev -> storage "Read and store data from" */
+            coe -> dev_task "Executes Development Environment as container"
+            dev_task -> secrets "Gets configured user secrets"
+            dev_task -> storage_task "Reads and writes from"
 
-        /*     eosc_user -> dev "Develops new model" */
-        /*     eosc_user -> data_repo */
-        /*     eosc_user -> model_repo */
-        /*     eosc_user -> container_repo */
-        /*     dashboard -> platform_api "Registers new model" */
-        /*     /1* dashboard -> platform_api *1/ */
-        /*     /1* platform_api -> dashboard "Provides list of models" *1/ */
-        /* } */
+            eosc_user -> dev_task "Develops (new/updated) model in"
+            eosc_user -> model_repo "Submits new/updated model"
+            cicd -> model_repo "Runs platform and user checks"
+            cicd -> container_repo "Creates new Docker container"
+            cicd -> zenodo "Enables repository integration"
+            model_repo -> zenodo "Triggers deposit of code"
+        }
         
         /* dynamic ai4eosc_platform manual_retrain_view { */
         /*     title "[Dynamic view] Manually retrain a model" */
