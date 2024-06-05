@@ -95,9 +95,21 @@ workspace extends ../eosc-landscape.dsl {
 
                 tosca_repo = container "Topologies repository" "" "TOSCA" "repository"
             }
+        
+            noderedlibrary = softwareSystem "Node-RED Library" "External Node-RED Library." "external" {
+            noderedlibrarycontainer = container "Node-RED Library" 
+            }
+            githubrepo = softwareSystem "AI4Compose GitHub repo" "" "external" {
+                    githubrepocontainer = container "AI4Compose GitHub repo" 
+            }
 
             aiaas = softwareSystem "AI as a Service" "Allows users to deploy an AI application as a service." {
-                ai4compose = container "AI4Compose"
+                ai4compose = group "AI4Compose"{
+                    flowfuse = container "Flowfuse" 
+                    jupyter = container "Jupyter Notebook" 
+                    elyra = container "Elyra" 
+                    nodered = container "Node-RED" 
+                }
                 OSCARSystem = group "OSCAR"{
                     OSCAR = container "OSCAR Manager" 
                     Kubernetes = container "Kubernetes API" 
@@ -272,7 +284,16 @@ workspace extends ../eosc-landscape.dsl {
         paas_orchestrator -> OSCAR "Provisions resources for" 
 
         # DEEPaaS OSCAR
-        ai4compose -> OSCAR "Trigger inference"
+        flowfuse -> nodered "Manage instances"
+        end_user -> jupyter "Compose pipelines"
+        end_user -> flowfuse "Compose pipelines"
+        nodered -> OSCAR "Invoke Service and trigger inference"
+        jupyter -> elyra "Manage Notebooks"
+        elyra -> OSCAR "Invoke Service and trigger inference"
+        nodered -> noderedlibrary "Obtain custom OSCAR nodes"
+        Elyra -> githubrepo "Obtain custom OSCAR nodes"
+
+        //ai4compose -> OSCAR "Trigger inference"
         OSCAR -> MinIO "Manage buckets, folders, event and notifications"
         OSCAR -> Kubernetes "Manage services"
         OSCAR -> Knative "Execute services synchronously"
