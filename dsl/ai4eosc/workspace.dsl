@@ -96,13 +96,6 @@ workspace extends ../eosc-landscape.dsl {
                 tosca_repo = container "Topologies repository" "" "TOSCA" "repository"
             }
         
-            noderedlibrary = softwareSystem "Node-RED Library" "External Node-RED Library." "external" {
-            noderedlibrarycontainer = container "Node-RED Library" 
-            }
-            githubrepo = softwareSystem "AI4Compose GitHub repo" "" "external" {
-                    githubrepocontainer = container "AI4Compose GitHub repo" 
-            }
-
             aiaas = softwareSystem "AI as a Service" "Allows users to deploy an AI application as a service." {
                 ai4compose = group "AI4Compose"{
                     flowfuse = container "Flowfuse" 
@@ -117,6 +110,8 @@ workspace extends ../eosc-landscape.dsl {
                     Knative = container "Knative" 
                     FaaSS = container "FaaS Supervisor" 
                 }
+                nodered_repository = container "Node-RED Library" "Contain AI4Compose custom nodes" "Git" "repository"
+                ai4compose_repository = container "AI4Compose GitHub repo" "Contain AI4Compose custom nodes" "Git" "repository"
             }
         }
 
@@ -290,8 +285,8 @@ workspace extends ../eosc-landscape.dsl {
         nodered -> OSCAR "Invoke Service and trigger inference"
         jupyter -> elyra "Manage Notebooks"
         elyra -> OSCAR "Invoke Service and trigger inference"
-        nodered -> noderedlibrary "Obtain custom OSCAR nodes"
-        Elyra -> githubrepo "Obtain custom OSCAR nodes"
+        nodered -> nodered_repository "Obtain custom OSCAR nodes"
+        elyra -> ai4compose_repository "Obtain custom OSCAR nodes"
 
         //ai4compose -> OSCAR "Trigger inference"
         OSCAR -> MinIO "Manage buckets, folders, event and notifications"
