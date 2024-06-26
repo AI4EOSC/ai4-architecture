@@ -61,22 +61,6 @@ workspace extends ../eosc-landscape.dsl {
                 /* external_container -> federated_server "Gets updated model, sends weights to server" */
             }
 
-            mlops = softwareSystem "Machine Learning Operations (MLOps)" "Provides the ability to implement MLOps techniques, as needed from use cases" {
-                data_preproc = container "Data preparation" "Prepare and process data for training"
-                
-                data_validation = container "Data validation" "Validate data (if accurate, complete) before using for training or inference" "database"
-                
-                # model_monitor = container "Model monitoring" "track the performance of models in production" ""
-                
-                drift_detection = container "Drift detection" "Detects drifts in model performance"
-                
-                feedback_loop = container "Feedback loop" "Determines when to trigger a new training job" "DS"
-                
-                deployment_workflow = container "Deployment workflow" "Deploy the newly trained model to production" "pipeline"
-                # production = container "Production stage" "The environment where the model is used for inference"
-                
-                data_preproc -> data_validation "Validate the prepared data"
-            }
             
             orchestration = softwareSystem "PaaS Orchestration and provisioning" "Allows PaaS operators to manage PaaS deployments and resources." {
                 iam = container "Identity and Access Management" "Provides user and group management." "INDIGO IAM"
@@ -115,6 +99,34 @@ workspace extends ../eosc-landscape.dsl {
             }
         }
 
+            mlops = softwareSystem "MLOps System" "Manages the lifecycle of machine learning models including deployment, monitoring, and management." {
+                mlflow = container "MLflow" "Tracks experiments and manages model versions" {
+                    TrackingServer = component "Tracking Server" "Logs and queries experiments"
+                    ArtifactStore = component "Artifact Store" "Stores model artifacts and related files"
+                    ModelRegistry = component "Model Registry" "Manages model versions and stages"
+                }
+                drift_monitoring_system = group "DriftMonitoring" {
+                    DriftWatch = container "DriftWatch" "Monitors drift; alerts whenever a drift is detected" "python client" {
+                        Frouros = component "Frouros" "Detects data and model drift (python lib)" 
+                    }
+                }
+
+                TrackingServer -> ArtifactStore "stores  experiment files in physical device + metadata/dependencies"
+                ModelRegistry -> ArtifactStore "stores model files + metadata available in physical device"
+               
+
+                cicd -> DriftWatch "Integrates drift monitoring with deployed model"
+                dev_task -> Frouros "Enables drift detection"                
+                #DriftWatch -> dashboard "Updates dashboard with drift status"
+                #dashboard -> DriftWatch "Reads/detects statistical change (drift)"
+                DriftWatch -> cicd "Triggers actions upon detecting drift (retrain)"
+                DriftWatch -> dashboard "Notifies users about data drift"
+
+                Frouros -> OSCAR "Sends drift info updates to"
+                user_task -> OSCAR "Sends request for new deployment of the retrained model"
+                
+            }
+
         external_storages = group "External storage services" {
             storage = softwareSystem "Storage Services" "External storage where data assets are stored." "external" {
                 ESP = group "External Storage Provider"{
@@ -148,10 +160,10 @@ workspace extends ../eosc-landscape.dsl {
         ai4eosc_platform -> aai "Is integrated with"
         ai4eosc_platform -> portal "is Registered in"
         ai4eosc_platform -> aiaas "Deploy models on"
+        #ai4eosc_platform -> mlops "Manage ML models in production"
 
-        mlops -> aiaas "Monitors production model"
-        mlops -> ai4eosc_platform "Triggers model update/retraining"
 
+    #    mlops -> ai4eosc_platform "Triggers model update/retraining"
     
         # AI4EOSC platform
 
@@ -220,38 +232,6 @@ workspace extends ../eosc-landscape.dsl {
 
         orchestration -> coe "Provisions resources for"
 
-        /* mlops -> platform_api "Trigger model update/retraining" */
-        /* mlops -> data_repo "Monitor new data available, update model after training" */
-        /* mlops -> cicd "Trigger model update" */
-
-        /* /1* # #MLOps --new data available *1/ */
-        /* /1* data_preproc -> data_repo "Read datasets or new model updates from" *1/ */ 
-        /* /1* /2* ci -> data_validation "integrate validated data" *2/ *1/ */
-
-        /* /1* /2* user_task -> container_repo "Pulls trained model from registry" *2/ *1/ */
-        /* /1* user_task -> oscar "Loads model into inference service" *1/ */
-        /* /1* /2* oscar -> user_task "Receives prediction requests" *2/ *1/ */
-
-        /* /1* #MLOps --a new trained model *1/ */
-        /* deployment_workflow -> cicd "Trigger update of most recent model" */
-
-
-        /* /1* #mlops other relationships *1/ */
-        /* /1* /2* data_repo -> data_validation "Sends data for validation" *2/ *1/ */
-        /* data_validation -> drift_detection "Sends validated data for monitoring" */
-        /* drift_detection -> feedback_loop "Triggers model retraining" */
-        /* feedback_loop -> platform_api "Starts model retraining" */
-        /* feedback_loop -> deployment_workflow "Notifies of model retraining" */
-
-        /* drift_detection -> oscar "Monitor deployed model" */
-        /* /1* platform_api -> deployment_workflow "Deploys new model" *1/ */
-        /* /1* deployment_workflow -> oscar "Updates model in production" *1/ */
-
-        /* /1* platform_api -> drift_detection "Receives model performance metrics" *1/ */
-        /* /1* data_validation -> platform_api "Sends validated data for monitoring" *1/ */
-  
-        /* #     model_monitor -> dashboard "Monitors model performance" */
-        /* #     dashboard -> model_monitor "Receives performance metrics" */
 
         # Orchestration
 
@@ -306,6 +286,39 @@ workspace extends ../eosc-landscape.dsl {
         ai4eosc_platform -> OSCAR "Deployment or update of inference services"
         end_user -> OSCAR "Synchronous inference request"
         end_user -> MinIO "Store data for asynchronous inference"
+
+                # MLOPS relationships
+        dev_task -> mlflow "Logs exp parametres, metrics, models to mlflow"
+        #dev_task -> zenodo_task "retrieves data from repo"
+        dev_task -> model_repo "trains the model"
+        dev_task -> ModelRegistry "stores the model version in the registry"
+        ModelRegistry -> cicd "Detects new model version"
+        cicd -> OSCAR "triggers action to deploy the model;deploy the newly trained model in production"
+        cicd -> DriftWatch "monitor data/model drift"
+        DriftWatch -> cicd "triggers the pipeline for potential retraining"
+        dashboard -> mlflow "retrieves and displays experiment results and model performance"
+        dashboard -> DriftWatch "retrieves and displays drift notifications"
+
+        eosc_user -> mlflow "Initiates a new experiment-run"
+        mlflow -> secrets "Gets secrets for mlflow tracking server users"
+        dev_task -> TrackingServer "Logs exp parametres, metrics, models artifacts to mlflow"
+        ModelRegistry -> deepaas_task "Provides API to best selected model"
+        #ArtifactStore -> model_repo "Stores model artifacts for"
+        #mlops ->  OSCAR  "retrieves real-time model performance"
+
+        DriftWatch -> end_user "Notifies the end_user about the drift"
+        DriftWatch -> eosc_user "Notifies the eosc_user about the model/data drift"
+
+        eosc_user -> ModelRegistry "Requests best performed model to retrain"
+        ModelRegistry -> cicd "Triggers model retraining"
+
+        end_user -> OSCAR "Sends request for new deployment of the retrained model"
+        dashboard -> end_user "Notifies user of possible drift occurence"
+
+
+        dev_task -> DriftWatch "Detects data and model drift via Frouros"
+        dev_task -> TrackingServer "Logs new experiment-runs"
+
         
         /* deploymentEnvironment "Production" { */
         /*     ifca_instance = deploymentGroup "IFCA Cloud Instance" */
@@ -451,6 +464,8 @@ workspace extends ../eosc-landscape.dsl {
         
         systemContext mlops mlops_view {
             include *
+            exclude "dashboard -> end_user"
+            exclude "cicd -> DriftWatch"
         }
 
         container aiaas aiaas_container_view {
@@ -476,12 +491,12 @@ workspace extends ../eosc-landscape.dsl {
             /* exclude "data_repo -> data_validation" */
             /* exclude "data_repo -> mlops" */
 
-            exclude "platform_api -> deployment_workflow" 
-            exclude "platform_api -> mlops"
+           # exclude "platform_api -> deployment_workflow" 
+           # exclude "platform_api -> mlops"
 
-            exclude "deployment_workflow -> oscar"
+           # exclude "deployment_workflow -> oscar"
 
-            exclude "data_validation -> platform_api"
+            # exclude "data_validation -> platform_api"
 
             exclude "user_task -> oscar"
             exclude "user_task -> aiaas"
@@ -637,20 +652,83 @@ workspace extends ../eosc-landscape.dsl {
         /*     FaaSS -> storage "Read/store data " */
         /* } */
 
-        /* #Another dynamic view */
-        /* dynamic ai4eosc_platform model_data_drift { */
-        /*     title "[Dynamic view] Managing Model/Data Drift" */
- 
-        /*     /1* data_preproc -> data_repo "Read data updates from" *1/ */
-        /*     /1* data_preproc -> data_validation "Sends data for validation" *1/ */
-        /*     /1* data_validation -> platform_api "Sends validated data for monitoring" *1/ */
-        /*     /1* platform_api -> drift_detection "Detects drift in model performance" *1/ */
-        /*     /1* drift_detection -> feedback_loop "Triggers model retraining" *1/ */
-        /*     /1* feedback_loop -> platform_api "Starts model retraining" *1/ */
-        /*     /1* platform_api -> deployment_workflow "Deploys new model" *1/ */
-        /*     /1* deployment_workflow -> oscar "Updates model in production" *1/ */
-        /* } */ 
-        
+
+
+            dynamic mlops best_practice_from_Dev2Dep {
+                title "[Dynamic view] MLOps dynamic view"
+                eosc_user -> dashboard "enable/request MLflow to track experiments" 
+                dashboard -> mlflow "Initiates a new experiment-run"
+                mlflow -> secrets "store secrets for mlflow tracking server users into Vault"
+                user_task -> mlflow  "Logs exp-run parametres, metrics to mlflow during model dev"      
+                user_task -> mlflow "Registers the model with tags/alias into Model Registry"
+                
+                cicd -> mlflow "Selects best model for deployment"
+                mlflow -> cicd "Provides model version for deployment"
+                cicd -> OSCAR "Deploys best performed model in production"
+                
+                #not sure if the following are to be considered
+
+                #cicd -> container_repo "Builds Docker container for the model"
+                #container_repo -> cicd "Docker container ready"                
+                #cicd -> coe "Deploys model container"
+                #coe -> OSCAR "Deploys model to production environment"
+                            
+                cicd -> DriftWatch "Integrates drift monitoring with deployed model"
+                DriftWatch -> dashboard "Updates dashboard with drift status"
+                               
+                DriftWatch -> eosc_user "Visualize model performance"                
+                dashboard -> eosc_user "Notifies user in case a drift occurs"
+
+                # retrain the model if needed                
+                # eosc_user -> ModelRegistry "Requests new model training"
+                # ModelRegistry -> cicd "Triggers new model retraining"
+                # eosc_user -> OSCAR "Sends request for new deployment of the retrained model"
+            }
+
+            dynamic mlops detect_drift_view {
+                title "[Dynamic view] Automatic drift detection during inference"
+
+                end_user -> OSCAR "Request inference"
+                OSCAR -> cicd "Runs inference on new data"
+                cicd -> DriftWatch "Sends new data for drift detection"
+
+                DriftWatch -> dashboard "Updates dashboard with drift status"                
+                dashboard -> end_user "Notifies user of possible drift occurence"
+                DriftWatch -> cicd "Requests model retraining if data is valid and not poisoned"
+
+                cicd -> container_repo "Creates new Docker container for retrained/rolled-back model"
+                cicd -> model_repo "Updates model repository with new version"
+
+                model_repo -> zenodo "Triggers deposit of updated model"                
+                
+            }
+
+            # to be reviewed
+
+            dynamic mlops detect_drift_view_2 {
+                title "[Dynamic view] Automatic drift detection (rebuild the  model)"
+
+                # ML developer perspective
+                cicd -> OSCAR "Runs inference on new data"
+                cicd -> DriftWatch "Sends new data for drift detection"
+                DriftWatch -> dashboard "Updates dashboard with drift status"
+                
+                dashboard -> eosc_user "Notifies user about drift occurrence"
+
+                eosc_user -> DriftWatch "Requests details about the drift"
+                eosc_user -> mlflow "Requests best performed model for retraining"
+                eosc_user -> mlflow "Registers the retrained model"
+
+                DriftWatch -> cicd "Requests model retraining if data is valid and not poisoned"
+                user_task -> mlflow "Logs new experiment-runs, stores model to Model Registry"
+
+                cicd -> container_repo "Creates new Docker container for retrained model"
+                cicd -> model_repo "Updates model repository with new version"
+
+                model_repo -> zenodo "Triggers deposit of updated model"            
+                
+            }
+
         /* deployment * "Production" production_deployment { */
         /*     include * */
         /*     /1* autoLayout *1/ */
