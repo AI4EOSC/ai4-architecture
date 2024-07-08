@@ -1,4 +1,4 @@
-# 9. Deploying CVAT in Nomad
+# 15. Deploying CVAT in Nomad
 
 Date: 2024-06-01
 
