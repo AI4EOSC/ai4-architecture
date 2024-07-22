@@ -729,6 +729,39 @@ workspace extends ../eosc-landscape.dsl {
                 
             }
 
+        dynamic aiaas AI4Compose_dynamic { 
+             title "[Dynamic view] AI4Compose dynamic view" 
+
+
+
+            end_user -> flowfuse "Compose pipelines"
+            flowfuse -> nodered "Manage instances"
+            nodered -> noderedlibrary "Obtain custom OSCAR nodes"
+            nodered -> OSCAR "Invoke Service and trigger inference"
+            flowfuse -> end_user  "Visualize results"
+
+            end_user -> jupyter "Compose pipelines"
+            jupyter -> elyra "Manage Notebooks"
+            Elyra -> githubrepo "Obtain custom OSCAR nodes"
+            elyra -> OSCAR "Invoke Service and trigger inference"
+            jupyter  -> end_user  "Visualize results"
+         } 
+
+
+        /* #Another dynamic view */
+        /* dynamic ai4eosc_platform model_data_drift { */
+        /*     title "[Dynamic view] Managing Model/Data Drift" */
+ 
+        /*     /1* data_preproc -> data_repo "Read data updates from" *1/ */
+        /*     /1* data_preproc -> data_validation "Sends data for validation" *1/ */
+        /*     /1* data_validation -> platform_api "Sends validated data for monitoring" *1/ */
+        /*     /1* platform_api -> drift_detection "Detects drift in model performance" *1/ */
+        /*     /1* drift_detection -> feedback_loop "Triggers model retraining" *1/ */
+        /*     /1* feedback_loop -> platform_api "Starts model retraining" *1/ */
+        /*     /1* platform_api -> deployment_workflow "Deploys new model" *1/ */
+        /*     /1* deployment_workflow -> oscar "Updates model in production" *1/ */
+        /* } */ 
+        
         /* deployment * "Production" production_deployment { */
         /*     include * */
         /*     /1* autoLayout *1/ */
