@@ -727,6 +727,7 @@ workspace extends ../eosc-landscape.dsl {
                 model_repo -> zenodo "Triggers deposit of updated model"            
                 
             }
+        */
 
         dynamic aiaas AI4Compose_dynamic { 
              title "[Dynamic view] AI4Compose dynamic view" 
@@ -745,8 +746,6 @@ workspace extends ../eosc-landscape.dsl {
             elyra -> OSCAR "Invoke Service and trigger inference"
             jupyter  -> end_user  "Visualize results"
          } 
-
-        */
 
         /* #Another dynamic view */
         /* dynamic ai4eosc_platform model_data_drift { */
