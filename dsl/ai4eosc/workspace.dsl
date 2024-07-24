@@ -23,7 +23,12 @@ workspace extends ../eosc-landscape.dsl {
                 model_repo = container "Model code repository" "Track AI model code." "Git" "repository"
                 container_repo = container "Container registry" "Store container images." "Harbor.io" "repository" 
 
-                cicd = container "Continuous Integration, Delivery & Deployment" "Ensures quality aspects are fulfilled (code checks, unit checks, etc.). Performs delivery and deployment of new assets." "Jenkins"
+                cicd = container "Continuous Integration, Delivery & Deployment" "Ensures quality aspects are fulfilled (code checks, unit checks, etc.). Performs delivery and deployment of new assets." "Jenkins" {
+                    drift_detection = component "Drift Detection" "Monitors data and model drift; alerts whenever a drift is detected" "Frouros" 
+                    qa_pipeline = component "AI4OS QA Pipeline" "Ensures quality aspects are fulfilled (code checks, unit checks, etc.)" "Jenkins"
+                    user_pipeline = component "User QA Pipeline" "Runs user-defined QA checks" "Jenkins"
+                    
+                }
                 
                 dashboard = container "AI4EOSC dashboard" "Provides access to existing modules (anonymous), experiment and training definition (logged users)." "Angular" "dashboard"
 
@@ -54,6 +59,16 @@ workspace extends ../eosc-landscape.dsl {
                 }
 
                 platform_storage = container "Platform storage services" "Provides storage for the users" "NextCloud"
+                
+                mlflow = container "MLflow" "Tracks experiments and manages model versions" {
+                    TrackingServer = component "Tracking Server" "Logs and queries experiments"
+                    ArtifactStore = component "Artifact Store" "Stores model artifacts and related files"
+                    ModelRegistry = component "Model Registry" "Manages model versions and stages"
+                }
+                    /* FIXME(aloga): this has to go as a task in CICD */
+                    /* DriftWatch = container "DriftWatch" "Monitors drift; alerts whenever a drift is detected" "python client" { */
+                    /*     Frouros = component "Frouros" "Detects data and model drift (python lib)" */ 
+                    /* } */
             
                 # This is a special case, added here, but ignored in the view, just to
                 # be included in the dynamic view
@@ -99,34 +114,6 @@ workspace extends ../eosc-landscape.dsl {
             }
         }
 
-            mlops = softwareSystem "MLOps System" "Manages the lifecycle of machine learning models including deployment, monitoring, and management." {
-                mlflow = container "MLflow" "Tracks experiments and manages model versions" {
-                    TrackingServer = component "Tracking Server" "Logs and queries experiments"
-                    ArtifactStore = component "Artifact Store" "Stores model artifacts and related files"
-                    ModelRegistry = component "Model Registry" "Manages model versions and stages"
-                }
-                drift_monitoring_system = group "DriftMonitoring" {
-                    DriftWatch = container "DriftWatch" "Monitors drift; alerts whenever a drift is detected" "python client" {
-                        Frouros = component "Frouros" "Detects data and model drift (python lib)" 
-                    }
-                }
-
-                TrackingServer -> ArtifactStore "stores  experiment files in physical device + metadata/dependencies"
-                ModelRegistry -> ArtifactStore "stores model files + metadata available in physical device"
-               
-
-                cicd -> DriftWatch "Integrates drift monitoring with deployed model"
-                dev_task -> Frouros "Enables drift detection"                
-                #DriftWatch -> dashboard "Updates dashboard with drift status"
-                #dashboard -> DriftWatch "Reads/detects statistical change (drift)"
-                DriftWatch -> cicd "Triggers actions upon detecting drift (retrain)"
-                DriftWatch -> dashboard "Notifies users about data drift"
-
-                Frouros -> OSCAR "Sends drift info updates to"
-                user_task -> OSCAR "Sends request for new deployment of the retrained model"
-                
-            }
-
         external_storages = group "External storage services" {
             storage = softwareSystem "Storage Services" "External storage where data assets are stored." "external" {
                 ESP = group "External Storage Provider"{
@@ -151,16 +138,16 @@ workspace extends ../eosc-landscape.dsl {
         paas_ops -> orchestration "Manage PaaS resources and deployments"
         end_user -> aiaas "Uses deployed models from"
         eosc_user -> platform_storage "Stores data in"
-        /* eosc_user -> aiaas "Deploy models as services" */
+        /* eosc_user -> mlops "Tracks experiments, models, and drifts" */ 
 
         ## System - system interaction
         orchestration -> ai4eosc_platform "Creates PaaS deployments and provisions resources for"
-        orchestration -> aiaas "Provisions resources for"
+        orchestration -> aiaas "Creates OSCAR clusters and provisions resources for"
         ai4eosc_platform -> storage "Consumes data from"
         ai4eosc_platform -> aai "Is integrated with"
         ai4eosc_platform -> portal "is Registered in"
         ai4eosc_platform -> aiaas "Deploy models on"
-        #ai4eosc_platform -> mlops "Manage ML models in production"
+        /* ai4eosc_platform -> mlops "Manage and track ML models and experiments" */ 
 
 
     #    mlops -> ai4eosc_platform "Triggers model update/retraining"
@@ -232,6 +219,14 @@ workspace extends ../eosc-landscape.dsl {
 
         orchestration -> coe "Provisions resources for"
 
+        # QA
+
+        qa_pipeline -> model_repo "Runs platform-defined QA checks on"
+        qa_pipeline -> container_repo "Publishes container images to"
+        qa_pipeline -> zenodo "Publishes models and code to"
+        user_pipeline -> model_repo "Runs user-defined QA checks on"
+        drift_detection -> model_repo "Monitors drift on"
+
 
         # Orchestration
 
@@ -287,8 +282,14 @@ workspace extends ../eosc-landscape.dsl {
         end_user -> OSCAR "Synchronous inference request"
         end_user -> MinIO "Store data for asynchronous inference"
 
+        dev_task -> mlflow "Logs experiment parametres, metrics, models to MLFlow"
+        eosc_user -> mlflow "Monitors and tracks models in"
+        mlflow -> secrets "Gets secrets for tracking server users"
+        mlflow -> cicd "Triggers monitoring of model performance / drift detection"
+        /* DriftWatch -> cicd "Monitors model update/retraining" */
+
+        /* Lisanas: I'm not sure about this one 
                 # MLOPS relationships
-        dev_task -> mlflow "Logs exp parametres, metrics, models to mlflow"
         #dev_task -> zenodo_task "retrieves data from repo"
         dev_task -> model_repo "trains the model"
         dev_task -> ModelRegistry "stores the model version in the registry"
@@ -306,8 +307,8 @@ workspace extends ../eosc-landscape.dsl {
         #ArtifactStore -> model_repo "Stores model artifacts for"
         #mlops ->  OSCAR  "retrieves real-time model performance"
 
-        DriftWatch -> end_user "Notifies the end_user about the drift"
-        DriftWatch -> eosc_user "Notifies the eosc_user about the model/data drift"
+        DriftWatch -> end_user "Notifies the end_user about the drift" 
+        DriftWatch -> eosc_user "Notifies the eosc_user about the model/data drift" 
 
         eosc_user -> ModelRegistry "Requests best performed model to retrain"
         ModelRegistry -> cicd "Triggers model retraining"
@@ -318,7 +319,7 @@ workspace extends ../eosc-landscape.dsl {
 
         dev_task -> DriftWatch "Detects data and model drift via Frouros"
         dev_task -> TrackingServer "Logs new experiment-runs"
-
+*/
         
         /* deploymentEnvironment "Production" { */
         /*     ifca_instance = deploymentGroup "IFCA Cloud Instance" */
@@ -462,11 +463,10 @@ workspace extends ../eosc-landscape.dsl {
             include *
         }
         
-        systemContext mlops mlops_view {
-            include *
-            exclude "dashboard -> end_user"
-            exclude "cicd -> DriftWatch"
-        }
+        /* systemContext mlops mlops_view { */
+        /*     include * */
+        /*     exclude "dashboard -> end_user" */
+        /* } */
 
         container aiaas aiaas_container_view {
             include *
@@ -504,10 +504,6 @@ workspace extends ../eosc-landscape.dsl {
             exclude "aiaas -> user_task"
         }
         
-        container mlops mlops_container_view {
-            include *
-        }
-
         container orchestration orchestration_container_view {
             include *
             include cloud_providers
@@ -521,6 +517,10 @@ workspace extends ../eosc-landscape.dsl {
         }
 
         component federated_server fl_component_view {
+            include *
+        }
+
+        component cicd cicd_component_view {
             include *
         }
 
@@ -652,8 +652,7 @@ workspace extends ../eosc-landscape.dsl {
         /*     FaaSS -> storage "Read/store data " */
         /* } */
 
-
-
+        /* New dynamic views to review
             dynamic mlops best_practice_from_Dev2Dep {
                 title "[Dynamic view] MLOps dynamic view"
                 eosc_user -> dashboard "enable/request MLflow to track experiments" 
@@ -747,6 +746,7 @@ workspace extends ../eosc-landscape.dsl {
             jupyter  -> end_user  "Visualize results"
          } 
 
+        */
 
         /* #Another dynamic view */
         /* dynamic ai4eosc_platform model_data_drift { */
