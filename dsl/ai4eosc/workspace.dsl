@@ -70,10 +70,6 @@ workspace extends ../eosc-landscape.dsl {
                     /*     Frouros = component "Frouros" "Detects data and model drift (python lib)" */ 
                     /* } */
             
-                # This is a special case, added here, but ignored in the view, just to
-                # be included in the dynamic view
-                /* external_container = container "User-managed model container" "Encapsulates user code, not executed on the platform" "Docker" */ 
-                /* external_container -> federated_server "Gets updated model, sends weights to server" */
             }
 
             
@@ -126,7 +122,13 @@ workspace extends ../eosc-landscape.dsl {
     
             zenodo = softwareSystem "Zenodo" "A general-purpose open-access repository developed within the OpenAIRE project and operated by CERN." "external"
         }
-
+                
+        # This is a special case, added here, but ignored in the view, just to
+        # be included in the dynamic view
+        external_resources = softwareSystem "External resources" "External resources, not controlled by the platform" "external" {
+            external_container = container "User-managed model code" "Encapsulates user code, not executed on the platform" "" 
+            external_container -> federated_server "Gets updated model, sends weights to server"
+        }
         cloud_providers = softwareSystem "Cloud/HPC Providers" "" external
 
         end_user = person "User" "An end-user, willing to exploit existing production models."
@@ -179,6 +181,7 @@ workspace extends ../eosc-landscape.dsl {
         coe -> federated_server "Creates and manages"
         /* user_task -> federated_server "Gets updated model, sends new weights" */
         federated_server -> secrets "Gets secrets for federated server/clients"
+        dev_task -> federated_server "Gets updated model, sends new weights"
 
         /* eosc_user -> user_task "Trigger new training jobs" */
 
@@ -542,7 +545,7 @@ workspace extends ../eosc-landscape.dsl {
             zenodo_task -> storage_task "Writes dataset to"
 
             coe -> dev_task "Executes Development Environment as container"
-            dev_task -> secrets "Gets configured user secrets"
+            dev_task -> secrets "Gets configured user secrets (i.e. token) for interative access"
             dev_task -> storage_task "Reads and writes from"
 
             eosc_user -> dev_task "Develops (new/updated) model in"
@@ -552,49 +555,37 @@ workspace extends ../eosc-landscape.dsl {
             cicd -> zenodo "Enables repository integration"
             model_repo -> zenodo "Triggers deposit of code"
         }
-        
-        /* dynamic ai4eosc_platform manual_retrain_view { */
-        /*     title "[Dynamic view] Manually retrain a model" */
 
-        /*     eosc_user -> dashboard "Requests available modules" */
-        /*     dashboard -> iam "Checks user credentials" */
-        /*     iam -> dashboard "Returns access token" */
-        /*     dashboard -> platform_api "Requests new training job" */
-        /*     platform_api -> coe "Register new Nomad job, using robot account" */
-        /*     coe -> resources "Submit Nomad job to Nomad agent on provisioned resources" */
-        /*     resources -> user_task "Executes training job as container" */
+        dynamic user_task federated_train_view {
+            title "[Dynamic view] Federated learning scenario"
 
-        /*     storage -> user_task "Read training data" */
-        /*     user_task -> storage "Write training results" */
-        /* } */
+            eosc_user -> dashboard "Requests available modules"
+            dashboard -> aai "Checks user credentials"
+            aai -> dashboard "Returns access token"
 
-        /* dynamic ai4eosc_platform federated_train_view { */
-        /*     title "[Dynamic view] Federated learning scenario" */
+            dashboard -> platform_api "Requests new federated learning job"
+            platform_api -> secrets "Create secrets for federated server" 
 
-        /*     eosc_user -> dashboard "Requests available modules" */
-        /*     dashboard -> iam "Checks user credentials" */
-        /*     iam -> dashboard "Returns access token" */
+            platform_api -> coe "Register new federated learning Nomad job"
+            coe -> federated_server "Deploy federated learning server"
+            federated_server -> secrets "Get secrets for federated server"
 
-        /*     dashboard -> platform_api "Requests new federated learning job" */
-        /*     platform_api -> coe "Register new federated learning Nomad job, using robot account" */
-        /*     coe -> federated_server "Deploy federated learning server" */
-        /*     platform_api -> federated_server "Get federated learning server credentials to interact with it" */
+            platform_api -> coe "Register new training / interactive job"
+            coe -> dev_task "Executes Development Environment as container"
+            dev_task -> secrets "Gets configured user secrets (i.e. token) for interative access"
+            dev_task -> storage_task "Reads and writes from"
 
-        /*     platform_api -> coe "Register new training Nomad job, using robot account" */
-        /*     coe -> resources "Submit Nomad job to Nomad agent on provisioned resources" */
-        /*     resources -> user_task "Executes training job as container" */
-
-        /*     user_task -> federated_server "Get updated model, using server credentials" */
-        /*     user_task -> federated_server "Send updates to server, using server credentials" */
+            dev_task -> federated_server "Get updated model, using server credentials"
+            dev_task -> federated_server "Send updates to server, using configured secret"
             
-        /*     external_container -> federated_server "Get updated model, using server credentials" */
-        /*     external_container -> federated_server "Send updates to server, using server credentials" */
+            
+            external_container -> federated_server "Get updated model, using configured secret"
+            external_container -> federated_server "Send updates to server, using configured secret"
+            
+            eosc_user -> dev_task "Develops (new/updated) model in"
+            eosc_user -> model_repo "Submits new/updated model"
 
-        /*     platform_api -> federated_server "Query federated learning status" */
-
-        /*     storage -> user_task "Read training data" */
-        /*     user_task -> storage "Write training results" */
-        /* } */
+        }
 
         /* /1* dynamic ai4eosc_platform automatic_retrain_view { *1/ */
         /* /1*     title "[Dynamic view] Automatically retrain a model through MLOps" *1/ */
