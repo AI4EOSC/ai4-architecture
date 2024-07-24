@@ -16,10 +16,8 @@ workspace extends ../eosc-landscape.dsl {
         ai4eosc = group "AI4EOSC" {
             ai4eosc_platform = softwareSystem "AI4EOSC Platform" "Allows EOSC users to develop, build and share AI models." {
 
-                /* platform_api = container "Exchange API" "Provides exchange functionality via HTTPS/JSON API." */
                 platform_api = container "AI4 Platform API" "Provides marketplace browseing, training creation and monitoring functionality via a JSON/HTTPS API." "FastAPI + python-nomad"
 
-                /* data_repo = container "Model and data repository" "Track AI models and data sets." "dvc" "repository" */
                 model_repo = container "Model code repository" "Track AI model code." "Git" "repository"
                 container_repo = container "Container registry" "Store container images." "Harbor.io" "repository" 
 
@@ -65,14 +63,8 @@ workspace extends ../eosc-landscape.dsl {
                     ArtifactStore = component "Artifact Store" "Stores model artifacts and related files"
                     ModelRegistry = component "Model Registry" "Manages model versions and stages"
                 }
-                    /* FIXME(aloga): this has to go as a task in CICD */
-                    /* DriftWatch = container "DriftWatch" "Monitors drift; alerts whenever a drift is detected" "python client" { */
-                    /*     Frouros = component "Frouros" "Detects data and model drift (python lib)" */ 
-                    /* } */
-            
             }
 
-            
             orchestration = softwareSystem "PaaS Orchestration and provisioning" "Allows PaaS operators to manage PaaS deployments and resources." {
                 iam = container "Identity and Access Management" "Provides user and group management." "INDIGO IAM"
 
@@ -123,8 +115,6 @@ workspace extends ../eosc-landscape.dsl {
             zenodo = softwareSystem "Zenodo" "A general-purpose open-access repository developed within the OpenAIRE project and operated by CERN." "external"
         }
                 
-        # This is a special case, added here, but ignored in the view, just to
-        # be included in the dynamic view
         external_resources = softwareSystem "External resources" "External resources, not controlled by the platform" "external" {
             external_container = container "User-managed model code" "Encapsulates user code, not executed on the platform" "" 
             external_container -> federated_server "Gets updated model, sends weights to server"
@@ -140,7 +130,6 @@ workspace extends ../eosc-landscape.dsl {
         paas_ops -> orchestration "Manage PaaS resources and deployments"
         end_user -> aiaas "Uses deployed models from"
         eosc_user -> platform_storage "Stores data in"
-        /* eosc_user -> mlops "Tracks experiments, models, and drifts" */ 
 
         ## System - system interaction
         orchestration -> ai4eosc_platform "Creates PaaS deployments and provisions resources for"
@@ -149,13 +138,8 @@ workspace extends ../eosc-landscape.dsl {
         ai4eosc_platform -> aai "Is integrated with"
         ai4eosc_platform -> portal "is Registered in"
         ai4eosc_platform -> aiaas "Deploy models on"
-        /* ai4eosc_platform -> mlops "Manage and track ML models and experiments" */ 
-
-
-    #    mlops -> ai4eosc_platform "Triggers model update/retraining"
     
         # AI4EOSC platform
-
         eosc_user -> dashboard "Browse models, train existing model, build new one."
 
         # Training 
@@ -168,7 +152,6 @@ workspace extends ../eosc-landscape.dsl {
         dashboard -> platform_api "Reads available models, defines new trainings, checks training status, etc. "
 
         platform_api -> coe "Create training job, interactive environment using API calls to"
-        /* platform_api -> user_task "Queries training status" */
 
         platform_api -> secrets "Creates and manages user secrets"
     
@@ -179,16 +162,12 @@ workspace extends ../eosc-landscape.dsl {
         coe -> storage_task "Creates and manages"
 
         coe -> federated_server "Creates and manages"
-        /* user_task -> federated_server "Gets updated model, sends new weights" */
         federated_server -> secrets "Gets secrets for federated server/clients"
         dev_task -> federated_server "Gets updated model, sends new weights"
-
-        /* eosc_user -> user_task "Trigger new training jobs" */
 
         platform_api -> aai "Authenticates users with"
         dashboard -> aai "Authenticates users with" 
             
-        /* dev_task -> storage "Read data from" */
         user_task -> platform_storage "Reads and writes data from"
         user_task -> storage "Syncs external data from"
 
@@ -197,15 +176,12 @@ workspace extends ../eosc-landscape.dsl {
 
         # AI4EOSC exchange
 
-        /* platform_api -> data_repo "Reads from" */
         platform_api -> model_repo "Reads from"
         platform_api -> container_repo "Reads from"
 
-        /* eosc_user -> data_repo "Registers data" */
         eosc_user -> model_repo "Registers model"
         eosc_user -> container_repo "Registers container"
 
-        /* cicd -> data_repo "Ensures QA aspects" */
         cicd -> model_repo "Ensures QA aspects"
         cicd -> container_repo "Creates containers"
         cicd -> aiaas "Deploys and updates models as services on"
@@ -216,14 +192,11 @@ workspace extends ../eosc-landscape.dsl {
 
         zenodo_task -> zenodo "Pull dataset from"
 
-        /* data_repo -> storage "Refers to data stored in" */
-
         coe -> container_repo "Gets Docker containers from"
 
         orchestration -> coe "Provisions resources for"
 
         # QA
-
         qa_pipeline -> model_repo "Runs platform-defined QA checks on"
         qa_pipeline -> container_repo "Publishes container images to"
         qa_pipeline -> zenodo "Publishes models and code to"
@@ -232,7 +205,6 @@ workspace extends ../eosc-landscape.dsl {
 
 
         # Orchestration
-
         paas_ops -> paas_dashboard "Manages AI4EOSC PaaS deployments"
         paas_dashboard -> paas_orchestrator "Create deployment"
         paas_dashboard -> tosca_repo "Read topologies"
@@ -244,15 +216,9 @@ workspace extends ../eosc-landscape.dsl {
         iam -> aai "Federate users from" "OpenID Connect"
         paas_orchestrator -> iam "Authenticate users with"
 
-        /* paas_orchestrator -> iam "Authenticates users with" */
-        /* im -> iam "AuthN/Z" */
-
-        // FIXME (not sure of this)
-        /* cloud_providers -> user_task "Provides resources for" */
         cloud_providers -> federated_service_catalogue "register/update service & resources metadata"
         cloud_providers -> monitoring_system "push/pull metrics"
 
-        /* paas_orchestrator -> resources "Provisions resources for" */
         paas_orchestrator -> Knative "Provisions resources for" 
         paas_orchestrator -> OSCAR "Provisions resources for" 
 
@@ -266,63 +232,23 @@ workspace extends ../eosc-landscape.dsl {
         nodered -> nodered_repository "Obtain custom OSCAR nodes"
         elyra -> ai4compose_repository "Obtain custom OSCAR nodes"
 
-        //ai4compose -> OSCAR "Trigger inference"
         OSCAR -> MinIO "Manage buckets, folders, event and notifications"
         OSCAR -> Kubernetes "Manage services"
         OSCAR -> Knative "Execute services synchronously"
         Knative -> FaaSS "Assign to function's pod(s)"
         Kubernetes -> FaaSS "Create jobs"
         FaaSS -> MinIO "Download input. Upload output"
-        /* FaaSS -> storage "Read/store data" */
-        /* /1* FaaSS -> s3 "Read/store data" *1/ */
-        /* FaaSS -> MinIOExternal "Read/store data" */
-        /* FaaSS -> oneData "Read/store data" */
-        /* FaaSS -> dcache "Read/store data" */
-
-        /* eosc_user -> OSCAR "Requests the depoyment of inference services" */
 
         ai4eosc_platform -> OSCAR "Deployment or update of inference services"
         end_user -> OSCAR "Synchronous inference request"
         end_user -> MinIO "Store data for asynchronous inference"
 
+
+        # Some MLFlow interactions
         dev_task -> mlflow "Logs experiment parametres, metrics, models to MLFlow"
         eosc_user -> mlflow "Monitors and tracks models in"
         mlflow -> secrets "Gets secrets for tracking server users"
         mlflow -> cicd "Triggers monitoring of model performance / drift detection"
-        /* DriftWatch -> cicd "Monitors model update/retraining" */
-
-        /* Lisanas: I'm not sure about this one 
-                # MLOPS relationships
-        #dev_task -> zenodo_task "retrieves data from repo"
-        dev_task -> model_repo "trains the model"
-        dev_task -> ModelRegistry "stores the model version in the registry"
-        ModelRegistry -> cicd "Detects new model version"
-        cicd -> OSCAR "triggers action to deploy the model;deploy the newly trained model in production"
-        cicd -> DriftWatch "monitor data/model drift"
-        DriftWatch -> cicd "triggers the pipeline for potential retraining"
-        dashboard -> mlflow "retrieves and displays experiment results and model performance"
-        dashboard -> DriftWatch "retrieves and displays drift notifications"
-
-        eosc_user -> mlflow "Initiates a new experiment-run"
-        mlflow -> secrets "Gets secrets for mlflow tracking server users"
-        dev_task -> TrackingServer "Logs exp parametres, metrics, models artifacts to mlflow"
-        ModelRegistry -> deepaas_task "Provides API to best selected model"
-        #ArtifactStore -> model_repo "Stores model artifacts for"
-        #mlops ->  OSCAR  "retrieves real-time model performance"
-
-        DriftWatch -> end_user "Notifies the end_user about the drift" 
-        DriftWatch -> eosc_user "Notifies the eosc_user about the model/data drift" 
-
-        eosc_user -> ModelRegistry "Requests best performed model to retrain"
-        ModelRegistry -> cicd "Triggers model retraining"
-
-        end_user -> OSCAR "Sends request for new deployment of the retrained model"
-        dashboard -> end_user "Notifies user of possible drift occurence"
-
-
-        dev_task -> DriftWatch "Detects data and model drift via Frouros"
-        dev_task -> TrackingServer "Logs new experiment-runs"
-*/
         
         /* deploymentEnvironment "Production" { */
         /*     ifca_instance = deploymentGroup "IFCA Cloud Instance" */
@@ -446,15 +372,6 @@ workspace extends ../eosc-landscape.dsl {
         systemContext ai4eosc_platform ai4eosc_view {
             include *
             exclude "orchestration -> aai"
-            /* /1* exclude "eosc_user -> data_repo" *1/ */
-            /* exclude "eosc_user -> model_repo" */
-            /* exclude "eosc_user -> container_repo" */
-
-            /* /1* exclude "ci -> data_validation" *1/ */
-            /* /1* exclude "data_repo -> data_validation" *1/ */
-            /* exclude "platform_api -> deployment_workflow" */ 
-            /* exclude "deployment_workflow -> oscar" */
-            /* exclude "data_validation -> platform_api" */
         }
 
         systemContext orchestration orchestration_view {
@@ -465,15 +382,9 @@ workspace extends ../eosc-landscape.dsl {
         systemContext aiaas aiaas_view {
             include *
         }
-        
-        /* systemContext mlops mlops_view { */
-        /*     include * */
-        /*     exclude "dashboard -> end_user" */
-        /* } */
 
         container aiaas aiaas_container_view {
             include *
-            /* exclude "ai4eosc_platform -> storage" */ 
         }
 
         container ai4eosc_platform ai4eosc_container_view {
@@ -481,25 +392,8 @@ workspace extends ../eosc-landscape.dsl {
 
             exclude "orchestration -> aai"
         
-            /* exclude "external_container" */
-            /* exclude "external_container -> federated_server" */
-
-            /* exclude "eosc_user -> data_repo" */
             exclude "eosc_user -> model_repo"
             exclude "eosc_user -> container_repo"
-
-            /* exclude "ci -> data_validation" */
-            /* exclude "ci -> mlops" */
-
-            /* exclude "data_repo -> data_validation" */
-            /* exclude "data_repo -> mlops" */
-
-           # exclude "platform_api -> deployment_workflow" 
-           # exclude "platform_api -> mlops"
-
-           # exclude "deployment_workflow -> oscar"
-
-            # exclude "data_validation -> platform_api"
 
             exclude "user_task -> oscar"
             exclude "user_task -> aiaas"
@@ -588,9 +482,7 @@ workspace extends ../eosc-landscape.dsl {
         }
 
         dynamic aiaas AI4Compose_dynamic { 
-             title "[Dynamic view] AI4Compose dynamic view" 
-
-
+            title "[Dynamic view] AI4Compose dynamic view" 
 
             end_user -> flowfuse "Compose pipelines"
             flowfuse -> nodered "Manage instances"
