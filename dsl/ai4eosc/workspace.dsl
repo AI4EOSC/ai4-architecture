@@ -736,13 +736,13 @@ workspace extends ../eosc-landscape.dsl {
 
             end_user -> flowfuse "Compose pipelines"
             flowfuse -> nodered "Manage instances"
-            nodered -> noderedlibrary "Obtain custom OSCAR nodes"
+            nodered -> nodered_repository "Obtain custom OSCAR nodes"
             nodered -> OSCAR "Invoke Service and trigger inference"
             flowfuse -> end_user  "Visualize results"
 
             end_user -> jupyter "Compose pipelines"
             jupyter -> elyra "Manage Notebooks"
-            Elyra -> githubrepo "Obtain custom OSCAR nodes"
+            Elyra -> ai4compose_repository "Obtain custom OSCAR nodes"
             elyra -> OSCAR "Invoke Service and trigger inference"
             jupyter  -> end_user  "Visualize results"
          } 
