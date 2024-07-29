@@ -18,8 +18,8 @@ workspace extends ../eosc-landscape.dsl {
 
                 platform_api = container "AI4 Platform API" "Provides marketplace browseing, training creation and monitoring functionality via a JSON/HTTPS API." "FastAPI + python-nomad"
 
-                model_repo = container "Model code repository" "Track AI model code." "Git" "repository"
-                container_repo = container "Container registry" "Store container images." "Harbor.io" "repository" 
+                model_repo = container "AI4 module repository" "Track AI model and AI4EOSC code integration." "Git" "repository"
+                container_repo = container "AI4 container registry" "Store container images." "Harbor.io" "repository" 
 
                 cicd = container "Continuous Integration, Delivery & Deployment" "Ensures quality aspects are fulfilled (code checks, unit checks, etc.). Performs delivery and deployment of new assets." "Jenkins" {
                     #drift_monitoring = component "Drift Monitoring" "Monitors data and model drift; alerts whenever a drift is detected" "DriftWatch" 
@@ -182,7 +182,7 @@ workspace extends ../eosc-landscape.dsl {
         platform_api -> model_repo "Reads from"
         platform_api -> container_repo "Reads from"
 
-        eosc_user -> model_repo "Registers model"
+        eosc_user -> model_repo "Registers module"
         eosc_user -> container_repo "Registers container"
 
         cicd -> model_repo "Ensures QA aspects"
@@ -190,7 +190,7 @@ workspace extends ../eosc-landscape.dsl {
         cicd -> aiaas "Deploys and updates models as services on"
 
         cicd -> zenodo "Publishes models to"
-        model_repo -> zenodo "Publishes models to"
+        model_repo -> zenodo "Publishes modules to"
         platform_api -> zenodo "Read available datasets from"
 
         zenodo_task -> zenodo "Pull dataset from"
@@ -497,7 +497,7 @@ workspace extends ../eosc-landscape.dsl {
         # Dynamic views
 
         dynamic user_task develop_view {
-            title "[Dynamic view] Develop and register a model"
+            title "[Dynamic view] Develop a model and register an AI4EOSC module"
             eosc_user -> dashboard "Requests a development environment"
             dashboard -> aai "Checks user credentials"
             aai -> dashboard "Returns access token"
@@ -518,7 +518,7 @@ workspace extends ../eosc-landscape.dsl {
             eosc_user -> dev_task "Develops (new/updated) model in"
             dev_task -> mlflow "Logs experiment parametres and metrics to MLFlow"
             eosc_user -> mlflow "Checks model performance in"
-            eosc_user -> model_repo "Submits new/updated model"
+            eosc_user -> model_repo "Submits new/updated AI4 module"
             cicd -> model_repo "Runs platform and user checks"
             cicd -> container_repo "Creates new Docker container"
             cicd -> zenodo "Enables repository integration"
@@ -552,7 +552,7 @@ workspace extends ../eosc-landscape.dsl {
             external_container -> federated_server "Send updates to federated server, using configured secret"
             
             eosc_user -> dev_task "Develops (new/updated) model in"
-            eosc_user -> model_repo "Submits new/updated model"
+            eosc_user -> model_repo "Submits new/updated module"
 
         }
 
