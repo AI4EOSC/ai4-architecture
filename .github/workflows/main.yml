@@ -20,4 +20,4 @@ jobs:
 
         - name: Export Structurizr workspace
           if: ${{ github.event_name == 'push' }}
-          run: /usr/local/structurizr-cli/structurizr.sh push -id ${{ secrets.WORKSPACE_ID }} -key ${{ secrets.API_KEY }} -secret ${{ secrets.API_SECRET }} -workspace ./dsl/ai4eosc/worspace.dsl
+          run: /usr/local/structurizr-cli/structurizr.sh push -id ${{ secrets.WORKSPACE_ID }} -key ${{ secrets.API_KEY }} -secret ${{ secrets.API_SECRET }} -workspace ./dsl/ai4eosc/workspace.dsl
