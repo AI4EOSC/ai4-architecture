@@ -512,6 +512,8 @@ workspace extends ../eosc-landscape.dsl {
             dev_task -> storage_task "Reads and writes from"
 
             eosc_user -> dev_task "Develops (new/updated) model in"
+            dev_task -> mlflow "Logs experiment parametres and metrics to MLFlow"
+            eosc_user -> mlflow "Checks model performance in"
             eosc_user -> model_repo "Submits new/updated model"
             cicd -> model_repo "Runs platform and user checks"
             cicd -> container_repo "Creates new Docker container"
