@@ -22,7 +22,7 @@ workspace extends ../eosc-landscape.dsl {
                 container_repo = container "Container registry" "Store container images." "Harbor.io" "repository" 
 
                 cicd = container "Continuous Integration, Delivery & Deployment" "Ensures quality aspects are fulfilled (code checks, unit checks, etc.). Performs delivery and deployment of new assets." "Jenkins" {
-                    drift_detection = component "Drift Detection" "Monitors data and model drift; alerts whenever a drift is detected" "Frouros" 
+                    #drift_monitoring = component "Drift Monitoring" "Monitors data and model drift; alerts whenever a drift is detected" "DriftWatch" 
                     qa_pipeline = component "AI4OS QA Pipeline" "Ensures quality aspects are fulfilled (code checks, unit checks, etc.)" "Jenkins"
                     user_pipeline = component "User QA Pipeline" "Runs user-defined QA checks" "Jenkins"
                     
@@ -63,6 +63,9 @@ workspace extends ../eosc-landscape.dsl {
                     ArtifactStore = component "Artifact Store" "Stores model artifacts and related files"
                     ModelRegistry = component "Model Registry" "Manages model versions and stages"
                 }
+                drift_monitoring = container "DriftWatch" "Monitors drift; alerts whenever a drift is detected" "python client" {
+                        Frouros = component "Frouros" "Detects data and model drift (python lib)" 
+                    }
             }
 
             orchestration = softwareSystem "PaaS Orchestration and provisioning" "Allows PaaS operators to manage PaaS deployments and resources." {
@@ -201,7 +204,7 @@ workspace extends ../eosc-landscape.dsl {
         qa_pipeline -> container_repo "Publishes container images to"
         qa_pipeline -> zenodo "Publishes models and code to"
         user_pipeline -> model_repo "Runs user-defined QA checks on"
-        drift_detection -> model_repo "Monitors drift on"
+        drift_monitoring -> model_repo "Monitors drift on"
 
 
         # Orchestration
@@ -245,12 +248,13 @@ workspace extends ../eosc-landscape.dsl {
         end_user -> MinIO "Store data for asynchronous inference"
 
 
-        # Some MLFlow interactions
+        # Some MLFlow + Drift interactions
         dev_task -> mlflow "Logs experiment parametres, metrics, models to MLFlow"
-        eosc_user -> mlflow "Monitors and tracks models in"
+        eosc_user -> mlflow "Tracks and visualizes model performance"
         mlflow -> secrets "Gets secrets for tracking server users"
-        mlflow -> cicd "Triggers monitoring of model performance / drift detection"
-        
+        mlflow -> cicd "Detects new model version in Model Registry"
+        drift_monitoring -> cicd "Triggers the pipeline upon detecting drift (potential retrain)"
+       
         production = deploymentEnvironment "Production" {
             ifca_instance = deploymentGroup "IFCA Cloud Instance"
             iisas_instance = deploymentGroup "IISAS Cloud"
