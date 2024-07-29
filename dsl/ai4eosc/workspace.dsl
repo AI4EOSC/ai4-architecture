@@ -117,7 +117,7 @@ workspace extends ../eosc-landscape.dsl {
                 
         external_resources = softwareSystem "External resources" "External resources, not controlled by the platform" "external" {
             external_container = container "User-managed model code" "Encapsulates user code, not executed on the platform" "" 
-            external_container -> federated_server "Gets updated model, sends weights to server"
+            external_container -> federated_server "Gets updated model, sends weights to federated server"
         }
         cloud_providers = softwareSystem "Cloud/HPC Providers" "" external
 
@@ -221,6 +221,7 @@ workspace extends ../eosc-landscape.dsl {
 
         paas_orchestrator -> Knative "Provisions resources for" 
         paas_orchestrator -> OSCAR "Provisions resources for" 
+        im -> OSCAR "Manages"
 
         # DEEPaaS OSCAR
         flowfuse -> nodered "Manage instances"
@@ -250,31 +251,52 @@ workspace extends ../eosc-landscape.dsl {
         mlflow -> secrets "Gets secrets for tracking server users"
         mlflow -> cicd "Triggers monitoring of model performance / drift detection"
         
-        /* deploymentEnvironment "Production" { */
-        /*     ifca_instance = deploymentGroup "IFCA Cloud Instance" */
-        /*     iisas_instance = deploymentGroup "IISAS Cloud" */
-        /*     cnaf_instance = deploymentGroup "INFN-CNAF Cloud" */
-        /*     bari_instance = deploymentGroup "INFN-BARI Cloud" */
-        /*     incd_instance = deploymentGroup "INCD Cloud" */
-        /*     nomad_cluster = deploymentGroup "Nomad Cluster" */
-        /*     global = deploymentGroup "Global deployment" */
-        /*     federated = deploymentGroup "FL deployment" */
+        production = deploymentEnvironment "Production" {
+            ifca_instance = deploymentGroup "IFCA Cloud Instance"
+            iisas_instance = deploymentGroup "IISAS Cloud"
+            cnaf_instance = deploymentGroup "INFN-CNAF Cloud"
+            incd_instance = deploymentGroup "INCD Cloud"
 
-        /*     deploymentNode "GitHub / Gitlab" { */
-        /*         containerInstance model_repo global */
-        /*         containerInstance data_repo  global */
-        /*         containerInstance tosca_repo global */
-        /*     } */
+            nomad_cluster = deploymentGroup "Nomad Cluster"
+            global = deploymentGroup "Global deployment"
+            federated = deploymentGroup "FL deployment"
 
-        /*     deploymentNode "DockerHub" { */
-        /*         containerInstance container_repo global */
-        /*     } */
+            deploymentNode "GitHub / Gitlab" {
+                containerInstance model_repo global
+                /* containerInstance ai4compose_repository global */
+                containerInstance nodered_repository global
+            }
 
-        /*     deploymentNode "IFCA-CSIC" { */
-        /*         deploymentNode "IFCA Cloud" "" "OpenStack" { */
-        /*             deploymentNode "dasboard.ai4eosc.eu" "" "nginx" { */
-        /*                 containerInstance dashboard global */
-        /*             } */
+            /* deploymentNode "DockerHub" { */
+            /*     containerInstance container_repo global */
+            /* } */
+
+            deploymentNode "IFCA-CSIC" {
+                deploymentNode "IFCA Cloud" "" "OpenStack" {
+                    deploymentNode "dashboard.cloud.ai4eosc.eu" "" "nginx" {
+                        containerInstance dashboard global
+                    }
+                    /* deploymentNode "tutorials.cloud.ai4eosc.eu" "" "nginx" { */
+                    /*     containerInstance dashboard global */
+                    /* } */
+                    /* deploymentNode "dashboard.dev.ai4eosc.eu" "" "nginx" { */
+                    /*     containerInstance dashboard global */
+                    /* } */
+
+                    deploymentNode "api.cloud.ai4eosc.eu" "" "FastAPI" {
+                        containerInstance platform_api global,ifca_instance
+                    }
+                    /* deploymentNode "api.dev.ai4eosc.eu" "" "FastAPI" { */
+                    /*     containerInstance platform_api global */
+                    /* } */
+
+                    deploymentNode "jenkins.services.ai4os.eu" "" "Jenkins" {
+                        containerInstance cicd global
+                    }
+                    
+                    deploymentNode "share.services.ai4os.eu" "" "NextCloud" {
+                        containerInstance platform_storage global
+                    }
                     
         /*             deploymentNode "AI4 Control pane" "" "Kubernetes" { */
         /*                 containerInstance platform_api global */
@@ -286,33 +308,69 @@ workspace extends ../eosc-landscape.dsl {
         /*                 containerInstance cd           global */
         /*             } */
 
-        /*             deploymentNode "vm*.cloud.ifca.es" "" "" "" 100 { */
-        /*                 containerInstance coe               nomad_cluster,ifca_instance */
-        /*                 containerInstance resources         ifca_instance */
-        /*                 containerInstance user_task   ifca_instance */
-        /*                 containerInstance dev               ifca_instance */
-        /*                 containerInstance federated_server  ifca_instance,federated */
-        /*             } */
+                    nomad_cluster_ifca = deploymentNode "vm*.cloud.ifca.es" "" "" "" 100 {
+                        ifca_coe = containerInstance coe            nomad_cluster,ifca_instance
+                        containerInstance user_task                 ifca_instance,global
+                        containerInstance federated_server          ifca_instance,federated
+                    }
 
-        /*         } */
-        /*     } */
+                }
+            }
+
+            deploymentNode "INCD" {
+                deploymentNode "stratus.ncg.ingrid.pt" {
+                    deploymentNode "registry.services.ai4os.eu" "" "Harbor" {
+                        registry_incd = containerInstance container_repo global
+                    }
+                    deploymentNode "mlflow.cloud.ai4eosc.eu" "" "MLflow" {
+                        containerInstance mlflow global
+                    }
+                    deploymentNode "inference.cloud.ai4eosc.eu" "" "OSCAR" {
+                        containerInstance OSCAR global
+                        /* containerInstance KNative global */
+                        /* containerInstance MinIO global */
+                        /* containerInstance FaaSS global */
+                    }
+                    deploymentNode "forge.flows.dev.ai4eosc.eu" "" "Flowfuse" {
+                        containerInstance flowfuse global
+                        containerInstance nodered global
+                    }
+                    deploymentNode "console.minio.crazy-kowalevski5.im.grycap.net" "" "MinIO" {
+                        containerInstance MinIO global
+                    }
+                    nomad_cluster_incd = deploymentNode "vm*" "" "" "" 10 {
+                        incd_coe = containerInstance coe                    incd_instance,nomad_cluster
+                        incd_container = containerInstance user_task        incd_instance
+                    }
+                }
+            }
             
-        /*     deploymentNode "IISAS" { */
-        /*         deploymentNode "cloud.ui.sav.sk"  { */
-        /*             deploymentNode "vm*" "" "" "" 10 { */
-        /*                 iisas_coe = containerInstance coe                   iisas_instance,nomad_cluster */
-        /*                 iisas_resources = containerInstance resources       iisas_instance */
-        /*                 iisas_container = containerInstance user_task iisas_instance,federated */
-        /*                 iisas_dev = containerInstance dev                   iisas_instance */
-        /*             } */
-        /*         } */
-        /*     } */
+            deploymentNode "IISAS" {
+                deploymentNode "cloud.ui.sav.sk"  { 
+                    deploymentNode "secret.services.ai4os.eu" "" "Vault" {
+                        secret = containerInstance secrets global
+                    }
+                    
+                    nomad_cluster_iisas = deploymentNode "vm*" "" "" "" 10 {
+                        iisas_coe = containerInstance coe                   iisas_instance,nomad_cluster
+                        iisas_container = containerInstance user_task       iisas_instance
+                    }
+                }
+            }
 
-        /*     deploymentNode "INFN-CNAF" { */
-        /*         deploymentNode "cloud.cnaf.infn.it"  { */
-        /*             deploymentNode "iam.ai4eosc.eu" "" "nginx" { */
-        /*                 containerInstance iam   global */
-        /*             } */
+            deploymentNode "INFN-CNAF" {
+                deploymentNode "cloud.cnaf.infn.it"  {
+                    /* deploymentNode "iam.ai4eosc.eu" "" "nginx" { */
+                    /*     containerInstance iam   global */
+                    /* } */
+                    deploymentNode "paas.ai4eosc.eu" "" "nginx" {
+                        containerInstance paas_dashboard                global
+                        containerInstance paas_orchestrator             global
+                        containerInstance im                            global
+                        containerInstance federated_service_catalogue   global
+                        containerInstance monitoring_system             global
+                        containerInstance cloud_provider_ranker         global
+                    }
         /*             /1* deploymentNode "vm*" "" "" "" 10 { *1/ */
         /*             /1*     cnaf_coe = containerInstance coe                    cnaf_instance *1/ */
         /*             /1*     cnaf_resources = containerInstance resources        cnaf_instance *1/ */
@@ -328,8 +386,8 @@ workspace extends ../eosc-landscape.dsl {
         /*                 cnaf_ci = containerInstance ci               cnaf_instance */
         /*                 cnaf_cd = containerInstance cd               cnaf_instance */
         /*             } */
-        /*         } */
-        /*     } */
+                }
+            }
             
         /*     deploymentNode "INFN-BARI" { */
         /*         deploymentNode "cloud.ba.infn.it"  { */
@@ -350,10 +408,21 @@ workspace extends ../eosc-landscape.dsl {
         /*         } */
         /*     } */
 
-        /*     deploymentNode "External resources" { */
-        /*         containerInstance external_container federated */
-        /*     } */
-        /* } */
+            deploymentNode "External resources" {
+                softwareSystemInstance storage global
+            }
+            deploymentNode "CERN" {
+                deploymentNode "zenodo.org" {
+                    softwareSystemInstance zenodo global
+                }
+            }
+            deploymentNode "External user resources" {
+                softwareSystemInstance external_resources global,federated
+            }
+            nomad_cluster_ifca -> nomad_cluster_incd "Connects to"
+            nomad_cluster_ifca -> nomad_cluster_iisas "Connects to"
+            nomad_cluster_iisas -> nomad_cluster_incd "Connects to"
+        }
     }
 
     views {
@@ -470,11 +539,11 @@ workspace extends ../eosc-landscape.dsl {
             dev_task -> storage_task "Reads and writes from"
 
             dev_task -> federated_server "Get updated model, using server credentials"
-            dev_task -> federated_server "Send updates to server, using configured secret"
+            dev_task -> federated_server "Send updates to federated server, using configured secret"
             
             
             external_container -> federated_server "Get updated model, using configured secret"
-            external_container -> federated_server "Send updates to server, using configured secret"
+            external_container -> federated_server "Send updates to federated server, using configured secret"
             
             eosc_user -> dev_task "Develops (new/updated) model in"
             eosc_user -> model_repo "Submits new/updated model"
@@ -497,10 +566,10 @@ workspace extends ../eosc-landscape.dsl {
             jupyter  -> end_user  "Visualize results"
          } 
 
-        /* deployment * "Production" production_deployment { */
-        /*     include * */
-        /*     /1* autoLayout *1/ */
-        /* } */
+        deployment * production {
+            include *
+            /* autoLayout */
+        }
 
         styles {
             element "Container" {
