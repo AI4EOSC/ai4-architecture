@@ -522,6 +522,7 @@ workspace extends ../eosc-landscape.dsl {
             cicd -> model_repo "Runs platform and user checks"
             cicd -> container_repo "Creates new Docker container"
             cicd -> zenodo "Enables repository integration"
+            cicd -> aiaas "Notifies about new/updated module"
             model_repo -> zenodo "Triggers deposit of code"
         }
 
