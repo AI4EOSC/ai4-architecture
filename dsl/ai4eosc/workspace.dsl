@@ -556,6 +556,19 @@ workspace extends ../eosc-landscape.dsl {
 
         }
 
+        dynamic aiaas oscar_dynamic {
+            title "[Dynamic view] OSCAR dynamic view"
+            end_user -> OSCAR "Deploy service"
+            OSCAR -> MinIO "Buckets and folders will be created"
+            end_user -> MinIO "Store data for asynchronous inference (Option A)"
+            OSCAR -> Knative "Execute services synchronously (Option B)"
+            OSCAR -> Kubernetes "Manage services. Register jobs. Retrieve logs (Option A)"
+            Kubernetes -> FaaSS "Create jobs (Option A)"
+            Knative -> FaaSS  "Assign to function's pod(s). (Option B)"
+            FaaSS -> MinIO "Download input. Upload output."
+            /* FaaSS ->  "Read/store data " */
+        }
+
         dynamic aiaas AI4Compose_dynamic { 
             title "[Dynamic view] AI4Compose dynamic view" 
 
