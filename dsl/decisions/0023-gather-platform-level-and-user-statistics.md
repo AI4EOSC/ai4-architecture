@@ -1,6 +1,6 @@
 # 23. Gather platform level and user statistics
 
-Date: 2024-07-30
+Date: 2023-12-01
 
 ## Status
 
@@ -8,12 +8,15 @@ Accepted
 
 ## Context
 
-The issue motivating this decision, and any context that influences or constrains the decision.
+Users have difficulties to know how many resources they are using, or they have
+consumed. Reporting becomes a cumbersome and manual task.
 
 ## Decision
 
-The change that we're proposing or have agreed to implement.
+Implement an `stats` endpoint in the API, and the corresponding view in the
+dashboard, so that it is easier to provide statistics both for users and for
+platform operators. Implement tasks in the cluster to collect statistics.
 
 ## Consequences
 
-What becomes easier or more difficult to do and any risks introduced by the change that will need to be mitigated.
+Reporting becomes easier, users are aware of resource consumption.
