@@ -254,6 +254,9 @@ workspace extends ../eosc-landscape.dsl {
         mlflow -> secrets "Gets secrets for tracking server users"
         mlflow -> cicd "Detects new model version in Model Registry"
         drift_monitoring -> cicd "Triggers the pipeline upon detecting drift (potential retrain)"
+
+        drift_monitoring -> dashboard "Updates dashboard with drift status"
+        drift_monitoring -> eosc_user "Visualize model performance"  
        
         production = deploymentEnvironment "Production" {
             ifca_instance = deploymentGroup "IFCA Cloud Instance"
@@ -472,6 +475,8 @@ workspace extends ../eosc-landscape.dsl {
             exclude "user_task -> aiaas"
             exclude "oscar -> user_task"
             exclude "aiaas -> user_task"
+            exclude "drift_monitoring -> dashboard"
+            exclude "drift_monitoring -> eosc_user"
         }
         
         container orchestration orchestration_container_view {
@@ -584,7 +589,28 @@ workspace extends ../eosc-landscape.dsl {
             Elyra -> ai4compose_repository "Obtain custom OSCAR nodes"
             elyra -> OSCAR "Invoke Service and trigger inference"
             jupyter  -> end_user  "Visualize results"
-         } 
+         }
+
+        dynamic ai4eosc_platform MLOps_dynamic {
+            title "[Dynamic view] MLOps: high-level automation"
+            eosc_user -> dashboard "Enable/request MLflow to track experiments" 
+            eosc_user -> mlflow "Initiates a new experiment-run"
+            mlflow -> secrets "Gets secrets for mlflow tracking server users into Vault"
+            user_task -> mlflow  "Logs exp-run parametres, metrics to mlflow during model dev"      
+            user_task -> mlflow "Registers the model with tags/alias into Model Registry"
+            cicd -> mlflow "Selects best model for deployment"
+
+            #mlflow -> model_repo "Updates AI model version and source code"      
+            model_repo -> cicd "Gets the updated model version for deployment"
+            cicd -> aiaas "Deploys best performed model in production"
+            
+                       
+            drift_monitoring -> cicd "Triggers drift monitoring actions for the deployed model"
+            drift_monitoring -> dashboard "Updates dashboard with drift status"
+                            
+            drift_monitoring -> eosc_user "Visualize model performance"                
+            dashboard -> eosc_user "Notifies user in case a drift occurs"
+        } 
 
         deployment * production {
             include *
