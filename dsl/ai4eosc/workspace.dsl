@@ -610,7 +610,42 @@ workspace extends ../eosc-landscape.dsl {
                             
             drift_monitoring -> eosc_user "Visualize model performance"                
             dashboard -> eosc_user "Notifies user in case a drift occurs"
-        } 
+        }
+        
+        dynamic ai4eosc_platform Drift_detection {
+            title "[Dynamic view] Automatic (data/concept) drift detection (rebuild the  model)"
+
+            # ML developer perspective
+
+            cicd -> zenodo "Detects new data version"   
+            cicd -> drift_monitoring "Triggers model monitoring"
+            drift_monitoring -> dashboard "Updates dashboard with drift status"            
+            dashboard -> eosc_user "Notifies user about drift occurrence"
+
+            eosc_user -> user_task "Update the developed model in"
+            #zenodo -> storage_task "Writes the new dataset to"
+            #user_task -> platform_storage "Reads and writes data from"
+            user_task -> storage "Syncs external data from"
+
+
+            #eosc_user -> mlflow "Log the metrics of the experiments for the updated model"
+            #eosc_user -> mlflow "Registers the retrained model"
+
+                        
+            user_task -> mlflow "Logs new experiment-runs, stores model to Model Registry"
+            eosc_user -> mlflow "Registers the retrained model"
+            #mlflow -> model_repo "Updates the model source code"
+            model_repo -> cicd "Updates the model and requests model retraining if data is valid and not poisoned"
+
+            cicd -> container_repo "Creates new Docker container for retrained model"
+            cicd -> model_repo "Updates model repository with new version"
+            cicd -> aiaas "Deploy the new model trained with new data in production"
+            
+            model_repo -> zenodo "Triggers deposit of updated model"            
+            
+        }
+            
+ 
 
         deployment * production {
             include *
