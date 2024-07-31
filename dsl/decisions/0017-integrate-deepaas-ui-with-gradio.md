@@ -1,6 +1,6 @@
 # 17. Integrate DEEPaaS UI with Gradio
 
-Date: 2024-07-30
+Date: 2023-11-01
 
 ## Status
 
@@ -8,12 +8,12 @@ Accepted
 
 ## Context
 
-The issue motivating this decision, and any context that influences or constrains the decision.
+The DEEPaaS API provides a simple UI based on Swagger, not attractive for end-users.
 
 ## Decision
 
-The change that we're proposing or have agreed to implement.
+Integrate Gradio and DEEPaaS API, so that the Gradio UI can be automatically generated.
 
 ## Consequences
 
-What becomes easier or more difficult to do and any risks introduced by the change that will need to be mitigated.
+Users will have a friendly interface to interact with.
