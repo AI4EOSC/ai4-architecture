@@ -1,6 +1,6 @@
 # 21. Integrate development environments with secret management system
 
-Date: 2024-07-30
+Date: 2024-06-30
 
 ## Status
 
@@ -8,12 +8,17 @@ Accepted
 
 ## Context
 
-The issue motivating this decision, and any context that influences or constrains the decision.
+Users need to define a secret for their development environments. This secret
+is hardcoded in the job, therefore it cannot be changed if compromised and it
+cannot be viewed after the deployment is created.
 
 ## Decision
 
-The change that we're proposing or have agreed to implement.
+Integrate the development environments with the secret management system, so
+that the secret is stored in it.
 
 ## Consequences
 
-What becomes easier or more difficult to do and any risks introduced by the change that will need to be mitigated.
+This change will allow users to check the configured secret after the
+deployment is created. Moreover, we can use the secret when redirecting users
+to the deployment, thus avoiding to introduce it manually.
