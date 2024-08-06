@@ -315,6 +315,9 @@ workspace extends ../eosc-landscape.dsl {
         /*                 containerInstance cd           global */
         /*             } */
 
+                    deploymentNode "driftwatch.dev.ai4eosc.eu" "" "DriftWatch" {
+                        containerInstance drift_monitoring global
+                    }
                     nomad_cluster_ifca = deploymentNode "vm*.cloud.ifca.es" "" "" "" 100 {
                         ifca_coe = containerInstance coe            nomad_cluster,ifca_instance
                         containerInstance user_task                 ifca_instance,global
