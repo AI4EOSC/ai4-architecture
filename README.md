@@ -1,5 +1,7 @@
 # AI4EOSC Architecture repository
 
+[![DOI](https://zenodo.org/badge/587778839.svg)](https://zenodo.org/doi/10.5281/zenodo.13343446)
+
 This repository contains the [AI4EOSC](https://ai4eosc.eu) project architecture
 diagrams. An online read-only version is available at the following
 [Structurizr Workspace](https://structurizr.com/share/73873/2f769b91-f208-41b0-b79f-5e196435bdb1).
