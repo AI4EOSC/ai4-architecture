@@ -16,6 +16,8 @@ workspace extends ../eosc-landscape.dsl {
         ai4eosc = group "AI4EOSC" {
             ai4eosc_platform = softwareSystem "AI4EOSC Platform" "Allows EOSC users to develop, build and share AI models." {
 
+                ai4eosc_aai = container "AI4EOSC AAI" "Provides authentication and authorization services for the AI4EOSC platform." "Keycloak"
+
                 platform_api = container "AI4 Platform API" "Provides marketplace browseing, training creation and monitoring functionality via a JSON/HTTPS API." "FastAPI + python-nomad"
 
                 model_repo = container "AI4 module repository" "Track AI model and AI4EOSC code integration." "Git" "repository"
@@ -103,6 +105,19 @@ workspace extends ../eosc-landscape.dsl {
                 nodered_repository = container "Node-RED Library" "Contain AI4Compose custom nodes" "Git" "repository"
                 ai4compose_repository = container "AI4Compose GitHub repo" "Contain AI4Compose custom nodes" "Git" "repository"
             }
+
+            llms = softwareSystem "LLM Services" "Provides LLM-based API/chat services to users." {
+                open_webui = container "Open WebUI" "Web-based user interface for LLM interaction." "Open WebUI"
+
+                llm_gateway = group "LLM Gateway" {
+                    llm_apisix = container "APISIX LLM Gateway" "API management (e.g. API key management, rate limit, telemetry)" "HAproxy + APISIX"
+                    llm_litellm = container "LiteLLM Service" "Provides access and routing to LLM models." "LiteLLM"
+                }
+                llm_leaf_nodes = group "Federated LLM provider" {
+                    llm_litellm_leaf = container "LiteLLM Leaf Node" "Provides access and routing to LLM models." "HAProxy + LiteLLM"
+                    vllm = container "vLLM Service" "Provides OpenAI comptabile access to LLM models." "vLLM"
+                }
+            }
         }
 
         external_storages = group "External storage services" {
@@ -133,6 +148,8 @@ workspace extends ../eosc-landscape.dsl {
         paas_ops -> orchestration "Manage PaaS resources and deployments"
         end_user -> aiaas "Uses deployed models from"
         eosc_user -> platform_storage "Stores data in"
+        eosc_user -> storage "Stores data in"
+        eosc_user -> llms "Uses LLM-based services from"
 
         ## System - system interaction
         orchestration -> ai4eosc_platform "Creates PaaS deployments and provisions resources for"
@@ -141,6 +158,7 @@ workspace extends ../eosc-landscape.dsl {
         ai4eosc_platform -> aai "Is integrated with"
         ai4eosc_platform -> portal "is Registered in"
         ai4eosc_platform -> aiaas "Deploy models on"
+        llms -> ai4eosc_platform "Gets models from, authenticates users with, provides LLM services to"
     
         # AI4EOSC platform
         eosc_user -> dashboard "Browse models, train existing model, build new one."
@@ -153,6 +171,7 @@ workspace extends ../eosc-landscape.dsl {
         dev_task -> secrets "Access user secrets"
 
         dashboard -> platform_api "Reads available models, defines new trainings, checks training status, etc. "
+        dashboard -> llms "Uses LLM services for assistance"
 
         platform_api -> coe "Create training job, interactive environment using API calls to"
 
@@ -168,8 +187,9 @@ workspace extends ../eosc-landscape.dsl {
         federated_server -> secrets "Gets secrets for federated server/clients"
         dev_task -> federated_server "Gets updated model, sends new weights"
 
-        platform_api -> aai "Authenticates users with"
-        dashboard -> aai "Authenticates users with" 
+        ai4eosc_aai -> aai "Is integrated with"
+        platform_api -> ai4eosc_aai "Authenticates users with"
+        dashboard -> ai4eosc_aai "Authenticates users with" 
             
         user_task -> platform_storage "Reads and writes data from"
         user_task -> storage "Syncs external data from"
@@ -205,6 +225,16 @@ workspace extends ../eosc-landscape.dsl {
         qa_pipeline -> zenodo "Publishes models and code to"
         user_pipeline -> model_repo "Runs user-defined QA checks on"
         drift_monitoring -> model_repo "Monitors drift on"
+
+        # LLM services
+        eosc_user -> llm_apisix "Access LLM API services via"
+        eosc_user -> open_webui "Access LLM Chat services via"
+        open_webui -> llm_apisix "Uses LLM modesl via API from"
+        llm_apisix -> llm_litellm "Routes requests to"
+        llm_apisix -> secrets "Gets API keys from"
+        llm_litellm -> llm_litellm_leaf "Routes requests to"
+        llm_litellm_leaf -> vllm "Routes requests to"
+        open_webui -> ai4eosc_aai "Authenticates users with"
 
 
         # Orchestration
@@ -257,6 +287,68 @@ workspace extends ../eosc-landscape.dsl {
 
         drift_monitoring -> dashboard "Updates dashboard with drift status"
         drift_monitoring -> eosc_user "Visualize model performance"  
+
+        llm_production = deploymentEnvironment "LLM services (production)" {
+            ifca_llm_instance = deploymentGroup "IFCA Cloud Instance"
+            iisas_llm_instance = deploymentGroup "IISAS Cloud"
+            eu_node_llm_instance = deploymentGroup "EOSC EU Node Cloud"
+            global_llm = deploymentGroup "Global deployment"
+
+            deploymentNode "IFCA-CSIC" {
+                deploymentNode "IFCA Cloud" "" "OpenStack" {
+                    deploymentNode "chat.cloud.ai4eosc.eu" "" "Open WebUI" {
+                        containerInstance open_webui ifca_llm_instance
+                    }
+                    deploymentNode "vllm.cloud.ai4eosc.eu" "" "LiteLLM + APISIX" {
+                        containerInstance llm_apisix ifca_llm_instance,global_llm
+                        containerInstance llm_litellm ifca_llm_instance,global_llm
+                    }
+
+                    deploymentnode "ifca01-vllm.cloud.ai4eosc.eu" "" "LiteLLM Leaf Node" {
+                        containerInstance llm_litellm_leaf ifca_llm_instance,global_llm
+                    }
+
+                    deploymentnode "vllm01" "" "vLLM Service (StarCoder2)" {
+                        containerInstance vllm ifca_llm_instance
+                    }
+                    deploymentnode "vllm02" "" "vLLM Service (Small)" {
+                        containerInstance vllm ifca_llm_instance
+                    }
+                    deploymentnode "vllm03" "" "vLLM Service (Qwen3)" {
+                        containerInstance vllm ifca_llm_instance
+                    }
+                    deploymentnode "vllm04" "" "vLLM Service (Qwen3 Embeddings)" {
+                        containerInstance vllm ifca_llm_instance
+                    }
+                }
+            }
+            deploymentNode "IISAS" {
+                deploymentNode "cloud.ui.sav.sk"  { 
+                    deploymentNode "secret.services.ai4os.eu" "" "Vault" {
+                        containerInstance secrets global_llm
+                    }
+                    deploymentNode "iisas01-vllm.cloud.ai4eosc.eu" "" "LiteLLM Leaf Node" {
+                        containerInstance llm_litellm_leaf iisas_llm_instance,global_llm
+                    }
+
+                    deploymentnode "vllm01" "" "vLLM Service (Magistral)" {
+                        containerInstance vllm iisas_llm_instance
+                    }
+                }
+            }
+            deploymentNode "EOSC EU Node" {
+                deploymentNode "eosceu01-vllm.cloud.ai4eosc.eu" "" "LiteLLM Leaf Node" {
+                    containerInstance llm_litellm_leaf eu_node_llm_instance,global_llm
+                }
+
+                deploymentnode "vllm01" "" "vLLM Service (OLMo 2)" {
+                    containerInstance vllm eu_node_llm_instance
+                }
+                deploymentnode "vllm02" "" "vLLM Service (SmolM2)" {
+                    containerInstance vllm eu_node_llm_instance
+                }
+            }
+        }
        
         production = deploymentEnvironment "Production" {
             ifca_instance = deploymentGroup "IFCA Cloud Instance"
@@ -446,11 +538,16 @@ workspace extends ../eosc-landscape.dsl {
         systemLandscape system_view {
             include *
             exclude "orchestration -> aai"
+            exclude "drift_monitoring -> eosc_user"
+            exclude "ai4eosc_platform -> eosc_user"
         }
 
         systemContext ai4eosc_platform ai4eosc_view {
             include *
             exclude "orchestration -> aai"
+            exclude "drift_monitoring -> eosc_user"
+            exclude "ai4eosc_platform -> eosc_user"
+            exclude "eosc_user -> mlflow"
         }
 
         systemContext orchestration orchestration_view {
@@ -460,6 +557,13 @@ workspace extends ../eosc-landscape.dsl {
 
         systemContext aiaas aiaas_view {
             include *
+        }
+
+        container llms llms_container_view {
+            include *
+            exclude "eosc_user -> ai4eosc_platform"
+            exclude "drift_monitoring -> eosc_user"
+            exclude "ai4eosc_platform -> eosc_user"
         }
 
         container aiaas aiaas_container_view {
@@ -480,6 +584,12 @@ workspace extends ../eosc-landscape.dsl {
             exclude "aiaas -> user_task"
             exclude "drift_monitoring -> dashboard"
             exclude "drift_monitoring -> eosc_user"
+
+            exclude "eosc_user -> llms"
+            exclude "llms -> ai4eosc_platform"
+            exclude "llms -> ai4eosc_aai"
+            exclude "llm_apisix -> secrets"
+            exclude "llms -> secrets"
         }
         
         container orchestration orchestration_container_view {
@@ -507,8 +617,8 @@ workspace extends ../eosc-landscape.dsl {
         dynamic user_task develop_view {
             title "[Dynamic view] Develop a model and register an AI4EOSC module"
             eosc_user -> dashboard "Requests a development environment"
-            dashboard -> aai "Checks user credentials"
-            aai -> dashboard "Returns access token"
+            dashboard -> ai4eosc_aai "Checks user credentials"
+            ai4eosc_aai -> dashboard "Returns access token"
             dashboard -> platform_api "Requests new development enviroment"
             dashboard -> platform_api "Creates secret for development enviromment"
             platform_api -> secrets "Creates secret in "
@@ -538,8 +648,8 @@ workspace extends ../eosc-landscape.dsl {
             title "[Dynamic view] Federated learning scenario"
 
             eosc_user -> dashboard "Requests available modules"
-            dashboard -> aai "Checks user credentials"
-            aai -> dashboard "Returns access token"
+            dashboard -> ai4eosc_aai "Checks user credentials"
+            ai4eosc_aai -> dashboard "Returns access token"
 
             dashboard -> platform_api "Requests new federated learning job"
             platform_api -> secrets "Create secrets for federated server" 
@@ -649,6 +759,10 @@ workspace extends ../eosc-landscape.dsl {
         }
             
  
+        deployment * llm_production {
+            include *
+            /* autoLayout */
+        }
 
         deployment * production {
             include *
