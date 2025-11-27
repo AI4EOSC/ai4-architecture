@@ -7,7 +7,7 @@ workspace extends ../eosc-landscape.dsl {
 
     model {
 
-        !ref eosc_user {
+        !element eosc_user {
             description "EOSC user willing to use an AI platform to develop an AI application."
         }
 
