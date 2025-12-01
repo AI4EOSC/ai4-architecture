@@ -170,12 +170,13 @@ workspace extends ../eosc-landscape.dsl {
 
         dev_task -> secrets "Access user secrets"
 
-        dashboard -> platform_api "Reads available models, defines new trainings, checks training status, manages secrets, etc. "
+        dashboard -> platform_api "Reads available models, defines new trainings, checks training status, etc. " "" dashboard_api
+        dashboard -> platform_api "Manages secrets and API keys" "" dashboard_api_secrets
         dashboard -> llms "Uses LLM services for assistance"
 
         platform_api -> coe "Create training job, interactive environment using API calls to"
 
-        platform_api -> secrets "Creates and manages user secrets and API keys"
+        platform_api -> secrets "Creates and manages user secrets"
     
         coe -> user_task "Creates and manages"
         coe -> dev_task "Creates and manages"
@@ -231,7 +232,8 @@ workspace extends ../eosc-landscape.dsl {
         eosc_user -> open_webui "Access LLM Chat services via"
         open_webui -> llm_apisix "Uses LLM modesl via API from"
         llm_apisix -> llm_litellm "Routes requests to"
-        llm_apisix -> secrets "Gets API keys from"
+        platform_api -> llm_apisix "Manages API keys for"
+        /* llm_apisix -> secrets "Gets API keys from" */
         llm_litellm -> llm_litellm_leaf "Routes requests to"
         llm_litellm_leaf -> vllm "Routes requests to"
         open_webui -> ai4eosc_aai "Authenticates users with"
@@ -335,9 +337,6 @@ workspace extends ../eosc-landscape.dsl {
                 }
             }
             deploymentNode "IISAS" {
-                deploymentNode "secret.services.ai4os.eu" "" "Vault" {
-                    containerInstance secrets global_llm
-                }
                 deploymentNode "vLLM cluster"  { 
                     deploymentNode "iisas01-vllm.cloud.ai4eosc.eu" "" "LiteLLM Leaf Node" {
                         containerInstance llm_litellm_leaf iisas_llm_instance,global_llm
@@ -779,7 +778,9 @@ workspace extends ../eosc-landscape.dsl {
  
         deployment * llm_production {
             include *
+            exclude "platform_api -> secrets"
             /* autoLayout */
+            exclude "relationship.tag==dashboard_api"
         }
 
         deployment * production {
