@@ -170,13 +170,12 @@ workspace extends ../eosc-landscape.dsl {
 
         dev_task -> secrets "Access user secrets"
 
-        dashboard -> platform_api "Reads available models, defines new trainings, checks training status, etc. "
+        dashboard -> platform_api "Reads available models, defines new trainings, checks training status, manages secrets, etc. "
         dashboard -> llms "Uses LLM services for assistance"
-        dashboard -> secrets "Manages user sercres and API keys"
 
         platform_api -> coe "Create training job, interactive environment using API calls to"
 
-        platform_api -> secrets "Creates and manages user secrets"
+        platform_api -> secrets "Creates and manages user secrets and API keys"
     
         coe -> user_task "Creates and manages"
         coe -> dev_task "Creates and manages"
@@ -302,6 +301,9 @@ workspace extends ../eosc-landscape.dsl {
                     }
                     deploymentNode "login.cloud.ai4eosc.eu" "" "Keycloack" {
                         containerInstance ai4eosc_aai global_llm,ifca_llm_instance
+                    }
+                    deploymentNode "api.cloud.ai4eosc.eu" "" "FastAPI" {
+                        containerInstance platform_api global_llm,ifca_instance
                     }
                     deploymentNode "chat.cloud.ai4eosc.eu" "" "Open WebUI" {
                         containerInstance open_webui ifca_llm_instance
@@ -604,8 +606,8 @@ workspace extends ../eosc-landscape.dsl {
             exclude "eosc_user -> llms"
             exclude "llms -> ai4eosc_platform"
             exclude "llms -> ai4eosc_aai"
-            exclude "llm_apisix -> secrets"
-            exclude "llms -> secrets"
+            /* exclude "llm_apisix -> secrets" */
+            /* exclude "llms -> secrets" */
         }
         
         container orchestration orchestration_container_view {
