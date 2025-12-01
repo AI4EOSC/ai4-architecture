@@ -172,6 +172,7 @@ workspace extends ../eosc-landscape.dsl {
 
         dashboard -> platform_api "Reads available models, defines new trainings, checks training status, etc. "
         dashboard -> llms "Uses LLM services for assistance"
+        dashboard -> secrets "Manages user sercres and API keys"
 
         platform_api -> coe "Create training job, interactive environment using API calls to"
 
@@ -296,6 +297,12 @@ workspace extends ../eosc-landscape.dsl {
 
             deploymentNode "IFCA-CSIC" {
                 deploymentNode "IFCA Cloud" "" "OpenStack" {
+                    deploymentNode "dashboard.cloud.ai4eosc.eu" "" "nginx" {
+                        containerInstance dashboard global_llm
+                    }
+                    deploymentNode "login.cloud.ai4eosc.eu" "" "Keycloack" {
+                        containerInstance ai4eosc_aai global_llm,ifca_llm_instance
+                    }
                     deploymentNode "chat.cloud.ai4eosc.eu" "" "Open WebUI" {
                         containerInstance open_webui ifca_llm_instance
                     }
@@ -304,29 +311,32 @@ workspace extends ../eosc-landscape.dsl {
                         containerInstance llm_litellm ifca_llm_instance,global_llm
                     }
 
-                    deploymentnode "ifca01-vllm.cloud.ai4eosc.eu" "" "LiteLLM Leaf Node" {
-                        containerInstance llm_litellm_leaf ifca_llm_instance,global_llm
-                    }
+                    deploymentNode "vLLM cluster" {
 
-                    deploymentnode "vllm01" "" "vLLM Service (StarCoder2)" {
-                        containerInstance vllm ifca_llm_instance
-                    }
-                    deploymentnode "vllm02" "" "vLLM Service (Small)" {
-                        containerInstance vllm ifca_llm_instance
-                    }
-                    deploymentnode "vllm03" "" "vLLM Service (Qwen3)" {
-                        containerInstance vllm ifca_llm_instance
-                    }
-                    deploymentnode "vllm04" "" "vLLM Service (Qwen3 Embeddings)" {
-                        containerInstance vllm ifca_llm_instance
+                        deploymentnode "ifca01-vllm.cloud.ai4eosc.eu" "" "LiteLLM Leaf Node" {
+                            containerInstance llm_litellm_leaf ifca_llm_instance,global_llm
+                        }
+
+                        deploymentnode "vllm01" "" "vLLM Service (StarCoder2)" {
+                            containerInstance vllm ifca_llm_instance
+                        }
+                        deploymentnode "vllm02" "" "vLLM Service (Small)" {
+                            containerInstance vllm ifca_llm_instance
+                        }
+                        deploymentnode "vllm03" "" "vLLM Service (Qwen3)" {
+                            containerInstance vllm ifca_llm_instance
+                        }
+                        deploymentnode "vllm04" "" "vLLM Service (Qwen3 Embeddings)" {
+                            containerInstance vllm ifca_llm_instance
+                        }
                     }
                 }
             }
             deploymentNode "IISAS" {
-                deploymentNode "cloud.ui.sav.sk"  { 
-                    deploymentNode "secret.services.ai4os.eu" "" "Vault" {
-                        containerInstance secrets global_llm
-                    }
+                deploymentNode "secret.services.ai4os.eu" "" "Vault" {
+                    containerInstance secrets global_llm
+                }
+                deploymentNode "vLLM cluster"  { 
                     deploymentNode "iisas01-vllm.cloud.ai4eosc.eu" "" "LiteLLM Leaf Node" {
                         containerInstance llm_litellm_leaf iisas_llm_instance,global_llm
                     }
@@ -337,15 +347,18 @@ workspace extends ../eosc-landscape.dsl {
                 }
             }
             deploymentNode "EOSC EU Node" {
-                deploymentNode "eosceu01-vllm.cloud.ai4eosc.eu" "" "LiteLLM Leaf Node" {
-                    containerInstance llm_litellm_leaf eu_node_llm_instance,global_llm
-                }
 
-                deploymentnode "vllm01" "" "vLLM Service (OLMo 2)" {
-                    containerInstance vllm eu_node_llm_instance
-                }
-                deploymentnode "vllm02" "" "vLLM Service (SmolM2)" {
-                    containerInstance vllm eu_node_llm_instance
+                deploymentNode "vLLM cluster"  {
+                    deploymentNode "eu01-vllm.cloud.ai4eosc.eu" "" "LiteLLM Leaf Node" {
+                        containerInstance llm_litellm_leaf eu_node_llm_instance,global_llm
+                    }
+
+                    deploymentnode "vllm01" "" "vLLM Service (OLMo 2)" {
+                        containerInstance vllm eu_node_llm_instance
+                    }
+                    deploymentnode "vllm02" "" "vLLM Service (SmolM2)" {
+                        containerInstance vllm eu_node_llm_instance
+                    }
                 }
             }
         }
@@ -374,6 +387,9 @@ workspace extends ../eosc-landscape.dsl {
                 deploymentNode "IFCA Cloud" "" "OpenStack" {
                     deploymentNode "dashboard.cloud.ai4eosc.eu" "" "nginx" {
                         containerInstance dashboard global
+                    }
+                    deploymentNode "login.cloud.ai4eosc.eu" "" "Keycloack" {
+                        containerInstance ai4eosc_aai global
                     }
                     /* deploymentNode "tutorials.cloud.ai4eosc.eu" "" "nginx" { */
                     /*     containerInstance dashboard global */
