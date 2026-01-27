@@ -196,7 +196,7 @@
   },
   "id" : 1,
   "lastModifiedAgent" : "structurizr-ui",
-  "lastModifiedDate" : "2025-12-01T10:21:59Z",
+  "lastModifiedDate" : "2026-01-27T10:24:33Z",
   "model" : {
     "deploymentNodes" : [ {
       "children" : [ {
@@ -205,38 +205,38 @@
             "containerId" : "14",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "LLM services (production)",
-            "id" : "201",
+            "id" : "199",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "aa3c5a2b-d931-405d-8e76-1d45002f1241"
+              "structurizr.dsl.identifier" : "36d64df6-2efa-42ab-8b1d-9647d3f109b9"
             },
             "relationships" : [ {
               "description" : "Authenticates users with",
-              "destinationId" : "203",
-              "id" : "204",
-              "linkedRelationshipId" : "114",
-              "sourceId" : "201"
+              "destinationId" : "201",
+              "id" : "202",
+              "linkedRelationshipId" : "113",
+              "sourceId" : "199"
             }, {
               "description" : "Reads available models, defines new trainings, checks training status, etc. ",
-              "destinationId" : "206",
-              "id" : "207",
-              "linkedRelationshipId" : "97",
-              "sourceId" : "201"
+              "destinationId" : "204",
+              "id" : "205",
+              "linkedRelationshipId" : "96",
+              "sourceId" : "199"
             }, {
               "description" : "Manages secrets and API keys",
-              "destinationId" : "206",
-              "id" : "208",
-              "linkedRelationshipId" : "98",
-              "sourceId" : "201"
+              "destinationId" : "204",
+              "id" : "206",
+              "linkedRelationshipId" : "97",
+              "sourceId" : "199"
             } ],
             "tags" : "Container Instance"
           } ],
           "environment" : "LLM services (production)",
-          "id" : "200",
+          "id" : "198",
           "instances" : "1",
           "name" : "dashboard.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "6be336b8-cdf1-42ea-b877-62dadc02c4d5"
+            "structurizr.dsl.identifier" : "f259c397-8ae3-4d81-896c-b1e26ad4e3c1"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "nginx"
@@ -245,19 +245,19 @@
             "containerId" : "7",
             "deploymentGroups" : [ "Global deployment", "IFCA Cloud Instance" ],
             "environment" : "LLM services (production)",
-            "id" : "203",
+            "id" : "201",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "c215aff5-8b84-4e1e-889f-33c074175184"
+              "structurizr.dsl.identifier" : "d9c8edbc-485c-474b-a65b-c6b9d851eb1d"
             },
             "tags" : "Container Instance"
           } ],
           "environment" : "LLM services (production)",
-          "id" : "202",
+          "id" : "200",
           "instances" : "1",
           "name" : "login.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "72f6c442-c6b5-4a99-b7aa-5d4ec89c3159"
+            "structurizr.dsl.identifier" : "6e06ebac-302c-4831-9d3b-fd235fb1245d"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "Keycloack"
@@ -266,32 +266,32 @@
             "containerId" : "8",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "LLM services (production)",
-            "id" : "206",
+            "id" : "204",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "14b8f24f-77fe-4aa8-a637-e0cf890e1898"
+              "structurizr.dsl.identifier" : "28f6dd95-4704-44d5-bf43-b640a4dd3719"
             },
             "relationships" : [ {
               "description" : "Authenticates users with",
-              "destinationId" : "203",
-              "id" : "209",
-              "linkedRelationshipId" : "113",
-              "sourceId" : "206"
+              "destinationId" : "201",
+              "id" : "207",
+              "linkedRelationshipId" : "112",
+              "sourceId" : "204"
             }, {
               "description" : "Manages API keys for",
-              "destinationId" : "214",
-              "id" : "215",
-              "linkedRelationshipId" : "143",
-              "sourceId" : "206"
+              "destinationId" : "212",
+              "id" : "213",
+              "linkedRelationshipId" : "141",
+              "sourceId" : "204"
             } ],
             "tags" : "Container Instance"
           } ],
           "environment" : "LLM services (production)",
-          "id" : "205",
+          "id" : "203",
           "instances" : "1",
           "name" : "api.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "e8eb3e66-550a-4d12-a60c-18025705f1d6"
+            "structurizr.dsl.identifier" : "bb4d67d6-ff71-46cb-b06a-ebe967baa5d8"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "FastAPI"
@@ -300,32 +300,32 @@
             "containerId" : "58",
             "deploymentGroups" : [ "IFCA Cloud Instance" ],
             "environment" : "LLM services (production)",
-            "id" : "211",
+            "id" : "209",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "7dab2299-9271-4b25-9343-fd160ade2fa9"
+              "structurizr.dsl.identifier" : "5aa2ade0-98ef-4bb1-8239-158b86e168d1"
             },
             "relationships" : [ {
               "description" : "Authenticates users with",
-              "destinationId" : "203",
-              "id" : "212",
-              "linkedRelationshipId" : "148",
-              "sourceId" : "211"
+              "destinationId" : "201",
+              "id" : "210",
+              "linkedRelationshipId" : "146",
+              "sourceId" : "209"
             }, {
               "description" : "Uses LLM modesl via API from",
-              "destinationId" : "214",
-              "id" : "216",
-              "linkedRelationshipId" : "141",
-              "sourceId" : "211"
+              "destinationId" : "212",
+              "id" : "214",
+              "linkedRelationshipId" : "140",
+              "sourceId" : "209"
             } ],
             "tags" : "Container Instance"
           } ],
           "environment" : "LLM services (production)",
-          "id" : "210",
+          "id" : "208",
           "instances" : "1",
           "name" : "chat.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "67c57fa4-180c-4cd8-9ae5-a7953a248996"
+            "structurizr.dsl.identifier" : "27d40051-9513-44ae-a6a0-1525a5943d5a"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "Open WebUI"
@@ -334,380 +334,363 @@
             "containerId" : "59",
             "deploymentGroups" : [ "Global deployment", "IFCA Cloud Instance" ],
             "environment" : "LLM services (production)",
-            "id" : "214",
+            "id" : "212",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "7fe83e12-7bf1-4d23-ad24-28e421f4a4ec"
+              "structurizr.dsl.identifier" : "a6496005-dd1c-47df-a2f8-ebc2ee855ec7"
             },
             "relationships" : [ {
               "description" : "Routes requests to",
               "destinationId" : "217",
               "id" : "218",
-              "linkedRelationshipId" : "142",
-              "sourceId" : "214"
-            } ],
-            "tags" : "Container Instance"
-          }, {
-            "containerId" : "60",
-            "deploymentGroups" : [ "Global deployment", "IFCA Cloud Instance" ],
-            "environment" : "LLM services (production)",
-            "id" : "217",
-            "instanceId" : 1,
-            "properties" : {
-              "structurizr.dsl.identifier" : "92760dc8-f346-4183-b095-3763637e07b3"
-            },
-            "relationships" : [ {
-              "description" : "Routes requests to",
-              "destinationId" : "221",
-              "id" : "222",
-              "linkedRelationshipId" : "146",
-              "sourceId" : "217"
+              "linkedRelationshipId" : "144",
+              "sourceId" : "212"
             }, {
               "description" : "Routes requests to",
-              "destinationId" : "238",
-              "id" : "239",
-              "linkedRelationshipId" : "146",
-              "sourceId" : "217"
+              "destinationId" : "234",
+              "id" : "235",
+              "linkedRelationshipId" : "144",
+              "sourceId" : "212"
             }, {
               "description" : "Routes requests to",
-              "destinationId" : "246",
-              "id" : "247",
-              "linkedRelationshipId" : "146",
-              "sourceId" : "217"
+              "destinationId" : "242",
+              "id" : "243",
+              "linkedRelationshipId" : "144",
+              "sourceId" : "212"
             } ],
             "tags" : "Container Instance"
           } ],
           "environment" : "LLM services (production)",
-          "id" : "213",
+          "id" : "211",
           "instances" : "1",
           "name" : "vllm.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "08ed7b68-e5b9-4ab3-8466-9b027f15cc09"
+            "structurizr.dsl.identifier" : "892935e6-2f3b-4df1-b0c5-22271e16472a"
           },
           "tags" : "Element,Deployment Node",
-          "technology" : "LiteLLM + APISIX"
+          "technology" : "LiteLLM"
         }, {
           "children" : [ {
             "containerInstances" : [ {
-              "containerId" : "61",
+              "containerId" : "60",
               "deploymentGroups" : [ "Global deployment", "IFCA Cloud Instance" ],
               "environment" : "LLM services (production)",
-              "id" : "221",
+              "id" : "217",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "fd27f46e-ef75-4878-95d2-a813a02574a9"
+                "structurizr.dsl.identifier" : "97050bc7-0e93-426f-a977-ea4a84fe21ad"
               },
               "relationships" : [ {
                 "description" : "Routes requests to",
-                "destinationId" : "224",
-                "id" : "225",
-                "linkedRelationshipId" : "147",
-                "sourceId" : "221"
+                "destinationId" : "220",
+                "id" : "221",
+                "linkedRelationshipId" : "145",
+                "sourceId" : "217"
               }, {
                 "description" : "Routes requests to",
-                "destinationId" : "227",
-                "id" : "228",
-                "linkedRelationshipId" : "147",
-                "sourceId" : "221"
+                "destinationId" : "223",
+                "id" : "224",
+                "linkedRelationshipId" : "145",
+                "sourceId" : "217"
               }, {
                 "description" : "Routes requests to",
-                "destinationId" : "230",
-                "id" : "231",
-                "linkedRelationshipId" : "147",
-                "sourceId" : "221"
+                "destinationId" : "226",
+                "id" : "227",
+                "linkedRelationshipId" : "145",
+                "sourceId" : "217"
               }, {
                 "description" : "Routes requests to",
-                "destinationId" : "233",
-                "id" : "234",
-                "linkedRelationshipId" : "147",
-                "sourceId" : "221"
+                "destinationId" : "229",
+                "id" : "230",
+                "linkedRelationshipId" : "145",
+                "sourceId" : "217"
               } ],
               "tags" : "Container Instance"
             } ],
             "environment" : "LLM services (production)",
-            "id" : "220",
+            "id" : "216",
             "instances" : "1",
             "name" : "ifca01-vllm.cloud.ai4eosc.eu",
             "properties" : {
-              "structurizr.dsl.identifier" : "59b4eaf8-b9ba-4447-99f1-c5573d232707"
+              "structurizr.dsl.identifier" : "eb6cc145-22f2-4f8a-96a5-be7e6c49656d"
             },
             "tags" : "Element,Deployment Node",
             "technology" : "LiteLLM Leaf Node"
           }, {
             "containerInstances" : [ {
-              "containerId" : "62",
+              "containerId" : "61",
               "deploymentGroups" : [ "IFCA Cloud Instance" ],
               "environment" : "LLM services (production)",
-              "id" : "224",
+              "id" : "220",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "b82ed1f5-db76-4dad-9882-f3f4e1f08226"
+                "structurizr.dsl.identifier" : "78fa4b14-13ec-4f5c-b06e-1beec258d156"
               },
               "tags" : "Container Instance"
             } ],
             "environment" : "LLM services (production)",
-            "id" : "223",
+            "id" : "219",
             "instances" : "1",
             "name" : "vllm01",
             "properties" : {
-              "structurizr.dsl.identifier" : "13116266-07da-4bf5-a886-67c8b6f1e9e4"
+              "structurizr.dsl.identifier" : "3b2f248a-6525-4e8e-844b-427f64206d4e"
             },
             "tags" : "Element,Deployment Node",
             "technology" : "vLLM Service (StarCoder2)"
           }, {
             "containerInstances" : [ {
-              "containerId" : "62",
+              "containerId" : "61",
               "deploymentGroups" : [ "IFCA Cloud Instance" ],
               "environment" : "LLM services (production)",
-              "id" : "227",
+              "id" : "223",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "7ef0899a-88bc-410e-94e7-7f1770026a41"
+                "structurizr.dsl.identifier" : "5a69b2c2-3358-42b6-bdd4-e508b13a7291"
               },
               "tags" : "Container Instance"
             } ],
             "environment" : "LLM services (production)",
-            "id" : "226",
+            "id" : "222",
             "instances" : "1",
             "name" : "vllm02",
             "properties" : {
-              "structurizr.dsl.identifier" : "0e3dc443-b16f-46ca-b3e9-021e417f3ff3"
+              "structurizr.dsl.identifier" : "4fa13774-6b48-4706-9db7-949869a206cc"
             },
             "tags" : "Element,Deployment Node",
             "technology" : "vLLM Service (Small)"
           }, {
             "containerInstances" : [ {
-              "containerId" : "62",
+              "containerId" : "61",
               "deploymentGroups" : [ "IFCA Cloud Instance" ],
               "environment" : "LLM services (production)",
-              "id" : "230",
+              "id" : "226",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "3931007f-776a-4f46-80c4-72276bbe7a5d"
+                "structurizr.dsl.identifier" : "206b7765-b8d8-4178-9862-38959da340f4"
               },
               "tags" : "Container Instance"
             } ],
             "environment" : "LLM services (production)",
-            "id" : "229",
+            "id" : "225",
             "instances" : "1",
             "name" : "vllm03",
             "properties" : {
-              "structurizr.dsl.identifier" : "b0b7dea6-216f-450e-8b17-4992e593a6b5"
+              "structurizr.dsl.identifier" : "67d1466f-b43a-4193-97ef-22f9a2c7ad43"
             },
             "tags" : "Element,Deployment Node",
             "technology" : "vLLM Service (Qwen3)"
           }, {
             "containerInstances" : [ {
-              "containerId" : "62",
+              "containerId" : "61",
               "deploymentGroups" : [ "IFCA Cloud Instance" ],
               "environment" : "LLM services (production)",
-              "id" : "233",
+              "id" : "229",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "205ef13f-4c52-4702-9944-f73ebdddf3ad"
+                "structurizr.dsl.identifier" : "aaffd6c1-3dc2-406a-b031-3ddf4b440c88"
               },
               "tags" : "Container Instance"
             } ],
             "environment" : "LLM services (production)",
-            "id" : "232",
+            "id" : "228",
             "instances" : "1",
             "name" : "vllm04",
             "properties" : {
-              "structurizr.dsl.identifier" : "b0c140ce-5004-4180-a00d-7ac9a9e930f3"
+              "structurizr.dsl.identifier" : "076f1ddd-c846-4e67-8ad2-074ca6de7922"
             },
             "tags" : "Element,Deployment Node",
             "technology" : "vLLM Service (Qwen3 Embeddings)"
           } ],
           "environment" : "LLM services (production)",
-          "id" : "219",
+          "id" : "215",
           "instances" : "1",
           "name" : "vLLM cluster",
           "properties" : {
-            "structurizr.dsl.identifier" : "3a371dda-00f6-45a7-b950-d8de999d237e"
+            "structurizr.dsl.identifier" : "f4eee149-8c4c-44b8-8af0-fa61e46cab64"
           },
           "tags" : "Element,Deployment Node"
         } ],
         "environment" : "LLM services (production)",
-        "id" : "199",
+        "id" : "197",
         "instances" : "1",
         "name" : "IFCA Cloud",
         "properties" : {
-          "structurizr.dsl.identifier" : "9409ae18-fa40-4332-8dcd-c548ae1061f8"
+          "structurizr.dsl.identifier" : "506f9144-f5c8-434a-b635-9f22f91fad8a"
         },
         "tags" : "Element,Deployment Node",
         "technology" : "OpenStack"
       } ],
       "environment" : "LLM services (production)",
-      "id" : "198",
+      "id" : "196",
       "instances" : "1",
       "name" : "IFCA-CSIC",
       "properties" : {
-        "structurizr.dsl.identifier" : "345452dd-1e75-42a8-b952-9aeadfd3861d"
+        "structurizr.dsl.identifier" : "d699de63-1114-4cb7-adb4-761d02267370"
       },
       "tags" : "Element,Deployment Node"
     }, {
       "children" : [ {
         "children" : [ {
           "containerInstances" : [ {
-            "containerId" : "61",
+            "containerId" : "60",
             "deploymentGroups" : [ "Global deployment", "IISAS Cloud" ],
             "environment" : "LLM services (production)",
-            "id" : "238",
+            "id" : "234",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "0b9b7e30-7924-4383-af14-74f3ec6e54b5"
+              "structurizr.dsl.identifier" : "36faee9e-a961-49d7-ad7d-c4d1a45e09b3"
             },
             "relationships" : [ {
               "description" : "Routes requests to",
-              "destinationId" : "241",
-              "id" : "242",
-              "linkedRelationshipId" : "147",
-              "sourceId" : "238"
+              "destinationId" : "237",
+              "id" : "238",
+              "linkedRelationshipId" : "145",
+              "sourceId" : "234"
             } ],
             "tags" : "Container Instance"
           } ],
           "environment" : "LLM services (production)",
-          "id" : "237",
+          "id" : "233",
           "instances" : "1",
           "name" : "iisas01-vllm.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "38827db1-bf4f-4cc0-ab49-b3022e4a9073"
+            "structurizr.dsl.identifier" : "18d86a62-c60f-49ce-8aa7-6a136f4ff4b4"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "LiteLLM Leaf Node"
         }, {
           "containerInstances" : [ {
-            "containerId" : "62",
+            "containerId" : "61",
             "deploymentGroups" : [ "IISAS Cloud" ],
             "environment" : "LLM services (production)",
-            "id" : "241",
+            "id" : "237",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "5e2cf1ae-2cbd-409c-92d8-7da967370767"
+              "structurizr.dsl.identifier" : "16c04fa7-89ef-4301-85b4-1158c0bd3720"
             },
             "tags" : "Container Instance"
           } ],
           "environment" : "LLM services (production)",
-          "id" : "240",
+          "id" : "236",
           "instances" : "1",
           "name" : "vllm01",
           "properties" : {
-            "structurizr.dsl.identifier" : "2bd7f604-f436-49cd-bf69-4b6ac162cb1b"
+            "structurizr.dsl.identifier" : "047a0b74-005a-40ae-8885-2b34f7d1f759"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "vLLM Service (Magistral)"
         } ],
         "environment" : "LLM services (production)",
-        "id" : "236",
+        "id" : "232",
         "instances" : "1",
         "name" : "vLLM cluster",
         "properties" : {
-          "structurizr.dsl.identifier" : "6b7653f3-82bb-42c3-830c-e4ae9a72773f"
+          "structurizr.dsl.identifier" : "69817ee2-2104-429c-82d7-61ddf09a60bb"
         },
         "tags" : "Element,Deployment Node"
       } ],
       "environment" : "LLM services (production)",
-      "id" : "235",
+      "id" : "231",
       "instances" : "1",
       "name" : "IISAS",
       "properties" : {
-        "structurizr.dsl.identifier" : "b500a162-1fdd-4f9a-a4f2-53bc609b86a0"
+        "structurizr.dsl.identifier" : "d46ee5d0-9bf6-4de5-a509-4237bb67ed63"
       },
       "tags" : "Element,Deployment Node"
     }, {
       "children" : [ {
         "children" : [ {
           "containerInstances" : [ {
-            "containerId" : "61",
+            "containerId" : "60",
             "deploymentGroups" : [ "EOSC EU Node Cloud", "Global deployment" ],
             "environment" : "LLM services (production)",
-            "id" : "246",
+            "id" : "242",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "105d6a1e-29e8-41c6-87b4-9606261ff36f"
+              "structurizr.dsl.identifier" : "5ad3a609-274c-42e8-9f7f-c3b4bf4dda5a"
             },
             "relationships" : [ {
               "description" : "Routes requests to",
-              "destinationId" : "249",
-              "id" : "250",
-              "linkedRelationshipId" : "147",
-              "sourceId" : "246"
+              "destinationId" : "245",
+              "id" : "246",
+              "linkedRelationshipId" : "145",
+              "sourceId" : "242"
             }, {
               "description" : "Routes requests to",
-              "destinationId" : "252",
-              "id" : "253",
-              "linkedRelationshipId" : "147",
-              "sourceId" : "246"
+              "destinationId" : "248",
+              "id" : "249",
+              "linkedRelationshipId" : "145",
+              "sourceId" : "242"
             } ],
             "tags" : "Container Instance"
           } ],
           "environment" : "LLM services (production)",
-          "id" : "245",
+          "id" : "241",
           "instances" : "1",
           "name" : "eu01-vllm.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "8f540de4-bc1c-4c54-926d-5995af1d1dd4"
+            "structurizr.dsl.identifier" : "2a472737-0ef1-471d-9de6-af09f4129737"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "LiteLLM Leaf Node"
         }, {
           "containerInstances" : [ {
-            "containerId" : "62",
+            "containerId" : "61",
             "deploymentGroups" : [ "EOSC EU Node Cloud" ],
             "environment" : "LLM services (production)",
-            "id" : "249",
+            "id" : "245",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "e43b23b4-4eae-4d81-9cdf-f7834aa96bf0"
+              "structurizr.dsl.identifier" : "a816a9cc-fc00-45e8-bb34-afd6bcd9bd0b"
             },
             "tags" : "Container Instance"
           } ],
           "environment" : "LLM services (production)",
-          "id" : "248",
+          "id" : "244",
           "instances" : "1",
           "name" : "vllm01",
           "properties" : {
-            "structurizr.dsl.identifier" : "7218a0e3-1a0c-4389-a470-48f7a4708830"
+            "structurizr.dsl.identifier" : "c05b940c-3eb2-4665-baa3-502b17a4f1e4"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "vLLM Service (OLMo 2)"
         }, {
           "containerInstances" : [ {
-            "containerId" : "62",
+            "containerId" : "61",
             "deploymentGroups" : [ "EOSC EU Node Cloud" ],
             "environment" : "LLM services (production)",
-            "id" : "252",
+            "id" : "248",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "9fa67b61-7f7f-49bd-a094-e1bb63b21dd9"
+              "structurizr.dsl.identifier" : "830c3ec2-7366-42b1-b228-ab935dd3415d"
             },
             "tags" : "Container Instance"
           } ],
           "environment" : "LLM services (production)",
-          "id" : "251",
+          "id" : "247",
           "instances" : "1",
           "name" : "vllm02",
           "properties" : {
-            "structurizr.dsl.identifier" : "a693c6f6-1d36-4250-b314-2add824cea58"
+            "structurizr.dsl.identifier" : "cc04b524-156e-454b-bc5e-b439f52fb8e8"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "vLLM Service (SmolM2)"
         } ],
         "environment" : "LLM services (production)",
-        "id" : "244",
+        "id" : "240",
         "instances" : "1",
         "name" : "vLLM cluster",
         "properties" : {
-          "structurizr.dsl.identifier" : "290edd3d-72b7-496b-aebf-1040dc0c9670"
+          "structurizr.dsl.identifier" : "278ea035-0e08-4a87-acfe-4804e8c70eb7"
         },
         "tags" : "Element,Deployment Node"
       } ],
       "environment" : "LLM services (production)",
-      "id" : "243",
+      "id" : "239",
       "instances" : "1",
       "name" : "EOSC EU Node",
       "properties" : {
-        "structurizr.dsl.identifier" : "6ee8d435-d1aa-473f-9cdb-907b59cc022b"
+        "structurizr.dsl.identifier" : "bb821629-dd52-406b-a9d4-bcfc6788a177"
       },
       "tags" : "Element,Deployment Node"
     }, {
@@ -715,36 +698,36 @@
         "containerId" : "9",
         "deploymentGroups" : [ "Global deployment" ],
         "environment" : "Production",
-        "id" : "255",
+        "id" : "251",
         "instanceId" : 1,
         "properties" : {
-          "structurizr.dsl.identifier" : "0af7ea73-b12b-4332-89ac-5a9f4c61cbf2"
+          "structurizr.dsl.identifier" : "7f50824c-5ca4-4c30-a5a2-338b35f70419"
         },
         "relationships" : [ {
           "description" : "Publishes modules to",
-          "destinationId" : "346",
-          "id" : "347",
-          "linkedRelationshipId" : "128",
-          "sourceId" : "255"
+          "destinationId" : "342",
+          "id" : "343",
+          "linkedRelationshipId" : "127",
+          "sourceId" : "251"
         } ],
         "tags" : "Container Instance"
       }, {
         "containerId" : "55",
         "deploymentGroups" : [ "Global deployment" ],
         "environment" : "Production",
-        "id" : "256",
+        "id" : "252",
         "instanceId" : 1,
         "properties" : {
-          "structurizr.dsl.identifier" : "0c1b7f5b-45a9-4ea8-8d01-67998af6c454"
+          "structurizr.dsl.identifier" : "03238646-513f-4eb7-8cd4-bd707b664c37"
         },
         "tags" : "Container Instance"
       } ],
       "environment" : "Production",
-      "id" : "254",
+      "id" : "250",
       "instances" : "1",
       "name" : "GitHub / Gitlab",
       "properties" : {
-        "structurizr.dsl.identifier" : "6198b6a9-c801-4033-918f-1b59f9cf6e39"
+        "structurizr.dsl.identifier" : "a56d196c-6439-4c41-b607-36d5dfd24c2f"
       },
       "tags" : "Element,Deployment Node"
     }, {
@@ -754,38 +737,38 @@
             "containerId" : "14",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "Production",
-            "id" : "260",
+            "id" : "256",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "c6f0c90c-4ca7-4a6e-922e-ec083fa37a2b"
+              "structurizr.dsl.identifier" : "63cf886e-f530-486c-b824-74bdb949e61b"
             },
             "relationships" : [ {
               "description" : "Authenticates users with",
-              "destinationId" : "262",
-              "id" : "263",
-              "linkedRelationshipId" : "114",
-              "sourceId" : "260"
+              "destinationId" : "258",
+              "id" : "259",
+              "linkedRelationshipId" : "113",
+              "sourceId" : "256"
             }, {
               "description" : "Reads available models, defines new trainings, checks training status, etc. ",
-              "destinationId" : "265",
-              "id" : "267",
-              "linkedRelationshipId" : "97",
-              "sourceId" : "260"
+              "destinationId" : "261",
+              "id" : "263",
+              "linkedRelationshipId" : "96",
+              "sourceId" : "256"
             }, {
               "description" : "Manages secrets and API keys",
-              "destinationId" : "265",
-              "id" : "268",
-              "linkedRelationshipId" : "98",
-              "sourceId" : "260"
+              "destinationId" : "261",
+              "id" : "264",
+              "linkedRelationshipId" : "97",
+              "sourceId" : "256"
             } ],
             "tags" : "Container Instance"
           } ],
           "environment" : "Production",
-          "id" : "259",
+          "id" : "255",
           "instances" : "1",
           "name" : "dashboard.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "5f25d907-0eb3-471b-bf27-57cabf6ef3ed"
+            "structurizr.dsl.identifier" : "ffda44ab-ac96-4247-bfad-630bcbc6d4c4"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "nginx"
@@ -794,19 +777,19 @@
             "containerId" : "7",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "Production",
-            "id" : "262",
+            "id" : "258",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "a879c55e-95fa-47e0-ae69-84eae0454876"
+              "structurizr.dsl.identifier" : "21903239-03ee-4579-a2fa-34f98cef95c6"
             },
             "tags" : "Container Instance"
           } ],
           "environment" : "Production",
-          "id" : "261",
+          "id" : "257",
           "instances" : "1",
           "name" : "login.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "75c87ff7-4713-4ca4-bd84-f6e213d3f9ea"
+            "structurizr.dsl.identifier" : "41ef52b9-8261-4956-9d66-bef4e4696fe6"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "Keycloack"
@@ -815,56 +798,56 @@
             "containerId" : "8",
             "deploymentGroups" : [ "Global deployment", "IFCA Cloud Instance" ],
             "environment" : "Production",
-            "id" : "265",
+            "id" : "261",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "20dedcb6-d7df-4718-8859-e5739a98fbbd"
+              "structurizr.dsl.identifier" : "b136368f-06e5-4640-ba85-a72bcae11a74"
             },
             "relationships" : [ {
               "description" : "Reads from",
-              "destinationId" : "255",
-              "id" : "266",
-              "linkedRelationshipId" : "119",
-              "sourceId" : "265"
+              "destinationId" : "251",
+              "id" : "262",
+              "linkedRelationshipId" : "118",
+              "sourceId" : "261"
             }, {
               "description" : "Authenticates users with",
-              "destinationId" : "262",
-              "id" : "269",
-              "linkedRelationshipId" : "113",
-              "sourceId" : "265"
+              "destinationId" : "258",
+              "id" : "265",
+              "linkedRelationshipId" : "112",
+              "sourceId" : "261"
             }, {
               "description" : "Create training job, interactive environment using API calls to",
-              "destinationId" : "281",
-              "id" : "282",
-              "linkedRelationshipId" : "101",
-              "sourceId" : "265"
+              "destinationId" : "277",
+              "id" : "278",
+              "linkedRelationshipId" : "100",
+              "sourceId" : "261"
             }, {
               "description" : "Reads from",
-              "destinationId" : "292",
-              "id" : "293",
-              "linkedRelationshipId" : "120",
-              "sourceId" : "265"
+              "destinationId" : "288",
+              "id" : "289",
+              "linkedRelationshipId" : "119",
+              "sourceId" : "261"
             }, {
               "description" : "Creates and manages user secrets",
-              "destinationId" : "317",
-              "id" : "318",
-              "linkedRelationshipId" : "102",
-              "sourceId" : "265"
+              "destinationId" : "313",
+              "id" : "314",
+              "linkedRelationshipId" : "101",
+              "sourceId" : "261"
             }, {
               "description" : "Read available datasets from",
-              "destinationId" : "346",
-              "id" : "348",
-              "linkedRelationshipId" : "129",
-              "sourceId" : "265"
+              "destinationId" : "342",
+              "id" : "344",
+              "linkedRelationshipId" : "128",
+              "sourceId" : "261"
             } ],
             "tags" : "Container Instance"
           } ],
           "environment" : "Production",
-          "id" : "264",
+          "id" : "260",
           "instances" : "1",
           "name" : "api.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "8c66b898-0fa1-4991-86dc-41aec020cc52"
+            "structurizr.dsl.identifier" : "0791e842-2ffe-434f-979b-0897ba2bc780"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "FastAPI"
@@ -873,38 +856,38 @@
             "containerId" : "11",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "Production",
-            "id" : "271",
+            "id" : "267",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "93b589c6-7a79-4f86-9fb4-de0003592cd6"
+              "structurizr.dsl.identifier" : "fd0e7547-2722-455b-9c52-f8b08e069814"
             },
             "relationships" : [ {
               "description" : "Ensures QA aspects",
-              "destinationId" : "255",
-              "id" : "272",
-              "linkedRelationshipId" : "123",
-              "sourceId" : "271"
+              "destinationId" : "251",
+              "id" : "268",
+              "linkedRelationshipId" : "122",
+              "sourceId" : "267"
             }, {
               "description" : "Creates containers",
-              "destinationId" : "292",
-              "id" : "294",
-              "linkedRelationshipId" : "124",
-              "sourceId" : "271"
+              "destinationId" : "288",
+              "id" : "290",
+              "linkedRelationshipId" : "123",
+              "sourceId" : "267"
             }, {
               "description" : "Publishes models to",
-              "destinationId" : "346",
-              "id" : "349",
-              "linkedRelationshipId" : "126",
-              "sourceId" : "271"
+              "destinationId" : "342",
+              "id" : "345",
+              "linkedRelationshipId" : "125",
+              "sourceId" : "267"
             } ],
             "tags" : "Container Instance"
           } ],
           "environment" : "Production",
-          "id" : "270",
+          "id" : "266",
           "instances" : "1",
           "name" : "jenkins.services.ai4os.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "8c1a8cdd-5f07-4440-96aa-f479be143b4c"
+            "structurizr.dsl.identifier" : "ab1b1b87-90cb-449a-9f46-144a1b3ed9bc"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "Jenkins"
@@ -913,19 +896,19 @@
             "containerId" : "29",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "Production",
-            "id" : "274",
+            "id" : "270",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "bd75c3d0-0e19-466d-b7ce-a8df0a2f4922"
+              "structurizr.dsl.identifier" : "b271f679-6f2e-4664-aa10-c8cfd7ec1973"
             },
             "tags" : "Container Instance"
           } ],
           "environment" : "Production",
-          "id" : "273",
+          "id" : "269",
           "instances" : "1",
           "name" : "share.services.ai4os.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "2dd8a7b1-12a6-4076-a1de-1fd48981560f"
+            "structurizr.dsl.identifier" : "58d58dfd-52d6-488f-b282-1a0bf9abb93d"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "NextCloud"
@@ -934,38 +917,38 @@
             "containerId" : "34",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "Production",
-            "id" : "276",
+            "id" : "272",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "aee4b674-8018-4fc3-9433-0c1dc4b74ece"
+              "structurizr.dsl.identifier" : "b1dbdda6-1b12-49ff-8bf0-b03b1917753f"
             },
             "relationships" : [ {
               "description" : "Monitors drift on",
-              "destinationId" : "255",
-              "id" : "277",
-              "linkedRelationshipId" : "138",
-              "sourceId" : "276"
+              "destinationId" : "251",
+              "id" : "273",
+              "linkedRelationshipId" : "137",
+              "sourceId" : "272"
             }, {
               "description" : "Updates dashboard with drift status",
-              "destinationId" : "260",
-              "id" : "278",
-              "linkedRelationshipId" : "195",
-              "sourceId" : "276"
+              "destinationId" : "256",
+              "id" : "274",
+              "linkedRelationshipId" : "193",
+              "sourceId" : "272"
             }, {
               "description" : "Triggers the pipeline upon detecting drift (potential retrain)",
-              "destinationId" : "271",
-              "id" : "279",
-              "linkedRelationshipId" : "194",
-              "sourceId" : "276"
+              "destinationId" : "267",
+              "id" : "275",
+              "linkedRelationshipId" : "192",
+              "sourceId" : "272"
             } ],
             "tags" : "Container Instance"
           } ],
           "environment" : "Production",
-          "id" : "275",
+          "id" : "271",
           "instances" : "1",
           "name" : "driftwatch.dev.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "22187ed8-f6bc-47d0-9d56-0a953190d465"
+            "structurizr.dsl.identifier" : "ccdb555e-fe6a-481c-bfe8-d0ae1298d596"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "DriftWatch"
@@ -974,85 +957,85 @@
             "containerId" : "15",
             "deploymentGroups" : [ "IFCA Cloud Instance", "Nomad Cluster" ],
             "environment" : "Production",
-            "id" : "281",
+            "id" : "277",
             "instanceId" : 1,
             "properties" : {
               "structurizr.dsl.identifier" : "ifca_coe"
             },
             "relationships" : [ {
               "description" : "Creates and manages",
-              "destinationId" : "283",
-              "id" : "285",
-              "linkedRelationshipId" : "103",
-              "sourceId" : "281"
+              "destinationId" : "279",
+              "id" : "281",
+              "linkedRelationshipId" : "102",
+              "sourceId" : "277"
             }, {
               "description" : "Creates and manages",
-              "destinationId" : "286",
-              "id" : "287",
-              "linkedRelationshipId" : "108",
-              "sourceId" : "281"
+              "destinationId" : "282",
+              "id" : "283",
+              "linkedRelationshipId" : "107",
+              "sourceId" : "277"
             } ],
             "tags" : "Container Instance"
           }, {
             "containerId" : "21",
             "deploymentGroups" : [ "Global deployment", "IFCA Cloud Instance" ],
             "environment" : "Production",
-            "id" : "283",
+            "id" : "279",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "fce41600-6613-4bc7-95b1-ce18d40ad193"
+              "structurizr.dsl.identifier" : "1b236bd3-4764-4074-8bce-0cff88d5b2d4"
             },
             "relationships" : [ {
               "description" : "Reads and writes data from",
-              "destinationId" : "274",
-              "id" : "284",
-              "linkedRelationshipId" : "115",
-              "sourceId" : "283"
+              "destinationId" : "270",
+              "id" : "280",
+              "linkedRelationshipId" : "114",
+              "sourceId" : "279"
             }, {
               "description" : "Gets updated model, sends new weights",
-              "destinationId" : "286",
-              "id" : "288",
-              "linkedRelationshipId" : "111",
-              "sourceId" : "283"
+              "destinationId" : "282",
+              "id" : "284",
+              "linkedRelationshipId" : "110",
+              "sourceId" : "279"
             }, {
               "description" : "Logs experiment parametres, metrics, models to MLFlow",
-              "destinationId" : "296",
-              "id" : "298",
-              "linkedRelationshipId" : "190",
-              "sourceId" : "283"
+              "destinationId" : "292",
+              "id" : "294",
+              "linkedRelationshipId" : "188",
+              "sourceId" : "279"
             }, {
               "description" : "Access user secrets",
-              "destinationId" : "317",
-              "id" : "319",
-              "linkedRelationshipId" : "96",
-              "sourceId" : "283"
+              "destinationId" : "313",
+              "id" : "315",
+              "linkedRelationshipId" : "95",
+              "sourceId" : "279"
             }, {
               "description" : "Syncs external data from",
-              "destinationId" : "342",
-              "id" : "343",
-              "linkedRelationshipId" : "116",
-              "sourceId" : "283"
+              "destinationId" : "338",
+              "id" : "339",
+              "linkedRelationshipId" : "115",
+              "sourceId" : "279"
             }, {
               "description" : "Pull dataset from",
-              "destinationId" : "346",
-              "id" : "350",
-              "linkedRelationshipId" : "131",
-              "sourceId" : "283"
+              "destinationId" : "342",
+              "id" : "346",
+              "linkedRelationshipId" : "130",
+              "sourceId" : "279"
             } ],
             "tags" : "Container Instance"
           }, {
             "containerId" : "17",
             "deploymentGroups" : [ "FL deployment", "IFCA Cloud Instance" ],
             "environment" : "Production",
-            "id" : "286",
+            "id" : "282",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "fd153aef-e098-48c4-8f17-12948e7ecc4d"
+              "structurizr.dsl.identifier" : "25afdb5c-3a03-4625-a68e-7dee2fced759"
             },
             "tags" : "Container Instance"
           } ],
           "environment" : "Production",
-          "id" : "280",
+          "id" : "276",
           "instances" : "100",
           "name" : "vm*.cloud.ifca.es",
           "properties" : {
@@ -1060,35 +1043,35 @@
           },
           "relationships" : [ {
             "description" : "Connects to",
-            "destinationId" : "310",
-            "id" : "354",
-            "sourceId" : "280",
+            "destinationId" : "306",
+            "id" : "350",
+            "sourceId" : "276",
             "tags" : "Relationship"
           }, {
             "description" : "Connects to",
-            "destinationId" : "321",
-            "id" : "355",
-            "sourceId" : "280",
+            "destinationId" : "317",
+            "id" : "351",
+            "sourceId" : "276",
             "tags" : "Relationship"
           } ],
           "tags" : "Element,Deployment Node"
         } ],
         "environment" : "Production",
-        "id" : "258",
+        "id" : "254",
         "instances" : "1",
         "name" : "IFCA Cloud",
         "properties" : {
-          "structurizr.dsl.identifier" : "47dc0ca8-152c-4e9e-8dc2-6b8cae0312d1"
+          "structurizr.dsl.identifier" : "4b06326f-1308-430d-b750-72fdd069025f"
         },
         "tags" : "Element,Deployment Node",
         "technology" : "OpenStack"
       } ],
       "environment" : "Production",
-      "id" : "257",
+      "id" : "253",
       "instances" : "1",
       "name" : "IFCA-CSIC",
       "properties" : {
-        "structurizr.dsl.identifier" : "49ee0e10-17f1-4420-bb9f-dafd46885f6f"
+        "structurizr.dsl.identifier" : "91e1da0b-9f67-4620-80e9-0363c49f41ea"
       },
       "tags" : "Element,Deployment Node"
     }, {
@@ -1098,7 +1081,7 @@
             "containerId" : "10",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "Production",
-            "id" : "292",
+            "id" : "288",
             "instanceId" : 1,
             "properties" : {
               "structurizr.dsl.identifier" : "registry_incd"
@@ -1106,11 +1089,11 @@
             "tags" : "Container Instance"
           } ],
           "environment" : "Production",
-          "id" : "291",
+          "id" : "287",
           "instances" : "1",
           "name" : "registry.services.ai4os.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "c1d481cc-1fe3-4199-9fc8-cb9c3d26ff86"
+            "structurizr.dsl.identifier" : "adbe9182-c2e7-4185-80f7-6df3cf4c37fc"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "Harbor"
@@ -1119,32 +1102,32 @@
             "containerId" : "30",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "Production",
-            "id" : "296",
+            "id" : "292",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "4a4e5097-a336-4987-b0df-1b2d72c1fda3"
+              "structurizr.dsl.identifier" : "0318a53c-63c2-41c5-8c50-71079588fab5"
             },
             "relationships" : [ {
               "description" : "Detects new model version in Model Registry",
-              "destinationId" : "271",
-              "id" : "297",
-              "linkedRelationshipId" : "193",
-              "sourceId" : "296"
+              "destinationId" : "267",
+              "id" : "293",
+              "linkedRelationshipId" : "191",
+              "sourceId" : "292"
             }, {
               "description" : "Gets secrets for tracking server users",
-              "destinationId" : "317",
-              "id" : "320",
-              "linkedRelationshipId" : "192",
-              "sourceId" : "296"
+              "destinationId" : "313",
+              "id" : "316",
+              "linkedRelationshipId" : "190",
+              "sourceId" : "292"
             } ],
             "tags" : "Container Instance"
           } ],
           "environment" : "Production",
-          "id" : "295",
+          "id" : "291",
           "instances" : "1",
           "name" : "mlflow.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "4b9a58a3-41ce-4e73-a1a0-4eccd8a2f93d"
+            "structurizr.dsl.identifier" : "bc41cd37-0412-4e41-815b-399e25144ba1"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "MLflow"
@@ -1153,26 +1136,26 @@
             "containerId" : "50",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "Production",
-            "id" : "300",
+            "id" : "296",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "134a6363-30e1-4d8a-abc0-bdb3ef745899"
+              "structurizr.dsl.identifier" : "aa1bb73b-908d-4613-9211-c1b0627903bc"
             },
             "relationships" : [ {
               "description" : "Manage buckets, folders, event and notifications",
-              "destinationId" : "308",
-              "id" : "309",
-              "linkedRelationshipId" : "180",
-              "sourceId" : "300"
+              "destinationId" : "304",
+              "id" : "305",
+              "linkedRelationshipId" : "178",
+              "sourceId" : "296"
             } ],
             "tags" : "Container Instance"
           } ],
           "environment" : "Production",
-          "id" : "299",
+          "id" : "295",
           "instances" : "1",
           "name" : "inference.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "dd1dd332-53f8-4996-ba56-012217f9acb8"
+            "structurizr.dsl.identifier" : "a202b069-b4d5-4268-adce-edf1bbb853f0"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "OSCAR"
@@ -1181,49 +1164,49 @@
             "containerId" : "46",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "Production",
-            "id" : "302",
+            "id" : "298",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "18115ed1-aa3d-4977-ac84-c8cd931007e4"
+              "structurizr.dsl.identifier" : "b9745350-fa6a-4b08-aa47-3dd0a3f65ea6"
             },
             "relationships" : [ {
               "description" : "Manage instances",
-              "destinationId" : "303",
-              "id" : "306",
-              "linkedRelationshipId" : "172",
-              "sourceId" : "302"
+              "destinationId" : "299",
+              "id" : "302",
+              "linkedRelationshipId" : "170",
+              "sourceId" : "298"
             } ],
             "tags" : "Container Instance"
           }, {
             "containerId" : "49",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "Production",
-            "id" : "303",
+            "id" : "299",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "6d0f8647-01bb-44ba-ba5e-37cb4bbcb5b8"
+              "structurizr.dsl.identifier" : "ab97aa4a-c925-4b0c-bc45-cbdf05830ca4"
             },
             "relationships" : [ {
               "description" : "Obtain custom OSCAR nodes",
-              "destinationId" : "256",
-              "id" : "304",
-              "linkedRelationshipId" : "178",
-              "sourceId" : "303"
+              "destinationId" : "252",
+              "id" : "300",
+              "linkedRelationshipId" : "176",
+              "sourceId" : "299"
             }, {
               "description" : "Invoke Service and trigger inference",
-              "destinationId" : "300",
-              "id" : "305",
-              "linkedRelationshipId" : "175",
-              "sourceId" : "303"
+              "destinationId" : "296",
+              "id" : "301",
+              "linkedRelationshipId" : "173",
+              "sourceId" : "299"
             } ],
             "tags" : "Container Instance"
           } ],
           "environment" : "Production",
-          "id" : "301",
+          "id" : "297",
           "instances" : "1",
           "name" : "forge.flows.dev.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "f692156c-fbff-4fd4-a723-29b9d0f83e65"
+            "structurizr.dsl.identifier" : "380af198-9f29-44b0-b3b5-fe2cc537597c"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "Flowfuse"
@@ -1232,19 +1215,19 @@
             "containerId" : "52",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "Production",
-            "id" : "308",
+            "id" : "304",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "34bdb2a7-84b0-4006-81e6-015f5bdb9f25"
+              "structurizr.dsl.identifier" : "4626b31a-c796-4283-8940-fad4af22cf61"
             },
             "tags" : "Container Instance"
           } ],
           "environment" : "Production",
-          "id" : "307",
+          "id" : "303",
           "instances" : "1",
           "name" : "console.minio.crazy-kowalevski5.im.grycap.net",
           "properties" : {
-            "structurizr.dsl.identifier" : "60ff7f42-84e2-4674-bdf5-94e2efb4c116"
+            "structurizr.dsl.identifier" : "2d7982b7-656f-43d5-a089-354fa2096a8c"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "MinIO"
@@ -1253,24 +1236,24 @@
             "containerId" : "15",
             "deploymentGroups" : [ "INCD Cloud", "Nomad Cluster" ],
             "environment" : "Production",
-            "id" : "311",
+            "id" : "307",
             "instanceId" : 1,
             "properties" : {
               "structurizr.dsl.identifier" : "incd_coe"
             },
             "relationships" : [ {
               "description" : "Creates and manages",
-              "destinationId" : "312",
-              "id" : "313",
-              "linkedRelationshipId" : "103",
-              "sourceId" : "311"
+              "destinationId" : "308",
+              "id" : "309",
+              "linkedRelationshipId" : "102",
+              "sourceId" : "307"
             } ],
             "tags" : "Container Instance"
           }, {
             "containerId" : "21",
             "deploymentGroups" : [ "INCD Cloud" ],
             "environment" : "Production",
-            "id" : "312",
+            "id" : "308",
             "instanceId" : 1,
             "properties" : {
               "structurizr.dsl.identifier" : "incd_container"
@@ -1278,7 +1261,7 @@
             "tags" : "Container Instance"
           } ],
           "environment" : "Production",
-          "id" : "310",
+          "id" : "306",
           "instances" : "10",
           "name" : "vm*",
           "properties" : {
@@ -1287,20 +1270,20 @@
           "tags" : "Element,Deployment Node"
         } ],
         "environment" : "Production",
-        "id" : "290",
+        "id" : "286",
         "instances" : "1",
         "name" : "stratus.ncg.ingrid.pt",
         "properties" : {
-          "structurizr.dsl.identifier" : "acf774b8-4d7d-45e2-9c47-8119ac1a9059"
+          "structurizr.dsl.identifier" : "cfa38f46-f566-4097-b662-343db5448730"
         },
         "tags" : "Element,Deployment Node"
       } ],
       "environment" : "Production",
-      "id" : "289",
+      "id" : "285",
       "instances" : "1",
       "name" : "INCD",
       "properties" : {
-        "structurizr.dsl.identifier" : "61d7793e-030f-4961-b38f-d563e2d21095"
+        "structurizr.dsl.identifier" : "7b4432f2-64b9-4c3c-8227-9a7ff1fd98b9"
       },
       "tags" : "Element,Deployment Node"
     }, {
@@ -1310,7 +1293,7 @@
             "containerId" : "20",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "Production",
-            "id" : "317",
+            "id" : "313",
             "instanceId" : 1,
             "properties" : {
               "structurizr.dsl.identifier" : "secret"
@@ -1318,11 +1301,11 @@
             "tags" : "Container Instance"
           } ],
           "environment" : "Production",
-          "id" : "316",
+          "id" : "312",
           "instances" : "1",
           "name" : "secret.services.ai4os.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "5f90e121-37a9-4bbb-947b-835f298730bb"
+            "structurizr.dsl.identifier" : "a5bd9727-ce30-49f4-ad42-ec0f5dea0bdd"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "Vault"
@@ -1331,24 +1314,24 @@
             "containerId" : "15",
             "deploymentGroups" : [ "IISAS Cloud", "Nomad Cluster" ],
             "environment" : "Production",
-            "id" : "322",
+            "id" : "318",
             "instanceId" : 1,
             "properties" : {
               "structurizr.dsl.identifier" : "iisas_coe"
             },
             "relationships" : [ {
               "description" : "Creates and manages",
-              "destinationId" : "323",
-              "id" : "324",
-              "linkedRelationshipId" : "103",
-              "sourceId" : "322"
+              "destinationId" : "319",
+              "id" : "320",
+              "linkedRelationshipId" : "102",
+              "sourceId" : "318"
             } ],
             "tags" : "Container Instance"
           }, {
             "containerId" : "21",
             "deploymentGroups" : [ "IISAS Cloud" ],
             "environment" : "Production",
-            "id" : "323",
+            "id" : "319",
             "instanceId" : 1,
             "properties" : {
               "structurizr.dsl.identifier" : "iisas_container"
@@ -1356,7 +1339,7 @@
             "tags" : "Container Instance"
           } ],
           "environment" : "Production",
-          "id" : "321",
+          "id" : "317",
           "instances" : "10",
           "name" : "vm*",
           "properties" : {
@@ -1364,28 +1347,28 @@
           },
           "relationships" : [ {
             "description" : "Connects to",
-            "destinationId" : "310",
-            "id" : "356",
-            "sourceId" : "321",
+            "destinationId" : "306",
+            "id" : "352",
+            "sourceId" : "317",
             "tags" : "Relationship"
           } ],
           "tags" : "Element,Deployment Node"
         } ],
         "environment" : "Production",
-        "id" : "315",
+        "id" : "311",
         "instances" : "1",
         "name" : "cloud.ui.sav.sk",
         "properties" : {
-          "structurizr.dsl.identifier" : "dc31fafa-4c9d-4a2c-8d4f-3f76c1055319"
+          "structurizr.dsl.identifier" : "1d1899a6-bbf6-4d01-907c-3c6cb6b123f8"
         },
         "tags" : "Element,Deployment Node"
       } ],
       "environment" : "Production",
-      "id" : "314",
+      "id" : "310",
       "instances" : "1",
       "name" : "IISAS",
       "properties" : {
-        "structurizr.dsl.identifier" : "0156ec5f-9382-4647-b586-01ea4ad73569"
+        "structurizr.dsl.identifier" : "f8fd7a83-d4df-4956-86a1-397de566fcfe"
       },
       "tags" : "Element,Deployment Node"
     }, {
@@ -1395,210 +1378,210 @@
             "containerId" : "38",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "Production",
-            "id" : "328",
+            "id" : "324",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "05497621-cc00-463a-84b8-1e79b9fceaaf"
+              "structurizr.dsl.identifier" : "a7e7a846-ea9a-4ade-ba79-a705c32577a7"
             },
             "relationships" : [ {
               "description" : "Create deployment",
-              "destinationId" : "329",
-              "id" : "331",
-              "linkedRelationshipId" : "152",
-              "sourceId" : "328"
+              "destinationId" : "325",
+              "id" : "327",
+              "linkedRelationshipId" : "150",
+              "sourceId" : "324"
             } ],
             "tags" : "Container Instance"
           }, {
             "containerId" : "39",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "Production",
-            "id" : "329",
+            "id" : "325",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "8d27ba58-946f-42d4-b2b2-b1868d56d1b6"
+              "structurizr.dsl.identifier" : "a004fa14-c4a5-4242-b3df-137d2bf81a04"
             },
             "relationships" : [ {
               "description" : "Provisions resources for",
-              "destinationId" : "300",
-              "id" : "330",
-              "linkedRelationshipId" : "168",
-              "sourceId" : "329"
+              "destinationId" : "296",
+              "id" : "326",
+              "linkedRelationshipId" : "166",
+              "sourceId" : "325"
             }, {
               "description" : "Uses",
-              "destinationId" : "332",
-              "id" : "334",
-              "linkedRelationshipId" : "155",
-              "sourceId" : "329"
+              "destinationId" : "328",
+              "id" : "330",
+              "linkedRelationshipId" : "153",
+              "sourceId" : "325"
             }, {
               "description" : "Get information",
+              "destinationId" : "331",
+              "id" : "332",
+              "linkedRelationshipId" : "154",
+              "sourceId" : "325"
+            }, {
+              "description" : "Get matching offers",
               "destinationId" : "335",
               "id" : "336",
               "linkedRelationshipId" : "156",
-              "sourceId" : "329"
-            }, {
-              "description" : "Get matching offers",
-              "destinationId" : "339",
-              "id" : "340",
-              "linkedRelationshipId" : "158",
-              "sourceId" : "329"
+              "sourceId" : "325"
             } ],
             "tags" : "Container Instance"
           }, {
             "containerId" : "43",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "Production",
-            "id" : "332",
+            "id" : "328",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "636af36f-d1c6-46a2-b0e7-8e3f009dbed2"
+              "structurizr.dsl.identifier" : "673d073d-4d7d-4c64-b553-76d28c27aa8e"
             },
             "relationships" : [ {
               "description" : "Manages",
-              "destinationId" : "300",
-              "id" : "333",
-              "linkedRelationshipId" : "170",
-              "sourceId" : "332"
+              "destinationId" : "296",
+              "id" : "329",
+              "linkedRelationshipId" : "168",
+              "sourceId" : "328"
             } ],
             "tags" : "Container Instance"
           }, {
             "containerId" : "40",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "Production",
-            "id" : "335",
+            "id" : "331",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "c89589e0-d898-488e-bd58-4cf53475babd"
+              "structurizr.dsl.identifier" : "db8d0435-4c17-46fc-8727-f10d7131f0b7"
             },
             "tags" : "Container Instance"
           }, {
             "containerId" : "41",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "Production",
-            "id" : "337",
+            "id" : "333",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "c05eb02e-d986-47ba-bdab-58ec30470205"
+              "structurizr.dsl.identifier" : "ac67886f-c2a4-4977-8149-00ebdc1375d3"
             },
             "relationships" : [ {
               "description" : "Send aggregated metrics",
-              "destinationId" : "335",
-              "id" : "338",
-              "linkedRelationshipId" : "157",
-              "sourceId" : "337"
+              "destinationId" : "331",
+              "id" : "334",
+              "linkedRelationshipId" : "155",
+              "sourceId" : "333"
             } ],
             "tags" : "Container Instance"
           }, {
             "containerId" : "42",
             "deploymentGroups" : [ "Global deployment" ],
             "environment" : "Production",
-            "id" : "339",
+            "id" : "335",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "fd60db8d-91a8-4a5b-ba34-e977ef8f6013"
+              "structurizr.dsl.identifier" : "ad8aee0a-c3e4-480b-812a-962b79522c8e"
             },
             "tags" : "Container Instance"
           } ],
           "environment" : "Production",
-          "id" : "327",
+          "id" : "323",
           "instances" : "1",
           "name" : "paas.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "e0d0b40f-a3fc-41cd-8778-eb6bb01f80ca"
+            "structurizr.dsl.identifier" : "4d0b13cc-583a-4e65-bcab-f1e7da2d3d39"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "nginx"
         } ],
         "environment" : "Production",
-        "id" : "326",
+        "id" : "322",
         "instances" : "1",
         "name" : "cloud.cnaf.infn.it",
         "properties" : {
-          "structurizr.dsl.identifier" : "96d39e83-baed-4f35-b682-3c79745de83e"
+          "structurizr.dsl.identifier" : "610b9289-34e9-451b-adfc-7905c96d4f81"
         },
         "tags" : "Element,Deployment Node"
       } ],
       "environment" : "Production",
-      "id" : "325",
+      "id" : "321",
       "instances" : "1",
       "name" : "INFN-CNAF",
       "properties" : {
-        "structurizr.dsl.identifier" : "d2901e84-beda-445c-8153-43d7032ede75"
+        "structurizr.dsl.identifier" : "39e89289-f427-4318-a92a-f02ac5397586"
       },
       "tags" : "Element,Deployment Node"
     }, {
       "environment" : "Production",
-      "id" : "341",
+      "id" : "337",
       "instances" : "1",
       "name" : "External resources",
       "properties" : {
-        "structurizr.dsl.identifier" : "68dcff8e-6648-46d6-ad36-a2bdacf54d94"
+        "structurizr.dsl.identifier" : "3975368e-e540-473a-9835-4e6bcebbde9c"
       },
       "softwareSystemInstances" : [ {
         "deploymentGroups" : [ "Global deployment" ],
         "environment" : "Production",
-        "id" : "342",
+        "id" : "338",
         "instanceId" : 1,
         "properties" : {
-          "structurizr.dsl.identifier" : "1cd604f9-3eab-4e3f-965e-23a621fc1e22"
+          "structurizr.dsl.identifier" : "f74e4cb7-78ae-43a6-afd4-64052bc634ed"
         },
-        "softwareSystemId" : "63",
+        "softwareSystemId" : "62",
         "tags" : "Software System Instance"
       } ],
       "tags" : "Element,Deployment Node"
     }, {
       "children" : [ {
         "environment" : "Production",
-        "id" : "345",
+        "id" : "341",
         "instances" : "1",
         "name" : "zenodo.org",
         "properties" : {
-          "structurizr.dsl.identifier" : "9ec2a7e7-58f6-4a84-beda-c5014f776d3e"
+          "structurizr.dsl.identifier" : "6c8b106a-1d5b-4173-8729-d562799947b6"
         },
         "softwareSystemInstances" : [ {
           "deploymentGroups" : [ "Global deployment" ],
           "environment" : "Production",
-          "id" : "346",
+          "id" : "342",
           "instanceId" : 1,
           "properties" : {
-            "structurizr.dsl.identifier" : "be2b7916-2517-4689-bdc4-7402761bf44e"
+            "structurizr.dsl.identifier" : "946398b7-6286-4502-9899-b3dc32c51cfc"
           },
-          "softwareSystemId" : "68",
+          "softwareSystemId" : "67",
           "tags" : "Software System Instance"
         } ],
         "tags" : "Element,Deployment Node"
       } ],
       "environment" : "Production",
-      "id" : "344",
+      "id" : "340",
       "instances" : "1",
       "name" : "CERN",
       "properties" : {
-        "structurizr.dsl.identifier" : "cae20054-72cd-4b45-b46a-09ee56ab3af9"
+        "structurizr.dsl.identifier" : "bd425dc6-8e2b-4788-95c5-b1d519651c3b"
       },
       "tags" : "Element,Deployment Node"
     }, {
       "environment" : "Production",
-      "id" : "351",
+      "id" : "347",
       "instances" : "1",
       "name" : "External user resources",
       "properties" : {
-        "structurizr.dsl.identifier" : "57ba8662-d08a-4367-a7ec-40a3b8c2868c"
+        "structurizr.dsl.identifier" : "b3502836-6664-4edd-9427-d32756844a6c"
       },
       "softwareSystemInstances" : [ {
         "deploymentGroups" : [ "FL deployment", "Global deployment" ],
         "environment" : "Production",
-        "id" : "352",
+        "id" : "348",
         "instanceId" : 1,
         "properties" : {
-          "structurizr.dsl.identifier" : "45f51075-bc26-45fb-b0d4-5d66ff72e9cf"
+          "structurizr.dsl.identifier" : "78feff49-2453-4aa5-8489-5a4ccc7f9fd1"
         },
         "relationships" : [ {
           "description" : "Gets updated model, sends weights to federated server",
-          "destinationId" : "286",
-          "id" : "353",
-          "linkedRelationshipId" : "73",
-          "sourceId" : "352"
+          "destinationId" : "282",
+          "id" : "349",
+          "linkedRelationshipId" : "72",
+          "sourceId" : "348"
         } ],
-        "softwareSystemId" : "69",
+        "softwareSystemId" : "68",
         "tags" : "Software System Instance"
       } ],
       "tags" : "Element,Deployment Node"
@@ -1619,85 +1602,85 @@
       }, {
         "description" : "Reuse, develop, publish new AI models",
         "destinationId" : "6",
-        "id" : "77",
+        "id" : "76",
         "sourceId" : "1",
         "tags" : "Relationship"
       }, {
         "description" : "Stores data in",
         "destinationId" : "29",
-        "id" : "80",
+        "id" : "79",
         "sourceId" : "1",
         "tags" : "Relationship"
       }, {
         "description" : "Stores data in",
-        "destinationId" : "63",
-        "id" : "81",
+        "destinationId" : "62",
+        "id" : "80",
         "sourceId" : "1",
         "tags" : "Relationship"
       }, {
         "description" : "Uses LLM-based services from",
         "destinationId" : "57",
-        "id" : "82",
+        "id" : "81",
         "sourceId" : "1",
         "tags" : "Relationship"
       }, {
         "description" : "Browse models, train existing model, build new one.",
         "destinationId" : "14",
-        "id" : "90",
+        "id" : "89",
         "sourceId" : "1",
         "tags" : "Relationship"
       }, {
         "description" : "Access interactive environments",
         "destinationId" : "22",
-        "id" : "91",
+        "id" : "90",
         "sourceId" : "1",
         "tags" : "Relationship"
       }, {
         "description" : "Access interactive environments",
         "destinationId" : "21",
-        "id" : "92",
-        "linkedRelationshipId" : "91",
+        "id" : "91",
+        "linkedRelationshipId" : "90",
         "sourceId" : "1"
       }, {
         "description" : "Access DEEPaaS API",
         "destinationId" : "25",
-        "id" : "93",
+        "id" : "92",
         "sourceId" : "1",
         "tags" : "Relationship"
       }, {
         "description" : "Access federated learning server",
         "destinationId" : "17",
-        "id" : "94",
+        "id" : "93",
         "sourceId" : "1",
         "tags" : "Relationship"
       }, {
         "description" : "Registers module",
         "destinationId" : "9",
-        "id" : "121",
+        "id" : "120",
         "sourceId" : "1",
         "tags" : "Relationship"
       }, {
         "description" : "Registers container",
         "destinationId" : "10",
-        "id" : "122",
+        "id" : "121",
         "sourceId" : "1",
         "tags" : "Relationship"
       }, {
         "description" : "Access LLM API services via",
         "destinationId" : "59",
-        "id" : "139",
+        "id" : "138",
         "sourceId" : "1",
         "tags" : "Relationship"
       }, {
         "description" : "Access LLM Chat services via",
         "destinationId" : "58",
-        "id" : "140",
+        "id" : "139",
         "sourceId" : "1",
         "tags" : "Relationship"
       }, {
         "description" : "Tracks and visualizes model performance",
         "destinationId" : "30",
-        "id" : "191",
+        "id" : "189",
         "sourceId" : "1",
         "tags" : "Relationship"
       } ],
@@ -1712,20 +1695,20 @@
       "relationships" : [ {
         "description" : "Manage PaaS resources and deployments",
         "destinationId" : "36",
-        "id" : "78",
+        "id" : "77",
         "sourceId" : "5",
         "tags" : "Relationship"
       }, {
         "description" : "Manages AI4EOSC PaaS deployments",
         "destinationId" : "38",
-        "id" : "151",
+        "id" : "149",
         "sourceId" : "5",
         "tags" : "Relationship"
       } ],
       "tags" : "Element,Person"
     }, {
       "description" : "An end-user, willing to exploit existing production models.",
-      "id" : "76",
+      "id" : "75",
       "name" : "User",
       "properties" : {
         "structurizr.dsl.identifier" : "end_user"
@@ -1733,32 +1716,32 @@
       "relationships" : [ {
         "description" : "Uses deployed models from",
         "destinationId" : "45",
-        "id" : "79",
-        "sourceId" : "76",
+        "id" : "78",
+        "sourceId" : "75",
         "tags" : "Relationship"
       }, {
         "description" : "Compose pipelines",
         "destinationId" : "47",
-        "id" : "173",
-        "sourceId" : "76",
+        "id" : "171",
+        "sourceId" : "75",
         "tags" : "Relationship"
       }, {
         "description" : "Compose pipelines",
         "destinationId" : "46",
-        "id" : "174",
-        "sourceId" : "76",
+        "id" : "172",
+        "sourceId" : "75",
         "tags" : "Relationship"
       }, {
         "description" : "Synchronous inference request",
         "destinationId" : "50",
-        "id" : "187",
-        "sourceId" : "76",
+        "id" : "185",
+        "sourceId" : "75",
         "tags" : "Relationship"
       }, {
         "description" : "Store data for asynchronous inference",
         "destinationId" : "52",
-        "id" : "188",
-        "sourceId" : "76",
+        "id" : "186",
+        "sourceId" : "75",
         "tags" : "Relationship"
       } ],
       "tags" : "Element,Person"
@@ -1795,7 +1778,7 @@
         "relationships" : [ {
           "description" : "Is integrated with",
           "destinationId" : "2",
-          "id" : "112",
+          "id" : "111",
           "sourceId" : "7",
           "tags" : "Relationship"
         } ],
@@ -1812,50 +1795,50 @@
         "relationships" : [ {
           "description" : "Create training job, interactive environment using API calls to",
           "destinationId" : "15",
-          "id" : "101",
+          "id" : "100",
           "sourceId" : "8",
           "tags" : "Relationship"
         }, {
           "description" : "Creates and manages user secrets",
           "destinationId" : "20",
-          "id" : "102",
+          "id" : "101",
           "sourceId" : "8",
           "tags" : "Relationship"
         }, {
           "description" : "Authenticates users with",
           "destinationId" : "7",
-          "id" : "113",
+          "id" : "112",
           "sourceId" : "8",
           "tags" : "Relationship"
         }, {
           "description" : "Reads from",
           "destinationId" : "9",
-          "id" : "119",
+          "id" : "118",
           "sourceId" : "8",
           "tags" : "Relationship"
         }, {
           "description" : "Reads from",
           "destinationId" : "10",
-          "id" : "120",
+          "id" : "119",
           "sourceId" : "8",
           "tags" : "Relationship"
         }, {
           "description" : "Read available datasets from",
-          "destinationId" : "68",
-          "id" : "129",
+          "destinationId" : "67",
+          "id" : "128",
           "sourceId" : "8",
           "tags" : "Relationship"
         }, {
           "description" : "Manages API keys for",
           "destinationId" : "59",
-          "id" : "143",
+          "id" : "141",
           "sourceId" : "8",
           "tags" : "Relationship"
         }, {
           "description" : "Manages API keys for",
           "destinationId" : "57",
-          "id" : "144",
-          "linkedRelationshipId" : "143",
+          "id" : "142",
+          "linkedRelationshipId" : "141",
           "sourceId" : "8"
         } ],
         "tags" : "Element,Container",
@@ -1870,8 +1853,8 @@
         },
         "relationships" : [ {
           "description" : "Publishes modules to",
-          "destinationId" : "68",
-          "id" : "128",
+          "destinationId" : "67",
+          "id" : "127",
           "sourceId" : "9",
           "tags" : "Relationship"
         } ],
@@ -1899,19 +1882,19 @@
           "relationships" : [ {
             "description" : "Runs platform-defined QA checks on",
             "destinationId" : "9",
-            "id" : "134",
+            "id" : "133",
             "sourceId" : "12",
             "tags" : "Relationship"
           }, {
             "description" : "Publishes container images to",
             "destinationId" : "10",
-            "id" : "135",
+            "id" : "134",
             "sourceId" : "12",
             "tags" : "Relationship"
           }, {
             "description" : "Publishes models and code to",
-            "destinationId" : "68",
-            "id" : "136",
+            "destinationId" : "67",
+            "id" : "135",
             "sourceId" : "12",
             "tags" : "Relationship"
           } ],
@@ -1928,7 +1911,7 @@
           "relationships" : [ {
             "description" : "Runs user-defined QA checks on",
             "destinationId" : "9",
-            "id" : "137",
+            "id" : "136",
             "sourceId" : "13",
             "tags" : "Relationship"
           } ],
@@ -1945,25 +1928,25 @@
         "relationships" : [ {
           "description" : "Ensures QA aspects",
           "destinationId" : "9",
-          "id" : "123",
+          "id" : "122",
           "sourceId" : "11",
           "tags" : "Relationship"
         }, {
           "description" : "Creates containers",
           "destinationId" : "10",
-          "id" : "124",
+          "id" : "123",
           "sourceId" : "11",
           "tags" : "Relationship"
         }, {
           "description" : "Deploys and updates models as services on",
           "destinationId" : "45",
-          "id" : "125",
+          "id" : "124",
           "sourceId" : "11",
           "tags" : "Relationship"
         }, {
           "description" : "Publishes models to",
-          "destinationId" : "68",
-          "id" : "126",
+          "destinationId" : "67",
+          "id" : "125",
           "sourceId" : "11",
           "tags" : "Relationship"
         } ],
@@ -1980,25 +1963,25 @@
         "relationships" : [ {
           "description" : "Reads available models, defines new trainings, checks training status, etc. ",
           "destinationId" : "8",
-          "id" : "97",
+          "id" : "96",
           "sourceId" : "14",
           "tags" : "Relationship,dashboard_api"
         }, {
           "description" : "Manages secrets and API keys",
           "destinationId" : "8",
-          "id" : "98",
+          "id" : "97",
           "sourceId" : "14",
           "tags" : "Relationship,dashboard_api_secrets"
         }, {
           "description" : "Uses LLM services for assistance",
           "destinationId" : "57",
-          "id" : "99",
+          "id" : "98",
           "sourceId" : "14",
           "tags" : "Relationship"
         }, {
           "description" : "Authenticates users with",
           "destinationId" : "7",
-          "id" : "114",
+          "id" : "113",
           "sourceId" : "14",
           "tags" : "Relationship"
         } ],
@@ -2026,43 +2009,43 @@
         "relationships" : [ {
           "description" : "Creates and manages",
           "destinationId" : "21",
-          "id" : "103",
+          "id" : "102",
           "sourceId" : "15",
           "tags" : "Relationship"
         }, {
           "description" : "Creates and manages",
           "destinationId" : "22",
-          "id" : "104",
+          "id" : "103",
           "sourceId" : "15",
           "tags" : "Relationship"
         }, {
           "description" : "Creates and manages",
           "destinationId" : "25",
-          "id" : "105",
+          "id" : "104",
           "sourceId" : "15",
           "tags" : "Relationship"
         }, {
           "description" : "Creates and manages",
           "destinationId" : "24",
-          "id" : "106",
+          "id" : "105",
           "sourceId" : "15",
           "tags" : "Relationship"
         }, {
           "description" : "Creates and manages",
           "destinationId" : "23",
-          "id" : "107",
+          "id" : "106",
           "sourceId" : "15",
           "tags" : "Relationship"
         }, {
           "description" : "Creates and manages",
           "destinationId" : "17",
-          "id" : "108",
+          "id" : "107",
           "sourceId" : "15",
           "tags" : "Relationship"
         }, {
           "description" : "Gets Docker containers from",
           "destinationId" : "10",
-          "id" : "132",
+          "id" : "131",
           "sourceId" : "15",
           "tags" : "Relationship"
         } ],
@@ -2100,7 +2083,7 @@
         "relationships" : [ {
           "description" : "Gets secrets for federated server/clients",
           "destinationId" : "20",
-          "id" : "109",
+          "id" : "108",
           "sourceId" : "17",
           "tags" : "Relationship"
         } ],
@@ -2128,19 +2111,19 @@
           "relationships" : [ {
             "description" : "Access user secrets",
             "destinationId" : "20",
-            "id" : "95",
+            "id" : "94",
             "sourceId" : "22",
             "tags" : "Relationship"
           }, {
             "description" : "Gets updated model, sends new weights",
             "destinationId" : "17",
-            "id" : "110",
+            "id" : "109",
             "sourceId" : "22",
             "tags" : "Relationship"
           }, {
             "description" : "Logs experiment parametres, metrics, models to MLFlow",
             "destinationId" : "30",
-            "id" : "189",
+            "id" : "187",
             "sourceId" : "22",
             "tags" : "Relationship"
           } ],
@@ -2169,13 +2152,13 @@
           }, {
             "description" : "Reads and writes data from",
             "destinationId" : "29",
-            "id" : "117",
+            "id" : "116",
             "sourceId" : "23",
             "tags" : "Relationship"
           }, {
             "description" : "Reads and writes data from",
-            "destinationId" : "63",
-            "id" : "118",
+            "destinationId" : "62",
+            "id" : "117",
             "sourceId" : "23",
             "tags" : "Relationship"
           } ],
@@ -2197,8 +2180,8 @@
             "tags" : "Relationship"
           }, {
             "description" : "Pull dataset from",
-            "destinationId" : "68",
-            "id" : "130",
+            "destinationId" : "67",
+            "id" : "129",
             "sourceId" : "24",
             "tags" : "Relationship"
           } ],
@@ -2225,38 +2208,38 @@
         "relationships" : [ {
           "description" : "Access user secrets",
           "destinationId" : "20",
-          "id" : "96",
-          "linkedRelationshipId" : "95",
+          "id" : "95",
+          "linkedRelationshipId" : "94",
           "sourceId" : "21"
         }, {
           "description" : "Gets updated model, sends new weights",
           "destinationId" : "17",
-          "id" : "111",
-          "linkedRelationshipId" : "110",
+          "id" : "110",
+          "linkedRelationshipId" : "109",
           "sourceId" : "21"
         }, {
           "description" : "Reads and writes data from",
           "destinationId" : "29",
-          "id" : "115",
+          "id" : "114",
           "sourceId" : "21",
           "tags" : "Relationship"
         }, {
           "description" : "Syncs external data from",
-          "destinationId" : "63",
-          "id" : "116",
+          "destinationId" : "62",
+          "id" : "115",
           "sourceId" : "21",
           "tags" : "Relationship"
         }, {
           "description" : "Pull dataset from",
-          "destinationId" : "68",
-          "id" : "131",
-          "linkedRelationshipId" : "130",
+          "destinationId" : "67",
+          "id" : "130",
+          "linkedRelationshipId" : "129",
           "sourceId" : "21"
         }, {
           "description" : "Logs experiment parametres, metrics, models to MLFlow",
           "destinationId" : "30",
-          "id" : "190",
-          "linkedRelationshipId" : "189",
+          "id" : "188",
+          "linkedRelationshipId" : "187",
           "sourceId" : "21"
         } ],
         "tags" : "Element,Container",
@@ -2310,13 +2293,13 @@
         "relationships" : [ {
           "description" : "Gets secrets for tracking server users",
           "destinationId" : "20",
-          "id" : "192",
+          "id" : "190",
           "sourceId" : "30",
           "tags" : "Relationship"
         }, {
           "description" : "Detects new model version in Model Registry",
           "destinationId" : "11",
-          "id" : "193",
+          "id" : "191",
           "sourceId" : "30",
           "tags" : "Relationship"
         } ],
@@ -2342,25 +2325,25 @@
         "relationships" : [ {
           "description" : "Monitors drift on",
           "destinationId" : "9",
-          "id" : "138",
+          "id" : "137",
           "sourceId" : "34",
           "tags" : "Relationship"
         }, {
           "description" : "Triggers the pipeline upon detecting drift (potential retrain)",
           "destinationId" : "11",
-          "id" : "194",
+          "id" : "192",
           "sourceId" : "34",
           "tags" : "Relationship"
         }, {
           "description" : "Updates dashboard with drift status",
           "destinationId" : "14",
-          "id" : "195",
+          "id" : "193",
           "sourceId" : "34",
           "tags" : "Relationship"
         }, {
           "description" : "Visualize model performance",
           "destinationId" : "1",
-          "id" : "196",
+          "id" : "194",
           "sourceId" : "34",
           "tags" : "Relationship"
         } ],
@@ -2377,57 +2360,57 @@
       },
       "relationships" : [ {
         "description" : "Consumes data from",
-        "destinationId" : "63",
-        "id" : "85",
+        "destinationId" : "62",
+        "id" : "84",
         "sourceId" : "6",
         "tags" : "Relationship"
       }, {
         "description" : "Is integrated with",
         "destinationId" : "2",
-        "id" : "86",
+        "id" : "85",
         "sourceId" : "6",
         "tags" : "Relationship"
       }, {
         "description" : "is Registered in",
         "destinationId" : "3",
-        "id" : "87",
+        "id" : "86",
         "sourceId" : "6",
         "tags" : "Relationship"
       }, {
         "description" : "Deploy models on",
         "destinationId" : "45",
-        "id" : "88",
+        "id" : "87",
         "sourceId" : "6",
         "tags" : "Relationship"
       }, {
         "description" : "Uses LLM services for assistance",
         "destinationId" : "57",
-        "id" : "100",
-        "linkedRelationshipId" : "99",
+        "id" : "99",
+        "linkedRelationshipId" : "98",
         "sourceId" : "6"
       }, {
         "description" : "Publishes models to",
-        "destinationId" : "68",
-        "id" : "127",
-        "linkedRelationshipId" : "126",
+        "destinationId" : "67",
+        "id" : "126",
+        "linkedRelationshipId" : "125",
         "sourceId" : "6"
       }, {
         "description" : "Manages API keys for",
         "destinationId" : "59",
-        "id" : "145",
-        "linkedRelationshipId" : "143",
+        "id" : "143",
+        "linkedRelationshipId" : "141",
         "sourceId" : "6"
       }, {
         "description" : "Deployment or update of inference services",
         "destinationId" : "50",
-        "id" : "186",
+        "id" : "184",
         "sourceId" : "6",
         "tags" : "Relationship"
       }, {
         "description" : "Visualize model performance",
         "destinationId" : "1",
-        "id" : "197",
-        "linkedRelationshipId" : "196",
+        "id" : "195",
+        "linkedRelationshipId" : "194",
         "sourceId" : "6"
       } ],
       "tags" : "Element,Software System"
@@ -2443,7 +2426,7 @@
         "relationships" : [ {
           "description" : "Federate users from",
           "destinationId" : "2",
-          "id" : "159",
+          "id" : "157",
           "sourceId" : "37",
           "tags" : "Relationship",
           "technology" : "OpenID Connect"
@@ -2461,13 +2444,13 @@
         "relationships" : [ {
           "description" : "Create deployment",
           "destinationId" : "39",
-          "id" : "152",
+          "id" : "150",
           "sourceId" : "38",
           "tags" : "Relationship"
         }, {
           "description" : "Read topologies",
           "destinationId" : "44",
-          "id" : "153",
+          "id" : "151",
           "sourceId" : "38",
           "tags" : "Relationship"
         } ],
@@ -2483,49 +2466,49 @@
         "relationships" : [ {
           "description" : "Read topologies",
           "destinationId" : "44",
-          "id" : "154",
+          "id" : "152",
           "sourceId" : "39",
           "tags" : "Relationship"
         }, {
           "description" : "Uses",
           "destinationId" : "43",
-          "id" : "155",
+          "id" : "153",
           "sourceId" : "39",
           "tags" : "Relationship"
         }, {
           "description" : "Get information",
           "destinationId" : "40",
-          "id" : "156",
+          "id" : "154",
           "sourceId" : "39",
           "tags" : "Relationship"
         }, {
           "description" : "Get matching offers",
           "destinationId" : "42",
-          "id" : "158",
+          "id" : "156",
           "sourceId" : "39",
           "tags" : "Relationship"
         }, {
           "description" : "Authenticate users with",
           "destinationId" : "37",
-          "id" : "161",
+          "id" : "159",
           "sourceId" : "39",
           "tags" : "Relationship"
         }, {
           "description" : "Provisions resources for",
           "destinationId" : "53",
-          "id" : "165",
+          "id" : "163",
           "sourceId" : "39",
           "tags" : "Relationship"
         }, {
           "description" : "Provisions resources for",
           "destinationId" : "45",
-          "id" : "166",
-          "linkedRelationshipId" : "165",
+          "id" : "164",
+          "linkedRelationshipId" : "163",
           "sourceId" : "39"
         }, {
           "description" : "Provisions resources for",
           "destinationId" : "50",
-          "id" : "168",
+          "id" : "166",
           "sourceId" : "39",
           "tags" : "Relationship"
         } ],
@@ -2551,7 +2534,7 @@
         "relationships" : [ {
           "description" : "Send aggregated metrics",
           "destinationId" : "40",
-          "id" : "157",
+          "id" : "155",
           "sourceId" : "41",
           "tags" : "Relationship"
         } ],
@@ -2575,14 +2558,14 @@
         "relationships" : [ {
           "description" : "Manages",
           "destinationId" : "50",
-          "id" : "170",
+          "id" : "168",
           "sourceId" : "43",
           "tags" : "Relationship"
         }, {
           "description" : "Manages",
           "destinationId" : "45",
-          "id" : "171",
-          "linkedRelationshipId" : "170",
+          "id" : "169",
+          "linkedRelationshipId" : "168",
           "sourceId" : "43"
         } ],
         "tags" : "Element,Container"
@@ -2607,39 +2590,39 @@
       "relationships" : [ {
         "description" : "Creates PaaS deployments and provisions resources for",
         "destinationId" : "6",
-        "id" : "83",
+        "id" : "82",
         "sourceId" : "36",
         "tags" : "Relationship"
       }, {
         "description" : "Creates OSCAR clusters and provisions resources for",
         "destinationId" : "45",
-        "id" : "84",
+        "id" : "83",
         "sourceId" : "36",
         "tags" : "Relationship"
       }, {
         "description" : "Provisions resources for",
         "destinationId" : "15",
-        "id" : "133",
+        "id" : "132",
         "sourceId" : "36",
         "tags" : "Relationship"
       }, {
         "description" : "Federate users from",
         "destinationId" : "2",
-        "id" : "160",
-        "linkedRelationshipId" : "159",
+        "id" : "158",
+        "linkedRelationshipId" : "157",
         "sourceId" : "36",
         "technology" : "OpenID Connect"
       }, {
         "description" : "Provisions resources for",
         "destinationId" : "53",
-        "id" : "167",
-        "linkedRelationshipId" : "165",
+        "id" : "165",
+        "linkedRelationshipId" : "163",
         "sourceId" : "36"
       }, {
         "description" : "Provisions resources for",
         "destinationId" : "50",
-        "id" : "169",
-        "linkedRelationshipId" : "168",
+        "id" : "167",
+        "linkedRelationshipId" : "166",
         "sourceId" : "36"
       } ],
       "tags" : "Element,Software System"
@@ -2655,7 +2638,7 @@
         "relationships" : [ {
           "description" : "Manage instances",
           "destinationId" : "49",
-          "id" : "172",
+          "id" : "170",
           "sourceId" : "46",
           "tags" : "Relationship"
         } ],
@@ -2671,7 +2654,7 @@
         "relationships" : [ {
           "description" : "Manage Notebooks",
           "destinationId" : "48",
-          "id" : "176",
+          "id" : "174",
           "sourceId" : "47",
           "tags" : "Relationship"
         } ],
@@ -2687,13 +2670,13 @@
         "relationships" : [ {
           "description" : "Invoke Service and trigger inference",
           "destinationId" : "50",
-          "id" : "177",
+          "id" : "175",
           "sourceId" : "48",
           "tags" : "Relationship"
         }, {
           "description" : "Obtain custom OSCAR nodes",
           "destinationId" : "56",
-          "id" : "179",
+          "id" : "177",
           "sourceId" : "48",
           "tags" : "Relationship"
         } ],
@@ -2709,13 +2692,13 @@
         "relationships" : [ {
           "description" : "Invoke Service and trigger inference",
           "destinationId" : "50",
-          "id" : "175",
+          "id" : "173",
           "sourceId" : "49",
           "tags" : "Relationship"
         }, {
           "description" : "Obtain custom OSCAR nodes",
           "destinationId" : "55",
-          "id" : "178",
+          "id" : "176",
           "sourceId" : "49",
           "tags" : "Relationship"
         } ],
@@ -2731,19 +2714,19 @@
         "relationships" : [ {
           "description" : "Manage buckets, folders, event and notifications",
           "destinationId" : "52",
-          "id" : "180",
+          "id" : "178",
           "sourceId" : "50",
           "tags" : "Relationship"
         }, {
           "description" : "Manage services",
           "destinationId" : "51",
-          "id" : "181",
+          "id" : "179",
           "sourceId" : "50",
           "tags" : "Relationship"
         }, {
           "description" : "Execute services synchronously",
           "destinationId" : "53",
-          "id" : "182",
+          "id" : "180",
           "sourceId" : "50",
           "tags" : "Relationship"
         } ],
@@ -2759,7 +2742,7 @@
         "relationships" : [ {
           "description" : "Create jobs",
           "destinationId" : "54",
-          "id" : "184",
+          "id" : "182",
           "sourceId" : "51",
           "tags" : "Relationship"
         } ],
@@ -2784,7 +2767,7 @@
         "relationships" : [ {
           "description" : "Assign to function's pod(s)",
           "destinationId" : "54",
-          "id" : "183",
+          "id" : "181",
           "sourceId" : "53",
           "tags" : "Relationship"
         } ],
@@ -2800,7 +2783,7 @@
         "relationships" : [ {
           "description" : "Download input. Upload output",
           "destinationId" : "52",
-          "id" : "185",
+          "id" : "183",
           "sourceId" : "54",
           "tags" : "Relationship"
         } ],
@@ -2847,56 +2830,38 @@
         "relationships" : [ {
           "description" : "Uses LLM modesl via API from",
           "destinationId" : "59",
-          "id" : "141",
+          "id" : "140",
           "sourceId" : "58",
           "tags" : "Relationship"
         }, {
           "description" : "Authenticates users with",
           "destinationId" : "7",
-          "id" : "148",
+          "id" : "146",
           "sourceId" : "58",
           "tags" : "Relationship"
         }, {
           "description" : "Authenticates users with",
           "destinationId" : "6",
-          "id" : "149",
-          "linkedRelationshipId" : "148",
+          "id" : "147",
+          "linkedRelationshipId" : "146",
           "sourceId" : "58"
         } ],
         "tags" : "Element,Container",
         "technology" : "Open WebUI"
       }, {
-        "description" : "API management (e.g. API key management, rate limit, telemetry)",
+        "description" : "API management and routing to LLM models.",
         "documentation" : { },
         "group" : "LLM Gateway",
         "id" : "59",
-        "name" : "APISIX LLM Gateway",
-        "properties" : {
-          "structurizr.dsl.identifier" : "llm_apisix"
-        },
-        "relationships" : [ {
-          "description" : "Routes requests to",
-          "destinationId" : "60",
-          "id" : "142",
-          "sourceId" : "59",
-          "tags" : "Relationship"
-        } ],
-        "tags" : "Element,Container",
-        "technology" : "HAproxy + APISIX"
-      }, {
-        "description" : "Provides access and routing to LLM models.",
-        "documentation" : { },
-        "group" : "LLM Gateway",
-        "id" : "60",
         "name" : "LiteLLM Service",
         "properties" : {
           "structurizr.dsl.identifier" : "llm_litellm"
         },
         "relationships" : [ {
           "description" : "Routes requests to",
-          "destinationId" : "61",
-          "id" : "146",
-          "sourceId" : "60",
+          "destinationId" : "60",
+          "id" : "144",
+          "sourceId" : "59",
           "tags" : "Relationship"
         } ],
         "tags" : "Element,Container",
@@ -2905,16 +2870,16 @@
         "description" : "Provides access and routing to LLM models.",
         "documentation" : { },
         "group" : "Federated LLM provider",
-        "id" : "61",
+        "id" : "60",
         "name" : "LiteLLM Leaf Node",
         "properties" : {
           "structurizr.dsl.identifier" : "llm_litellm_leaf"
         },
         "relationships" : [ {
           "description" : "Routes requests to",
-          "destinationId" : "62",
-          "id" : "147",
-          "sourceId" : "61",
+          "destinationId" : "61",
+          "id" : "145",
+          "sourceId" : "60",
           "tags" : "Relationship"
         } ],
         "tags" : "Element,Container",
@@ -2923,7 +2888,7 @@
         "description" : "Provides OpenAI comptabile access to LLM models.",
         "documentation" : { },
         "group" : "Federated LLM provider",
-        "id" : "62",
+        "id" : "61",
         "name" : "vLLM Service",
         "properties" : {
           "structurizr.dsl.identifier" : "vllm"
@@ -2942,14 +2907,14 @@
       "relationships" : [ {
         "description" : "Gets models from, authenticates users with, provides LLM services to",
         "destinationId" : "6",
-        "id" : "89",
+        "id" : "88",
         "sourceId" : "57",
         "tags" : "Relationship"
       }, {
         "description" : "Authenticates users with",
         "destinationId" : "7",
-        "id" : "150",
-        "linkedRelationshipId" : "148",
+        "id" : "148",
+        "linkedRelationshipId" : "146",
         "sourceId" : "57"
       } ],
       "tags" : "Element,Software System"
@@ -2957,7 +2922,7 @@
       "containers" : [ {
         "documentation" : { },
         "group" : "External Storage Provider",
-        "id" : "64",
+        "id" : "63",
         "name" : "Amazon S3",
         "properties" : {
           "structurizr.dsl.identifier" : "s3"
@@ -2966,7 +2931,7 @@
       }, {
         "documentation" : { },
         "group" : "External Storage Provider",
-        "id" : "65",
+        "id" : "64",
         "name" : "MinIO External",
         "properties" : {
           "structurizr.dsl.identifier" : "MinIOExternal"
@@ -2975,7 +2940,7 @@
       }, {
         "documentation" : { },
         "group" : "External Storage Provider",
-        "id" : "66",
+        "id" : "65",
         "name" : "Onedata",
         "properties" : {
           "structurizr.dsl.identifier" : "oneData"
@@ -2984,7 +2949,7 @@
       }, {
         "documentation" : { },
         "group" : "External Storage Provider",
-        "id" : "67",
+        "id" : "66",
         "name" : "dCache",
         "properties" : {
           "structurizr.dsl.identifier" : "dcache"
@@ -2994,7 +2959,7 @@
       "description" : "External storage where data assets are stored.",
       "documentation" : { },
       "group" : "External storage services",
-      "id" : "63",
+      "id" : "62",
       "name" : "Storage Services",
       "properties" : {
         "structurizr.dsl.identifier" : "storage"
@@ -3004,7 +2969,7 @@
       "description" : "A general-purpose open-access repository developed within the OpenAIRE project and operated by CERN.",
       "documentation" : { },
       "group" : "External storage services",
-      "id" : "68",
+      "id" : "67",
       "name" : "Zenodo",
       "properties" : {
         "structurizr.dsl.identifier" : "zenodo"
@@ -3014,7 +2979,7 @@
       "containers" : [ {
         "description" : "Encapsulates user code, not executed on the platform",
         "documentation" : { },
-        "id" : "70",
+        "id" : "69",
         "name" : "User-managed model code",
         "properties" : {
           "structurizr.dsl.identifier" : "external_container"
@@ -3022,21 +2987,21 @@
         "relationships" : [ {
           "description" : "Gets updated model, sends weights to federated server",
           "destinationId" : "17",
-          "id" : "71",
-          "sourceId" : "70",
+          "id" : "70",
+          "sourceId" : "69",
           "tags" : "Relationship"
         }, {
           "description" : "Gets updated model, sends weights to federated server",
           "destinationId" : "6",
-          "id" : "72",
-          "linkedRelationshipId" : "71",
-          "sourceId" : "70"
+          "id" : "71",
+          "linkedRelationshipId" : "70",
+          "sourceId" : "69"
         } ],
         "tags" : "Element,Container"
       } ],
       "description" : "External resources, not controlled by the platform",
       "documentation" : { },
-      "id" : "69",
+      "id" : "68",
       "name" : "External resources",
       "properties" : {
         "structurizr.dsl.identifier" : "external_resources"
@@ -3044,20 +3009,20 @@
       "relationships" : [ {
         "description" : "Gets updated model, sends weights to federated server",
         "destinationId" : "17",
-        "id" : "73",
-        "linkedRelationshipId" : "71",
-        "sourceId" : "69"
+        "id" : "72",
+        "linkedRelationshipId" : "70",
+        "sourceId" : "68"
       }, {
         "description" : "Gets updated model, sends weights to federated server",
         "destinationId" : "6",
-        "id" : "74",
-        "linkedRelationshipId" : "71",
-        "sourceId" : "69"
+        "id" : "73",
+        "linkedRelationshipId" : "70",
+        "sourceId" : "68"
       } ],
       "tags" : "Element,Software System,external"
     }, {
       "documentation" : { },
-      "id" : "75",
+      "id" : "74",
       "name" : "Cloud/HPC Providers",
       "properties" : {
         "structurizr.dsl.identifier" : "cloud_providers"
@@ -3065,20 +3030,20 @@
       "relationships" : [ {
         "description" : "register/update service & resources metadata",
         "destinationId" : "40",
-        "id" : "162",
-        "sourceId" : "75",
+        "id" : "160",
+        "sourceId" : "74",
         "tags" : "Relationship"
       }, {
         "description" : "register/update service & resources metadata",
         "destinationId" : "36",
-        "id" : "163",
-        "linkedRelationshipId" : "162",
-        "sourceId" : "75"
+        "id" : "161",
+        "linkedRelationshipId" : "160",
+        "sourceId" : "74"
       }, {
         "description" : "push/pull metrics",
         "destinationId" : "41",
-        "id" : "164",
-        "sourceId" : "75",
+        "id" : "162",
+        "sourceId" : "74",
         "tags" : "Relationship"
       } ],
       "tags" : "Element,Software System,external"
@@ -3088,7 +3053,7 @@
   "properties" : {
     "structurizr.inspection.info" : "0",
     "structurizr.inspection.ignore" : "0",
-    "structurizr.inspection.error" : "336",
+    "structurizr.inspection.error" : "334",
     "structurizr.inspection.warning" : "0"
   },
   "views" : {
@@ -3139,11 +3104,11 @@
         "x" : 220,
         "y" : 619
       }, {
-        "id" : "63",
+        "id" : "62",
         "x" : 1594,
         "y" : 2719
       }, {
-        "id" : "68",
+        "id" : "67",
         "x" : 854,
         "y" : 2719
       } ],
@@ -3152,9 +3117,9 @@
       "name" : "Component View: AI4EOSC Platform - User job/task deployment",
       "order" : 10,
       "relationships" : [ {
-        "id" : "104"
+        "id" : "103"
       }, {
-        "id" : "105",
+        "id" : "104",
         "vertices" : [ {
           "x" : 835,
           "y" : 2174
@@ -3163,27 +3128,27 @@
           "y" : 2109
         } ]
       }, {
+        "id" : "107"
+      }, {
         "id" : "108"
       }, {
         "id" : "109"
       }, {
-        "id" : "110"
+        "id" : "116"
       }, {
         "id" : "117"
       }, {
-        "id" : "118"
+        "id" : "129"
       }, {
-        "id" : "130"
-      }, {
-        "id" : "189",
+        "id" : "187",
         "vertices" : [ {
           "x" : 1095,
           "y" : 1219
         } ]
       }, {
-        "id" : "191"
+        "id" : "189"
       }, {
-        "id" : "192"
+        "id" : "190"
       }, {
         "id" : "26"
       }, {
@@ -3191,9 +3156,9 @@
       }, {
         "id" : "28"
       }, {
-        "id" : "80"
+        "id" : "79"
       }, {
-        "id" : "81",
+        "id" : "80",
         "vertices" : [ {
           "x" : 2820,
           "y" : 440
@@ -3202,17 +3167,17 @@
           "y" : 2865
         } ]
       }, {
-        "id" : "91"
+        "id" : "90"
       }, {
-        "id" : "93"
+        "id" : "92"
       }, {
-        "id" : "94",
+        "id" : "93",
         "vertices" : [ {
           "x" : 890,
           "y" : 1384
         } ]
       }, {
-        "id" : "95",
+        "id" : "94",
         "vertices" : [ {
           "x" : 590,
           "y" : 1519
@@ -3260,7 +3225,7 @@
         "x" : 219,
         "y" : 708
       }, {
-        "id" : "68",
+        "id" : "67",
         "x" : 1719,
         "y" : 1308
       } ],
@@ -3269,15 +3234,15 @@
       "name" : "Component View: AI4EOSC Platform - Continuous Integration, Delivery & Deployment",
       "order" : 12,
       "relationships" : [ {
-        "id" : "128"
+        "id" : "127"
+      }, {
+        "id" : "133"
       }, {
         "id" : "134"
       }, {
         "id" : "135"
       }, {
         "id" : "136"
-      }, {
-        "id" : "137"
       } ]
     } ],
     "configuration" : {
@@ -3336,18 +3301,14 @@
         "y" : 809
       }, {
         "id" : "59",
-        "x" : 1169,
+        "x" : 1985,
         "y" : 809
       }, {
         "id" : "60",
         "x" : 1985,
-        "y" : 809
-      }, {
-        "id" : "61",
-        "x" : 1985,
         "y" : 1325
       }, {
-        "id" : "62",
+        "id" : "61",
         "x" : 1169,
         "y" : 1325
       } ],
@@ -3356,21 +3317,19 @@
       "name" : "Container View: LLM Services",
       "order" : 6,
       "relationships" : [ {
+        "id" : "138"
+      }, {
         "id" : "139"
       }, {
         "id" : "140"
       }, {
-        "id" : "141"
+        "id" : "143"
       }, {
-        "id" : "142"
+        "id" : "144"
       }, {
         "id" : "145"
       }, {
-        "id" : "146"
-      }, {
         "id" : "147"
-      }, {
-        "id" : "149"
       } ],
       "softwareSystemId" : "57"
     }, {
@@ -3431,7 +3390,7 @@
         "x" : 2768,
         "y" : 1033
       }, {
-        "id" : "76",
+        "id" : "75",
         "x" : 2172,
         "y" : 199
       } ],
@@ -3440,9 +3399,13 @@
       "name" : "Container View: AI as a Service",
       "order" : 7,
       "relationships" : [ {
+        "id" : "165"
+      }, {
         "id" : "167"
       }, {
-        "id" : "169"
+        "id" : "170"
+      }, {
+        "id" : "171"
       }, {
         "id" : "172"
       }, {
@@ -3474,11 +3437,7 @@
       }, {
         "id" : "186"
       }, {
-        "id" : "187"
-      }, {
-        "id" : "188"
-      }, {
-        "id" : "83"
+        "id" : "82"
       } ],
       "softwareSystemId" : "45"
     }, {
@@ -3559,15 +3518,15 @@
         "x" : 2473,
         "y" : 259
       }, {
-        "id" : "63",
+        "id" : "62",
         "x" : 3170,
         "y" : 2870
       }, {
-        "id" : "68",
+        "id" : "67",
         "x" : 200,
         "y" : 1398
       }, {
-        "id" : "69",
+        "id" : "68",
         "x" : 3791,
         "y" : 2880
       } ],
@@ -3576,7 +3535,7 @@
       "name" : "Container View: AI4EOSC Platform",
       "order" : 8,
       "relationships" : [ {
-        "id" : "101",
+        "id" : "100",
         "vertices" : [ {
           "x" : 1500,
           "y" : 1364
@@ -3591,11 +3550,11 @@
           "y" : 2298
         } ]
       }, {
+        "id" : "101"
+      }, {
         "id" : "102"
       }, {
-        "id" : "103"
-      }, {
-        "id" : "108",
+        "id" : "107",
         "vertices" : [ {
           "x" : 2750,
           "y" : 2313
@@ -3610,7 +3569,7 @@
           "y" : 1804
         } ]
       }, {
-        "id" : "109",
+        "id" : "108",
         "vertices" : [ {
           "x" : 3105,
           "y" : 1538
@@ -3619,15 +3578,15 @@
           "y" : 1858
         } ]
       }, {
+        "id" : "110"
+      }, {
         "id" : "111"
       }, {
         "id" : "112"
       }, {
         "id" : "113"
       }, {
-        "id" : "114"
-      }, {
-        "id" : "115",
+        "id" : "114",
         "vertices" : [ {
           "x" : 3620,
           "y" : 2348
@@ -3636,13 +3595,13 @@
           "y" : 2265
         } ]
       }, {
-        "id" : "116"
+        "id" : "115"
+      }, {
+        "id" : "118"
       }, {
         "id" : "119"
       }, {
-        "id" : "120"
-      }, {
-        "id" : "123",
+        "id" : "122",
         "vertices" : [ {
           "x" : 1215,
           "y" : 2338
@@ -3657,7 +3616,7 @@
           "y" : 1543
         } ]
       }, {
-        "id" : "124",
+        "id" : "123",
         "vertices" : [ {
           "x" : 1295,
           "y" : 2403
@@ -3666,9 +3625,9 @@
           "y" : 2403
         } ]
       }, {
-        "id" : "125"
+        "id" : "124"
       }, {
-        "id" : "126",
+        "id" : "125",
         "vertices" : [ {
           "x" : 540,
           "y" : 2478
@@ -3677,7 +3636,7 @@
           "y" : 1883
         } ]
       }, {
-        "id" : "128",
+        "id" : "127",
         "vertices" : [ {
           "x" : 725,
           "y" : 1278
@@ -3686,7 +3645,7 @@
           "y" : 1553
         } ]
       }, {
-        "id" : "129",
+        "id" : "128",
         "vertices" : [ {
           "x" : 1796,
           "y" : 1080
@@ -3695,7 +3654,7 @@
           "y" : 1085
         } ]
       }, {
-        "id" : "131",
+        "id" : "130",
         "vertices" : [ {
           "x" : 2431,
           "y" : 3185
@@ -3704,7 +3663,7 @@
           "y" : 3193
         } ]
       }, {
-        "id" : "132",
+        "id" : "131",
         "vertices" : [ {
           "x" : 2725,
           "y" : 2148
@@ -3713,7 +3672,7 @@
           "y" : 2148
         } ]
       }, {
-        "id" : "133",
+        "id" : "132",
         "vertices" : [ {
           "x" : 2445,
           "y" : 2983
@@ -3722,15 +3681,15 @@
           "y" : 2583
         } ]
       }, {
-        "id" : "138"
+        "id" : "137"
       }, {
-        "id" : "144",
+        "id" : "142",
         "vertices" : [ {
           "x" : 1910,
           "y" : 525
         } ]
       }, {
-        "id" : "190",
+        "id" : "188",
         "vertices" : [ {
           "x" : 3330,
           "y" : 2699
@@ -3739,7 +3698,7 @@
           "y" : 2699
         } ]
       }, {
-        "id" : "191",
+        "id" : "189",
         "vertices" : [ {
           "x" : 3180,
           "y" : 1310
@@ -3751,7 +3710,7 @@
           "y" : 1710
         } ]
       }, {
-        "id" : "192",
+        "id" : "190",
         "vertices" : [ {
           "x" : 2305,
           "y" : 2284
@@ -3760,11 +3719,11 @@
           "y" : 1904
         } ]
       }, {
-        "id" : "193"
+        "id" : "191"
       }, {
-        "id" : "194"
+        "id" : "192"
       }, {
-        "id" : "73",
+        "id" : "72",
         "vertices" : [ {
           "x" : 4206,
           "y" : 3170
@@ -3776,9 +3735,9 @@
           "y" : 2275
         } ]
       }, {
-        "id" : "80"
+        "id" : "79"
       }, {
-        "id" : "81",
+        "id" : "80",
         "vertices" : [ {
           "x" : 4266,
           "y" : 640
@@ -3790,9 +3749,9 @@
           "y" : 3255
         } ]
       }, {
-        "id" : "84"
+        "id" : "83"
       }, {
-        "id" : "90",
+        "id" : "89",
         "vertices" : [ {
           "x" : 3100,
           "y" : 698
@@ -3801,7 +3760,7 @@
           "y" : 1283
         } ]
       }, {
-        "id" : "92",
+        "id" : "91",
         "vertices" : [ {
           "x" : 4081,
           "y" : 725
@@ -3810,7 +3769,7 @@
           "y" : 2315
         } ]
       }, {
-        "id" : "94",
+        "id" : "93",
         "vertices" : [ {
           "x" : 3721,
           "y" : 598
@@ -3828,7 +3787,7 @@
           "y" : 1223
         } ]
       }, {
-        "id" : "96",
+        "id" : "95",
         "vertices" : [ {
           "x" : 3085,
           "y" : 2358
@@ -3840,11 +3799,19 @@
           "y" : 1918
         } ]
       }, {
-        "id" : "97"
+        "id" : "96",
+        "vertices" : [ {
+          "x" : 2249,
+          "y" : 1138
+        } ]
+      }, {
+        "id" : "97",
+        "vertices" : [ {
+          "x" : 2249,
+          "y" : 1438
+        } ]
       }, {
         "id" : "98"
-      }, {
-        "id" : "99"
       } ],
       "softwareSystemId" : "6"
     }, {
@@ -3897,7 +3864,7 @@
         "x" : 2458,
         "y" : 199
       }, {
-        "id" : "75",
+        "id" : "74",
         "x" : 199,
         "y" : 1999
       } ],
@@ -3906,15 +3873,19 @@
       "name" : "Container View: PaaS Orchestration and provisioning",
       "order" : 9,
       "relationships" : [ {
-        "id" : "151"
+        "id" : "149"
       }, {
-        "id" : "152"
+        "id" : "150"
       }, {
-        "id" : "153",
+        "id" : "151",
         "vertices" : [ {
           "x" : 1708,
           "y" : 1249
         } ]
+      }, {
+        "id" : "152"
+      }, {
+        "id" : "153"
       }, {
         "id" : "154"
       }, {
@@ -3924,186 +3895,178 @@
       }, {
         "id" : "157"
       }, {
-        "id" : "158"
-      }, {
         "id" : "159"
       }, {
-        "id" : "161"
-      }, {
-        "id" : "162",
+        "id" : "160",
         "vertices" : [ {
           "x" : 1154,
           "y" : 1830
         } ]
       }, {
-        "id" : "164"
+        "id" : "162"
       }, {
-        "id" : "166",
+        "id" : "164",
         "vertices" : [ {
           "x" : 2458,
           "y" : 620
         } ]
       }, {
-        "id" : "171"
+        "id" : "169"
       } ],
       "softwareSystemId" : "36"
     } ],
     "deploymentViews" : [ {
       "dimensions" : {
         "height" : 2826,
-        "width" : 4349
+        "width" : 3929
       },
       "elements" : [ {
-        "id" : "198",
+        "id" : "196",
         "x" : 8050,
         "y" : 8050
       }, {
-        "id" : "199",
+        "id" : "197",
         "x" : 8050,
         "y" : 8050
+      }, {
+        "id" : "198",
+        "x" : 1225,
+        "y" : 1225
+      }, {
+        "id" : "199",
+        "x" : 260,
+        "y" : 220
       }, {
         "id" : "200",
         "x" : 1225,
         "y" : 1225
       }, {
         "id" : "201",
-        "x" : 260,
-        "y" : 220
-      }, {
-        "id" : "202",
-        "x" : 1225,
-        "y" : 1225
+        "x" : 735,
+        "y" : 765
       }, {
         "id" : "203",
-        "x" : 969,
-        "y" : 220
-      }, {
-        "id" : "205",
         "x" : 1225,
         "y" : 1225
       }, {
-        "id" : "206",
+        "id" : "204",
         "x" : 260,
-        "y" : 1134
+        "y" : 1275
       }, {
-        "id" : "210",
+        "id" : "208",
         "x" : 1225,
         "y" : 1225
+      }, {
+        "id" : "209",
+        "x" : 1211,
+        "y" : 220
       }, {
         "id" : "211",
-        "x" : 1695,
-        "y" : 220
-      }, {
-        "id" : "213",
         "x" : 175,
         "y" : 175
       }, {
-        "id" : "214",
-        "x" : 969,
-        "y" : 1134
+        "id" : "212",
+        "x" : 1211,
+        "y" : 1275
+      }, {
+        "id" : "215",
+        "x" : 1225,
+        "y" : 1225
+      }, {
+        "id" : "216",
+        "x" : 1225,
+        "y" : 1225
       }, {
         "id" : "217",
-        "x" : 1631,
-        "y" : 1134
+        "x" : 1873,
+        "y" : 794
       }, {
         "id" : "219",
         "x" : 1225,
         "y" : 1225
       }, {
         "id" : "220",
-        "x" : 1225,
-        "y" : 1225
-      }, {
-        "id" : "221",
-        "x" : 2293,
-        "y" : 794
-      }, {
-        "id" : "223",
-        "x" : 1225,
-        "y" : 1225
-      }, {
-        "id" : "224",
-        "x" : 2955,
+        "x" : 2535,
         "y" : 454
       }, {
-        "id" : "226",
+        "id" : "222",
         "x" : 1050,
         "y" : 1050
       }, {
-        "id" : "227",
-        "x" : 3619,
+        "id" : "223",
+        "x" : 3199,
         "y" : 454
       }, {
+        "id" : "225",
+        "x" : 875,
+        "y" : 875
+      }, {
+        "id" : "226",
+        "x" : 2535,
+        "y" : 1134
+      }, {
+        "id" : "228",
+        "x" : 875,
+        "y" : 875
+      }, {
         "id" : "229",
-        "x" : 875,
-        "y" : 875
-      }, {
-        "id" : "230",
-        "x" : 2955,
+        "x" : 3199,
         "y" : 1134
       }, {
-        "id" : "232",
-        "x" : 875,
-        "y" : 875
-      }, {
-        "id" : "233",
-        "x" : 3619,
-        "y" : 1134
-      }, {
-        "id" : "235",
+        "id" : "231",
         "x" : 700,
         "y" : 700
+      }, {
+        "id" : "232",
+        "x" : 1225,
+        "y" : 1225
+      }, {
+        "id" : "233",
+        "x" : 700,
+        "y" : 700
+      }, {
+        "id" : "234",
+        "x" : 1211,
+        "y" : 1989
       }, {
         "id" : "236",
         "x" : 1225,
         "y" : 1225
       }, {
         "id" : "237",
-        "x" : 700,
-        "y" : 700
-      }, {
-        "id" : "238",
-        "x" : 1631,
+        "x" : 260,
         "y" : 1989
+      }, {
+        "id" : "239",
+        "x" : 525,
+        "y" : 525
       }, {
         "id" : "240",
         "x" : 1225,
         "y" : 1225
       }, {
         "id" : "241",
-        "x" : 869,
-        "y" : 1989
+        "x" : 175,
+        "y" : 175
       }, {
-        "id" : "243",
-        "x" : 525,
-        "y" : 525
+        "id" : "242",
+        "x" : 1873,
+        "y" : 1989
       }, {
         "id" : "244",
         "x" : 1225,
         "y" : 1225
       }, {
         "id" : "245",
-        "x" : 175,
-        "y" : 175
-      }, {
-        "id" : "246",
-        "x" : 2293,
+        "x" : 3199,
         "y" : 1989
       }, {
-        "id" : "248",
-        "x" : 1225,
-        "y" : 1225
-      }, {
-        "id" : "249",
-        "x" : 3619,
-        "y" : 1989
-      }, {
-        "id" : "251",
+        "id" : "247",
         "x" : 1050,
         "y" : 1050
       }, {
-        "id" : "252",
-        "x" : 2955,
+        "id" : "248",
+        "x" : 2535,
         "y" : 1989
       } ],
       "environment" : "LLM services (production)",
@@ -4112,89 +4075,91 @@
       "name" : "Deployment View: LLM services (production)",
       "order" : 19,
       "relationships" : [ {
-        "id" : "204"
-      }, {
-        "id" : "208"
-      }, {
-        "id" : "209",
+        "id" : "202",
         "vertices" : [ {
-          "x" : 880,
-          "y" : 566
+          "x" : 845,
+          "y" : 570
         } ]
       }, {
-        "id" : "212"
+        "id" : "206"
       }, {
-        "id" : "215"
-      }, {
-        "id" : "216",
+        "id" : "207",
         "vertices" : [ {
-          "x" : 1535,
-          "y" : 769
+          "x" : 600,
+          "y" : 1055
         } ]
       }, {
-        "id" : "218"
-      }, {
-        "id" : "222",
+        "id" : "210",
         "vertices" : [ {
-          "x" : 1965,
+          "x" : 1085,
+          "y" : 540
+        } ]
+      }, {
+        "id" : "213"
+      }, {
+        "id" : "214"
+      }, {
+        "id" : "218",
+        "vertices" : [ {
+          "x" : 1545,
           "y" : 954
         } ]
       }, {
-        "id" : "225",
+        "id" : "221",
         "vertices" : [ {
-          "x" : 2779,
+          "x" : 2359,
           "y" : 649
         } ]
       }, {
-        "id" : "228",
+        "id" : "224",
         "vertices" : [ {
-          "x" : 2864,
+          "x" : 2444,
           "y" : 919
         }, {
-          "x" : 3520,
+          "x" : 3100,
           "y" : 914
         }, {
-          "x" : 3575,
+          "x" : 3155,
           "y" : 759
         } ]
       }, {
-        "id" : "231",
+        "id" : "227",
         "vertices" : [ {
-          "x" : 2795,
+          "x" : 2375,
           "y" : 1111
         }, {
-          "x" : 2866,
+          "x" : 2446,
           "y" : 1291
         } ]
       }, {
-        "id" : "234",
+        "id" : "230",
         "vertices" : [ {
-          "x" : 2864,
+          "x" : 2444,
           "y" : 1014
         }, {
-          "x" : 3839,
+          "x" : 3419,
           "y" : 1019
         } ]
       }, {
-        "id" : "239"
+        "id" : "235"
       }, {
-        "id" : "242"
+        "id" : "238"
       }, {
-        "id" : "247"
+        "id" : "243"
       }, {
-        "id" : "250",
+        "id" : "246",
         "vertices" : [ {
-          "x" : 2828,
+          "x" : 2408,
           "y" : 2438
         }, {
-          "x" : 3548,
+          "x" : 3128,
           "y" : 2448
         }, {
-          "x" : 3548,
+          "x" : 3128,
           "y" : 2308
         } ]
       }, {
-        "id" : "253"
+        "id" : "249"
       } ]
     }, {
       "dimensions" : {
@@ -4202,97 +4167,105 @@
         "width" : 7021
       },
       "elements" : [ {
-        "id" : "254",
+        "id" : "250",
         "x" : 5425,
         "y" : 5425
       }, {
-        "id" : "255",
+        "id" : "251",
         "x" : 5470,
         "y" : 1151
       }, {
-        "id" : "256",
+        "id" : "252",
         "x" : 6310,
         "y" : 1151
       }, {
-        "id" : "257",
+        "id" : "253",
         "x" : 6650,
         "y" : 6650
       }, {
-        "id" : "258",
+        "id" : "254",
         "x" : 6650,
         "y" : 6650
       }, {
-        "id" : "259",
+        "id" : "255",
         "x" : 6650,
         "y" : 6650
       }, {
-        "id" : "260",
+        "id" : "256",
         "x" : 3635,
         "y" : 473
       }, {
-        "id" : "261",
+        "id" : "257",
         "x" : 6475,
         "y" : 6475
       }, {
-        "id" : "262",
+        "id" : "258",
         "x" : 4180,
         "y" : 976
       }, {
-        "id" : "264",
+        "id" : "260",
         "x" : 6475,
         "y" : 6475
       }, {
-        "id" : "265",
+        "id" : "261",
         "x" : 3635,
         "y" : 1480
       }, {
-        "id" : "270",
+        "id" : "266",
         "x" : 6300,
         "y" : 6300
       }, {
-        "id" : "271",
+        "id" : "267",
         "x" : 4638,
         "y" : 1480
       }, {
-        "id" : "273",
+        "id" : "269",
         "x" : 6125,
         "y" : 6125
       }, {
-        "id" : "274",
+        "id" : "270",
         "x" : 2785,
         "y" : 1415
       }, {
-        "id" : "275",
+        "id" : "271",
         "x" : 6125,
         "y" : 6125
       }, {
-        "id" : "276",
+        "id" : "272",
         "x" : 4638,
         "y" : 473
       }, {
-        "id" : "280",
+        "id" : "276",
         "x" : 6125,
         "y" : 6125
       }, {
-        "id" : "281",
+        "id" : "277",
         "x" : 2130,
         "y" : 473
       }, {
-        "id" : "283",
+        "id" : "279",
         "x" : 1294,
         "y" : 1151
       }, {
-        "id" : "286",
+        "id" : "282",
         "x" : 1294,
         "y" : 473
       }, {
-        "id" : "289",
+        "id" : "285",
         "x" : 700,
         "y" : 700
       }, {
-        "id" : "290",
+        "id" : "286",
         "x" : 700,
         "y" : 700
+      }, {
+        "id" : "287",
+        "x" : 700,
+        "y" : 700
+      }, {
+        "id" : "288",
+        "x" : 2966,
+        "y" : 2507
       }, {
         "id" : "291",
         "x" : 700,
@@ -4300,145 +4273,137 @@
       }, {
         "id" : "292",
         "x" : 2966,
-        "y" : 2507
+        "y" : 3187
       }, {
         "id" : "295",
         "x" : 700,
         "y" : 700
       }, {
         "id" : "296",
-        "x" : 2966,
-        "y" : 3187
-      }, {
-        "id" : "299",
-        "x" : 700,
-        "y" : 700
-      }, {
-        "id" : "300",
         "x" : 4638,
         "y" : 3187
       }, {
-        "id" : "301",
+        "id" : "297",
         "x" : 700,
         "y" : 700
       }, {
-        "id" : "302",
+        "id" : "298",
         "x" : 3802,
+        "y" : 2507
+      }, {
+        "id" : "299",
+        "x" : 4638,
         "y" : 2507
       }, {
         "id" : "303",
-        "x" : 4638,
-        "y" : 2507
-      }, {
-        "id" : "307",
         "x" : 0,
         "y" : 0
       }, {
-        "id" : "308",
+        "id" : "304",
         "x" : 3802,
         "y" : 3187
       }, {
-        "id" : "310",
+        "id" : "306",
         "x" : 700,
         "y" : 700
       }, {
-        "id" : "311",
+        "id" : "307",
         "x" : 2130,
         "y" : 2505
       }, {
-        "id" : "312",
+        "id" : "308",
         "x" : 2130,
         "y" : 3187
       }, {
-        "id" : "314",
+        "id" : "310",
         "x" : 350,
         "y" : 350
       }, {
-        "id" : "315",
+        "id" : "311",
         "x" : 350,
         "y" : 350
       }, {
-        "id" : "316",
+        "id" : "312",
         "x" : 350,
         "y" : 350
       }, {
-        "id" : "317",
+        "id" : "313",
         "x" : 458,
         "y" : 1829
       }, {
-        "id" : "321",
+        "id" : "317",
         "x" : 700,
         "y" : 700
       }, {
-        "id" : "322",
+        "id" : "318",
         "x" : 458,
         "y" : 2507
+      }, {
+        "id" : "319",
+        "x" : 458,
+        "y" : 3187
+      }, {
+        "id" : "321",
+        "x" : 350,
+        "y" : 350
+      }, {
+        "id" : "322",
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "323",
-        "x" : 458,
-        "y" : 3187
+        "x" : 350,
+        "y" : 350
+      }, {
+        "id" : "324",
+        "x" : 6310,
+        "y" : 1829
       }, {
         "id" : "325",
-        "x" : 350,
-        "y" : 350
-      }, {
-        "id" : "326",
-        "x" : 350,
-        "y" : 350
-      }, {
-        "id" : "327",
-        "x" : 350,
-        "y" : 350
+        "x" : 6310,
+        "y" : 2507
       }, {
         "id" : "328",
-        "x" : 6310,
-        "y" : 1829
-      }, {
-        "id" : "329",
-        "x" : 6310,
-        "y" : 2507
-      }, {
-        "id" : "332",
         "x" : 5474,
         "y" : 1829
+      }, {
+        "id" : "331",
+        "x" : 5474,
+        "y" : 2507
+      }, {
+        "id" : "333",
+        "x" : 5474,
+        "y" : 3187
       }, {
         "id" : "335",
-        "x" : 5474,
-        "y" : 2507
-      }, {
-        "id" : "337",
-        "x" : 5474,
-        "y" : 3187
-      }, {
-        "id" : "339",
         "x" : 6310,
         "y" : 3187
+      }, {
+        "id" : "337",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "338",
+        "x" : 458,
+        "y" : 1151
+      }, {
+        "id" : "340",
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "341",
         "x" : 0,
         "y" : 0
       }, {
         "id" : "342",
-        "x" : 458,
-        "y" : 1151
-      }, {
-        "id" : "344",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "345",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "346",
         "x" : 5470,
         "y" : 473
       }, {
-        "id" : "351",
+        "id" : "347",
         "x" : 0,
         "y" : 0
       }, {
-        "id" : "352",
+        "id" : "348",
         "x" : 458,
         "y" : 473
       } ],
@@ -4448,9 +4413,9 @@
       "name" : "Deployment View: Production",
       "order" : 20,
       "relationships" : [ {
-        "id" : "263"
+        "id" : "259"
       }, {
-        "id" : "266",
+        "id" : "262",
         "vertices" : [ {
           "x" : 4435,
           "y" : 2025
@@ -4459,49 +4424,49 @@
           "y" : 2025
         } ]
       }, {
-        "id" : "267"
+        "id" : "263"
+      }, {
+        "id" : "264"
+      }, {
+        "id" : "265"
       }, {
         "id" : "268"
       }, {
-        "id" : "269"
-      }, {
-        "id" : "272"
-      }, {
-        "id" : "277",
+        "id" : "273",
         "vertices" : [ {
           "x" : 5215,
           "y" : 1110
         } ]
       }, {
+        "id" : "274"
+      }, {
+        "id" : "275"
+      }, {
         "id" : "278"
       }, {
-        "id" : "279"
+        "id" : "280"
       }, {
-        "id" : "282"
+        "id" : "281"
+      }, {
+        "id" : "283"
       }, {
         "id" : "284"
       }, {
-        "id" : "285"
+        "id" : "289"
       }, {
-        "id" : "287"
-      }, {
-        "id" : "288"
-      }, {
-        "id" : "293"
-      }, {
-        "id" : "294",
+        "id" : "290",
         "vertices" : [ {
           "x" : 4455,
           "y" : 1750
         } ]
       }, {
-        "id" : "297",
+        "id" : "293",
         "vertices" : [ {
           "x" : 3675,
           "y" : 2395
         } ]
       }, {
-        "id" : "298",
+        "id" : "294",
         "vertices" : [ {
           "x" : 2394,
           "y" : 1667
@@ -4510,29 +4475,29 @@
           "y" : 2562
         } ]
       }, {
-        "id" : "304",
+        "id" : "300",
         "vertices" : [ {
           "x" : 5360,
           "y" : 1840
         } ]
       }, {
-        "id" : "305"
+        "id" : "301"
       }, {
-        "id" : "306"
+        "id" : "302"
+      }, {
+        "id" : "305"
       }, {
         "id" : "309"
       }, {
-        "id" : "313"
+        "id" : "314"
       }, {
-        "id" : "318"
-      }, {
-        "id" : "319",
+        "id" : "315",
         "vertices" : [ {
           "x" : 970,
           "y" : 1630
         } ]
       }, {
-        "id" : "320",
+        "id" : "316",
         "vertices" : [ {
           "x" : 3204,
           "y" : 3842
@@ -4544,9 +4509,9 @@
           "y" : 1967
         } ]
       }, {
-        "id" : "324"
+        "id" : "320"
       }, {
-        "id" : "330",
+        "id" : "326",
         "vertices" : [ {
           "x" : 5969,
           "y" : 2367
@@ -4555,27 +4520,27 @@
           "y" : 2355
         } ]
       }, {
-        "id" : "331"
+        "id" : "327"
       }, {
-        "id" : "333",
+        "id" : "329",
         "vertices" : [ {
           "x" : 5349,
           "y" : 2382
         } ]
       }, {
+        "id" : "330"
+      }, {
+        "id" : "332"
+      }, {
         "id" : "334"
       }, {
         "id" : "336"
       }, {
-        "id" : "338"
-      }, {
-        "id" : "340"
+        "id" : "339"
       }, {
         "id" : "343"
       }, {
-        "id" : "347"
-      }, {
-        "id" : "348",
+        "id" : "344",
         "vertices" : [ {
           "x" : 3520,
           "y" : 935
@@ -4587,13 +4552,13 @@
           "y" : 305
         } ]
       }, {
-        "id" : "349",
+        "id" : "345",
         "vertices" : [ {
           "x" : 5295,
           "y" : 745
         } ]
       }, {
-        "id" : "350",
+        "id" : "346",
         "vertices" : [ {
           "x" : 1090,
           "y" : 975
@@ -4608,15 +4573,15 @@
           "y" : 235
         } ]
       }, {
-        "id" : "353"
+        "id" : "349"
       }, {
-        "id" : "354",
+        "id" : "350",
         "vertices" : [ {
           "x" : 1930,
           "y" : 2520
         } ]
       }, {
-        "id" : "355",
+        "id" : "351",
         "vertices" : [ {
           "x" : 1500,
           "y" : 1820
@@ -4625,7 +4590,7 @@
           "y" : 2705
         } ]
       }, {
-        "id" : "356"
+        "id" : "352"
       } ]
     } ],
     "dynamicViews" : [ {
@@ -4691,7 +4656,7 @@
         "x" : 398,
         "y" : 1893
       }, {
-        "id" : "68",
+        "id" : "67",
         "x" : 398,
         "y" : 3142
       } ],
@@ -4701,12 +4666,12 @@
       "order" : 13,
       "relationships" : [ {
         "description" : "Requests a development environment",
-        "id" : "90",
+        "id" : "89",
         "order" : "1",
         "response" : false
       }, {
         "description" : "Checks user credentials",
-        "id" : "114",
+        "id" : "113",
         "order" : "2",
         "response" : false,
         "vertices" : [ {
@@ -4715,7 +4680,7 @@
         } ]
       }, {
         "description" : "Returns access token",
-        "id" : "114",
+        "id" : "113",
         "order" : "3",
         "response" : true,
         "vertices" : [ {
@@ -4724,7 +4689,7 @@
         } ]
       }, {
         "description" : "Requests new development enviroment",
-        "id" : "97",
+        "id" : "96",
         "order" : "4",
         "response" : false,
         "vertices" : [ {
@@ -4733,7 +4698,7 @@
         } ]
       }, {
         "description" : "Creates secret for development enviromment",
-        "id" : "97",
+        "id" : "96",
         "order" : "5",
         "response" : false,
         "vertices" : [ {
@@ -4742,32 +4707,32 @@
         } ]
       }, {
         "description" : "Creates secret in ",
-        "id" : "102",
+        "id" : "101",
         "order" : "6",
         "response" : false
       }, {
         "description" : "Register new Nomad job",
-        "id" : "101",
+        "id" : "100",
         "order" : "7",
         "response" : false
       }, {
         "description" : "Gets container from",
-        "id" : "132",
+        "id" : "131",
         "order" : "8",
         "response" : false
       }, {
         "description" : "Creates sidecar storage task for the user",
-        "id" : "107",
+        "id" : "106",
         "order" : "9",
         "response" : false
       }, {
         "description" : "Creates sync task for Zenodo dataset",
-        "id" : "106",
+        "id" : "105",
         "order" : "10",
         "response" : false
       }, {
         "description" : "Read dataset from",
-        "id" : "130",
+        "id" : "129",
         "order" : "11",
         "response" : false
       }, {
@@ -4777,12 +4742,12 @@
         "response" : false
       }, {
         "description" : "Executes Development Environment as container",
-        "id" : "104",
+        "id" : "103",
         "order" : "13",
         "response" : false
       }, {
         "description" : "Gets configured user secrets (i.e. token) for interative access",
-        "id" : "95",
+        "id" : "94",
         "order" : "14",
         "response" : false
       }, {
@@ -4792,7 +4757,7 @@
         "response" : true
       }, {
         "description" : "Develops (new/updated) model in",
-        "id" : "91",
+        "id" : "90",
         "order" : "16",
         "response" : false,
         "vertices" : [ {
@@ -4804,7 +4769,7 @@
         } ]
       }, {
         "description" : "Logs experiment parametres and metrics to MLFlow",
-        "id" : "189",
+        "id" : "187",
         "order" : "17",
         "response" : false,
         "vertices" : [ {
@@ -4816,37 +4781,37 @@
         } ]
       }, {
         "description" : "Checks model performance in",
-        "id" : "191",
+        "id" : "189",
         "order" : "18",
         "response" : false
       }, {
         "description" : "Submits new/updated AI4 module",
-        "id" : "121",
+        "id" : "120",
         "order" : "19",
         "response" : false
       }, {
         "description" : "Runs platform and user checks",
-        "id" : "123",
+        "id" : "122",
         "order" : "20",
         "response" : false
       }, {
         "description" : "Creates new Docker container",
-        "id" : "124",
+        "id" : "123",
         "order" : "21",
         "response" : false
       }, {
         "description" : "Enables repository integration",
-        "id" : "126",
+        "id" : "125",
         "order" : "22",
         "response" : false
       }, {
         "description" : "Notifies about new/updated module",
-        "id" : "125",
+        "id" : "124",
         "order" : "23",
         "response" : false
       }, {
         "description" : "Triggers deposit of code",
-        "id" : "128",
+        "id" : "127",
         "order" : "24",
         "response" : false,
         "vertices" : [ {
@@ -4905,7 +4870,7 @@
         "x" : 1789,
         "y" : 867
       }, {
-        "id" : "70",
+        "id" : "69",
         "x" : 2486,
         "y" : 2001
       } ],
@@ -4915,12 +4880,12 @@
       "order" : 14,
       "relationships" : [ {
         "description" : "Requests available modules",
-        "id" : "90",
+        "id" : "89",
         "order" : "1",
         "response" : false
       }, {
         "description" : "Checks user credentials",
-        "id" : "114",
+        "id" : "113",
         "order" : "2",
         "response" : false,
         "vertices" : [ {
@@ -4929,7 +4894,7 @@
         } ]
       }, {
         "description" : "Returns access token",
-        "id" : "114",
+        "id" : "113",
         "order" : "3",
         "response" : true,
         "vertices" : [ {
@@ -4938,17 +4903,17 @@
         } ]
       }, {
         "description" : "Requests new federated learning job",
-        "id" : "97",
+        "id" : "96",
         "order" : "4",
         "response" : false
       }, {
         "description" : "Create secrets for federated server",
-        "id" : "102",
+        "id" : "101",
         "order" : "5",
         "response" : false
       }, {
         "description" : "Register new federated learning Nomad job",
-        "id" : "101",
+        "id" : "100",
         "order" : "6",
         "response" : false,
         "vertices" : [ {
@@ -4957,17 +4922,17 @@
         } ]
       }, {
         "description" : "Deploy federated learning server",
-        "id" : "108",
+        "id" : "107",
         "order" : "7",
         "response" : false
       }, {
         "description" : "Get secrets for federated server",
-        "id" : "109",
+        "id" : "108",
         "order" : "8",
         "response" : false
       }, {
         "description" : "Register new training / interactive job",
-        "id" : "101",
+        "id" : "100",
         "order" : "9",
         "response" : false,
         "vertices" : [ {
@@ -4976,7 +4941,7 @@
         } ]
       }, {
         "description" : "Executes Development Environment as container",
-        "id" : "104",
+        "id" : "103",
         "order" : "10",
         "response" : false,
         "vertices" : [ {
@@ -4994,7 +4959,7 @@
         } ]
       }, {
         "description" : "Gets configured user secrets (i.e. token) for interative access",
-        "id" : "95",
+        "id" : "94",
         "order" : "11",
         "response" : false,
         "vertices" : [ {
@@ -5008,7 +4973,7 @@
         "response" : true
       }, {
         "description" : "Get updated model, using server credentials",
-        "id" : "110",
+        "id" : "109",
         "order" : "13",
         "response" : false,
         "vertices" : [ {
@@ -5017,7 +4982,7 @@
         } ]
       }, {
         "description" : "Send updates to federated server, using configured secret",
-        "id" : "110",
+        "id" : "109",
         "order" : "14",
         "response" : false,
         "vertices" : [ {
@@ -5026,7 +4991,7 @@
         } ]
       }, {
         "description" : "Get updated model, using configured secret",
-        "id" : "71",
+        "id" : "70",
         "order" : "15",
         "response" : false,
         "vertices" : [ {
@@ -5035,7 +5000,7 @@
         } ]
       }, {
         "description" : "Send updates to federated server, using configured secret",
-        "id" : "71",
+        "id" : "70",
         "order" : "16",
         "response" : false,
         "vertices" : [ {
@@ -5044,7 +5009,7 @@
         } ]
       }, {
         "description" : "Develops (new/updated) model in",
-        "id" : "91",
+        "id" : "90",
         "order" : "17",
         "response" : false,
         "vertices" : [ {
@@ -5053,7 +5018,7 @@
         } ]
       }, {
         "description" : "Submits new/updated module",
-        "id" : "121",
+        "id" : "120",
         "order" : "18",
         "response" : false
       } ],
@@ -5085,7 +5050,7 @@
         "x" : 2399,
         "y" : 742
       }, {
-        "id" : "76",
+        "id" : "75",
         "x" : 199,
         "y" : 692
       } ],
@@ -5095,42 +5060,42 @@
       "order" : 15,
       "relationships" : [ {
         "description" : "Deploy service",
-        "id" : "187",
+        "id" : "185",
         "order" : "1",
         "response" : false
       }, {
         "description" : "Buckets and folders will be created",
-        "id" : "180",
+        "id" : "178",
         "order" : "2",
         "response" : false
       }, {
         "description" : "Store data for asynchronous inference (Option A)",
-        "id" : "188",
+        "id" : "186",
         "order" : "3",
         "response" : false
       }, {
         "description" : "Execute services synchronously (Option B)",
-        "id" : "182",
+        "id" : "180",
         "order" : "4",
         "response" : false
       }, {
         "description" : "Manage services. Register jobs. Retrieve logs (Option A)",
-        "id" : "181",
+        "id" : "179",
         "order" : "5",
         "response" : false
       }, {
         "description" : "Create jobs (Option A)",
-        "id" : "184",
+        "id" : "182",
         "order" : "6",
         "response" : false
       }, {
         "description" : "Assign to function's pod(s). (Option B)",
-        "id" : "183",
+        "id" : "181",
         "order" : "7",
         "response" : false
       }, {
         "description" : "Download input. Upload output.",
-        "id" : "185",
+        "id" : "183",
         "order" : "8",
         "response" : false
       } ],
@@ -5170,7 +5135,7 @@
         "x" : 239,
         "y" : 2429
       }, {
-        "id" : "76",
+        "id" : "75",
         "x" : 1046,
         "y" : 199
       } ],
@@ -5180,27 +5145,27 @@
       "order" : 16,
       "relationships" : [ {
         "description" : "Compose pipelines",
-        "id" : "174",
+        "id" : "172",
         "order" : "1",
         "response" : false
       }, {
         "description" : "Manage instances",
-        "id" : "172",
+        "id" : "170",
         "order" : "2",
         "response" : false
       }, {
         "description" : "Obtain custom OSCAR nodes",
-        "id" : "178",
+        "id" : "176",
         "order" : "3",
         "response" : false
       }, {
         "description" : "Invoke Service and trigger inference",
-        "id" : "175",
+        "id" : "173",
         "order" : "4",
         "response" : false
       }, {
         "description" : "Visualize results",
-        "id" : "174",
+        "id" : "172",
         "order" : "5",
         "response" : true,
         "vertices" : [ {
@@ -5209,7 +5174,7 @@
         } ]
       }, {
         "description" : "Compose pipelines",
-        "id" : "173",
+        "id" : "171",
         "order" : "6",
         "response" : false,
         "vertices" : [ {
@@ -5218,22 +5183,22 @@
         } ]
       }, {
         "description" : "Manage Notebooks",
-        "id" : "176",
+        "id" : "174",
         "order" : "7",
         "response" : false
       }, {
         "description" : "Obtain custom OSCAR nodes",
-        "id" : "179",
+        "id" : "177",
         "order" : "8",
         "response" : false
       }, {
         "description" : "Invoke Service and trigger inference",
-        "id" : "177",
+        "id" : "175",
         "order" : "9",
         "response" : false
       }, {
         "description" : "Visualize results",
-        "id" : "173",
+        "id" : "171",
         "order" : "10",
         "response" : true,
         "vertices" : [ {
@@ -5291,7 +5256,7 @@
       "order" : 17,
       "relationships" : [ {
         "description" : "Enable/request MLflow to track experiments",
-        "id" : "90",
+        "id" : "89",
         "order" : "1",
         "response" : false,
         "vertices" : [ {
@@ -5300,7 +5265,7 @@
         } ]
       }, {
         "description" : "Initiates a new experiment-run",
-        "id" : "191",
+        "id" : "189",
         "order" : "2",
         "response" : false,
         "vertices" : [ {
@@ -5309,12 +5274,12 @@
         } ]
       }, {
         "description" : "Gets secrets for mlflow tracking server users into Vault",
-        "id" : "192",
+        "id" : "190",
         "order" : "3",
         "response" : false
       }, {
         "description" : "Logs exp-run parametres, metrics to mlflow during model dev",
-        "id" : "190",
+        "id" : "188",
         "order" : "4",
         "response" : false,
         "vertices" : [ {
@@ -5323,7 +5288,7 @@
         } ]
       }, {
         "description" : "Registers the model with tags/alias into Model Registry",
-        "id" : "190",
+        "id" : "188",
         "order" : "5",
         "response" : false,
         "vertices" : [ {
@@ -5332,37 +5297,37 @@
         } ]
       }, {
         "description" : "Selects best model for deployment",
-        "id" : "193",
+        "id" : "191",
         "order" : "6",
         "response" : true
       }, {
         "description" : "Gets the updated model version for deployment",
-        "id" : "123",
+        "id" : "122",
         "order" : "7",
         "response" : true
       }, {
         "description" : "Deploys best performed model in production",
-        "id" : "125",
+        "id" : "124",
         "order" : "8",
         "response" : false
       }, {
         "description" : "Triggers drift monitoring actions for the deployed model",
-        "id" : "194",
+        "id" : "192",
         "order" : "9",
         "response" : false
       }, {
         "description" : "Updates dashboard with drift status",
-        "id" : "195",
+        "id" : "193",
         "order" : "10",
         "response" : false
       }, {
         "description" : "Visualize model performance",
-        "id" : "196",
+        "id" : "194",
         "order" : "11",
         "response" : false
       }, {
         "description" : "Notifies user in case a drift occurs",
-        "id" : "90",
+        "id" : "89",
         "order" : "12",
         "response" : true
       } ],
@@ -5410,11 +5375,11 @@
         "x" : 2870,
         "y" : 953
       }, {
-        "id" : "63",
+        "id" : "62",
         "x" : 2870,
         "y" : 1833
       }, {
-        "id" : "68",
+        "id" : "67",
         "x" : 275,
         "y" : 323
       } ],
@@ -5424,7 +5389,7 @@
       "order" : 18,
       "relationships" : [ {
         "description" : "Detects new data version",
-        "id" : "126",
+        "id" : "125",
         "order" : "1",
         "response" : false,
         "vertices" : [ {
@@ -5439,12 +5404,12 @@
         } ]
       }, {
         "description" : "Triggers model monitoring",
-        "id" : "194",
+        "id" : "192",
         "order" : "2",
         "response" : true
       }, {
         "description" : "Updates dashboard with drift status",
-        "id" : "195",
+        "id" : "193",
         "order" : "3",
         "response" : false,
         "vertices" : [ {
@@ -5456,32 +5421,32 @@
         } ]
       }, {
         "description" : "Notifies user about drift occurrence",
-        "id" : "90",
+        "id" : "89",
         "order" : "4",
         "response" : true
       }, {
         "description" : "Update the developed model in",
-        "id" : "92",
+        "id" : "91",
         "order" : "5",
         "response" : false
       }, {
         "description" : "Syncs external data from",
-        "id" : "116",
+        "id" : "115",
         "order" : "6",
         "response" : false
       }, {
         "description" : "Logs new experiment-runs, stores model to Model Registry",
-        "id" : "190",
+        "id" : "188",
         "order" : "7",
         "response" : false
       }, {
         "description" : "Registers the retrained model",
-        "id" : "191",
+        "id" : "189",
         "order" : "8",
         "response" : false
       }, {
         "description" : "Updates the model and requests model retraining if data is valid and not poisoned",
-        "id" : "123",
+        "id" : "122",
         "order" : "9",
         "response" : true,
         "vertices" : [ {
@@ -5490,12 +5455,12 @@
         } ]
       }, {
         "description" : "Creates new Docker container for retrained model",
-        "id" : "124",
+        "id" : "123",
         "order" : "10",
         "response" : false
       }, {
         "description" : "Updates model repository with new version",
-        "id" : "123",
+        "id" : "122",
         "order" : "11",
         "response" : false,
         "vertices" : [ {
@@ -5504,12 +5469,12 @@
         } ]
       }, {
         "description" : "Deploy the new model trained with new data in production",
-        "id" : "125",
+        "id" : "124",
         "order" : "12",
         "response" : false
       }, {
         "description" : "Triggers deposit of updated model",
-        "id" : "128",
+        "id" : "127",
         "order" : "13",
         "response" : false,
         "vertices" : [ {
@@ -5556,15 +5521,15 @@
         "x" : 1285,
         "y" : 1655
       }, {
-        "id" : "63",
+        "id" : "62",
         "x" : 2114,
         "y" : 860
       }, {
-        "id" : "68",
+        "id" : "67",
         "x" : 2114,
         "y" : 1255
       }, {
-        "id" : "69",
+        "id" : "68",
         "x" : 2114,
         "y" : 1804
       } ],
@@ -5573,31 +5538,25 @@
       "name" : "System Context View: AI4EOSC Platform",
       "order" : 3,
       "relationships" : [ {
-        "id" : "100",
-        "vertices" : [ {
-          "x" : 1365,
-          "y" : 1328
-        } ]
-      }, {
-        "id" : "127"
+        "id" : "126"
       }, {
         "id" : "4"
       }, {
-        "id" : "74",
+        "id" : "73",
         "vertices" : [ {
           "x" : 1935,
           "y" : 1610
         } ]
       }, {
-        "id" : "77",
+        "id" : "76",
         "vertices" : [ {
           "x" : 1882,
           "y" : 606
         } ]
       }, {
-        "id" : "81"
+        "id" : "80"
       }, {
-        "id" : "82",
+        "id" : "81",
         "vertices" : [ {
           "x" : 2660,
           "y" : 615
@@ -5609,6 +5568,8 @@
           "y" : 2240
         } ]
       }, {
+        "id" : "82"
+      }, {
         "id" : "83"
       }, {
         "id" : "84"
@@ -5619,12 +5580,16 @@
       }, {
         "id" : "87"
       }, {
-        "id" : "88"
-      }, {
-        "id" : "89",
+        "id" : "88",
         "vertices" : [ {
           "x" : 1664,
           "y" : 1331
+        } ]
+      }, {
+        "id" : "99",
+        "vertices" : [ {
+          "x" : 1365,
+          "y" : 1328
         } ]
       } ],
       "softwareSystemId" : "6"
@@ -5654,7 +5619,7 @@
         "x" : 1686,
         "y" : 806
       }, {
-        "id" : "75",
+        "id" : "74",
         "x" : 199,
         "y" : 806
       } ],
@@ -5663,17 +5628,17 @@
       "name" : "System Context View: PaaS Orchestration and provisioning",
       "order" : 4,
       "relationships" : [ {
-        "id" : "160"
+        "id" : "158"
       }, {
-        "id" : "163"
+        "id" : "161"
       }, {
-        "id" : "78"
+        "id" : "77"
+      }, {
+        "id" : "82"
       }, {
         "id" : "83"
       }, {
-        "id" : "84"
-      }, {
-        "id" : "88"
+        "id" : "87"
       } ],
       "softwareSystemId" : "36"
     }, {
@@ -5694,7 +5659,7 @@
         "x" : 1115,
         "y" : 735
       }, {
-        "id" : "76",
+        "id" : "75",
         "x" : 200,
         "y" : 675
       } ],
@@ -5703,13 +5668,13 @@
       "name" : "System Context View: AI as a Service",
       "order" : 5,
       "relationships" : [ {
-        "id" : "79"
+        "id" : "78"
+      }, {
+        "id" : "82"
       }, {
         "id" : "83"
       }, {
-        "id" : "84"
-      }, {
-        "id" : "88"
+        "id" : "87"
       } ],
       "softwareSystemId" : "45"
     } ],
@@ -5781,23 +5746,23 @@
         "x" : 940,
         "y" : 965
       }, {
-        "id" : "63",
+        "id" : "62",
         "x" : 2410,
         "y" : 965
       }, {
-        "id" : "68",
+        "id" : "67",
         "x" : 2415,
         "y" : 1602
       }, {
-        "id" : "69",
+        "id" : "68",
         "x" : 2415,
         "y" : 2228
       }, {
-        "id" : "75",
+        "id" : "74",
         "x" : 1605,
         "y" : 2228
       }, {
-        "id" : "76",
+        "id" : "75",
         "x" : 200,
         "y" : 1552
       } ],
@@ -5806,35 +5771,29 @@
       "name" : "System Landscape View",
       "order" : 2,
       "relationships" : [ {
-        "id" : "100",
-        "vertices" : [ {
-          "x" : 1522,
-          "y" : 965
-        } ]
+        "id" : "126"
       }, {
-        "id" : "127"
-      }, {
-        "id" : "163"
+        "id" : "161"
       }, {
         "id" : "4"
       }, {
-        "id" : "74",
+        "id" : "73",
         "vertices" : [ {
           "x" : 2230,
           "y" : 2050
         } ]
       }, {
-        "id" : "77",
+        "id" : "76",
         "vertices" : [ {
           "x" : 1445,
           "y" : 745
         } ]
       }, {
+        "id" : "77"
+      }, {
         "id" : "78"
       }, {
-        "id" : "79"
-      }, {
-        "id" : "81",
+        "id" : "80",
         "vertices" : [ {
           "x" : 1265,
           "y" : 235
@@ -5846,13 +5805,15 @@
           "y" : 975
         } ]
       }, {
-        "id" : "82"
+        "id" : "81"
       }, {
-        "id" : "83",
+        "id" : "82",
         "vertices" : [ {
           "x" : 1875,
           "y" : 1847
         } ]
+      }, {
+        "id" : "83"
       }, {
         "id" : "84"
       }, {
@@ -5862,12 +5823,16 @@
       }, {
         "id" : "87"
       }, {
-        "id" : "88"
-      }, {
-        "id" : "89",
+        "id" : "88",
         "vertices" : [ {
           "x" : 1522,
           "y" : 1265
+        } ]
+      }, {
+        "id" : "99",
+        "vertices" : [ {
+          "x" : 1522,
+          "y" : 965
         } ]
       } ]
     } ]

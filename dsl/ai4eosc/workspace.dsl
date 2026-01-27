@@ -110,8 +110,7 @@ workspace extends ../eosc-landscape.dsl {
                 open_webui = container "Open WebUI" "Web-based user interface for LLM interaction." "Open WebUI"
 
                 llm_gateway = group "LLM Gateway" {
-                    llm_apisix = container "APISIX LLM Gateway" "API management (e.g. API key management, rate limit, telemetry)" "HAproxy + APISIX"
-                    llm_litellm = container "LiteLLM Service" "Provides access and routing to LLM models." "LiteLLM"
+                    llm_litellm = container "LiteLLM Service" "API management and routing to LLM models." "LiteLLM"
                 }
                 llm_leaf_nodes = group "Federated LLM provider" {
                     llm_litellm_leaf = container "LiteLLM Leaf Node" "Provides access and routing to LLM models." "HAProxy + LiteLLM"
@@ -228,12 +227,10 @@ workspace extends ../eosc-landscape.dsl {
         drift_monitoring -> model_repo "Monitors drift on"
 
         # LLM services
-        eosc_user -> llm_apisix "Access LLM API services via"
+        eosc_user -> llm_litellm "Access LLM API services via"
         eosc_user -> open_webui "Access LLM Chat services via"
-        open_webui -> llm_apisix "Uses LLM modesl via API from"
-        llm_apisix -> llm_litellm "Routes requests to"
-        platform_api -> llm_apisix "Manages API keys for"
-        /* llm_apisix -> secrets "Gets API keys from" */
+        open_webui -> llm_litellm "Uses LLM modesl via API from"
+        platform_api -> llm_litellm "Manages API keys for"
         llm_litellm -> llm_litellm_leaf "Routes requests to"
         llm_litellm_leaf -> vllm "Routes requests to"
         open_webui -> ai4eosc_aai "Authenticates users with"
@@ -310,8 +307,7 @@ workspace extends ../eosc-landscape.dsl {
                     deploymentNode "chat.cloud.ai4eosc.eu" "" "Open WebUI" {
                         containerInstance open_webui ifca_llm_instance
                     }
-                    deploymentNode "vllm.cloud.ai4eosc.eu" "" "LiteLLM + APISIX" {
-                        containerInstance llm_apisix ifca_llm_instance,global_llm
+                    deploymentNode "vllm.cloud.ai4eosc.eu" "" "LiteLLM" {
                         containerInstance llm_litellm ifca_llm_instance,global_llm
                     }
 
@@ -605,7 +601,6 @@ workspace extends ../eosc-landscape.dsl {
             exclude "eosc_user -> llms"
             exclude "llms -> ai4eosc_platform"
             exclude "llms -> ai4eosc_aai"
-            /* exclude "llm_apisix -> secrets" */
             /* exclude "llms -> secrets" */
         }
         
