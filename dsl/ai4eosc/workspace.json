@@ -195,8 +195,7 @@
     } ]
   },
   "id" : 1,
-  "lastModifiedAgent" : "structurizr-ui",
-  "lastModifiedDate" : "2026-01-30T10:04:48Z",
+  "lastModifiedDate" : "2026-02-27T12:03:44Z",
   "model" : {
     "deploymentNodes" : [ {
       "children" : [ {
@@ -208,7 +207,7 @@
             "id" : "199",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "dd24a7c2-3efa-4db0-9cf9-559cd56f58c5"
+              "structurizr.dsl.identifier" : "101844eb-bf0a-4cd8-944a-5fb50c9d1bda"
             },
             "relationships" : [ {
               "description" : "Authenticates users with",
@@ -236,7 +235,7 @@
           "instances" : "1",
           "name" : "dashboard.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "e8f3124d-f27c-42ec-bdbe-62e4deb68453"
+            "structurizr.dsl.identifier" : "29ef900e-1df6-4f7b-b98f-ace4f39e6622"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "nginx"
@@ -248,7 +247,7 @@
             "id" : "201",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "efbd03cf-a7fe-462c-acb1-628be9cfb3cc"
+              "structurizr.dsl.identifier" : "f940665c-640b-46bf-9836-e7d092fb1c51"
             },
             "tags" : "Container Instance"
           } ],
@@ -257,7 +256,7 @@
           "instances" : "1",
           "name" : "login.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "58116f2d-a514-4971-ba99-1e99c6feca8d"
+            "structurizr.dsl.identifier" : "e79ecc26-3559-4bb0-b10f-7ad42645c306"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "Keycloack"
@@ -269,7 +268,7 @@
             "id" : "204",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "2ad50d3a-df2d-4a0e-964d-41d65fe439f8"
+              "structurizr.dsl.identifier" : "bd2244b7-5008-4aeb-a776-6a4df564680f"
             },
             "relationships" : [ {
               "description" : "Authenticates users with",
@@ -291,7 +290,7 @@
           "instances" : "1",
           "name" : "api.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "089095df-3b4a-4dbf-9b7d-95ad06108034"
+            "structurizr.dsl.identifier" : "7ecde1af-d103-403b-8a85-07c0760ddd9b"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "FastAPI"
@@ -303,7 +302,7 @@
             "id" : "209",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "d5b4c915-8a0b-4ff7-a723-5e5bbcfa8b4b"
+              "structurizr.dsl.identifier" : "2d55050c-86d2-4893-b288-addbc5813de5"
             },
             "relationships" : [ {
               "description" : "Authenticates users with",
@@ -325,7 +324,7 @@
           "instances" : "1",
           "name" : "chat.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "74266c11-b471-4c01-9ede-d0c94783f607"
+            "structurizr.dsl.identifier" : "03cf542b-2904-4adb-8a79-cbe17fc80e5e"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "Open WebUI"
@@ -337,7 +336,7 @@
             "id" : "212",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "6be73665-8658-4be4-9aab-bb2c0e282779"
+              "structurizr.dsl.identifier" : "e5164260-fe66-46fc-b4ef-1385bef1a4ac"
             },
             "relationships" : [ {
               "description" : "Routes requests to",
@@ -365,7 +364,7 @@
           "instances" : "1",
           "name" : "vllm.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "5fcd4c07-61ce-4e57-aa13-0645dd39e8f5"
+            "structurizr.dsl.identifier" : "97e8cb59-0188-4a13-811b-f3ee1cffc7cb"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "LiteLLM"
@@ -378,7 +377,7 @@
               "id" : "217",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "7e6fb8f9-b38a-4248-b22c-b6b6daf357b2"
+                "structurizr.dsl.identifier" : "96070aa0-19c6-4ef6-a09f-5687af95d9a5"
               },
               "relationships" : [ {
                 "description" : "Routes requests to",
@@ -412,7 +411,7 @@
             "instances" : "1",
             "name" : "ifca01-vllm.cloud.ai4eosc.eu",
             "properties" : {
-              "structurizr.dsl.identifier" : "34547e0c-66fb-4779-a0ca-d2d21b66500e"
+              "structurizr.dsl.identifier" : "3f5ebaeb-a527-4bc0-bec7-a07f5e7d86a9"
             },
             "tags" : "Element,Deployment Node",
             "technology" : "LiteLLM Leaf Node"
@@ -424,7 +423,7 @@
               "id" : "220",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "2c1d577d-0191-443c-abd7-60df2a965f04"
+                "structurizr.dsl.identifier" : "e0cb6f67-f9bd-4750-bc48-4ed39dd89317"
               },
               "tags" : "Container Instance"
             } ],
@@ -433,7 +432,7 @@
             "instances" : "1",
             "name" : "vllm01",
             "properties" : {
-              "structurizr.dsl.identifier" : "156a1339-0439-4b39-a539-c1f06378197d"
+              "structurizr.dsl.identifier" : "8bbe54a6-c696-44e2-ba0c-7cadcd1f4b8e"
             },
             "tags" : "Element,Deployment Node",
             "technology" : "vLLM Service (StarCoder2)"
@@ -445,7 +444,7 @@
               "id" : "223",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "5ceb509d-d1e3-469e-af4f-554f4fadc77a"
+                "structurizr.dsl.identifier" : "e4e5d42d-6abf-4b81-af8e-7736485752ba"
               },
               "tags" : "Container Instance"
             } ],
@@ -454,7 +453,7 @@
             "instances" : "1",
             "name" : "vllm02",
             "properties" : {
-              "structurizr.dsl.identifier" : "c2525d93-89a4-43c0-9845-30f96fbc66ad"
+              "structurizr.dsl.identifier" : "d48f5c35-8078-4549-846a-7e479e18ae2c"
             },
             "tags" : "Element,Deployment Node",
             "technology" : "vLLM Service (Small)"
@@ -466,7 +465,7 @@
               "id" : "226",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "cce16952-2296-4e04-96a7-99b58da8505f"
+                "structurizr.dsl.identifier" : "03519e54-9d85-417f-b721-08fdf87b5741"
               },
               "tags" : "Container Instance"
             } ],
@@ -475,7 +474,7 @@
             "instances" : "1",
             "name" : "vllm03",
             "properties" : {
-              "structurizr.dsl.identifier" : "b882fdce-8fc9-4ec9-bd07-f062adda573d"
+              "structurizr.dsl.identifier" : "13c98f76-58c2-4fb3-9e2b-8be741367e4f"
             },
             "tags" : "Element,Deployment Node",
             "technology" : "vLLM Service (Qwen3)"
@@ -487,7 +486,7 @@
               "id" : "229",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "f15678f6-a56e-495d-a3a2-5cc28c1f25f6"
+                "structurizr.dsl.identifier" : "969367a6-7631-4794-b909-0acf86a51b92"
               },
               "tags" : "Container Instance"
             } ],
@@ -496,7 +495,7 @@
             "instances" : "1",
             "name" : "vllm04",
             "properties" : {
-              "structurizr.dsl.identifier" : "d1e6d1bd-b081-4332-8cf6-7fc638513447"
+              "structurizr.dsl.identifier" : "6a540185-e01f-43f2-b44d-357b54789dc7"
             },
             "tags" : "Element,Deployment Node",
             "technology" : "vLLM Service (Qwen3 Embeddings)"
@@ -506,7 +505,7 @@
           "instances" : "1",
           "name" : "vLLM cluster",
           "properties" : {
-            "structurizr.dsl.identifier" : "3752212c-9330-4e4f-bfe7-dd94c9ae85fb"
+            "structurizr.dsl.identifier" : "567ce5d3-4b91-410f-b926-6564d1fb4022"
           },
           "tags" : "Element,Deployment Node"
         } ],
@@ -515,7 +514,7 @@
         "instances" : "1",
         "name" : "IFCA Cloud",
         "properties" : {
-          "structurizr.dsl.identifier" : "957af7ed-3ced-4ca5-afdf-95122ee39f60"
+          "structurizr.dsl.identifier" : "292535f9-4dc0-4662-bf0c-0a61a988a874"
         },
         "tags" : "Element,Deployment Node",
         "technology" : "OpenStack"
@@ -525,7 +524,7 @@
       "instances" : "1",
       "name" : "IFCA-CSIC",
       "properties" : {
-        "structurizr.dsl.identifier" : "b2b255d2-0e11-4981-bb27-53306fbc2768"
+        "structurizr.dsl.identifier" : "cb128805-c882-483e-83d9-0f829bbdfeba"
       },
       "tags" : "Element,Deployment Node"
     }, {
@@ -538,7 +537,7 @@
             "id" : "234",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "dab4e2ad-1d05-4a42-8817-12fda4ce7783"
+              "structurizr.dsl.identifier" : "0b4d3f2e-5a5a-47a0-8cf7-99d4613abc23"
             },
             "relationships" : [ {
               "description" : "Routes requests to",
@@ -554,7 +553,7 @@
           "instances" : "1",
           "name" : "iisas01-vllm.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "fd1583dd-40f8-48f7-a2e6-1c7933f3465c"
+            "structurizr.dsl.identifier" : "6ce30bf9-c5f4-4852-8c33-291b0dce2943"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "LiteLLM Leaf Node"
@@ -566,7 +565,7 @@
             "id" : "237",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "e837752a-3ebb-4cea-89af-274b9b52f9ef"
+              "structurizr.dsl.identifier" : "2d273123-ab03-497f-a2cc-c837a1234940"
             },
             "tags" : "Container Instance"
           } ],
@@ -575,7 +574,7 @@
           "instances" : "1",
           "name" : "vllm01",
           "properties" : {
-            "structurizr.dsl.identifier" : "331b05b3-bcf4-40c6-89f5-aa6cac14f21d"
+            "structurizr.dsl.identifier" : "1d500cdc-95b7-4d95-96f7-13bec636b0d8"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "vLLM Service (Magistral)"
@@ -585,7 +584,7 @@
         "instances" : "1",
         "name" : "vLLM cluster",
         "properties" : {
-          "structurizr.dsl.identifier" : "c08f0a66-7c78-44df-8b5c-4d4e2c0d449f"
+          "structurizr.dsl.identifier" : "568acbe4-7108-4303-86d2-dcf4a51a894c"
         },
         "tags" : "Element,Deployment Node"
       } ],
@@ -594,7 +593,7 @@
       "instances" : "1",
       "name" : "IISAS",
       "properties" : {
-        "structurizr.dsl.identifier" : "4e0dd1dc-b00b-480b-88b9-77bd60c93d9e"
+        "structurizr.dsl.identifier" : "61a2f067-7cdf-44fe-b304-321da66ce636"
       },
       "tags" : "Element,Deployment Node"
     }, {
@@ -607,7 +606,7 @@
             "id" : "242",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "bd50e42b-571f-4bba-ace0-9458412c32d2"
+              "structurizr.dsl.identifier" : "c5b37fe4-e8dd-4eb1-8e3e-6b03bf18ac49"
             },
             "relationships" : [ {
               "description" : "Routes requests to",
@@ -629,7 +628,7 @@
           "instances" : "1",
           "name" : "eu01-vllm.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "89211943-800d-4de6-a6f4-cd725d9666f9"
+            "structurizr.dsl.identifier" : "d289556a-6300-4048-9605-0c9ecdc780fd"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "LiteLLM Leaf Node"
@@ -641,7 +640,7 @@
             "id" : "245",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "c6d2afc7-8a74-48bd-9f4d-5ddb455af5b0"
+              "structurizr.dsl.identifier" : "bab63572-5c75-4828-8e81-68c8e2bd163b"
             },
             "tags" : "Container Instance"
           } ],
@@ -650,7 +649,7 @@
           "instances" : "1",
           "name" : "vllm01",
           "properties" : {
-            "structurizr.dsl.identifier" : "90526ca5-be31-4de8-be2b-db49f39dda0e"
+            "structurizr.dsl.identifier" : "4ef54bb8-b8bd-4030-9568-b248006997c3"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "vLLM Service (OLMo 2)"
@@ -662,7 +661,7 @@
             "id" : "248",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "e422db65-41e3-408d-92c6-5ef981e22b52"
+              "structurizr.dsl.identifier" : "0fa421f1-2b77-498c-a6ea-aa01eea69699"
             },
             "tags" : "Container Instance"
           } ],
@@ -671,7 +670,7 @@
           "instances" : "1",
           "name" : "vllm02",
           "properties" : {
-            "structurizr.dsl.identifier" : "9270c0d6-9165-43e5-8be9-b8318e527bef"
+            "structurizr.dsl.identifier" : "376ead26-21c5-4192-8ec1-7f0667a85c73"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "vLLM Service (SmolM2)"
@@ -681,7 +680,7 @@
         "instances" : "1",
         "name" : "vLLM cluster",
         "properties" : {
-          "structurizr.dsl.identifier" : "a65bb099-6fbb-438b-bb49-e8b4b36c0b9a"
+          "structurizr.dsl.identifier" : "73e5f1a1-8483-4ea4-8c12-8210e3b6b345"
         },
         "tags" : "Element,Deployment Node"
       } ],
@@ -690,7 +689,7 @@
       "instances" : "1",
       "name" : "EOSC EU Node",
       "properties" : {
-        "structurizr.dsl.identifier" : "6cc483b3-6997-445c-8509-2b4bb85cfd58"
+        "structurizr.dsl.identifier" : "376ac5ff-aac9-43b9-855d-bc27a18fad63"
       },
       "tags" : "Element,Deployment Node"
     }, {
@@ -701,7 +700,7 @@
         "id" : "251",
         "instanceId" : 1,
         "properties" : {
-          "structurizr.dsl.identifier" : "e144f00b-1a1f-49ef-a4a8-d18d3fbda317"
+          "structurizr.dsl.identifier" : "eb9865cc-e00d-421c-b7bb-b4f42d953162"
         },
         "relationships" : [ {
           "description" : "Publishes modules to",
@@ -718,7 +717,7 @@
         "id" : "252",
         "instanceId" : 1,
         "properties" : {
-          "structurizr.dsl.identifier" : "028356f6-d2a3-41b8-b9ab-b468a83e5d2c"
+          "structurizr.dsl.identifier" : "ca6b8311-9fd2-482b-ab3c-0fe5bf526e84"
         },
         "tags" : "Container Instance"
       } ],
@@ -727,7 +726,7 @@
       "instances" : "1",
       "name" : "GitHub / Gitlab",
       "properties" : {
-        "structurizr.dsl.identifier" : "b27f62eb-d349-493f-ad1c-bf4fde7ed485"
+        "structurizr.dsl.identifier" : "2ba3d4e0-fe57-4f0b-a01e-d2655b4f3267"
       },
       "tags" : "Element,Deployment Node"
     }, {
@@ -740,7 +739,7 @@
             "id" : "256",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "fd6d2c2a-1be6-44b5-b8ff-b3aff1315643"
+              "structurizr.dsl.identifier" : "a8418c4e-840d-4d3a-b820-cf4a73466f99"
             },
             "relationships" : [ {
               "description" : "Authenticates users with",
@@ -768,7 +767,7 @@
           "instances" : "1",
           "name" : "dashboard.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "30b1c8f5-36b5-4809-82b4-48af2931b3a8"
+            "structurizr.dsl.identifier" : "adb7dc12-fb88-44e6-ae64-e28cc5317d6b"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "nginx"
@@ -780,7 +779,7 @@
             "id" : "258",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "d6cf398b-860f-44e6-a609-8f4ab0a2623a"
+              "structurizr.dsl.identifier" : "40cd9784-f572-4bef-852e-837a3c386b2a"
             },
             "tags" : "Container Instance"
           } ],
@@ -789,7 +788,7 @@
           "instances" : "1",
           "name" : "login.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "2bc6f1df-6ab9-4bf2-8c85-b59262cd84bf"
+            "structurizr.dsl.identifier" : "a7e6df2b-ddda-4662-995a-4128a82d96dc"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "Keycloack"
@@ -801,7 +800,7 @@
             "id" : "261",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "c44ae907-fd2a-4f52-92c0-ccd4633bf163"
+              "structurizr.dsl.identifier" : "6662e706-d6d6-4739-88ce-3430758a7628"
             },
             "relationships" : [ {
               "description" : "Reads from",
@@ -847,7 +846,7 @@
           "instances" : "1",
           "name" : "api.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "58799eb5-66b8-4993-943a-7d79c1bc1241"
+            "structurizr.dsl.identifier" : "7bbb8883-ed31-402e-a5f8-7952af4e31d9"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "FastAPI"
@@ -859,7 +858,7 @@
             "id" : "267",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "11bd4195-6fe1-4a53-9a77-568005c451ff"
+              "structurizr.dsl.identifier" : "4fe4b7ba-55a7-432c-9d58-ee9190baa528"
             },
             "relationships" : [ {
               "description" : "Ensures QA aspects",
@@ -887,7 +886,7 @@
           "instances" : "1",
           "name" : "jenkins.services.ai4os.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "60461999-0448-4094-8761-b0da130eba3d"
+            "structurizr.dsl.identifier" : "233d88f5-aad2-4472-bf5e-2679dbaa461c"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "Jenkins"
@@ -899,7 +898,7 @@
             "id" : "270",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "c61f5965-81e1-44c6-b0ec-5d49b542b633"
+              "structurizr.dsl.identifier" : "0229ae22-4dc1-4b1f-ba9e-f2ecad0cf0a7"
             },
             "tags" : "Container Instance"
           } ],
@@ -908,7 +907,7 @@
           "instances" : "1",
           "name" : "share.services.ai4os.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "b2c3926b-fcc9-48bd-9b8c-377c7e0906c6"
+            "structurizr.dsl.identifier" : "17befc5a-fd92-47ca-aa7b-4da5733836e2"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "NextCloud"
@@ -920,7 +919,7 @@
             "id" : "272",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "4798cd23-7e51-4ccb-997f-cb5bb3ae3648"
+              "structurizr.dsl.identifier" : "75cf51d0-701a-4016-9a6f-7080dd60b8ad"
             },
             "relationships" : [ {
               "description" : "Monitors drift on",
@@ -948,7 +947,7 @@
           "instances" : "1",
           "name" : "driftwatch.dev.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "fec328d0-ca6e-47ff-8dbd-1fd2cc04b7ac"
+            "structurizr.dsl.identifier" : "a657024d-ad97-4b6d-964e-2433375878dc"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "DriftWatch"
@@ -983,7 +982,7 @@
             "id" : "279",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "9104a479-4945-4684-8a93-430581fe6fb5"
+              "structurizr.dsl.identifier" : "28d8effd-d0fb-4b46-9ad8-83e069adc809"
             },
             "relationships" : [ {
               "description" : "Reads and writes data from",
@@ -1030,7 +1029,7 @@
             "id" : "282",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "b7964a6c-9451-45f7-b85c-d6a6c8ab9975"
+              "structurizr.dsl.identifier" : "977224af-750f-4851-8162-6689bfdacc11"
             },
             "tags" : "Container Instance"
           } ],
@@ -1054,14 +1053,14 @@
             "sourceId" : "276",
             "tags" : "Relationship"
           } ],
-          "tags" : "Element,Deployment Node"
+          "tags" : "Element,Deployment Node,"
         } ],
         "environment" : "Production",
         "id" : "254",
         "instances" : "1",
         "name" : "IFCA Cloud",
         "properties" : {
-          "structurizr.dsl.identifier" : "c74112ad-893d-4c1b-bc0a-d358ba088c66"
+          "structurizr.dsl.identifier" : "e2b646a4-a67e-40e9-98d7-df870bc5704d"
         },
         "tags" : "Element,Deployment Node",
         "technology" : "OpenStack"
@@ -1071,7 +1070,7 @@
       "instances" : "1",
       "name" : "IFCA-CSIC",
       "properties" : {
-        "structurizr.dsl.identifier" : "fccd4013-0262-4de3-a231-d4ce7c4faf63"
+        "structurizr.dsl.identifier" : "6d96d8b5-4f2f-4947-baf7-52759bf88ab6"
       },
       "tags" : "Element,Deployment Node"
     }, {
@@ -1093,7 +1092,7 @@
           "instances" : "1",
           "name" : "registry.services.ai4os.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "2070f349-e0dc-461d-82ed-a0deac3de6b9"
+            "structurizr.dsl.identifier" : "04dc9eb0-4ecf-46d9-b561-39e87fd9c0a4"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "Harbor"
@@ -1105,7 +1104,7 @@
             "id" : "292",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "18f7ac94-cefe-40a6-bda1-0a0d4b3bf3e6"
+              "structurizr.dsl.identifier" : "3417eab4-b4b5-49bd-91e8-3c7beceef820"
             },
             "relationships" : [ {
               "description" : "Detects new model version in Model Registry",
@@ -1127,7 +1126,7 @@
           "instances" : "1",
           "name" : "mlflow.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "3c6904c2-3b72-458d-a7d0-557783f43ca7"
+            "structurizr.dsl.identifier" : "326b6e20-eb8d-40fb-b1e4-168fffe6c81a"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "MLflow"
@@ -1139,7 +1138,7 @@
             "id" : "296",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "f7ea8345-85ed-48a6-8da8-8c31f2b449d2"
+              "structurizr.dsl.identifier" : "6fb5f827-8f04-4a22-9889-96adb9cc73a9"
             },
             "relationships" : [ {
               "description" : "Manage buckets, folders, event and notifications",
@@ -1155,7 +1154,7 @@
           "instances" : "1",
           "name" : "inference.cloud.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "a5c83b3c-e9b7-4bc6-a8f3-80b9b30bae04"
+            "structurizr.dsl.identifier" : "8b238e50-5f3c-4675-9e0e-5687038fe90f"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "OSCAR"
@@ -1167,7 +1166,7 @@
             "id" : "298",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "7259e7c5-5003-4014-b03b-142c76f716b2"
+              "structurizr.dsl.identifier" : "0c4893d0-3e9b-429f-823c-da9c4dfb921d"
             },
             "relationships" : [ {
               "description" : "Manage instances",
@@ -1184,7 +1183,7 @@
             "id" : "299",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "bd8b0aa3-fa86-42c2-9961-9807cc77cca2"
+              "structurizr.dsl.identifier" : "924fe5e1-6d75-40df-9808-d512352551d0"
             },
             "relationships" : [ {
               "description" : "Obtain custom OSCAR nodes",
@@ -1206,7 +1205,7 @@
           "instances" : "1",
           "name" : "forge.flows.dev.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "0c883e64-8ec3-498e-8c70-c7b456ba9f89"
+            "structurizr.dsl.identifier" : "bcd4827a-ff77-4e0c-b69a-b4405e210fef"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "Flowfuse"
@@ -1218,7 +1217,7 @@
             "id" : "304",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "88f415fc-ec01-4889-a3c5-17eea2823230"
+              "structurizr.dsl.identifier" : "35f66aab-6312-43fd-b709-e8d930e0d154"
             },
             "tags" : "Container Instance"
           } ],
@@ -1227,7 +1226,7 @@
           "instances" : "1",
           "name" : "console.minio.crazy-kowalevski5.im.grycap.net",
           "properties" : {
-            "structurizr.dsl.identifier" : "de210d0c-c6be-4de9-b201-891e6666c578"
+            "structurizr.dsl.identifier" : "487485c2-8b7e-4a18-b1c0-483f1e645da4"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "MinIO"
@@ -1267,14 +1266,14 @@
           "properties" : {
             "structurizr.dsl.identifier" : "nomad_cluster_incd"
           },
-          "tags" : "Element,Deployment Node"
+          "tags" : "Element,Deployment Node,"
         } ],
         "environment" : "Production",
         "id" : "286",
         "instances" : "1",
         "name" : "stratus.ncg.ingrid.pt",
         "properties" : {
-          "structurizr.dsl.identifier" : "709dcfcb-03f4-449e-b002-217a96299deb"
+          "structurizr.dsl.identifier" : "1aaafb34-38b5-49ba-a6a6-420bf8052dbd"
         },
         "tags" : "Element,Deployment Node"
       } ],
@@ -1283,7 +1282,7 @@
       "instances" : "1",
       "name" : "INCD",
       "properties" : {
-        "structurizr.dsl.identifier" : "658a6f43-0bd3-451c-970f-19c792198570"
+        "structurizr.dsl.identifier" : "8e5aeab0-2a29-4050-9e1c-e3e00b2bcba8"
       },
       "tags" : "Element,Deployment Node"
     }, {
@@ -1305,7 +1304,7 @@
           "instances" : "1",
           "name" : "secret.services.ai4os.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "9de2af6e-572b-4a0e-8894-d104e6fa84eb"
+            "structurizr.dsl.identifier" : "1ea6ce43-26e0-4fee-bc92-d6c5c708e2c8"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "Vault"
@@ -1352,14 +1351,14 @@
             "sourceId" : "317",
             "tags" : "Relationship"
           } ],
-          "tags" : "Element,Deployment Node"
+          "tags" : "Element,Deployment Node,"
         } ],
         "environment" : "Production",
         "id" : "311",
         "instances" : "1",
         "name" : "cloud.ui.sav.sk",
         "properties" : {
-          "structurizr.dsl.identifier" : "0bb2e9ea-4815-43e9-a21c-f11490223263"
+          "structurizr.dsl.identifier" : "fe68be8d-e910-4937-af6e-a340ef478117"
         },
         "tags" : "Element,Deployment Node"
       } ],
@@ -1368,7 +1367,7 @@
       "instances" : "1",
       "name" : "IISAS",
       "properties" : {
-        "structurizr.dsl.identifier" : "1d213e0c-ea23-4e99-843c-577d5030634c"
+        "structurizr.dsl.identifier" : "d27e3480-e4b2-4760-84b0-f6656dbeafdf"
       },
       "tags" : "Element,Deployment Node"
     }, {
@@ -1381,7 +1380,7 @@
             "id" : "324",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "10fa7613-dff7-4f4b-9f78-04d828c2e0cc"
+              "structurizr.dsl.identifier" : "d5bee434-be55-4aca-9358-682a9c4f2666"
             },
             "relationships" : [ {
               "description" : "Create deployment",
@@ -1398,7 +1397,7 @@
             "id" : "325",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "20aa9fa0-7dde-43e1-8bb8-79571f356f09"
+              "structurizr.dsl.identifier" : "5d192775-497d-4e07-abae-4155c0350bbf"
             },
             "relationships" : [ {
               "description" : "Provisions resources for",
@@ -1433,7 +1432,7 @@
             "id" : "328",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "ee377e35-60c0-4a5b-b380-504549aa285d"
+              "structurizr.dsl.identifier" : "79650b8c-c8b6-4d95-a3df-f363fb1614d0"
             },
             "relationships" : [ {
               "description" : "Manages",
@@ -1450,7 +1449,7 @@
             "id" : "331",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "0d97a342-55dd-4195-9f14-1ad90976fa1b"
+              "structurizr.dsl.identifier" : "d41b8cda-629e-4e85-847e-29b37e2a8c7e"
             },
             "tags" : "Container Instance"
           }, {
@@ -1460,7 +1459,7 @@
             "id" : "333",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "e53534cb-12b3-4485-b76d-f7a5db9dc71d"
+              "structurizr.dsl.identifier" : "f4542ede-35cd-4a2a-8721-56f253e2c7e2"
             },
             "relationships" : [ {
               "description" : "Send aggregated metrics",
@@ -1477,7 +1476,7 @@
             "id" : "335",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "cc0c542f-b31e-494f-bf12-1710d87754be"
+              "structurizr.dsl.identifier" : "8842bb0e-0e8f-4cfc-be9d-87be896379c2"
             },
             "tags" : "Container Instance"
           } ],
@@ -1486,7 +1485,7 @@
           "instances" : "1",
           "name" : "paas.ai4eosc.eu",
           "properties" : {
-            "structurizr.dsl.identifier" : "35822d44-ef59-4aec-84a6-1d0067277250"
+            "structurizr.dsl.identifier" : "af434005-f4a5-46d5-9953-2a815fbca579"
           },
           "tags" : "Element,Deployment Node",
           "technology" : "nginx"
@@ -1496,7 +1495,7 @@
         "instances" : "1",
         "name" : "cloud.cnaf.infn.it",
         "properties" : {
-          "structurizr.dsl.identifier" : "ab5e2730-6c4e-4386-a73e-65abd45b34dc"
+          "structurizr.dsl.identifier" : "87164748-94f8-4eb2-bbfa-685d67753991"
         },
         "tags" : "Element,Deployment Node"
       } ],
@@ -1505,7 +1504,7 @@
       "instances" : "1",
       "name" : "INFN-CNAF",
       "properties" : {
-        "structurizr.dsl.identifier" : "a81bfcc9-e4fb-4df3-9b06-8eed90f63582"
+        "structurizr.dsl.identifier" : "4ffd5119-3abe-43d7-99b5-3dafa3912212"
       },
       "tags" : "Element,Deployment Node"
     }, {
@@ -1514,7 +1513,7 @@
       "instances" : "1",
       "name" : "External resources",
       "properties" : {
-        "structurizr.dsl.identifier" : "71ccc918-a9c4-4cb0-874d-cd12a7e244fb"
+        "structurizr.dsl.identifier" : "085c82d5-03ab-4116-b0d5-957f78d36230"
       },
       "softwareSystemInstances" : [ {
         "deploymentGroups" : [ "Global deployment" ],
@@ -1522,7 +1521,7 @@
         "id" : "338",
         "instanceId" : 1,
         "properties" : {
-          "structurizr.dsl.identifier" : "78702e36-0200-4150-abf4-5dedc0365d0e"
+          "structurizr.dsl.identifier" : "be61db38-846c-4380-8293-5f25309dcc5c"
         },
         "softwareSystemId" : "62",
         "tags" : "Software System Instance"
@@ -1535,7 +1534,7 @@
         "instances" : "1",
         "name" : "zenodo.org",
         "properties" : {
-          "structurizr.dsl.identifier" : "c8e9f39c-137d-4acc-afe6-60b4e9106b2a"
+          "structurizr.dsl.identifier" : "7063df65-7464-46ea-ae38-e915c34c6cc4"
         },
         "softwareSystemInstances" : [ {
           "deploymentGroups" : [ "Global deployment" ],
@@ -1543,7 +1542,7 @@
           "id" : "342",
           "instanceId" : 1,
           "properties" : {
-            "structurizr.dsl.identifier" : "0bc59b85-bb5a-4633-931d-1661580e0f25"
+            "structurizr.dsl.identifier" : "d05c8827-a61f-47c9-9abf-32a4f5207990"
           },
           "softwareSystemId" : "67",
           "tags" : "Software System Instance"
@@ -1555,7 +1554,7 @@
       "instances" : "1",
       "name" : "CERN",
       "properties" : {
-        "structurizr.dsl.identifier" : "ce7ec6db-427e-49b1-b0fb-d8c496ca097c"
+        "structurizr.dsl.identifier" : "36bfe6b0-611a-487a-a83d-3e4db87d22c0"
       },
       "tags" : "Element,Deployment Node"
     }, {
@@ -1564,7 +1563,7 @@
       "instances" : "1",
       "name" : "External user resources",
       "properties" : {
-        "structurizr.dsl.identifier" : "26970769-5b45-44e6-a2c4-1bb1ffb59af6"
+        "structurizr.dsl.identifier" : "0aaf8520-ee7f-4f8d-9e7a-a190e43aac48"
       },
       "softwareSystemInstances" : [ {
         "deploymentGroups" : [ "FL deployment", "Global deployment" ],
@@ -1572,7 +1571,7 @@
         "id" : "348",
         "instanceId" : 1,
         "properties" : {
-          "structurizr.dsl.identifier" : "a8a4771e-b338-4398-ad90-d9865836d61a"
+          "structurizr.dsl.identifier" : "c1baee2f-e62a-4319-b159-357ee7883b7a"
         },
         "relationships" : [ {
           "description" : "Gets updated model, sends weights to federated server",
@@ -1761,7 +1760,7 @@
       "documentation" : { },
       "group" : "EOSC",
       "id" : "3",
-      "name" : "EOSC Portal",
+      "name" : "EOSC Discovery / Resource Hub",
       "properties" : {
         "structurizr.dsl.identifier" : "portal"
       },
@@ -3051,9 +3050,9 @@
   },
   "name" : "AI4EOSC",
   "properties" : {
+    "structurizr.inspection.error" : "334",
     "structurizr.inspection.info" : "0",
     "structurizr.inspection.ignore" : "0",
-    "structurizr.inspection.error" : "334",
     "structurizr.inspection.warning" : "0"
   },
   "views" : {
@@ -3252,12 +3251,18 @@
           "url" : "http://fonts.googleapis.com/css?family=Roboto"
         }
       },
-      "lastSavedView" : "llms_container_view",
-      "metadataSymbols" : "SquareBrackets",
+      "lastSavedView" : "system_view",
       "styles" : {
         "elements" : [ {
           "background" : "#008792",
           "tag" : "Container"
+        }, {
+          "background" : "#004f56",
+          "tag" : "Person"
+        }, {
+          "background" : "#ff9db2",
+          "color" : "#000000",
+          "tag" : "Software System"
         }, {
           "shape" : "WebBrowser",
           "tag" : "dashboard"
@@ -3268,15 +3273,8 @@
           "background" : "#d3d3d3",
           "tag" : "external"
         }, {
-          "background" : "#004f56",
-          "tag" : "Person"
-        }, {
           "shape" : "Folder",
           "tag" : "repository"
-        }, {
-          "background" : "#ff9db2",
-          "color" : "#000000",
-          "tag" : "Software System"
         } ]
       },
       "terminology" : { },

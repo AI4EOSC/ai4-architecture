@@ -14,14 +14,14 @@ workspace extends ../eosc-landscape.dsl {
         paas_ops = person "PaaS Operator" "Resource provider operator or platform operator managing the PaaS deployments."
 
         ai4eosc = group "AI4EOSC" {
-            ai4eosc_platform = softwareSystem "AI4EOSC Platform" "Allows EOSC users to develop, build and share AI models." {
+            ai4eosc_platform = softwareSystem "AI4EOSC Development Platform" "Allows EOSC users to develop, build and share AI models." {
 
                 ai4eosc_aai = container "AI4EOSC AAI" "Provides authentication and authorization services for the AI4EOSC platform." "Keycloak"
 
                 platform_api = container "AI4 Platform API" "Provides marketplace browseing, training creation and monitoring functionality via a JSON/HTTPS API." "FastAPI + python-nomad"
 
                 model_repo = container "AI4 module repository" "Track AI model and AI4EOSC code integration." "Git" "repository"
-                container_repo = container "AI4 container registry" "Store container images." "Harbor.io" "repository" 
+                container_repo = container "AI4 container registry" "Stores container images." "Harbor.io" "repository" 
 
                 cicd = container "Continuous Integration, Delivery & Deployment" "Ensures quality aspects are fulfilled (code checks, unit checks, etc.). Performs delivery and deployment of new assets." "Jenkins" {
                     #drift_monitoring = component "Drift Monitoring" "Monitors data and model drift; alerts whenever a drift is detected" "DriftWatch" 
@@ -143,8 +143,8 @@ workspace extends ../eosc-landscape.dsl {
         # System landscape interactions
 
         ## User - system interaction
-        eosc_user -> ai4eosc_platform "Reuse, develop, publish new AI models"
-        paas_ops -> orchestration "Manage PaaS resources and deployments"
+        eosc_user -> ai4eosc_platform "Reuses, develops, publishes new AI models"
+        paas_ops -> orchestration "Manages PaaS resources and deployments"
         end_user -> aiaas "Uses deployed models from"
         eosc_user -> platform_storage "Stores data in"
         eosc_user -> storage "Stores data in"
@@ -155,19 +155,19 @@ workspace extends ../eosc-landscape.dsl {
         orchestration -> aiaas "Creates OSCAR clusters and provisions resources for"
         ai4eosc_platform -> storage "Consumes data from"
         ai4eosc_platform -> aai "Is integrated with"
-        ai4eosc_platform -> portal "is Registered in"
-        ai4eosc_platform -> aiaas "Deploy models on"
+        ai4eosc_platform -> portal "Is Registered in"
+        ai4eosc_platform -> aiaas "Deploys models on"
         llms -> ai4eosc_platform "Gets models from, authenticates users with, provides LLM services to"
     
         # AI4EOSC platform
-        eosc_user -> dashboard "Browse models, train existing model, build new one."
+        eosc_user -> dashboard "Browses models, train existing model, build new one."
 
         # Training 
-        eosc_user -> dev_task "Access interactive environments"
-        eosc_user -> deepaas_task "Access DEEPaaS API"
-        eosc_user -> federated_server "Access federated learning server"
+        eosc_user -> dev_task "Accesses interactive environments"
+        eosc_user -> deepaas_task "Accesses DEEPaaS API"
+        eosc_user -> federated_server "Accesses federated learning server"
 
-        dev_task -> secrets "Access user secrets"
+        dev_task -> secrets "Accesses user secrets"
 
         dashboard -> platform_api "Reads available models, defines new trainings, checks training status, etc. " "" dashboard_api
         dashboard -> platform_api "Manages secrets and API keys" "" dashboard_api_secrets
@@ -211,9 +211,9 @@ workspace extends ../eosc-landscape.dsl {
 
         cicd -> zenodo "Publishes models to"
         model_repo -> zenodo "Publishes modules to"
-        platform_api -> zenodo "Read available datasets from"
+        platform_api -> zenodo "Reads available datasets from"
 
-        zenodo_task -> zenodo "Pull dataset from"
+        zenodo_task -> zenodo "Pulls dataset from"
 
         coe -> container_repo "Gets Docker containers from"
 
@@ -227,8 +227,8 @@ workspace extends ../eosc-landscape.dsl {
         drift_monitoring -> model_repo "Monitors drift on"
 
         # LLM services
-        eosc_user -> llm_litellm "Access LLM API services via"
-        eosc_user -> open_webui "Access LLM Chat services via"
+        eosc_user -> llm_litellm "Accesses LLM API services via"
+        eosc_user -> open_webui "Accesses LLM Chat services via"
         open_webui -> llm_litellm "Uses LLM modesl via API from"
         platform_api -> llm_litellm "Manages API keys for"
         llm_litellm -> llm_litellm_leaf "Routes requests to"
@@ -237,44 +237,44 @@ workspace extends ../eosc-landscape.dsl {
 
 
         # Orchestration
-        paas_ops -> paas_dashboard "Manages AI4EOSC PaaS deployments"
-        paas_dashboard -> paas_orchestrator "Create deployment"
-        paas_dashboard -> tosca_repo "Read topologies"
-        paas_orchestrator -> tosca_repo "Read topologies"
+        paas_ops -> paas_dashboard "Managess AI4EOSC PaaS deployments"
+        paas_dashboard -> paas_orchestrator "Creates deployment"
+        paas_dashboard -> tosca_repo "Reads topologies"
+        paas_orchestrator -> tosca_repo "Reads topologies"
         paas_orchestrator -> im "Uses"
-        paas_orchestrator -> federated_service_catalogue "Get information"
-        monitoring_system -> federated_service_catalogue "Send aggregated metrics"
-        paas_orchestrator -> cloud_provider_ranker "Get matching offers"
-        iam -> aai "Federate users from" "OpenID Connect"
-        paas_orchestrator -> iam "Authenticate users with"
+        paas_orchestrator -> federated_service_catalogue "Gets information"
+        monitoring_system -> federated_service_catalogue "Sends aggregated metrics"
+        paas_orchestrator -> cloud_provider_ranker "Gets matching offers"
+        iam -> aai "Federates users from" "OpenID Connect"
+        paas_orchestrator -> iam "Authenticates users with"
 
-        cloud_providers -> federated_service_catalogue "register/update service & resources metadata"
-        cloud_providers -> monitoring_system "push/pull metrics"
+        cloud_providers -> federated_service_catalogue "Registers/updates service & resources metadata"
+        cloud_providers -> monitoring_system "Pushes/pulls metrics"
 
         paas_orchestrator -> Knative "Provisions resources for" 
         paas_orchestrator -> OSCAR "Provisions resources for" 
         im -> OSCAR "Manages"
 
         # DEEPaaS OSCAR
-        flowfuse -> nodered "Manage instances"
-        end_user -> jupyter "Compose pipelines"
-        end_user -> flowfuse "Compose pipelines"
-        nodered -> OSCAR "Invoke Service and trigger inference"
-        jupyter -> elyra "Manage Notebooks"
-        elyra -> OSCAR "Invoke Service and trigger inference"
-        nodered -> nodered_repository "Obtain custom OSCAR nodes"
-        elyra -> ai4compose_repository "Obtain custom OSCAR nodes"
+        flowfuse -> nodered "Manages instances"
+        end_user -> jupyter "Composes pipelines"
+        end_user -> flowfuse "Composes pipelines"
+        nodered -> OSCAR "Invokes Service and trigger inference"
+        jupyter -> elyra "Manages Notebooks"
+        elyra -> OSCAR "Invokes Service and trigger inference"
+        nodered -> nodered_repository "Obtains custom OSCAR nodes"
+        elyra -> ai4compose_repository "Obtains custom OSCAR nodes"
 
-        OSCAR -> MinIO "Manage buckets, folders, event and notifications"
-        OSCAR -> Kubernetes "Manage services"
-        OSCAR -> Knative "Execute services synchronously"
-        Knative -> FaaSS "Assign to function's pod(s)"
-        Kubernetes -> FaaSS "Create jobs"
-        FaaSS -> MinIO "Download input. Upload output"
+        OSCAR -> MinIO "Manages buckets, folders, event and notifications"
+        OSCAR -> Kubernetes "Manages services"
+        OSCAR -> Knative "Executes services synchronously"
+        Knative -> FaaSS "Assigns to function's pod(s)"
+        Kubernetes -> FaaSS "Creates jobs"
+        FaaSS -> MinIO "Downloads input. Upload output"
 
-        ai4eosc_platform -> OSCAR "Deployment or update of inference services"
-        end_user -> OSCAR "Synchronous inference request"
-        end_user -> MinIO "Store data for asynchronous inference"
+        ai4eosc_platform -> OSCAR "Deploys or updates inference services"
+        end_user -> OSCAR "Requests synchronous inference"
+        end_user -> MinIO "Stores data for asynchronous inference"
 
 
         # Some MLFlow + Drift interactions
@@ -664,23 +664,23 @@ workspace extends ../eosc-landscape.dsl {
             ai4eosc_aai -> dashboard "Returns access token"
 
             dashboard -> platform_api "Requests new federated learning job"
-            platform_api -> secrets "Create secrets for federated server" 
+            platform_api -> secrets "Creates secrets for federated server" 
 
-            platform_api -> coe "Register new federated learning Nomad job"
-            coe -> federated_server "Deploy federated learning server"
-            federated_server -> secrets "Get secrets for federated server"
+            platform_api -> coe "Registers new federated learning Nomad job"
+            coe -> federated_server "Deploys federated learning server"
+            federated_server -> secrets "Gets secrets for federated server"
 
-            platform_api -> coe "Register new training / interactive job"
+            platform_api -> coe "Registers new training / interactive job"
             coe -> dev_task "Executes Development Environment as container"
             dev_task -> secrets "Gets configured user secrets (i.e. token) for interative access"
             dev_task -> storage_task "Reads and writes from"
 
-            dev_task -> federated_server "Get updated model, using server credentials"
-            dev_task -> federated_server "Send updates to federated server, using configured secret"
+            dev_task -> federated_server "Gets updated model, using server credentials"
+            dev_task -> federated_server "Sends updates to federated server, using configured secret"
             
             
-            external_container -> federated_server "Get updated model, using configured secret"
-            external_container -> federated_server "Send updates to federated server, using configured secret"
+            external_container -> federated_server "Gets updated model, using configured secret"
+            external_container -> federated_server "Sends updates to federated server, using configured secret"
             
             eosc_user -> dev_task "Develops (new/updated) model in"
             eosc_user -> model_repo "Submits new/updated module"
@@ -689,36 +689,36 @@ workspace extends ../eosc-landscape.dsl {
 
         dynamic aiaas oscar_dynamic {
             title "[Dynamic view] OSCAR dynamic view"
-            end_user -> OSCAR "Deploy service"
+            end_user -> OSCAR "Deploys service"
             OSCAR -> MinIO "Buckets and folders will be created"
-            end_user -> MinIO "Store data for asynchronous inference (Option A)"
-            OSCAR -> Knative "Execute services synchronously (Option B)"
-            OSCAR -> Kubernetes "Manage services. Register jobs. Retrieve logs (Option A)"
-            Kubernetes -> FaaSS "Create jobs (Option A)"
-            Knative -> FaaSS  "Assign to function's pod(s). (Option B)"
-            FaaSS -> MinIO "Download input. Upload output."
+            end_user -> MinIO "Stores data for asynchronous inference (Option A)"
+            OSCAR -> Knative "Executes services synchronously (Option B)"
+            OSCAR -> Kubernetes "Manages services. Registers jobs. Retrieves logs (Option A)"
+            Kubernetes -> FaaSS "Creates jobs (Option A)"
+            Knative -> FaaSS  "Assigns to function's pod(s). (Option B)"
+            FaaSS -> MinIO "Downloads input. Uploads output."
             /* FaaSS ->  "Read/store data " */
         }
 
         dynamic aiaas AI4Compose_dynamic { 
             title "[Dynamic view] AI4Compose dynamic view" 
 
-            end_user -> flowfuse "Compose pipelines"
-            flowfuse -> nodered "Manage instances"
-            nodered -> nodered_repository "Obtain custom OSCAR nodes"
-            nodered -> OSCAR "Invoke Service and trigger inference"
-            flowfuse -> end_user  "Visualize results"
+            end_user -> flowfuse "Composes pipelines"
+            flowfuse -> nodered "Manages instances"
+            nodered -> nodered_repository "Obtains custom OSCAR nodes"
+            nodered -> OSCAR "Invokes Service and trigger inference"
+            flowfuse -> end_user  "Visualizes results"
 
-            end_user -> jupyter "Compose pipelines"
-            jupyter -> elyra "Manage Notebooks"
-            Elyra -> ai4compose_repository "Obtain custom OSCAR nodes"
-            elyra -> OSCAR "Invoke Service and trigger inference"
-            jupyter  -> end_user  "Visualize results"
+            end_user -> jupyter "Composes pipelines"
+            jupyter -> elyra "Manages Notebooks"
+            Elyra -> ai4compose_repository "Obtains custom OSCAR nodes"
+            elyra -> OSCAR "Invokes Service and trigger inference"
+            jupyter  -> end_user  "Visualizes results"
          }
 
         dynamic ai4eosc_platform MLOps_dynamic {
             title "[Dynamic view] MLOps: high-level automation"
-            eosc_user -> dashboard "Enable/request MLflow to track experiments" 
+            eosc_user -> dashboard "Enables/requests MLflow to track experiments" 
             eosc_user -> mlflow "Initiates a new experiment-run"
             mlflow -> secrets "Gets secrets for mlflow tracking server users into Vault"
             user_task -> mlflow  "Logs exp-run parametres, metrics to mlflow during model dev"      

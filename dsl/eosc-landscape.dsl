@@ -8,7 +8,7 @@ workspace eosc "EOSC architecture" {
 
         eosc = group EOSC {
             aai = softwareSystem "EOSC AAI" "Provides Authentication, Authorization and Identity management for EOSC users." "external"
-            portal = softwareSystem "EOSC Portal" "Provides access to EOSC resources and services for users." "external"
+            portal = softwareSystem "EOSC Discovery / Resource Hub" "Provides access to EOSC resources and services for users." "external"
         }
 
         /* aai -> portal "Provides authentication for" */
