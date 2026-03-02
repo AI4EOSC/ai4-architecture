@@ -90,7 +90,6 @@ workspace extends ../eosc-landscape.dsl {
         
             aiaas = softwareSystem "AI as a Service" "Allows users to deploy an AI application as a service." {
                 ai4compose = group "AI4Compose"{
-                    flowfuse = container "Flowfuse" 
                     jupyter = container "Jupyter Notebook" 
                     elyra = container "Elyra" 
                     nodered = container "Node-RED" 
@@ -256,9 +255,8 @@ workspace extends ../eosc-landscape.dsl {
         im -> OSCAR "Manages"
 
         # DEEPaaS OSCAR
-        flowfuse -> nodered "Manages instances"
         end_user -> jupyter "Composes pipelines"
-        end_user -> flowfuse "Composes pipelines"
+        end_user -> nodered "Composes pipelines"
         nodered -> OSCAR "Invokes Service and trigger inference"
         jupyter -> elyra "Manages Notebooks"
         elyra -> OSCAR "Invokes Service and trigger inference"
@@ -446,8 +444,7 @@ workspace extends ../eosc-landscape.dsl {
                         /* containerInstance MinIO global */
                         /* containerInstance FaaSS global */
                     }
-                    deploymentNode "forge.flows.dev.ai4eosc.eu" "" "Flowfuse" {
-                        containerInstance flowfuse global
+                    deploymentNode "forge.flows.dev.ai4eosc.eu" "" "Node-Red" {
                         containerInstance nodered global
                     }
                     deploymentNode "console.minio.crazy-kowalevski5.im.grycap.net" "" "MinIO" {
@@ -703,11 +700,9 @@ workspace extends ../eosc-landscape.dsl {
         dynamic aiaas AI4Compose_dynamic { 
             title "[Dynamic view] AI4Compose dynamic view" 
 
-            end_user -> flowfuse "Composes pipelines"
-            flowfuse -> nodered "Manages instances"
+            end_user -> nodered "Composes pipelines"
             nodered -> nodered_repository "Obtains custom OSCAR nodes"
             nodered -> OSCAR "Invokes Service and trigger inference"
-            flowfuse -> end_user  "Visualizes results"
 
             end_user -> jupyter "Composes pipelines"
             jupyter -> elyra "Manages Notebooks"
