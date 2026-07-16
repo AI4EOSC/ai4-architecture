@@ -60,4 +60,4 @@ jobs:
                 -u "${{ secrets.BASIC_AUTH_USER }}:${{ secrets.BASIC_AUTH_PASS }}" \
                 -H "Content-Type: application/json; charset=UTF-8" \
                 -T ./dsl/02-ai4eosc/workspace.json \
-                https://structurizr.k8s.cloud.ai4eosc.eu/api/workspace/${{ secrets.WORKSPACE_ID }}
+                https://structurizr.k8s.cloud.ai4eosc.eu/api/workspace/1
