@@ -27,13 +27,17 @@ jobs:
 
         - name: Validate Structurizr workspace
           run: |
-            docker run --rm -v ${{ github.workspace }}:/usr/local/structurizr \
+            docker run --rm \
+            -u $(id -u):$(id -g) \
+            -v ${{ github.workspace }}:/usr/local/structurizr \
             structurizr/structurizr validate \
             -workspace /usr/local/structurizr/dsl/02-ai4eosc/workspace.dsl
 
         - name: Export workspace to static HTML files
           run: |
-            docker run --rm -v ${{ github.workspace }}:/usr/local/structurizr \
+            docker run --rm \
+            -u $(id -u):$(id -g) \
+            -v ${{ github.workspace }}:/usr/local/structurizr \
             structurizr/structurizr export \
             -workspace /usr/local/structurizr/dsl/02-ai4eosc/workspace.dsl \
             -format static \
@@ -41,7 +45,9 @@ jobs:
 
         - name: Export workspace to static JSON files (before pushing)
           run: |
-            docker run --rm -v ${{ github.workspace }}:/usr/local/structurizr \
+            docker run --rm \
+            -u $(id -u):$(id -g) \
+            -v ${{ github.workspace }}:/usr/local/structurizr \
             structurizr/structurizr export \
             -workspace /usr/local/structurizr/dsl/02-ai4eosc/workspace.dsl \
             -format json \
