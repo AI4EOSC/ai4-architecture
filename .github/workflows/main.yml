@@ -15,14 +15,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: structurizr/structurizr:latest
+
+    # Structurizr image is "distroless," it lacks the shell needed for the Action runner
+    #  to initialize, so you cannot use it in the container: directive
+    # container:
+    #   image: structurizr/structurizr:latest
+    #
+    # So we have to run directly the docker run commands
 
     steps:
         - uses: actions/checkout@v3
 
         - name: Validate Structurizr workspace
-          run: /usr/local/structurizr/bin/structurizr.sh validate -workspace ./dsl/02-ai4eosc/workspace.dsl
+          # run: /usr/local/structurizr/bin/structurizr.sh validate -workspace ./dsl/02-ai4eosc/workspace.dsl
+          run: docker run --rm -v ${{ github.workspace }}:/usr/local/structurizr structurizr/structurizr validate -workspace /usr/local/structurizr/dsl/02-ai4eosc/workspace.dsl
 
         - name: Export workspace to static HTML files
           run: /usr/local/structurizr/bin/structurizr.sh export -workspace ./dsl/02-ai4eosc/workspace.dsl -format static -output ./static-diagrams/static
