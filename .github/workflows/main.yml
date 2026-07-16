@@ -20,25 +20,38 @@ jobs:
     #  to initialize, so you cannot use it in the container: directive
     # container:
     #   image: structurizr/structurizr:latest
-    #
-    # So we have to run directly the docker run commands
+    # --> So we have to run directly the docker run commands
 
     steps:
         - uses: actions/checkout@v3
 
         - name: Validate Structurizr workspace
-          # run: /usr/local/structurizr/bin/structurizr.sh validate -workspace ./dsl/02-ai4eosc/workspace.dsl
-          run: docker run --rm -v ${{ github.workspace }}:/usr/local/structurizr structurizr/structurizr validate -workspace /usr/local/structurizr/dsl/02-ai4eosc/workspace.dsl
+          run: |
+            docker run --rm -v ${{ github.workspace }}:/usr/local/structurizr \
+            structurizr/structurizr validate \
+            -workspace /usr/local/structurizr/dsl/02-ai4eosc/workspace.dsl
 
         - name: Export workspace to static HTML files
-          run: /usr/local/structurizr/bin/structurizr.sh export -workspace ./dsl/02-ai4eosc/workspace.dsl -format static -output ./static-diagrams/static
+          run: |
+            docker run --rm -v ${{ github.workspace }}:/usr/local/structurizr \
+            structurizr/structurizr export \
+            -workspace /usr/local/structurizr/dsl/02-ai4eosc/workspace.dsl \
+            -format static \
+            -output /usr/local/structurizr/static-diagrams/static
 
-        - name: Export to JSON and Push to Structurizr server
+        - name: Export workspace to static JSON files (before pushing)
+          run: |
+            docker run --rm -v ${{ github.workspace }}:/usr/local/structurizr \
+            structurizr/structurizr export \
+            -workspace /usr/local/structurizr/dsl/02-ai4eosc/workspace.dsl \
+            -format json \
+            -output /usr/local/structurizr/dsl/02-ai4eosc/
+
+        - name: Push to Structurizr server
           if: ${{ github.event_name == 'push' }}
           run: |
-            /usr/local/structurizr/bin/structurizr.sh export -workspace ./dsl/02-ai4eosc/workspace.dsl -format json -output ./dsl/02-ai4eosc/workspace.json
             curl -v -X PUT \
                 -u "${{ secrets.BASIC_AUTH_USER }}:${{ secrets.BASIC_AUTH_PASS }}" \
                 -H "Content-Type: application/json; charset=UTF-8" \
                 -T ./dsl/02-ai4eosc/workspace.json \
-                https://structurizr.k8s.cloud.ai4eosc.eu/api/workspace/1
+                https://structurizr.k8s.cloud.ai4eosc.eu/api/workspace/${{ secrets.WORKSPACE_ID }}
