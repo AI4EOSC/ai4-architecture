@@ -17,8 +17,8 @@ workspace eosc "EOSC architecture" {
     }
 
     views {
-        theme Default
-        
+        theme "https://raw.githubusercontent.com/structurizr/themes/refs/heads/master/default/theme.json"
+
         systemLandscape eosc {
             include *
             autoLayout lr

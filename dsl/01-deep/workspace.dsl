@@ -202,7 +202,7 @@ workspace extends ../eosc-landscape.dsl {
     }
 
     views {
-        theme Default
+        theme "https://raw.githubusercontent.com/structurizr/themes/refs/heads/master/default/theme.json"
 
         systemLandscape {
             include *
