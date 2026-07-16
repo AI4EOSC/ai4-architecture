@@ -1,23 +1,38 @@
-name: Update Structurizr (Cloud)
+name: Update Structurizr
+
+# on:
+#   push:
+#     branches: ["main"]
+#   pull_request:
+#     branches: ["main"]
 
 on:
   push:
-    branches: ["main"]
+    branches: ["**"]
   pull_request:
-    target: ["main"]
+    branches: ["**"]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: structurizr/cli:latest
-      
+      image: structurizr/structurizr:latest
+
     steps:
         - uses: actions/checkout@v3
-        
-        - name: Validate Structurizr workspace
-          run: /usr/local/structurizr-cli/structurizr.sh validate -workspace ./dsl/ai4eosc/workspace.dsl
 
-        - name: Export Structurizr workspace
+        - name: Validate Structurizr workspace
+          run: /usr/local/structurizr/bin/structurizr.sh validate -workspace ./dsl/02-ai4eosc/workspace.dsl
+
+        - name: Export workspace to static HTML files
+          run: /usr/local/structurizr/bin/structurizr.sh export -workspace ./dsl/02-ai4eosc/workspace.dsl -format static -output ./static-diagrams/static
+
+        - name: Export to JSON and Push to Structurizr server
           if: ${{ github.event_name == 'push' }}
-          run: /usr/local/structurizr-cli/structurizr.sh push -id ${{ secrets.WORKSPACE_ID }} -key ${{ secrets.API_KEY }} -secret ${{ secrets.API_SECRET }} -workspace ./dsl/ai4eosc/workspace.dsl
+          run: |
+            /usr/local/structurizr/bin/structurizr.sh export -workspace ./dsl/02-ai4eosc/workspace.dsl -format json -output ./dsl/02-ai4eosc/workspace.json
+            curl -v -X PUT \
+                -u "${{ secrets.BASIC_AUTH_USER }}:${{ secrets.BASIC_AUTH_PASS }}" \
+                -H "Content-Type: application/json; charset=UTF-8" \
+                -T ./dsl/02-ai4eosc/workspace.json \
+                https://structurizr.k8s.cloud.ai4eosc.eu/api/workspace/1

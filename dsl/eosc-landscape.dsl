@@ -1,5 +1,5 @@
 workspace eosc "EOSC architecture" {
-    
+
     !adrs decisions
 
     model {
@@ -27,7 +27,7 @@ workspace eosc "EOSC architecture" {
         styles {
             element "dashboard" {
                 shape WebBrowser
-            }       
+            }
 
             element "repository" {
                 shape Folder
