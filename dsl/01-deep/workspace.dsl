@@ -1,5 +1,5 @@
 workspace extends ../eosc-landscape.dsl {
-    
+
     name "DEEP-Hybrid-DataCloud"
     description "DEEP-Hybrid-DataCloud legacy architecture"
 
@@ -15,7 +15,7 @@ workspace extends ../eosc-landscape.dsl {
 
                 jenkins = container "CI/CD" "" "Jenkins"
 
-                container_repo = container "Container registry" "" "DockerHub" "repository" 
+                container_repo = container "Container registry" "" "DockerHub" "repository"
             }
 
             training = softwareSystem "DEEP Training Facility" "Allows users to develop, build and train an AI application." {
@@ -46,11 +46,11 @@ workspace extends ../eosc-landscape.dsl {
 
             deepaas = softwareSystem "DEEP as a Service" "Allows users to deploy an AI application as a service." {
                 openwhisk = container "Serverless platform" "" "OpenWhisk"
-                
+
                 deep_connector = container "DEEP - Serverless connector"
 
                 deepaas_container = container "DEEPaaS Containar"
-                
+
                 serverless_coe = container "Container Orchestration Engine" "" "Mesos"
             }
         }
@@ -133,9 +133,9 @@ workspace extends ../eosc-landscape.dsl {
             }
 
             deploymentNode "Container registry" "" "Docker registry" {
-                DockerHub = containerInstance container_repo 
+                DockerHub = containerInstance container_repo
             }
-            
+
 
             deploymentNode "IFCA-CSIC" {
                 deploymentNode "IFCA Cloud" "" "OpenStack" {
@@ -143,14 +143,14 @@ workspace extends ../eosc-landscape.dsl {
                         containerInstance dashboard
                     }
                     deploymentNode "mesos.cloud.ifca.es"  {
-                        containerInstance coe 
+                        containerInstance coe
                         containerInstance serverless_coe
                     }
                     deploymentNode "vm*.cloud.ifca.es" "" "" "" 100 {
                         deploymentNode "Mesos Agent" {
                             deploymentNode "Docker" {
-                                containerInstance model_container 
-                                containerInstance deepaas_container 
+                                containerInstance model_container
+                                containerInstance deepaas_container
                             }
                         }
                     }
@@ -177,7 +177,7 @@ workspace extends ../eosc-landscape.dsl {
                 }
 
             }
-            
+
             deploymentNode "LIP" {
                 deploymentNode "a4c.deep-hybrid-datacloud.eu"  {
                     containerInstance a4c
@@ -203,11 +203,11 @@ workspace extends ../eosc-landscape.dsl {
 
     views {
         theme Default
-        
+
         systemLandscape {
             include *
         }
-        
+
         container catalog {
             include *
 #            autoLayout
@@ -220,11 +220,11 @@ workspace extends ../eosc-landscape.dsl {
         container deepaas {
             include *
         }
-        
+
         component model_container {
             include *
         }
-        
+
         deployment * "Production" {
             include *
 #            autoLayout
@@ -240,7 +240,7 @@ workspace extends ../eosc-landscape.dsl {
 #        styles {
 #            element "dashboard" {
 #                shape WebBrowser
-#            }       
+#            }
 #
 #            element "repository" {
 #                shape Cylinder

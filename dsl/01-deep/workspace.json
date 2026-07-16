@@ -1888,7 +1888,7 @@
           "shape" : "Cylinder"
         } ]
       },
-      "themes" : [ "https://static.structurizr.com/themes/default/theme.json" ],
+      "themes" : [],
       "terminology" : { },
       "lastSavedView" : "SystemLandscape"
     }

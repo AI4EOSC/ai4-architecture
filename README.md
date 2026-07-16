@@ -1,6 +1,7 @@
 # AI4EOSC Architecture repository
 
-[![DOI](https://zenodo.org/badge/587778839.svg)](https://zenodo.org/doi/10.5281/zenodo.13343446)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13343448.svg)](https://doi.org/10.5281/zenodo.13343448)
+
 
 This repository contains the [AI4EOSC](https://ai4eosc.eu) project architecture
 diagrams. An online read-only version is available at the following
@@ -23,16 +24,29 @@ architecture changes:
 
 ## Generating the architecture
 
-To generate the DEEP legacy architecture:
+To view the interactive diagrams (for both AI4EOSC and the DEEP legacy architecture):
 
-    STRUCTURIZR_WORKSPACE_PATH=deep make
+    make
 
-To generate the AI4EOSC architecture:
+In either case, browse to <http://127.0.0.1:8080> to see what is generated.
 
-    STRUCTURIZR_WORKSPACE_PATH=ai4eosc make
+To validate (the AI4EOSC architecture):
 
-In either case, browse to http://127.0.0.1:8080/workspace/diagrams to see what
-is generated.
+    make validate
+
+To export the static diagrams in HTML format:
+
+    make generate-static
+
+> To export in PNG/SVG:
+>
+>     EXPORT_FORMAT=png make generate-static
+>
+> However this command currently raises:
+>
+>     12:58:52.068 [main] ERROR com.structurizr.command.ExportCommand -- Exporting to PNG/SVG is not supported in this build
+>
+> PNG diagrams can nevertheless be manually exported from the interactive server instance.
 
 ## License
 
